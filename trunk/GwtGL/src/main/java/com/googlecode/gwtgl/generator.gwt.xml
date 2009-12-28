@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<!-- Inherit the core Web Toolkit stuff.                        -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<generate-with
+		class="com.googlecode.gwtgl.gen.impl.JsniMethodCallGenerator">
+		<when-type-assignable class="com.googlecode.gwtgl.gen.api.IBinding" />
+	</generate-with>
+	
+	<generate-with
+		class="com.googlecode.gwtgl.gen.impl.JsniConstAccessorGenerator">
+		<when-type-assignable class="com.googlecode.gwtgl.gen.api.IConst" />
+	</generate-with>
+
+	<!-- Specify the paths for translatable code                    -->
+	<source path='gen/api' />
+
+</module>
