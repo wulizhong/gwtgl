@@ -66,7 +66,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param pname ARRAY_BUFFER_BINDING ELEMENT_ARRAY_BUFFER_BINDING
 	 */
 	// TODO create one method per return type
-	public JavaScriptObject getParameter(int pname);
+	public <T extends JavaScriptObject> T getParameter(int pname);
 
 	/**
 	 * @param idx
@@ -180,14 +180,17 @@ public interface WebGLRenderingContext extends IBinding {
 	public void deleteProgram(WebGLProgram program);
 
 	/**
+	 * There is no case where a JavaScriptObject is retured.
 	 * Use getProgramParameterBoolean or getProgramParameterInteger instead because of JSNI problems
 	 * 
+	 * TODO delete method
+	 * 
 	 * @param program
-	 * @param param ATTACHED_SHADERS, ACTIVE_UNIFORMS, ACTIVE_ATTRIBUTES?
+	 * @param param
 	 * @return
 	 */
 	@Deprecated
-	public JavaScriptObject getProgramParameter(WebGLProgram program,
+	public <T extends JavaScriptObject> T getProgramParameter(WebGLProgram program,
 			int param);
 
 	/**
@@ -201,7 +204,10 @@ public interface WebGLRenderingContext extends IBinding {
 
 	/**
 	 * @param program
-	 * @param param INFO_LOG_LENGTH, ACTIVE_ATTRIBUTE_MAX_LENGTH, ACTIVE_UNIFORM_MAX_LENGTH
+	 * @param param
+	 *            INFO_LOG_LENGTH, ACTIVE_ATTRIBUTE_MAX_LENGTH,
+	 *            ACTIVE_UNIFORM_MAX_LENGTH, ATTACHED_SHADERS, ACTIVE_UNIFORMS,
+	 *            ACTIVE_ATTRIBUTES
 	 * @return
 	 */
 	@JsName(value = "getProgramParameter")
@@ -246,14 +252,17 @@ public interface WebGLRenderingContext extends IBinding {
 	public String getShaderInfoLog(WebGLShader shader);
 
 	/**
+	 * There is no case where a JavaScriptObject is retured.
 	 * Use getShaderParameterBoolean or getShaderParameterInteger instead because of JSNI problems
+	 * 
+	 * TODO delete method
 	 * 
 	 * @param shader
 	 * @param param
 	 * @return
 	 */
 	@Deprecated
-	public JavaScriptObject getShaderParameter(WebGLShader shader,
+	public <T extends JavaScriptObject> T getShaderParameter(WebGLShader shader,
 			int param);
 
 	/**

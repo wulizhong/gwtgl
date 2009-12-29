@@ -27,6 +27,6 @@ import com.googlecode.gwtgl.gen.api.IBinding;
  * @author Sönke Sothmann
  * 
  */
-public interface IWebGl extends IBinding, WebGLRenderingContext {
+public interface IWebGLMethods extends IBinding, WebGLRenderingContext {
 
 }
