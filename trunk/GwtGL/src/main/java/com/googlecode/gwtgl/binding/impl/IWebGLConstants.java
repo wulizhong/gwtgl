@@ -344,4 +344,8 @@ public interface IWebGLConstants extends IConst {
 	int ACTIVE_UNIFORMS();
 
 	int ACTIVE_ATTRIBUTES();
+
+	int CLAMP_TO_EDGE();
+
+	int REPEAT();
 }
