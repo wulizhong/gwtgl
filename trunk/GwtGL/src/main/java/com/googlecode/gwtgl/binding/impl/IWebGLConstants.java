@@ -24,7 +24,7 @@ import com.googlecode.gwtgl.gen.api.IConst;
  * 
  */
 @GenConst(typeProperty = "webgl_type")
-public interface IWebGlConst extends IConst {
+public interface IWebGLConstants extends IConst {
 	int DEPTH_TEST();
 
 	int VERTEX_SHADER();
@@ -329,4 +329,12 @@ public interface IWebGlConst extends IConst {
 	int MAX_VERTEX_TEXTURE_IMAGE_UNITS();
 
 	int MAX_COMBINED_TEXTURE_IMAGE_UNITS();
+
+	int CURRENT_PROGRAM();
+
+	int ARRAY_BUFFER_BINDING();
+
+	int ELEMENT_ARRAY_BUFFER_BINDING();
+
+	int VALIDATE_STATUS();
 }
