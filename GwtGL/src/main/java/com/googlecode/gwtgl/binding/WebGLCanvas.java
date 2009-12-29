@@ -197,6 +197,8 @@ public class WebGLCanvas extends FocusWidget {
 	public static final int ATTACHED_SHADERS = webGLConstants.ATTACHED_SHADERS();
 	public static final int ACTIVE_UNIFORMS = webGLConstants.ACTIVE_UNIFORMS();
 	public static final int ACTIVE_ATTRIBUTES = webGLConstants.ACTIVE_ATTRIBUTES();
+	public static final int CLAMP_TO_EDGE = webGLConstants.CLAMP_TO_EDGE();
+	public static final int REPEAT = webGLConstants.REPEAT();
 	
 	public WebGLCanvas() {
 		this("200px", "200px");
