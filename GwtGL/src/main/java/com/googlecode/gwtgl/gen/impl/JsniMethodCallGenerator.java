@@ -98,7 +98,6 @@ public class JsniMethodCallGenerator extends Generator {
 
 		generateForType(classType, sourceWriter);
 
-//		sourceWriter.print("asfgsadfg");
 		sourceWriter.commit(logger);
 	}
 
@@ -122,20 +121,10 @@ public class JsniMethodCallGenerator extends Generator {
 			
 			JType returnType = method.getReturnType();
 			String ret = returnType.getQualifiedSourceName();
-
-			sourceWriter.print("public native " + ret + " " + method.getName()
-					+ "(");
-			boolean first = true;
-			for (JParameter parameter : method.getParameters()) {
-				if (!first) {
-					sourceWriter.print(", ");
-				}
-				first = false;
-				sourceWriter.print(parameter.getType()
-						.getParameterizedQualifiedSourceName()
-						+ " " + parameter.getName());
-			}
-			sourceWriter.println(") /*-{");
+			
+			sourceWriter.print(method.getReadableDeclaration(false, false, false, false, true).replaceFirst("public", "public native"));
+			
+			sourceWriter.println(" /*-{");
 			if (!"void".equals(ret)) {
 				sourceWriter.print("return ");
 			}
@@ -143,7 +132,7 @@ public class JsniMethodCallGenerator extends Generator {
 			sourceWriter.print("this.@" + packageName + "." + className
 					+ "::nativeObj." + jsMethod + "(");
 
-			first = true;
+			boolean first = true;
 			for (JParameter parameter : method.getParameters()) {
 				if (!first) {
 					sourceWriter.print(", ");
