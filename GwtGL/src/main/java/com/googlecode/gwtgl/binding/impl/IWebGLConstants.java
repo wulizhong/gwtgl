@@ -334,4 +334,14 @@ public interface IWebGLConstants extends IConst {
 	int ELEMENT_ARRAY_BUFFER_BINDING();
 
 	int VALIDATE_STATUS();
+
+	int ACTIVE_ATTRIBUTE_MAX_LENGTH();
+
+	int ACTIVE_UNIFORM_MAX_LENGTH();
+
+	int ATTACHED_SHADERS();
+
+	int ACTIVE_UNIFORMS();
+
+	int ACTIVE_ATTRIBUTES();
 }

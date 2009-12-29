@@ -192,6 +192,11 @@ public class WebGLCanvas extends FocusWidget {
 	public static final int CURRENT_PROGRAM = webGLConstants.CURRENT_PROGRAM();
 	public static final int ARRAY_BUFFER_BINDING = webGLConstants.ARRAY_BUFFER_BINDING();
 	public static final int ELEMENT_ARRAY_BUFFER_BINDING = webGLConstants.ELEMENT_ARRAY_BUFFER_BINDING();
+	public static final int ACTIVE_ATTRIBUTE_MAX_LENGTH = webGLConstants.ACTIVE_ATTRIBUTE_MAX_LENGTH();
+	public static final int ACTIVE_UNIFORM_MAX_LENGTH = webGLConstants.ACTIVE_UNIFORM_MAX_LENGTH();
+	public static final int ATTACHED_SHADERS = webGLConstants.ATTACHED_SHADERS();
+	public static final int ACTIVE_UNIFORMS = webGLConstants.ACTIVE_UNIFORMS();
+	public static final int ACTIVE_ATTRIBUTES = webGLConstants.ACTIVE_ATTRIBUTES();
 	
 	public WebGLCanvas() {
 		this("200px", "200px");
