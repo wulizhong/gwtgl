@@ -63,9 +63,6 @@ public interface IWebGLConstants extends IConst {
 
 	int TEXTURE_CUBE_MAP();
 
-	// TODO ?
-//	int TEXTURING();
-
 	int CULL_FACE();
 
 	int FRONT();
