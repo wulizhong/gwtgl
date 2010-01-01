@@ -221,7 +221,7 @@ public interface WebGLRenderingContext extends IBinding {
 
 	public int getAttribLocation(WebGLProgram program, String name);
 
-	public WebGLUniformLocation getUniformLocation(WebGLProgram program, String name);
+	public int getUniformLocation(WebGLProgram program, String name);
 	
 	public void bindAttribLocation(WebGLProgram program, int idx,
 			String name);
@@ -329,13 +329,13 @@ public interface WebGLRenderingContext extends IBinding {
 
 	public void generateMipmap(int target);
 	
-	public float getTexParameterf(int target, int pname);
-	
+	/**
+	 * @param target
+	 * @param pname TEXTURE_MAG_FILTER, TEXTURE_MIN_FILTER, TEXTURE_WRAP_S, TEXTURE_WRAP_T
+	 * @return
+	 */
+	@JsName("getTexParameter")
 	public int getTexParameteri(int target, int pname);
-	
-	public float[] getTexParameterfv(int target, int pname);
-	
-	public int[] getTexParameteriv(int target, int pname);
 	
 	public void texParameteri(int target, int pname, int value);
 	
@@ -503,70 +503,70 @@ public interface WebGLRenderingContext extends IBinding {
 	// Uniform variables //
 	// ////////////////////
 	
-	public void uniform1f(WebGLUniformLocation location, float v0);
+	public void uniform1f(int location, float v0);
 	
-	public void uniform1fv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLFloatArray v);
+	public void uniform1fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
 	
-	public void uniform1fv(WebGLUniformLocation location, float[] values);
+	public void uniform1fv(int location, float[] values);
 
-	public void uniform1i(WebGLUniformLocation location, int v0);
+	public void uniform1i(int location, int v0);
 	
-//	public void uniform1iv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLIntArray v);
+//	public void uniform1iv(int location, @Unwrap("getNativeArray") WebGLIntArray v);
 	
-	public void uniform1iv(WebGLUniformLocation location, int[] values);
+	public void uniform1iv(int location, int[] values);
 	
-	public void uniform2f(WebGLUniformLocation location, float v0, float v1);
+	public void uniform2f(int location, float v0, float v1);
 	
-	public void uniform2fv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLFloatArray v);
+	public void uniform2fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
 	
-	public void uniform2fv(WebGLUniformLocation location, float[] values);
+	public void uniform2fv(int location, float[] values);
 
-	public void uniform2i(WebGLUniformLocation location, int v0, int v1);
+	public void uniform2i(int location, int v0, int v1);
 	
-//	public void uniform2iv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLIntArray v);
+//	public void uniform2iv(int location, @Unwrap("getNativeArray") WebGLIntArray v);
 	
-	public void uniform2iv(WebGLUniformLocation location, int[] values);
+	public void uniform2iv(int location, int[] values);
 	
-	public void uniform3f(WebGLUniformLocation location, float v0, float v1, float v2);
+	public void uniform3f(int location, float v0, float v1, float v2);
 	
-	public void uniform3fv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLFloatArray v);
+	public void uniform3fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
 	
-	public void uniform3fv(WebGLUniformLocation location, float[] values);
+	public void uniform3fv(int location, float[] values);
 
-	public void uniform3i(WebGLUniformLocation location, int v0, int v1, int v2);
+	public void uniform3i(int location, int v0, int v1, int v2);
 	
-//	public void uniform3iv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLIntArray v);
+//	public void uniform3iv(int location, @Unwrap("getNativeArray") WebGLIntArray v);
 	
-	public void uniform3iv(WebGLUniformLocation location, int[] values);
+	public void uniform3iv(int location, int[] values);
 	
-	public void uniform4f(WebGLUniformLocation location, float v0, float v1, float v2, float v3);
+	public void uniform4f(int location, float v0, float v1, float v2, float v3);
 	
-	public void uniform4fv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLFloatArray v);
+	public void uniform4fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
 	
-	public void uniform4fv(WebGLUniformLocation location, float[] values);
+	public void uniform4fv(int location, float[] values);
 
-	public void uniform4i(WebGLUniformLocation location, int v0, int v1, int v2, int v3);
+	public void uniform4i(int location, int v0, int v1, int v2, int v3);
 	
-//	public void uniform4iv(WebGLUniformLocation location, @Unwrap("getNativeArray") WebGLIntArray );
+//	public void uniform4iv(int location, @Unwrap("getNativeArray") WebGLIntArray );
 	
-	public void uniform4iv(WebGLUniformLocation location, int[] values);
+	public void uniform4iv(int location, int[] values);
 
-	public void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose,
+	public void uniformMatrix2fv(int location, boolean transpose,
 			@Unwrap("getNativeArray") WebGLFloatArray value);
 	
-	public void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose,
+	public void uniformMatrix2fv(int location, boolean transpose,
 			float[] value);
 
-	public void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose,
+	public void uniformMatrix3fv(int location, boolean transpose,
 			@Unwrap("getNativeArray") WebGLFloatArray value);
 	
-	public void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose,
+	public void uniformMatrix3fv(int location, boolean transpose,
 			float[] value);
 
-	public void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose,
+	public void uniformMatrix4fv(int location, boolean transpose,
 			@Unwrap("getNativeArray") WebGLFloatArray value);
 	
-	public void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose,
+	public void uniformMatrix4fv(int location, boolean transpose,
 			float[] value);
 
 	public JavaScriptObject getActiveUniform(WebGLProgram program, int idx);
