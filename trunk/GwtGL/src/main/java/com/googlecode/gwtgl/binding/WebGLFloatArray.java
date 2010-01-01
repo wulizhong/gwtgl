@@ -145,4 +145,9 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 		this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().set(array, offset);
 	}-*/;
 
+	@Override
+	public int getDataTypeKey() {
+		return WebGLCanvas.FLOAT;
+	}
+
 }

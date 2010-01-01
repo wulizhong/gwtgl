@@ -205,6 +205,10 @@ public class WebGLCanvas extends FocusWidget {
 	public static final int LINEAR_MIPMAP_NEAREST = webGLConstants.LINEAR_MIPMAP_NEAREST();
 	public static final int NEAREST_MIPMAP_LINEAR = webGLConstants.NEAREST_MIPMAP_LINEAR();
 	public static final int LINEAR_MIPMAP_LINEAR = webGLConstants.LINEAR_MIPMAP_LINEAR();
+	public static final int BYTE = webGLConstants.BYTE();
+	public static final int SHORT = webGLConstants.SHORT();
+	public static final int INT = webGLConstants.INT();
+	public static final int UNSIGNED_INT = webGLConstants.UNSIGNED_INT();
 	
 	public WebGLCanvas() {
 		this("200px", "200px");
