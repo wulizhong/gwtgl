@@ -65,7 +65,6 @@ public class WebGLCanvas extends FocusWidget {
 	public static final int CCW = webGLConstants.CCW();
 	public static final int TEXTURE_MIN_FILTER = webGLConstants.TEXTURE_MIN_FILTER();
 	public static final int TEXTURE_MAG_FILTER = webGLConstants.TEXTURE_MAG_FILTER();
-	public static final int LINEAR = webGLConstants.LINEAR();
 	public static final int NO_ERROR = webGLConstants.NO_ERROR();
 	public static final int INFO_LOG_LENGTH = webGLConstants.INFO_LOG_LENGTH();
 	public static final int SHADER_SOURCE_LENGTH = webGLConstants.SHADER_SOURCE_LENGTH();
@@ -199,6 +198,13 @@ public class WebGLCanvas extends FocusWidget {
 	public static final int ACTIVE_ATTRIBUTES = webGLConstants.ACTIVE_ATTRIBUTES();
 	public static final int CLAMP_TO_EDGE = webGLConstants.CLAMP_TO_EDGE();
 	public static final int REPEAT = webGLConstants.REPEAT();
+	
+	public static final int NEAREST = webGLConstants.NEAREST();
+	public static final int LINEAR = webGLConstants.LINEAR();
+	public static final int NEAREST_MIPMAP_NEAREST = webGLConstants.NEAREST_MIPMAP_NEAREST();
+	public static final int LINEAR_MIPMAP_NEAREST = webGLConstants.LINEAR_MIPMAP_NEAREST();
+	public static final int NEAREST_MIPMAP_LINEAR = webGLConstants.NEAREST_MIPMAP_LINEAR();
+	public static final int LINEAR_MIPMAP_LINEAR = webGLConstants.LINEAR_MIPMAP_LINEAR();
 	
 	public WebGLCanvas() {
 		this("200px", "200px");
