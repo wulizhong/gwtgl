@@ -75,12 +75,6 @@ public interface IWebGLConstants extends IConst {
 
 	int CCW();
 
-	int TEXTURE_MIN_FILTER();
-
-	int TEXTURE_MAG_FILTER();
-
-	int LINEAR();
-
 	int NO_ERROR();
 	
 	int FUNC_ADD();
@@ -346,6 +340,22 @@ public interface IWebGLConstants extends IConst {
 	int ACTIVE_ATTRIBUTES();
 
 	int CLAMP_TO_EDGE();
-
+	
 	int REPEAT();
+
+	int TEXTURE_MIN_FILTER();
+
+	int TEXTURE_MAG_FILTER();
+
+	int LINEAR();
+	
+	int NEAREST();
+
+	int NEAREST_MIPMAP_NEAREST();
+
+	int LINEAR_MIPMAP_NEAREST();
+
+	int NEAREST_MIPMAP_LINEAR();
+
+	int LINEAR_MIPMAP_LINEAR();
 }
