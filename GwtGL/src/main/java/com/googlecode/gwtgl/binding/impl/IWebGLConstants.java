@@ -358,4 +358,12 @@ public interface IWebGLConstants extends IConst {
 	int NEAREST_MIPMAP_LINEAR();
 
 	int LINEAR_MIPMAP_LINEAR();
+
+	int BYTE();
+
+	int SHORT();
+
+	int INT();
+
+	int UNSIGNED_INT();
 }

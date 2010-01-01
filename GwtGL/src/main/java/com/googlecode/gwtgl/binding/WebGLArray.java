@@ -52,5 +52,7 @@ public abstract class WebGLArray<T extends WebGLArray<T>> {
 	protected native JavaScriptObject innerSlice(int offset, int length)/*-{
 		return this.@com.googlecode.gwtgl.binding.WebGLArray::nativeArray.slice(offset, length);
 	}-*/;
+	
+	public abstract int getDataTypeKey();
 
 }
