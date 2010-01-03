@@ -33,6 +33,7 @@ import com.google.gwt.user.rebind.SourceWriter;
 import com.googlecode.gwtgl.gen.api.IBinding;
 import com.googlecode.gwtgl.gen.api.JsName;
 import com.googlecode.gwtgl.gen.api.Unwrap;
+import com.googlecode.gwtgl.gen.api.Wrap;
 
 
 /**
@@ -97,7 +98,7 @@ public class JsniMethodCallGenerator extends Generator {
 		sourceWriter.println();
 
 		generateForType(classType, sourceWriter);
-
+		
 		sourceWriter.commit(logger);
 	}
 
@@ -124,9 +125,18 @@ public class JsniMethodCallGenerator extends Generator {
 			
 			sourceWriter.print(method.getReadableDeclaration(false, false, false, false, true).replaceFirst("public", "public native"));
 			
+			boolean wrapped=false;
 			sourceWriter.println(" /*-{");
 			if (!"void".equals(ret)) {
 				sourceWriter.print("return ");
+				Wrap wrap=method.getAnnotation(Wrap.class);
+				if(wrap!=null) {
+					wrapped=true;
+					Class<?> wrapperClass=wrap.value();
+					// TODO generic impl to find constructor with param that is JavaScriptObject or a subclass
+					sourceWriter.print("@"+wrapperClass.getPackage().getName()+"."+wrapperClass.getSimpleName()+
+							"::new(Lcom/google/gwt/core/client/JavaScriptObject;)(");
+				}
 			}
 
 			sourceWriter.print("this.@" + packageName + "." + className
@@ -146,7 +156,11 @@ public class JsniMethodCallGenerator extends Generator {
 					sourceWriter.print(unwrap.value()+"()()");
 				}
 			}
-			sourceWriter.println(");");
+			sourceWriter.print(")");
+			if(wrapped) {
+				sourceWriter.print(")");
+			}
+			sourceWriter.println(";");
 
 			sourceWriter.println("}-*/;");
 		}

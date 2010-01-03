@@ -44,7 +44,7 @@ public class WebGLArrayBuffer {
 		this.nativeBuffer = nativeBuffer;
 	}
 
-	public JavaScriptObject getNativeBuffer() {
+	protected JavaScriptObject getNativeBuffer() {
 		return nativeBuffer;
 	}
 	

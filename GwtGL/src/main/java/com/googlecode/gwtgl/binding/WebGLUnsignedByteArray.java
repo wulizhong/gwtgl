@@ -21,45 +21,45 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author Steffen Schäfer
  *
  */
-public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
+public class WebGLUnsignedByteArray extends WebGLArray<WebGLUnsignedByteArray> {
 	
 	/**
-	 * Create a new WebGLFloatArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
+	 * Create a new WebGLUnsignedByteArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
 	 */
-	public WebGLFloatArray(int length) {
+	public WebGLUnsignedByteArray(int length) {
 		super(create(length));
 	}
 	
 	private static native JavaScriptObject create(int length) /*-{
-		return new WebGLFloatArray(length);
+		return new WebGLUnsignedByteArray(length);
 	}-*/;
 	
 	/**
-	 * Create a new WebGLFloatArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
 	 */
-	public WebGLFloatArray(WebGLFloatArray array) {
+	public WebGLUnsignedByteArray(WebGLUnsignedByteArray array) {
 		super(create(array.getNativeArray()));
 	}
 	
 	private static native JavaScriptObject create(JavaScriptObject array) /*-{
-		return new WebGLFloatArray(array);
+		return new WebGLUnsignedByteArray(array);
 	}-*/;
 	
 	/**
-	 * Create a new WebGLFloatArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
 	 */
-	public WebGLFloatArray(float[] array) {
+	public WebGLUnsignedByteArray(float[] array) {
 		super(create(array));
 	}
 	
 	private static native JavaScriptObject create(float[] array) /*-{
-		return new WebGLFloatArray(array);
+		return new WebGLUnsignedByteArray(array);
 	}-*/;
 
 	/**
@@ -68,12 +68,12 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * 
 	 * @param nativeArray the native array object to wrap.
 	 */
-	protected WebGLFloatArray(JavaScriptObject nativeArray) {
+	protected WebGLUnsignedByteArray(JavaScriptObject nativeArray) {
 		super(nativeArray);
 	}
 	
 	/**
-	 * Create a new WebGLFloatArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * Create a new WebGLUnsignedByteArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
@@ -87,17 +87,17 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param byteOffset
 	 * @param length
 	 */
-	protected WebGLFloatArray(WebGLArrayBuffer buffer, int byteOffset, int length) {
+	protected WebGLUnsignedByteArray(WebGLArrayBuffer buffer, int byteOffset, int length) {
 		super(create(buffer.getNativeBuffer(), byteOffset, length));
 	}
 	
 	private static native JavaScriptObject create(JavaScriptObject buffer, int byteOffset, int length) /*-{
-		return new WebGLFloatArray(buffer, byteOffset, length);
+		return new WebGLUnsignedByteArray(buffer, byteOffset, length);
 	}-*/;
 
 	@Override
-	public WebGLFloatArray slice(int offset, int length) {
-		return new WebGLFloatArray(innerSlice(offset, length));
+	public WebGLUnsignedByteArray slice(int offset, int length) {
+		return new WebGLUnsignedByteArray(innerSlice(offset, length));
 	}
 	
 	/**
@@ -106,8 +106,8 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param index
 	 * @return
 	 */
-	public native float get(int index) /*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().get(index);
+	public native int get(int index) /*-{
+		return this.@com.googlecode.gwtgl.binding.WebGLUnsignedByteArray::getNativeArray().get(index);
 	}-*/;
 	
 	/**
@@ -119,8 +119,8 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param index
 	 * @param value
 	 */
-	public native void set(int index, float value) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().set(index, value);
+	public native void set(int index, int value) /*-{
+		this.@com.googlecode.gwtgl.binding.WebGLUnsignedByteArray::getNativeArray().set(index, value);
 	}-*/;
 	
 	/**
@@ -131,12 +131,12 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param array
 	 * @param offset
 	 */
-	public void set(WebGLFloatArray array, int offset) {
+	public void set(WebGLUnsignedByteArray array, int offset) {
 		innerSet(array.getNativeArray(), offset);
 	}
 
 	private native void innerSet(JavaScriptObject array, int offset) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().set(array, offset);
+		this.@com.googlecode.gwtgl.binding.WebGLUnsignedByteArray::getNativeArray().set(array, offset);
 	}-*/;
 	
 	/**
@@ -147,13 +147,13 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param array
 	 * @param offset
 	 */
-	public native void set(float[] array, int offset) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().set(array, offset);
+	public native void set(int[] array, int offset) /*-{
+		this.@com.googlecode.gwtgl.binding.WebGLUnsignedByteArray::getNativeArray().set(array, offset);
 	}-*/;
 
 	@Override
 	public int getDataTypeKey() {
-		return WebGLCanvas.FLOAT;
+		return WebGLCanvas.INT;
 	}
 
 }
