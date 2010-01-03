@@ -209,6 +209,7 @@ public class WebGLCanvas extends FocusWidget {
 	public static final int SHORT = webGLConstants.SHORT();
 	public static final int INT = webGLConstants.INT();
 	public static final int UNSIGNED_INT = webGLConstants.UNSIGNED_INT();
+	public static final int SHADER_TYPE = webGLConstants.SHADER_TYPE();
 	
 	public WebGLCanvas() {
 		this("200px", "200px");
