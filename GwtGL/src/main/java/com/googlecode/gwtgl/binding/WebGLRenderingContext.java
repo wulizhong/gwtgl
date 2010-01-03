@@ -61,12 +61,60 @@ public interface WebGLRenderingContext extends IBinding {
 
 	public void enableVertexAttribArray(int attribArray);
 
+	/**
+	 * @param pname
+	 *            ALIASED_LINE_WIDTH_RANGE, ALIASED_POINT_SIZE_RANGE,
+	 *            ARRAY_BUFFER_BINDING, BLEND_COLOR, COLOR_CLEAR_VALUE,
+	 *            COLOR_WRITEMASK, CURRENT_PROGRAM, DEPTH_RANGE,
+	 *            ELEMENT_ARRAY_BUFFER_BINDING, FRAMEBUFFER_BINDING,
+	 *            MAX_VIEWPORT_DIMS, RENDERBUFFER_BINDING, SCISSOR_BOX,
+	 *            TEXTURE_BINDING_2D, TEXTURE_BINDING_CUBE_MAP, VIEWPORT
+	 */
+	// TODO one method per array type (WebGLFloatArray, ...)
+	public <T extends JavaScriptObject> T getParameter(int pname);
+	
+	/**
+	 * @param pname
+	 *            ACTIVE_TEXTURE, ALPHA_BITS, BLEND_DST_ALPHA, BLEND_DST_RGB,
+	 *            BLEND_EQUATION_ALPHA, BLEND_EQUATION_RGB, BLEND_SRC_ALPHA,
+	 *            BLEND_SRC_RGB, BLUE_BITS, CULL_FACE_MODE, DEPTH_BITS,
+	 *            DEPTH_FUNC, FRONT_FACE, GENERATE_MIPMAP_HINT, GREEN_BITS,
+	 *            MAX_COMBINED_TEXTURE_IMAGE_UNITS, MAX_CUBE_MAP_TEXTURE_SIZE,
+	 *            MAX_FRAGMENT_UNIFORM_VECTORS, MAX_RENDERBUFFER_SIZE,
+	 *            MAX_TEXTURE_IMAGE_UNITS, MAX_TEXTURE_SIZE,
+	 *            MAX_VARYING_VECTORS, MAX_VERTEX_ATTRIBS,
+	 *            MAX_VERTEX_TEXTURE_IMAGE_UNITS, MAX_VERTEX_UNIFORM_VECTORS,
+	 *            NUM_COMPRESSED_TEXTURE_FORMATS, PACK_ALIGNMENT, RED_BITS,
+	 *            SAMPLE_BUFFERS, SAMPLES, STENCIL_BACK_FAIL, STENCIL_BACK_FUNC,
+	 *            STENCIL_BACK_PASS_DEPTH_FAIL, STENCIL_BACK_PASS_DEPTH_PASS,
+	 *            STENCIL_BACK_REF, STENCIL_BACK_VALUE_MASK,
+	 *            STENCIL_BACK_WRITEMASK, STENCIL_BITS, STENCIL_CLEAR_VALUE,
+	 *            STENCIL_FAIL, STENCIL_FUNC, STENCIL_PASS_DEPTH_FAIL,
+	 *            STENCIL_PASS_DEPTH_PASS, STENCIL_REF, STENCIL_VALUE_MASK,
+	 *            STENCIL_WRITEMASK, SUBPIXEL_BITS, UNPACK_ALIGNMENT
+	 * @return
+	 */
+	@JsName("getParameter")
+	public int getParameteri(int pname);
 
 	/**
-	 * @param pname ARRAY_BUFFER_BINDING ELEMENT_ARRAY_BUFFER_BINDING
+	 * @param pname
+	 *            BLEND, CULL_FACE, DEPTH_TEST, DEPTH_WRITEMASK, DITHER,
+	 *            POLYGON_OFFSET_FILL, SAMPLE_COVERAGE_INVERT, SCISSOR_TEST,
+	 *            STENCIL_TEST
+	 * @return
 	 */
-	// TODO create one method per return type
-	public <T extends JavaScriptObject> T getParameter(int pname);
+	@JsName("getParameter")
+	public boolean getParameterb(int pname);
+
+	/**
+	 * @param pname
+	 *            DEPTH_CLEAR_VALUE, LINE_WIDTH, POLYGON_OFFSET_FACTOR,
+	 *            POLYGON_OFFSET_UNITS, SAMPLE_COVERAGE_VALUE
+	 * @return
+	 */
+	@JsName("getParameter")
+	public float getParameterf(int pname);
 
 	/**
 	 * @param idx
@@ -132,8 +180,13 @@ public interface WebGLRenderingContext extends IBinding {
 	 */
 	public void bufferSubData(int target, int offset, @Unwrap("getNativeBuffer") WebGLArrayBuffer data);
 
-	// TODO create one method per return type
-	public JavaScriptObject getBufferParameteri(int target, int value);
+	/**
+	 * @param target
+	 * @param value BUFFER_SIZE, BUFFER_USAGE
+	 * @return
+	 */
+	@JsName("getBufferParameter")
+	public int getBufferParameteri(int target, int value);
 
 	// ////////////////
 	// Renderbuffers //
@@ -151,10 +204,14 @@ public interface WebGLRenderingContext extends IBinding {
 
 	/**
 	 * @param target
-	 * @param pname RENDERBUFFER_WIDTH RENDERBUFFER_HEIGHT RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_RED_SIZE RENDERBUFFER_GREEN_SIZE RENDERBUFFER_BLUE_SIZE RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_STENCIL_SIZE 
+	 * @param pname
+	 *            RENDERBUFFER_WIDTH, RENDERBUFFER_HEIGHT,
+	 *            RENDERBUFFER_INTERNAL_FORMAT, RENDERBUFFER_RED_SIZE,
+	 *            RENDERBUFFER_GREEN_SIZE, RENDERBUFFER_BLUE_SIZE,
+	 *            RENDERBUFFER_ALPHA_SIZE, RENDERBUFFER_DEPTH_SIZE,
+	 *            RENDERBUFFER_STENCIL_SIZE
 	 */
-	// TODO create one method per return type
-	public JavaScriptObject getRenderbufferParameteri(int target, int pname);
+	public int getRenderbufferParameteri(int target, int pname);
 
 	/**
 	 * @param target
@@ -180,26 +237,12 @@ public interface WebGLRenderingContext extends IBinding {
 	public void deleteProgram(WebGLProgram program);
 
 	/**
-	 * There is no case where a JavaScriptObject is retured.
-	 * Use getProgramParameterBoolean or getProgramParameterInteger instead because of JSNI problems
-	 * 
-	 * TODO delete method
-	 * 
-	 * @param program
-	 * @param param
-	 * @return
-	 */
-	@Deprecated
-	public <T extends JavaScriptObject> T getProgramParameter(WebGLProgram program,
-			int param);
-
-	/**
 	 * @param program
 	 * @param param LINK_STATUS, DELETE_STATUS, VALIDATE_STATUS
 	 * @return
 	 */
 	@JsName(value = "getProgramParameter")
-	public boolean getProgramParameterBoolean(WebGLProgram program,
+	public boolean getProgramParameterb(WebGLProgram program,
 			int param);
 
 	/**
@@ -211,7 +254,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName(value = "getProgramParameter")
-	public int getProgramParameterInteger(WebGLProgram program, int param);
+	public int getProgramParameteri(WebGLProgram program, int param);
 
 	public String getProgramInfoLog(JavaScriptObject program);
 
@@ -252,26 +295,12 @@ public interface WebGLRenderingContext extends IBinding {
 	public String getShaderInfoLog(WebGLShader shader);
 
 	/**
-	 * There is no case where a JavaScriptObject is retured.
-	 * Use getShaderParameterBoolean or getShaderParameterInteger instead because of JSNI problems
-	 * 
-	 * TODO delete method
-	 * 
-	 * @param shader
-	 * @param param
-	 * @return
-	 */
-	@Deprecated
-	public <T extends JavaScriptObject> T getShaderParameter(WebGLShader shader,
-			int param);
-
-	/**
 	 * @param shader
 	 * @param param DELETE_STATUS, COMPILE_STATUS
 	 * @return
 	 */
 	@JsName(value = "getShaderParameter")
-	public boolean getShaderParameterBoolean(WebGLShader shader, int param);
+	public boolean getShaderParameterb(WebGLShader shader, int param);
 
 	/**
 	 * @param shader
@@ -279,7 +308,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName(value = "getShaderParameter")
-	public int getShaderParameterInteger(WebGLShader shader, int param);
+	public int getShaderParameteri(WebGLShader shader, int param);
 
 	public WebGLObjectArray<WebGLShader> getAttachedShaders(WebGLProgram program);
 

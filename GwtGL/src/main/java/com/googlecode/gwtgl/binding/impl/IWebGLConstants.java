@@ -366,4 +366,6 @@ public interface IWebGLConstants extends IConst {
 	int INT();
 
 	int UNSIGNED_INT();
+
+	int SHADER_TYPE();
 }
