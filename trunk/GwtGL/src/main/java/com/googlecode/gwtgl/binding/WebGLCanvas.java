@@ -21,7 +21,7 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.FocusWidget;
 import com.googlecode.gwtgl.binding.impl.AbstractWebGlContextInitializer;
 import com.googlecode.gwtgl.binding.impl.IWebGLConstants;
-import com.googlecode.gwtgl.binding.impl.IWebGLMethods;
+import com.googlecode.gwtgl.gen.api.IBinding;
 
 
 /**
@@ -33,6 +33,9 @@ public class WebGLCanvas extends FocusWidget {
 	
 	private static AbstractWebGlContextInitializer webGlCanvasImpl = (AbstractWebGlContextInitializer) GWT
 			.create(AbstractWebGlContextInitializer.class);
+	
+	protected interface IWebGLMethods extends IBinding, WebGLRenderingContext {
+	}
 	
 	private final IWebGLMethods glContext = GWT.create(IWebGLMethods.class);
 	

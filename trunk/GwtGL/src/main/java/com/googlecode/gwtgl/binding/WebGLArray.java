@@ -31,7 +31,7 @@ public abstract class WebGLArray<T extends WebGLArray<T>> {
 		this.nativeArray = nativeArray;
 	}
 
-	public JavaScriptObject getNativeArray() {
+	protected JavaScriptObject getNativeArray() {
 		return nativeArray;
 	}
 	

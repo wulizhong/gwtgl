@@ -19,6 +19,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwtgl.gen.api.IBinding;
 import com.googlecode.gwtgl.gen.api.JsName;
 import com.googlecode.gwtgl.gen.api.Unwrap;
+import com.googlecode.gwtgl.gen.api.Wrap;
 
 
 /**
@@ -63,15 +64,38 @@ public interface WebGLRenderingContext extends IBinding {
 
 	/**
 	 * @param pname
-	 *            ALIASED_LINE_WIDTH_RANGE, ALIASED_POINT_SIZE_RANGE,
-	 *            ARRAY_BUFFER_BINDING, BLEND_COLOR, COLOR_CLEAR_VALUE,
-	 *            COLOR_WRITEMASK, CURRENT_PROGRAM, DEPTH_RANGE,
+	 *            ARRAY_BUFFER_BINDING, CURRENT_PROGRAM,
 	 *            ELEMENT_ARRAY_BUFFER_BINDING, FRAMEBUFFER_BINDING,
-	 *            MAX_VIEWPORT_DIMS, RENDERBUFFER_BINDING, SCISSOR_BOX,
-	 *            TEXTURE_BINDING_2D, TEXTURE_BINDING_CUBE_MAP, VIEWPORT
+	 *            RENDERBUFFER_BINDING, TEXTURE_BINDING_2D,
+	 *            TEXTURE_BINDING_CUBE_MAP
 	 */
-	// TODO one method per array type (WebGLFloatArray, ...)
 	public <T extends JavaScriptObject> T getParameter(int pname);
+	
+	/**
+	 * @param pname
+	 *            ALIASED_LINE_WIDTH_RANGE, ALIASED_POINT_SIZE_RANGE,
+	 *            BLEND_COLOR, COLOR_CLEAR_VALUE, DEPTH_RANGE
+	 * @return
+	 */
+	@JsName("getParameter")
+	@Wrap(WebGLFloatArray.class)
+	public WebGLFloatArray getParameterfa(int pname);
+	
+	/**
+	 * @param pname MAX_VIEWPORT_DIMS, SCISSOR_BOX, VIEWPORT
+	 * @return
+	 */
+	@JsName("getParameter")
+	@Wrap(WebGLIntArray.class)
+	public WebGLIntArray getParameteria(int pname);
+	
+	/**
+	 * @param pname COLOR_WRITEMASK
+	 * @return
+	 */
+	@JsName("getParameter")
+	@Wrap(WebGLIntArray.class)
+	public WebGLUnsignedByteArray getParameteruba(int pname);
 	
 	/**
 	 * @param pname
@@ -599,6 +623,8 @@ public interface WebGLRenderingContext extends IBinding {
 			float[] value);
 
 	public JavaScriptObject getActiveUniform(WebGLProgram program, int idx);
+	
+	// TODO getUniform
 	
 	// //////////////////////
 	// Attribute variables //

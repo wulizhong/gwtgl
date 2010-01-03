@@ -13,20 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.gwtgl.binding.impl;
+package com.googlecode.gwtgl.gen.api;
 
-import com.googlecode.gwtgl.binding.WebGLRenderingContext;
-import com.googlecode.gwtgl.gen.api.IBinding;
-
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Interface to generate the methods contained in WebGLRenderingContext with the
- * initializer of IBinding;
- * 
  * @author Steffen Schäfer
- * @author Sönke Sothmann
- * 
+ *
  */
-public interface IWebGLMethods extends IBinding, WebGLRenderingContext {
-
+@Retention(RetentionPolicy.RUNTIME)
+@Target(value={java.lang.annotation.ElementType.METHOD})
+public @interface Wrap {
+	Class<?> value();
 }
