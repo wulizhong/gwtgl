@@ -20,11 +20,17 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Defines that a method parameter must be "unwrapped" to be given to the JS
+ * method.
+ * 
  * @author Steffen Schäfer
- *
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(value={java.lang.annotation.ElementType.PARAMETER})
+@Target(value = { java.lang.annotation.ElementType.PARAMETER })
 public @interface Unwrap {
+	/**
+	 * @return the name of the method to call to unwrap the object
+	 */
 	String value();
 }

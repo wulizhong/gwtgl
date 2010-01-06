@@ -18,15 +18,23 @@ package com.googlecode.gwtgl.gen.api;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * The IBinding interface is a marker for generated bindings. The interface
+ * provides a init method to set the native object on which the generated
+ * methods should be called. To support generated bindings, you must create an
+ * interface which contains all methods to be generated and delegated to the JS
+ * object. In addition this interface must extend IBinding.
+ * 
+ * 
  * @author Steffen Schäfer
- *
+ * 
  */
 public interface IBinding {
-	
+
 	/**
 	 * 
 	 * 
-	 * @param nativeObj the native Object to bind
+	 * @param nativeObj
+	 *            the native Object to bind
 	 */
 	void init(JavaScriptObject nativeObj);
 

@@ -465,10 +465,12 @@ public class WebGLCanvas extends FocusWidget {
 		setHeight(height);
 	}
 
+	@Override
 	public void setWidth(String width) {
 		DOM.setElementAttribute(getElement(), "width", width);
 	}
 
+	@Override
 	public void setHeight(String height) {
 		DOM.setElementAttribute(getElement(), "height", height);
 	}

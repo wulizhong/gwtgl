@@ -21,15 +21,21 @@ import java.lang.annotation.Target;
 
 /**
  * 
- * Defines that the method is an initializer of the generated JS binding object.
- * The initializer method must have one parameter of type JavaScriptObject which is the
- * object to create the binding for. The initializer method must not have a return type.
+ * This annotation is used for generated constant access. The value defines the
+ * gwt property to read to get the name of the JS type to use for constant
+ * access.
  * 
  * @author Steffen Schäfer
- *
+ * 
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(value={java.lang.annotation.ElementType.TYPE})
+@Target(value = { java.lang.annotation.ElementType.TYPE })
 public @interface GenConst {
-	String typeProperty();
+	/**
+	 * Defines the gwt property to read to get the name of the JS type to use
+	 * for constant access.
+	 * 
+	 * @return the name gwt property to read
+	 */
+	String value();
 }

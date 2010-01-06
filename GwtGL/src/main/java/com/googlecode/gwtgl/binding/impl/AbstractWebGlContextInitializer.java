@@ -30,7 +30,7 @@ public class AbstractWebGlContextInitializer {
 	 * Initializes the WebGLCanvas and returns the glContext or null if none was created.
 	 * 
 	 * @param element
-	 * @return
+	 * @return the native rendering context object
 	 */
 	public JavaScriptObject getWebGlContext(Element element) {
 		return createGlContext(getContextName(), element);
@@ -43,6 +43,9 @@ public class AbstractWebGlContextInitializer {
 		return null;
 	}-*/;
 
+	/**
+	 * @return the name of the context to get for rendering
+	 */
 	protected String getContextName() {
 		return null;
 	}

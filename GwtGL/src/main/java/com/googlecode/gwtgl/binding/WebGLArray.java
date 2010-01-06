@@ -24,22 +24,47 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public abstract class WebGLArray<T extends WebGLArray<T>> extends JavaScriptObject {
 
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLArray() {
 		super();
 	}
 	
+	/**
+	 * Returns the offset of the WebGLArray in the underlying {@link WebGLArrayBuffer}.
+	 * 
+	 * @return the offset of the WebGLArray in the WebGLArrayBuffer
+	 */
 	public final native int getByteOffset() /*-{
 		return this.byteOffset;
 	}-*/;
 	
+	/**
+	 * Returns the length of the Array in bytes.
+	 * 
+	 * @return the length of the Array in bytes
+	 */
 	public final native int getByteLength() /*-{
 		return this.byteLength;
 	}-*/;
 	
+	/**
+	 * Returns the number of objects contained in the array.
+	 * 
+	 * @return the length of the array
+	 */
 	public final native int getLength() /*-{
 		return this.length;
 	}-*/;
-	
+
+	/**
+	 * Returns a new WebGLArray with the same underlying {@link WebGLArrayBuffer}.
+	 * 
+	 * @param offset
+	 * @param length
+	 * @return the new WebGLArray
+	 */
 	protected final native T slice(int offset, int length)/*-{
 		return this.slice(offset, length);
 	}-*/;

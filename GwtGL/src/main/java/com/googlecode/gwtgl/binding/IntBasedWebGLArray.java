@@ -1,5 +1,7 @@
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 /**
  * Abstract parent class for all WebGLArrays which use int to get/set the inner values.
  * 
@@ -8,6 +10,9 @@ package com.googlecode.gwtgl.binding;
  */
 public abstract class IntBasedWebGLArray<T extends IntBasedWebGLArray<T>> extends WebGLArray<T> {
 	
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected IntBasedWebGLArray() {
 		super();
 	}
@@ -16,7 +21,7 @@ public abstract class IntBasedWebGLArray<T extends IntBasedWebGLArray<T>> extend
 	 * Return the element at the given index. If the index is out of range, an exception is raised. This is an index getter function, and may be invoked via array index syntax where applicable.
 	 * 
 	 * @param index
-	 * @return
+	 * @return the element at the given index
 	 */
 	public final native int get(int index) /*-{
 		return this.get(index);

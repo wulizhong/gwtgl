@@ -20,11 +20,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Defines that the return value of a generated method should be wrapped
+ * 
  * @author Steffen Schäfer
  *
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value={java.lang.annotation.ElementType.METHOD})
 public @interface Wrap {
+	/**
+	 * @return the class to be used for wrapping
+	 */
 	Class<?> value();
 }

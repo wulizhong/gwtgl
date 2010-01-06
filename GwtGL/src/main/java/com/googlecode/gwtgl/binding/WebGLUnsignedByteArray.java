@@ -15,6 +15,8 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 
 /**
  * @author Steffen Schäfer
@@ -22,6 +24,9 @@ package com.googlecode.gwtgl.binding;
  */
 public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByteArray> {
 
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLUnsignedByteArray() {
 		super();
 	}
@@ -30,6 +35,7 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * Create a new WebGLUnsignedByteArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
+	 * @return the created WebGLUnsignedByteArray
 	 */
 	public static native WebGLUnsignedByteArray create(int length) /*-{
 		return new WebGLUnsignedByteArray(length);
@@ -39,6 +45,7 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
+	 * @return the created WebGLUnsignedByteArray
 	 */
 	public static native WebGLUnsignedByteArray create(WebGLUnsignedByteArray array) /*-{
 		return new WebGLUnsignedByteArray(array);
@@ -48,6 +55,7 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
+	 * @return the created WebGLUnsignedByteArray
 	 */
 	public static native WebGLUnsignedByteArray create(int[] array) /*-{
 		return new WebGLUnsignedByteArray(array);
@@ -67,6 +75,7 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * @param buffer
 	 * @param byteOffset
 	 * @param length
+	 * @return the created WebGLUnsignedByteArray
 	 */
 	public static native WebGLUnsignedByteArray create(WebGLArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new WebGLUnsignedByteArray(buffer, byteOffset, length);
