@@ -15,24 +15,22 @@
  */
 package com.googlecode.gwtgl.binding;
 
-import com.google.gwt.core.client.JavaScriptObject;
-
 /**
  * @author Steffen Schäfer
  *
  */
 public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	
+	protected WebGLFloatArray() {
+		super();
+	}
+	
 	/**
 	 * Create a new WebGLFloatArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
 	 */
-	public WebGLFloatArray(int length) {
-		super(create(length));
-	}
-	
-	private static native JavaScriptObject create(int length) /*-{
+	public static native WebGLFloatArray create(int length) /*-{
 		return new WebGLFloatArray(length);
 	}-*/;
 	
@@ -41,11 +39,7 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * 
 	 * @param array
 	 */
-	public WebGLFloatArray(WebGLFloatArray array) {
-		super(create(array.getNativeArray()));
-	}
-	
-	private static native JavaScriptObject create(JavaScriptObject array) /*-{
+	public static native WebGLFloatArray create(WebGLFloatArray array) /*-{
 		return new WebGLFloatArray(array);
 	}-*/;
 	
@@ -54,23 +48,9 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * 
 	 * @param array
 	 */
-	public WebGLFloatArray(float[] array) {
-		super(create(array));
-	}
-	
-	private static native JavaScriptObject create(float[] array) /*-{
+	public static native WebGLFloatArray create(float[] array) /*-{
 		return new WebGLFloatArray(array);
 	}-*/;
-
-	/**
-	 * Constructor for automatic wrapping. This constructor is not intended to
-	 * be called manually.
-	 * 
-	 * @param nativeArray the native array object to wrap.
-	 */
-	protected WebGLFloatArray(JavaScriptObject nativeArray) {
-		super(nativeArray);
-	}
 	
 	/**
 	 * Create a new WebGLFloatArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
@@ -87,18 +67,9 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param byteOffset
 	 * @param length
 	 */
-	protected WebGLFloatArray(WebGLArrayBuffer buffer, int byteOffset, int length) {
-		super(create(buffer.getNativeBuffer(), byteOffset, length));
-	}
-	
-	private static native JavaScriptObject create(JavaScriptObject buffer, int byteOffset, int length) /*-{
+	public static native WebGLFloatArray create(WebGLArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new WebGLFloatArray(buffer, byteOffset, length);
 	}-*/;
-
-	@Override
-	public WebGLFloatArray slice(int offset, int length) {
-		return new WebGLFloatArray(innerSlice(offset, length));
-	}
 	
 	/**
 	 * Return the element at the given index. If the index is out of range, an exception is raised. This is an index getter function, and may be invoked via array index syntax where applicable.
@@ -106,8 +77,8 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param index
 	 * @return
 	 */
-	public native float get(int index) /*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().get(index);
+	public final native float get(int index) /*-{
+		return this.get(index);
 	}-*/;
 	
 	/**
@@ -119,8 +90,8 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param index
 	 * @param value
 	 */
-	public native void set(int index, float value) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().set(index, value);
+	public final native void set(int index, float value) /*-{
+		this.set(index, value);
 	}-*/;
 	
 	/**
@@ -131,12 +102,8 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param array
 	 * @param offset
 	 */
-	public void set(WebGLFloatArray array, int offset) {
-		innerSet(array.getNativeArray(), offset);
-	}
-
-	private native void innerSet(JavaScriptObject array, int offset) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().set(array, offset);
+	public final native void set(WebGLFloatArray array, int offset) /*-{
+		this.set(array, offset);
 	}-*/;
 	
 	/**
@@ -147,13 +114,8 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param array
 	 * @param offset
 	 */
-	public native void set(float[] array, int offset) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLFloatArray::getNativeArray().set(array, offset);
+	public final native void set(float[] array, int offset) /*-{
+		this.set(array, offset);
 	}-*/;
-
-	@Override
-	public int getDataTypeKey() {
-		return WebGLCanvas.FLOAT;
-	}
 
 }

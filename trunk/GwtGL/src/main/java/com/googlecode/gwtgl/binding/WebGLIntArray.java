@@ -15,24 +15,23 @@
  */
 package com.googlecode.gwtgl.binding;
 
-import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * @author Steffen Schäfer
  *
  */
-public class WebGLIntArray extends WebGLArray<WebGLIntArray> {
+public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
+
+	protected WebGLIntArray() {
+		super();
+	}
 	
 	/**
 	 * Create a new WebGLIntArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
 	 */
-	public WebGLIntArray(int length) {
-		super(create(length));
-	}
-	
-	private static native JavaScriptObject create(int length) /*-{
+	public static native WebGLIntArray create(int length) /*-{
 		return new WebGLIntArray(length);
 	}-*/;
 	
@@ -41,11 +40,7 @@ public class WebGLIntArray extends WebGLArray<WebGLIntArray> {
 	 * 
 	 * @param array
 	 */
-	public WebGLIntArray(WebGLIntArray array) {
-		super(create(array.getNativeArray()));
-	}
-	
-	private static native JavaScriptObject create(JavaScriptObject array) /*-{
+	public static native WebGLIntArray create(WebGLIntArray array) /*-{
 		return new WebGLIntArray(array);
 	}-*/;
 	
@@ -54,23 +49,9 @@ public class WebGLIntArray extends WebGLArray<WebGLIntArray> {
 	 * 
 	 * @param array
 	 */
-	public WebGLIntArray(float[] array) {
-		super(create(array));
-	}
-	
-	private static native JavaScriptObject create(float[] array) /*-{
+	public static native WebGLIntArray create(int[] array) /*-{
 		return new WebGLIntArray(array);
 	}-*/;
-
-	/**
-	 * Constructor for automatic wrapping. This constructor is not intended to
-	 * be called manually.
-	 * 
-	 * @param nativeArray the native array object to wrap.
-	 */
-	protected WebGLIntArray(JavaScriptObject nativeArray) {
-		super(nativeArray);
-	}
 	
 	/**
 	 * Create a new WebGLIntArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
@@ -87,73 +68,8 @@ public class WebGLIntArray extends WebGLArray<WebGLIntArray> {
 	 * @param byteOffset
 	 * @param length
 	 */
-	protected WebGLIntArray(WebGLArrayBuffer buffer, int byteOffset, int length) {
-		super(create(buffer.getNativeBuffer(), byteOffset, length));
-	}
-	
-	private static native JavaScriptObject create(JavaScriptObject buffer, int byteOffset, int length) /*-{
+	public static native WebGLIntArray create(WebGLArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new WebGLIntArray(buffer, byteOffset, length);
 	}-*/;
-
-	@Override
-	public WebGLIntArray slice(int offset, int length) {
-		return new WebGLIntArray(innerSlice(offset, length));
-	}
-	
-	/**
-	 * Return the element at the given index. If the index is out of range, an exception is raised. This is an index getter function, and may be invoked via array index syntax where applicable.
-	 * 
-	 * @param index
-	 * @return
-	 */
-	public native int get(int index) /*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLIntArray::getNativeArray().get(index);
-	}-*/;
-	
-	/**
-	 * 
-	 * Sets the element at the given index to the given value. If the index is out of range, an exception is raised. This is an index setter function, and may be invoked via array index syntax where applicable.
-	 * 
-	 * If the given value is out of range for the type of the array, a C-style cast operation is performed to coerce the value to the valid range. No clamping or rounding is performed.
-	 * 
-	 * @param index
-	 * @param value
-	 */
-	public native void set(int index, int value) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLIntArray::getNativeArray().set(index, value);
-	}-*/;
-	
-	/**
-	 * Set multiple values, reading input values from the array. The optional offset value indicates the index in the current array where values are written. If omitted, it is assumed to be 0.
-	 * 
-	 * If the offset plus the length of the given array is out of range for the current WebGLArray, an exception is raised.
-	 * 
-	 * @param array
-	 * @param offset
-	 */
-	public void set(WebGLIntArray array, int offset) {
-		innerSet(array.getNativeArray(), offset);
-	}
-
-	private native void innerSet(JavaScriptObject array, int offset) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLIntArray::getNativeArray().set(array, offset);
-	}-*/;
-	
-	/**
-	 * Set multiple values, reading input values from the array. The optional offset value indicates the index in the current array where values are written. If omitted, it is assumed to be 0.
-	 * 
-	 * If the offset plus the length of the given array is out of range for the current WebGLArray, an exception is raised.
-	 * 
-	 * @param array
-	 * @param offset
-	 */
-	public native void set(int[] array, int offset) /*-{
-		this.@com.googlecode.gwtgl.binding.WebGLIntArray::getNativeArray().set(array, offset);
-	}-*/;
-
-	@Override
-	public int getDataTypeKey() {
-		return WebGLCanvas.INT;
-	}
 
 }

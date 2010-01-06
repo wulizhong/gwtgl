@@ -18,8 +18,6 @@ package com.googlecode.gwtgl.binding;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.googlecode.gwtgl.gen.api.IBinding;
 import com.googlecode.gwtgl.gen.api.JsName;
-import com.googlecode.gwtgl.gen.api.Unwrap;
-import com.googlecode.gwtgl.gen.api.Wrap;
 
 
 /**
@@ -60,42 +58,17 @@ public interface WebGLRenderingContext extends IBinding {
 
 	public void disable(int param);
 
-	public void enableVertexAttribArray(int attribArray);
-
 	/**
 	 * @param pname
 	 *            ARRAY_BUFFER_BINDING, CURRENT_PROGRAM,
 	 *            ELEMENT_ARRAY_BUFFER_BINDING, FRAMEBUFFER_BINDING,
 	 *            RENDERBUFFER_BINDING, TEXTURE_BINDING_2D,
-	 *            TEXTURE_BINDING_CUBE_MAP
+	 *            TEXTURE_BINDING_CUBE_MAP, ALIASED_LINE_WIDTH_RANGE,
+	 *            ALIASED_POINT_SIZE_RANGE, BLEND_COLOR, COLOR_CLEAR_VALUE,
+	 *            DEPTH_RANGE, MAX_VIEWPORT_DIMS, SCISSOR_BOX, VIEWPORT,
+	 *            COLOR_WRITEMASK
 	 */
 	public <T extends JavaScriptObject> T getParameter(int pname);
-	
-	/**
-	 * @param pname
-	 *            ALIASED_LINE_WIDTH_RANGE, ALIASED_POINT_SIZE_RANGE,
-	 *            BLEND_COLOR, COLOR_CLEAR_VALUE, DEPTH_RANGE
-	 * @return
-	 */
-	@JsName("getParameter")
-	@Wrap(WebGLFloatArray.class)
-	public WebGLFloatArray getParameterfa(int pname);
-	
-	/**
-	 * @param pname MAX_VIEWPORT_DIMS, SCISSOR_BOX, VIEWPORT
-	 * @return
-	 */
-	@JsName("getParameter")
-	@Wrap(WebGLIntArray.class)
-	public WebGLIntArray getParameteria(int pname);
-	
-	/**
-	 * @param pname COLOR_WRITEMASK
-	 * @return
-	 */
-	@JsName("getParameter")
-	@Wrap(WebGLIntArray.class)
-	public WebGLUnsignedByteArray getParameteruba(int pname);
 	
 	/**
 	 * @param pname
@@ -139,17 +112,6 @@ public interface WebGLRenderingContext extends IBinding {
 	 */
 	@JsName("getParameter")
 	public float getParameterf(int pname);
-
-	/**
-	 * @param idx
-	 * @param size
-	 * @param type FLOAT
-	 * @param norm
-	 * @param stride
-	 * @param offset
-	 */
-	public void vertexAttribPointer(int idx, int size, int type, boolean norm,
-			int stride, int offset);
 	
 	public int getError();
 	
@@ -159,7 +121,7 @@ public interface WebGLRenderingContext extends IBinding {
 
 	public WebGLBuffer createBuffer();
 
-	public JavaScriptObject deleteBuffer(WebGLBuffer buffer);
+	public void deleteBuffer(WebGLBuffer buffer);
 
 	public void isBuffer(WebGLBuffer buffer);
 
@@ -174,14 +136,14 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param dta
 	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
 	 */
-	public void bufferData(int target, @Unwrap("getNativeArray") WebGLArray<?> dta, int usage);
+	public void bufferData(int target, WebGLArray<?> dta, int usage);
 	
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
 	 * @param dta
 	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
 	 */
-	public void bufferData(int target, @Unwrap("getNativeBuffer") WebGLArrayBuffer dta, int usage);
+	public void bufferData(int target, WebGLArrayBuffer dta, int usage);
 	
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
@@ -195,14 +157,14 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param offset
 	 * @param data
 	 */
-	public void bufferSubData(int target, int offset, @Unwrap("getNativeArray") WebGLArray<?> data);
+	public void bufferSubData(int target, int offset, WebGLArray<?> data);
 	
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
 	 * @param offset
 	 * @param data
 	 */
-	public void bufferSubData(int target, int offset, @Unwrap("getNativeBuffer") WebGLArrayBuffer data);
+	public void bufferSubData(int target, int offset, WebGLArrayBuffer data);
 
 	/**
 	 * @param target
@@ -280,19 +242,12 @@ public interface WebGLRenderingContext extends IBinding {
 	@JsName(value = "getProgramParameter")
 	public int getProgramParameteri(WebGLProgram program, int param);
 
-	public String getProgramInfoLog(JavaScriptObject program);
+	public String getProgramInfoLog(WebGLProgram program);
 
 	public boolean isProgram(WebGLProgram program);
 
 	public void useProgram(WebGLProgram program);
-
-	public int getAttribLocation(WebGLProgram program, String name);
-
-	public int getUniformLocation(WebGLProgram program, String name);
 	
-	public void bindAttribLocation(WebGLProgram program, int idx,
-			String name);
-
 	// ///////////
 	// Shaders //
 	// ///////////
@@ -337,6 +292,137 @@ public interface WebGLRenderingContext extends IBinding {
 	public WebGLObjectArray<WebGLShader> getAttachedShaders(WebGLProgram program);
 
 	public boolean isShader(JavaScriptObject shader);
+	
+	// ////////////////////
+	// Uniform variables //
+	// ////////////////////
+	
+	public void uniform1f(int location, float v0);
+	
+	public void uniform1fv(int location, WebGLFloatArray v);
+	
+	public void uniform1fv(int location, float[] values);
+
+	public void uniform1i(int location, int v0);
+	
+	public void uniform1iv(int location, WebGLIntArray v);
+	
+	public void uniform1iv(int location, int[] values);
+	
+	public void uniform2f(int location, float v0, float v1);
+	
+	public void uniform2fv(int location, WebGLFloatArray v);
+	
+	public void uniform2fv(int location, float[] values);
+
+	public void uniform2i(int location, int v0, int v1);
+	
+	public void uniform2iv(int location, WebGLIntArray v);
+	
+	public void uniform2iv(int location, int[] values);
+	
+	public void uniform3f(int location, float v0, float v1, float v2);
+	
+	public void uniform3fv(int location, WebGLFloatArray v);
+	
+	public void uniform3fv(int location, float[] values);
+
+	public void uniform3i(int location, int v0, int v1, int v2);
+	
+	public void uniform3iv(int location, WebGLIntArray v);
+	
+	public void uniform3iv(int location, int[] values);
+	
+	public void uniform4f(int location, float v0, float v1, float v2, float v3);
+	
+	public void uniform4fv(int location, WebGLFloatArray v);
+	
+	public void uniform4fv(int location, float[] values);
+
+	public void uniform4i(int location, int v0, int v1, int v2, int v3);
+	
+	public void uniform4iv(int location, WebGLIntArray v);
+	
+	public void uniform4iv(int location, int[] values);
+
+	public void uniformMatrix2fv(int location, boolean transpose,
+			WebGLFloatArray value);
+	
+	public void uniformMatrix2fv(int location, boolean transpose,
+			float[] value);
+
+	public void uniformMatrix3fv(int location, boolean transpose,
+			WebGLFloatArray value);
+	
+	public void uniformMatrix3fv(int location, boolean transpose,
+			float[] value);
+
+	public void uniformMatrix4fv(int location, boolean transpose,
+			WebGLFloatArray value);
+	
+	public void uniformMatrix4fv(int location, boolean transpose,
+			float[] value);
+
+	public WebGLActiveInfo getActiveUniform(WebGLProgram program, int idx);
+	
+	@JsName("getUniform")
+	public boolean getUniformb(WebGLProgram program, int location);
+	
+	@JsName("getUniform")
+	public int getUniformi(WebGLProgram program, int location);
+	
+	@JsName("getUniform")
+	public float getUniformf(WebGLProgram program, int location);
+	
+	@JsName("getUniform")
+	public <T extends WebGLArray<?>> T getUniforma(WebGLProgram program, int location);
+
+	public int getUniformLocation(WebGLProgram program, String name);
+	
+	// //////////////////////
+	// Attribute variables //
+	// //////////////////////
+	
+	/**
+	 * @param idx
+	 * @param size
+	 * @param type FLOAT
+	 * @param norm
+	 * @param stride
+	 * @param offset
+	 */
+	public void vertexAttribPointer(int idx, int size, int type, boolean norm,
+			int stride, int offset);
+
+	public void enableVertexAttribArray(int attribArray);
+
+	public int getAttribLocation(WebGLProgram program, String name);
+	
+	public void bindAttribLocation(WebGLProgram program, int idx,
+			String name);
+	
+	public WebGLActiveInfo getActiveAttrib(WebGLProgram program, int idx);
+	
+	// TODO add all attribute variable methods
+	
+	// /////////////
+	// Array data //
+	// /////////////
+	
+	/**
+	 * @param mode POINTS LINES LINE_LOOP LINE_STRIP TRIANGLES TRIANGLE_STRIP TRIANGLE_FAN
+	 * @param first
+	 * @param count
+	 */
+	public void drawArrays(int mode, int first, int count);
+	
+	/**
+	 * @param mode
+	 * @param count
+	 * @param type UNSIGNED_BYTE UNSIGNED_SHORT
+	 * @param offset
+	 */
+	void drawElements(int mode, int count, int type, int offset);  
 
 	// ////////////
 	// Textures //
@@ -413,39 +499,6 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param mode CW CCW
 	 */
 	public void frontFace(int mode);
-	
-	// /////////////
-	// Array data //
-	// /////////////
-
-	public JavaScriptObject createFloatArray(float[] array);
-	
-	// TODO Object createByteArray(Array values)
-
-	// TODO Object createUnsignedByteArray(Array values)
-	
-	// TODO Object createShortArray(Array values)
-	
-	// TODO Object createUnsignedShortArray(Array values)
-	
-	// TODO Object createIntArray(Array values)
-	
-	// TODO Object createUnsignedIntArray(Array values)
-	
-	/**
-	 * @param mode POINTS LINES LINE_LOOP LINE_STRIP TRIANGLES TRIANGLE_STRIP TRIANGLE_FAN
-	 * @param first
-	 * @param count
-	 */
-	public void drawArrays(int mode, int first, int count);
-	
-	/**
-	 * @param mode
-	 * @param count
-	 * @param type UNSIGNED_BYTE UNSIGNED_SHORT
-	 * @param offset
-	 */
-	void drawElements(int mode, int count, int type, int offset);  
 	
 	// ///////////
 	// Blending //
@@ -547,90 +600,9 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param type UNSIGNED_BYTE UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_6_5
 	 * @return
 	 */
-	// TODO check return type
-	public int[] readPixels(int x, int y, int width, int height, int format, int type);
+	public <T extends WebGLArray<?>> T readPixels(int x, int y, int width, int height, int format, int type);
 	
 	public boolean isFramebuffer(WebGLFramebuffer buffer);
-	
-	// ////////////////////
-	// Uniform variables //
-	// ////////////////////
-	
-	public void uniform1f(int location, float v0);
-	
-	public void uniform1fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
-	
-	public void uniform1fv(int location, float[] values);
-
-	public void uniform1i(int location, int v0);
-	
-//	public void uniform1iv(int location, @Unwrap("getNativeArray") WebGLIntArray v);
-	
-	public void uniform1iv(int location, int[] values);
-	
-	public void uniform2f(int location, float v0, float v1);
-	
-	public void uniform2fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
-	
-	public void uniform2fv(int location, float[] values);
-
-	public void uniform2i(int location, int v0, int v1);
-	
-//	public void uniform2iv(int location, @Unwrap("getNativeArray") WebGLIntArray v);
-	
-	public void uniform2iv(int location, int[] values);
-	
-	public void uniform3f(int location, float v0, float v1, float v2);
-	
-	public void uniform3fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
-	
-	public void uniform3fv(int location, float[] values);
-
-	public void uniform3i(int location, int v0, int v1, int v2);
-	
-//	public void uniform3iv(int location, @Unwrap("getNativeArray") WebGLIntArray v);
-	
-	public void uniform3iv(int location, int[] values);
-	
-	public void uniform4f(int location, float v0, float v1, float v2, float v3);
-	
-	public void uniform4fv(int location, @Unwrap("getNativeArray") WebGLFloatArray v);
-	
-	public void uniform4fv(int location, float[] values);
-
-	public void uniform4i(int location, int v0, int v1, int v2, int v3);
-	
-//	public void uniform4iv(int location, @Unwrap("getNativeArray") WebGLIntArray );
-	
-	public void uniform4iv(int location, int[] values);
-
-	public void uniformMatrix2fv(int location, boolean transpose,
-			@Unwrap("getNativeArray") WebGLFloatArray value);
-	
-	public void uniformMatrix2fv(int location, boolean transpose,
-			float[] value);
-
-	public void uniformMatrix3fv(int location, boolean transpose,
-			@Unwrap("getNativeArray") WebGLFloatArray value);
-	
-	public void uniformMatrix3fv(int location, boolean transpose,
-			float[] value);
-
-	public void uniformMatrix4fv(int location, boolean transpose,
-			@Unwrap("getNativeArray") WebGLFloatArray value);
-	
-	public void uniformMatrix4fv(int location, boolean transpose,
-			float[] value);
-
-	public JavaScriptObject getActiveUniform(WebGLProgram program, int idx);
-	
-	// TODO getUniform
-	
-	// //////////////////////
-	// Attribute variables //
-	// //////////////////////
-	
-	// TODO add attribute variable methods
 	
 	// /////////////////
 	// Stencil buffer //
