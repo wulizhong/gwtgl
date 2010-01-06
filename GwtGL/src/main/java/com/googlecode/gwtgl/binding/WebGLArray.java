@@ -22,37 +22,26 @@ import com.google.gwt.core.client.JavaScriptObject;
  *
  * @param <T>
  */
-public abstract class WebGLArray<T extends WebGLArray<T>> {
-	// Info: Subclasses of this class must be directly instantiable. So
-	// extending JavaScriptObject is not an option :(
-	private final JavaScriptObject nativeArray;
+public abstract class WebGLArray<T extends WebGLArray<T>> extends JavaScriptObject {
 
-	protected WebGLArray(JavaScriptObject nativeArray) {
-		this.nativeArray = nativeArray;
-	}
-
-	protected JavaScriptObject getNativeArray() {
-		return nativeArray;
+	protected WebGLArray() {
+		super();
 	}
 	
-	public native int getByteOffset() /*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLArray::nativeArray.byteOffset;
+	public final native int getByteOffset() /*-{
+		return this.byteOffset;
 	}-*/;
 	
-	public native int getByteLength() /*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLArray::nativeArray.byteLength;
+	public final native int getByteLength() /*-{
+		return this.byteLength;
 	}-*/;
 	
-	public native int getLength() /*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLArray::nativeArray.length;
+	public final native int getLength() /*-{
+		return this.length;
 	}-*/;
 	
-	public abstract T slice(int offset, int length);
-	
-	protected native JavaScriptObject innerSlice(int offset, int length)/*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLArray::nativeArray.slice(offset, length);
+	protected final native T slice(int offset, int length)/*-{
+		return this.slice(offset, length);
 	}-*/;
-	
-	public abstract int getDataTypeKey();
 
 }

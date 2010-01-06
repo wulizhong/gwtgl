@@ -21,9 +21,11 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author Steffen Schäfer
  *
  */
-public class WebGLArrayBuffer {
-
-	private final JavaScriptObject nativeBuffer;
+public class WebGLArrayBuffer extends JavaScriptObject {
+	
+	protected WebGLArrayBuffer() {
+		super();
+	}
 
 	/**
 	 * Create a new WebGLArrayBuffer of the passed length in bytes. Data in the
@@ -32,24 +34,12 @@ public class WebGLArrayBuffer {
 	 * @param length
 	 * @return
 	 */
-	public WebGLArrayBuffer(int length) {
-		this(create(length));
-	}
-
-	private static native JavaScriptObject create(int length) /*-{
-		return new WebGLFloatArray(length);
+	public static native WebGLArrayBuffer create(int length) /*-{
+		return new WebGLArrayBuffer(length);
 	}-*/;
-
-	private WebGLArrayBuffer(JavaScriptObject nativeBuffer) {
-		this.nativeBuffer = nativeBuffer;
-	}
-
-	protected JavaScriptObject getNativeBuffer() {
-		return nativeBuffer;
-	}
 	
-	public native int getByteLength() /*-{
-		return this.@com.googlecode.gwtgl.binding.WebGLArrayBuffer::nativeBuffer.byteLength;
+	public final native int getByteLength() /*-{
+		return this.byteLength;
 	}-*/;
 
 }
