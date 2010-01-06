@@ -394,7 +394,9 @@ public interface WebGLRenderingContext extends IBinding {
 	public void vertexAttribPointer(int idx, int size, int type, boolean norm,
 			int stride, int offset);
 
-	public void enableVertexAttribArray(int attribArray);
+	public void enableVertexAttribArray(int index);
+	
+	public void disableVertexAttribArray(int index);
 
 	public int getAttribLocation(WebGLProgram program, String name);
 	
