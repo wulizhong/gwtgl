@@ -34,7 +34,6 @@ import com.google.gwt.user.rebind.SourceWriter;
 import com.googlecode.gwtgl.gen.api.GenConst;
 import com.googlecode.gwtgl.gen.api.JsName;
 
-
 /**
  * @author Steffen Schäfer
  *

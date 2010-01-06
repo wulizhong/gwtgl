@@ -35,7 +35,6 @@ import com.googlecode.gwtgl.gen.api.JsName;
 import com.googlecode.gwtgl.gen.api.Unwrap;
 import com.googlecode.gwtgl.gen.api.Wrap;
 
-
 /**
  * @author Steffen Schäfer
  *
