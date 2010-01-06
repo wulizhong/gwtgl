@@ -23,7 +23,7 @@ import com.googlecode.gwtgl.gen.api.IConst;
  * @author Sönke Sothmann
  * 
  */
-@GenConst(typeProperty = "webgl_type")
+@GenConst("webgl_type")
 public interface IWebGLConstants extends IConst {
 	 /* ClearBufferMask */
 	int DEPTH_BUFFER_BIT();

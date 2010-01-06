@@ -20,11 +20,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Defines that an JS element has annother name than the Java Method that
+ * accesses it.
+ * 
  * @author Steffen Schäfer
- *
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(value={java.lang.annotation.ElementType.METHOD})
+@Target(value = { java.lang.annotation.ElementType.METHOD })
 public @interface JsName {
+	/**
+	 * Returns the name of the JS element.
+	 * 
+	 * @return the name of the JS element
+	 */
 	String value();
 }

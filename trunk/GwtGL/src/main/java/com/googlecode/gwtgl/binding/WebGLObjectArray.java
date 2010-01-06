@@ -24,13 +24,27 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public final class WebGLObjectArray<T extends JavaScriptObject> extends JavaScriptObject {
 	
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLObjectArray() {
 	}
 	
+	/**
+	 * Returns the number of objects contained in the array.
+	 * 
+	 * @return the length of the array
+	 */
 	public native int getLength() /*-{
 		return this.length;
 	}-*/;
 	
+	/**
+	 * Returns the object at the specified index
+	 * 
+	 * @param index
+	 * @return the object at the specified index
+	 */
 	public native T get(int index) /*-{
 		return this.get(index);
 	}-*/;

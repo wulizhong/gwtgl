@@ -23,13 +23,16 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public final class WebGLActiveInfo extends JavaScriptObject {
 	
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLActiveInfo() {
 	}
 	
 	/**
 	 * The size of the requested variable.
 	 * 
-	 * @return
+	 * @return the size of the requested variable
 	 */
 	public native int getSize() /*-{
 		return this.size;
@@ -38,7 +41,7 @@ public final class WebGLActiveInfo extends JavaScriptObject {
 	/**
 	 * The data type of the requested variable.
 	 * 
-	 * @return
+	 * @return the data type of the requested variable
 	 */
 	public native int getType() /*-{
 		return this.type;
@@ -47,7 +50,7 @@ public final class WebGLActiveInfo extends JavaScriptObject {
 	/**
 	 * The name of the requested variable.
 	 * 
-	 * @return
+	 * @return the name of the requested variable
 	 */
 	public native int getName() /*-{
 		return this.name;

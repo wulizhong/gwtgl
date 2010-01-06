@@ -48,6 +48,7 @@ public class JsniMethodCallGenerator extends Generator {
 	private String packageName;
 	private ClassSourceFileComposerFactory composer;
 
+	@Override
 	public String generate(TreeLogger logger, GeneratorContext context,
 			String typeName) throws UnableToCompleteException {
 		

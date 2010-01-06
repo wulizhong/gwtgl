@@ -49,6 +49,7 @@ public class JsniConstAccessorGenerator extends Generator {
 
 	private String simpleSourceName;
 
+	@Override
 	public String generate(TreeLogger logger, GeneratorContext context,
 			String typeName) throws UnableToCompleteException {
 		
@@ -90,7 +91,7 @@ public class JsniConstAccessorGenerator extends Generator {
 		if(genConst == null) {
 			throw new IllegalArgumentException("The type has no annotation of type GenConst");
 		}
-		String typeProperty = genConst.typeProperty();
+		String typeProperty = genConst.value();
 		SelectionProperty selectionProperty;
 		try {
 			selectionProperty = context.getPropertyOracle().getSelectionProperty(logger, typeProperty);

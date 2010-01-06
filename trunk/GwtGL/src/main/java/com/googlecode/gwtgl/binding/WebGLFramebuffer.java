@@ -23,6 +23,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public final class WebGLFramebuffer extends JavaScriptObject {
 	
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLFramebuffer() {
 	}
 

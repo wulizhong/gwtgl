@@ -15,6 +15,8 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 
 /**
  * @author Steffen Schäfer
@@ -22,6 +24,9 @@ package com.googlecode.gwtgl.binding;
  */
 public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
 
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLIntArray() {
 		super();
 	}
@@ -30,6 +35,7 @@ public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
 	 * Create a new WebGLIntArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
+	 * @return the created WebGLIntArray
 	 */
 	public static native WebGLIntArray create(int length) /*-{
 		return new WebGLIntArray(length);
@@ -39,6 +45,7 @@ public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
 	 * Create a new WebGLIntArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
+	 * @return the created WebGLIntArray
 	 */
 	public static native WebGLIntArray create(WebGLIntArray array) /*-{
 		return new WebGLIntArray(array);
@@ -48,6 +55,7 @@ public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
 	 * Create a new WebGLIntArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
+	 * @return the created WebGLIntArray
 	 */
 	public static native WebGLIntArray create(int[] array) /*-{
 		return new WebGLIntArray(array);
@@ -67,6 +75,7 @@ public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
 	 * @param buffer
 	 * @param byteOffset
 	 * @param length
+	 * @return the created WebGLIntArray
 	 */
 	public static native WebGLIntArray create(WebGLArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new WebGLIntArray(buffer, byteOffset, length);

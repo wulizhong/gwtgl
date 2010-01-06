@@ -15,12 +15,17 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 /**
  * @author Steffen Schäfer
  *
  */
 public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLFloatArray() {
 		super();
 	}
@@ -29,6 +34,7 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * Create a new WebGLFloatArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
+	 * @return the created WebGLFloatArray
 	 */
 	public static native WebGLFloatArray create(int length) /*-{
 		return new WebGLFloatArray(length);
@@ -38,6 +44,7 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * Create a new WebGLFloatArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
+	 * @return the created WebGLFloatArray
 	 */
 	public static native WebGLFloatArray create(WebGLFloatArray array) /*-{
 		return new WebGLFloatArray(array);
@@ -47,6 +54,7 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * Create a new WebGLFloatArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
+	 * @return the created WebGLFloatArray
 	 */
 	public static native WebGLFloatArray create(float[] array) /*-{
 		return new WebGLFloatArray(array);
@@ -66,6 +74,7 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param buffer
 	 * @param byteOffset
 	 * @param length
+	 * @return the created WebGLFloatArray
 	 */
 	public static native WebGLFloatArray create(WebGLArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new WebGLFloatArray(buffer, byteOffset, length);
@@ -75,7 +84,7 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * Return the element at the given index. If the index is out of range, an exception is raised. This is an index getter function, and may be invoked via array index syntax where applicable.
 	 * 
 	 * @param index
-	 * @return
+	 * @return the element at the given index
 	 */
 	public final native float get(int index) /*-{
 		return this.get(index);

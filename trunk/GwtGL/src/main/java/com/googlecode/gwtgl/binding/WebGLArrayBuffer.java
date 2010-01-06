@@ -23,6 +23,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class WebGLArrayBuffer extends JavaScriptObject {
 	
+	/**
+	 * protected standard constructor as specified by {@link JavaScriptObject}.
+	 */
 	protected WebGLArrayBuffer() {
 		super();
 	}
@@ -32,12 +35,17 @@ public class WebGLArrayBuffer extends JavaScriptObject {
 	 * buffer is initialized to 0.
 	 * 
 	 * @param length
-	 * @return
+	 * @return the created WebGLArrayBuffer
 	 */
 	public static native WebGLArrayBuffer create(int length) /*-{
 		return new WebGLArrayBuffer(length);
 	}-*/;
 	
+	/**
+	 * Returns the length of the Array in bytes.
+	 * 
+	 * @return the length of the Array in bytes
+	 */
 	public final native int getByteLength() /*-{
 		return this.byteLength;
 	}-*/;
