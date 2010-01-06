@@ -383,14 +383,6 @@ public interface WebGLRenderingContext extends IBinding {
 	// Attribute variables //
 	// //////////////////////
 	
-	/**
-	 * @param idx
-	 * @param size
-	 * @param type FLOAT
-	 * @param norm
-	 * @param stride
-	 * @param offset
-	 */
 	public void vertexAttribPointer(int idx, int size, int type, boolean norm,
 			int stride, int offset);
 
@@ -404,8 +396,59 @@ public interface WebGLRenderingContext extends IBinding {
 			String name);
 	
 	public WebGLActiveInfo getActiveAttrib(WebGLProgram program, int idx);
+
+	/**
+	 * @param index
+	 * @param pname
+	 *            VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, CURRENT_VERTEX_ATTRIB
+	 * @return
+	 */
+	public <T extends JavaScriptObject> T getVertexAttrib(int index, int pname);
 	
-	// TODO add all attribute variable methods
+	/**
+	 * @param index
+	 * @param pname
+	 *            VERTEX_ATTRIB_ARRAY_ENABLED, VERTEX_ATTRIB_ARRAY_NORMALIZED
+	 * @return
+	 */
+	@JsName("getVertexAttrib")
+	public boolean getVertexAttribb(int index, int pname);
+
+	/**
+	 * @param index
+	 * @param pname
+	 *            VERTEX_ATTRIB_ARRAY_SIZE, VERTEX_ATTRIB_ARRAY_STRIDE,
+	 *            VERTEX_ATTRIB_ARRAY_TYPE
+	 * @return
+	 */
+	@JsName("getVertexAttrib")
+	public int getVertexAttribi(int index, int pname);
+	
+	public int getVertexAttribOffset(int index, String pname);
+	
+	public void vertexAttrib1f(int indx, float x);
+
+	public void vertexAttrib2f(int indx, float x, float y);
+
+	public void vertexAttrib3f(int indx, float x, float y, float z);
+
+	public void vertexAttrib4f(int indx, float x, float y, float z, float w);
+
+	public void vertexAttrib1fv(int indx, WebGLFloatArray values);
+
+	public void vertexAttrib1fv(int indx, float[] values);
+
+	public void vertexAttrib2fv(int indx, WebGLFloatArray values);
+
+	public void vertexAttrib2fv(int indx, float[] values);
+
+	public void vertexAttrib3fv(int indx, WebGLFloatArray values);
+
+	public void vertexAttrib3fv(int indx, float[] values);
+
+	public void vertexAttrib4fv(int indx, WebGLFloatArray values);
+
+	public void vertexAttrib4fv(int indx, float[] values);
 	
 	// /////////////
 	// Array data //
