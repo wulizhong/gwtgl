@@ -41,6 +41,6 @@ Most of the !JavaScript code is generated using GWT deferred binding. This is po
 because of the almost 1:1 mapping of the API. So the !JavaScript calls can be
 generated using the declared Java Interface.
 There are two generators:
- * The JsniMethodCallGenerator generates method calls out of an Java interface.
- * The JsniConstAccessorGenerator generates methods to access the constants defined
+ * The !JsniMethodCallGenerator generates method calls out of an Java interface.
+ * The !JsniConstAccessorGenerator generates methods to access the constants defined
 by !WebGL.
