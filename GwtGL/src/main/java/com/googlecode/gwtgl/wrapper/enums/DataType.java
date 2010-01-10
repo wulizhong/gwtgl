@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,13 +23,13 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum DataType implements IWebGLConstEnum {
-	BYTE(WebGLCanvas.BYTE),
-	UNSIGNED_BYTE(WebGLCanvas.UNSIGNED_BYTE),
-	SHORT(WebGLCanvas.SHORT),
-	UNSIGNED_SHORT(WebGLCanvas.UNSIGNED_SHORT),
-	INT(WebGLCanvas.INT),
-	UNSIGNED_INT(WebGLCanvas.UNSIGNED_INT),
-	FLOAT(WebGLCanvas.FLOAT);
+	BYTE(WebGLRenderingContext.BYTE),
+	UNSIGNED_BYTE(WebGLRenderingContext.UNSIGNED_BYTE),
+	SHORT(WebGLRenderingContext.SHORT),
+	UNSIGNED_SHORT(WebGLRenderingContext.UNSIGNED_SHORT),
+	INT(WebGLRenderingContext.INT),
+	UNSIGNED_INT(WebGLRenderingContext.UNSIGNED_INT),
+	FLOAT(WebGLRenderingContext.FLOAT);
 	
 	private final int value;
 

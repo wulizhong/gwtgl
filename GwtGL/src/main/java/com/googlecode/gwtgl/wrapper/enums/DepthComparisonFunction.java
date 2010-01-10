@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -27,42 +27,42 @@ public enum DepthComparisonFunction implements IWebGLConstEnum {
 	/**
 	 * Never passes
 	 */
-	NEVER(WebGLCanvas.NEVER),
+	NEVER(WebGLRenderingContext.NEVER),
 	
 	/**
 	 * Passes if the incoming depth value is less than the stored depth value
 	 */
-	LESS(WebGLCanvas.LESS),
+	LESS(WebGLRenderingContext.LESS),
 	
 	/**
 	 * Passes if the incoming depth value is equal to the stored depth value
 	 */
-	EQUAL(WebGLCanvas.EQUAL),
+	EQUAL(WebGLRenderingContext.EQUAL),
 	
 	/**
 	 * Passes if the incoming depth value is less than or equal to the stored depth value
 	 */
-	LEQUAL(WebGLCanvas.LEQUAL),
+	LEQUAL(WebGLRenderingContext.LEQUAL),
 	
 	/**
 	 * Passes if the incoming depth value is greater than the stored depth value
 	 */
-	GREATER(WebGLCanvas.GREATER),
+	GREATER(WebGLRenderingContext.GREATER),
 	
 	/**
 	 * Passes if the incoming depth value is not equal to the stored depth value
 	 */
-	NOTEQUAL(WebGLCanvas.NOTEQUAL),
+	NOTEQUAL(WebGLRenderingContext.NOTEQUAL),
 	
 	/**
 	 * Passes if the incoming depth value is greater than or equal to the stored depth value
 	 */
-	GEQUAL(WebGLCanvas.GEQUAL),
+	GEQUAL(WebGLRenderingContext.GEQUAL),
 	
 	/**
 	 * Always passes
 	 */
-	ALWAYS(WebGLCanvas.ALWAYS);
+	ALWAYS(WebGLRenderingContext.ALWAYS);
 
 	private final int value;
 

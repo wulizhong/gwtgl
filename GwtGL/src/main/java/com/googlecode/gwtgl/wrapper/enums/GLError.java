@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -27,32 +27,32 @@ public enum GLError implements IWebGLConstEnum{
 	/**
 	 * No error has been recorded
 	 */
-	NO_ERROR(WebGLCanvas.NO_ERROR),
+	NO_ERROR(WebGLRenderingContext.NO_ERROR),
 	
 	/**
 	 * An unacceptable value is specified for an enumerated argument. The offending command is ignored and has no other side effect than to set the error flag.
 	 */
-	INVALID_ENUM(WebGLCanvas.INVALID_ENUM),
+	INVALID_ENUM(WebGLRenderingContext.INVALID_ENUM),
 	
 	/**
 	 * A numeric argument is out of range. The offending command is ignored and has no other side effect than to set the error flag.
 	 */
-	INVALID_VALUE(WebGLCanvas.INVALID_VALUE),
+	INVALID_VALUE(WebGLRenderingContext.INVALID_VALUE),
 	
 	/**
 	 * The specified operation is not allowed in the current state. he offending command is ignored and has no other side effect than to set the error flag.
 	 */
-	INVALID_OPERATION(WebGLCanvas.INVALID_OPERATION),
+	INVALID_OPERATION(WebGLRenderingContext.INVALID_OPERATION),
 	
 	/**
 	 * The command is trying to render to or read from the framebuffer while the currently bound framebuffer is not framebuffer complete. The offending command is ignored and has no other side effect than to set the error flag.
 	 */
-	INVALID_FRAMEBUFFER_OPERATION(WebGLCanvas.INVALID_FRAMEBUFFER_OPERATION),
+	INVALID_FRAMEBUFFER_OPERATION(WebGLRenderingContext.INVALID_FRAMEBUFFER_OPERATION),
 	
 	/**
 	 * There is not enough memory left to execute the command
 	 */
-	OUT_OF_MEMORY(WebGLCanvas.OUT_OF_MEMORY);
+	OUT_OF_MEMORY(WebGLRenderingContext.OUT_OF_MEMORY);
 	
 	private final int value;
 

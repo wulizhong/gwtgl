@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -24,13 +24,13 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum PrimitiveRenderingMode implements IWebGLConstEnum {
-	POINTS(WebGLCanvas.POINTS),
-	LINE_STRIP(WebGLCanvas.LINE_STRIP),
-	LINE_LOOP(WebGLCanvas.LINE_LOOP),
-	LINES(WebGLCanvas.LINES),
-	TRIANGLE_STRIP(WebGLCanvas.TRIANGLE_STRIP),
-	TRIANGLE_FAN(WebGLCanvas.TRIANGLE_FAN),
-	TRIANGLES(WebGLCanvas.TRIANGLES),;
+	POINTS(WebGLRenderingContext.POINTS),
+	LINE_STRIP(WebGLRenderingContext.LINE_STRIP),
+	LINE_LOOP(WebGLRenderingContext.LINE_LOOP),
+	LINES(WebGLRenderingContext.LINES),
+	TRIANGLE_STRIP(WebGLRenderingContext.TRIANGLE_STRIP),
+	TRIANGLE_FAN(WebGLRenderingContext.TRIANGLE_FAN),
+	TRIANGLES(WebGLRenderingContext.TRIANGLES),;
 	
 	private final int value;
 

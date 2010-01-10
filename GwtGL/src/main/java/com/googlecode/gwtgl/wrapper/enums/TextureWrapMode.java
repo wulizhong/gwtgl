@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,9 +23,9 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum TextureWrapMode implements IWebGLConstEnum {
-	CLAMP_TO_EDGE(WebGLCanvas.CLAMP_TO_EDGE),
-	REPEAT(WebGLCanvas.REPEAT),
-	MIRRORED_REPEAT(WebGLCanvas.MIRRORED_REPEAT);
+	CLAMP_TO_EDGE(WebGLRenderingContext.CLAMP_TO_EDGE),
+	REPEAT(WebGLRenderingContext.REPEAT),
+	MIRRORED_REPEAT(WebGLRenderingContext.MIRRORED_REPEAT);
 	
 	private final int value;
 

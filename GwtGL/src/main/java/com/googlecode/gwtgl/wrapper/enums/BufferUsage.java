@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,9 +23,9 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum BufferUsage implements IWebGLConstEnum {
-	STREAM_DRAW(WebGLCanvas.STREAM_DRAW),
-	STATIC_DRAW(WebGLCanvas.STATIC_DRAW),
-	DYNAMIC_DRAW(WebGLCanvas.DYNAMIC_DRAW);
+	STREAM_DRAW(WebGLRenderingContext.STREAM_DRAW),
+	STATIC_DRAW(WebGLRenderingContext.STATIC_DRAW),
+	DYNAMIC_DRAW(WebGLRenderingContext.DYNAMIC_DRAW);
 	
 	private final int usage;
 	

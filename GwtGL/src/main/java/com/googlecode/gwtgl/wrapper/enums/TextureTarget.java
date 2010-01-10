@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,8 +23,8 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum TextureTarget implements IWebGLConstEnum {
-	TEXTURE_2D(WebGLCanvas.TEXTURE_2D),
-	TEXTURE_CUBE_MAP(WebGLCanvas.TEXTURE_CUBE_MAP);
+	TEXTURE_2D(WebGLRenderingContext.TEXTURE_2D),
+	TEXTURE_CUBE_MAP(WebGLRenderingContext.TEXTURE_CUBE_MAP);
 	
 	private final int target;
 

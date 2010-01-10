@@ -15,8 +15,9 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.googlecode.gwtgl.gen.api.IBinding;
+import com.googlecode.gwtgl.binding.impl.IWebGLConstants;
 import com.googlecode.gwtgl.gen.api.JsName;
 
 
@@ -25,38 +26,445 @@ import com.googlecode.gwtgl.gen.api.JsName;
  * @author Sönke Sothmann
  * 
  */
-public interface WebGLRenderingContext extends IBinding {
+public abstract class WebGLRenderingContext {
+
+	private static final IWebGLConstants webGLConstants = GWT.create(IWebGLConstants.class);
+	
+	/* ClearBufferMask */
+	public static final int DEPTH_BUFFER_BIT = webGLConstants.DEPTH_BUFFER_BIT();
+	public static final int STENCIL_BUFFER_BIT = webGLConstants.STENCIL_BUFFER_BIT();
+	public static final int COLOR_BUFFER_BIT = webGLConstants.COLOR_BUFFER_BIT();
+	
+	/* BeginMode */
+	public static final int POINTS = webGLConstants.POINTS();
+	public static final int LINES = webGLConstants.LINES();
+	public static final int LINE_LOOP = webGLConstants.LINE_LOOP();
+	public static final int LINE_STRIP = webGLConstants.LINE_STRIP();
+	public static final int TRIANGLES = webGLConstants.TRIANGLES();
+	public static final int TRIANGLE_STRIP = webGLConstants.TRIANGLE_STRIP();
+	public static final int TRIANGLE_FAN = webGLConstants.TRIANGLE_FAN();
+	
+	/* AlphaFunction (not supported in ES20) */
+	/*      NEVER */
+	/*      LESS */
+	/*      EQUAL */
+	/*      LEQUAL */
+	/*      GREATER */
+	/*      NOTEQUAL */
+	/*      GEQUAL */
+	/*      ALWAYS */
+	
+	/* BlendingFactorDest */
+	public static final int ZERO = webGLConstants.ZERO();
+	public static final int ONE = webGLConstants.ONE();
+	public static final int SRC_COLOR = webGLConstants.SRC_COLOR();
+	public static final int ONE_MINUS_SRC_COLOR = webGLConstants.ONE_MINUS_SRC_COLOR();
+	public static final int SRC_ALPHA = webGLConstants.SRC_ALPHA();
+	public static final int ONE_MINUS_SRC_ALPHA = webGLConstants.ONE_MINUS_SRC_ALPHA();
+	public static final int DST_ALPHA = webGLConstants.DST_ALPHA();
+	public static final int ONE_MINUS_DST_ALPHA = webGLConstants.ONE_MINUS_DST_ALPHA();
+	
+	/* BlendingFactorSrc */
+	/*      ZERO */
+	/*      ONE */
+	public static final int DST_COLOR = webGLConstants.DST_COLOR();
+	public static final int ONE_MINUS_DST_COLOR = webGLConstants.ONE_MINUS_DST_COLOR();
+	public static final int SRC_ALPHA_SATURATE = webGLConstants.SRC_ALPHA_SATURATE();
+	/*      SRC_ALPHA */
+	/*      ONE_MINUS_SRC_ALPHA */
+	/*      DST_ALPHA */
+	/*      ONE_MINUS_DST_ALPHA */
+	
+	/* BlendEquationSeparate */
+	public static final int FUNC_ADD = webGLConstants.FUNC_ADD();
+	public static final int BLEND_EQUATION = webGLConstants.BLEND_EQUATION();
+	public static final int BLEND_EQUATION_RGB = webGLConstants.BLEND_EQUATION_RGB();   /* same as BLEND_EQUATION */
+	public static final int BLEND_EQUATION_ALPHA = webGLConstants.BLEND_EQUATION_ALPHA();
+	
+	/* BlendSubtract */
+	public static final int FUNC_SUBTRACT = webGLConstants.FUNC_SUBTRACT();
+	public static final int FUNC_REVERSE_SUBTRACT = webGLConstants.FUNC_REVERSE_SUBTRACT();
+	
+	/* Separate Blend Functions */
+	public static final int BLEND_DST_RGB = webGLConstants.BLEND_DST_RGB();
+	public static final int BLEND_SRC_RGB = webGLConstants.BLEND_SRC_RGB();
+	public static final int BLEND_DST_ALPHA = webGLConstants.BLEND_DST_ALPHA();
+	public static final int BLEND_SRC_ALPHA = webGLConstants.BLEND_SRC_ALPHA();
+	public static final int CONSTANT_COLOR = webGLConstants.CONSTANT_COLOR();
+	public static final int ONE_MINUS_CONSTANT_COLOR = webGLConstants.ONE_MINUS_CONSTANT_COLOR();
+	public static final int CONSTANT_ALPHA = webGLConstants.CONSTANT_ALPHA();
+	public static final int ONE_MINUS_CONSTANT_ALPHA = webGLConstants.ONE_MINUS_CONSTANT_ALPHA();
+	public static final int BLEND_COLOR = webGLConstants.BLEND_COLOR();
+	
+	/* Buffer Objects */
+	public static final int ARRAY_BUFFER = webGLConstants.ARRAY_BUFFER();
+	public static final int ELEMENT_ARRAY_BUFFER = webGLConstants.ELEMENT_ARRAY_BUFFER();
+	public static final int ARRAY_BUFFER_BINDING = webGLConstants.ARRAY_BUFFER_BINDING();
+	public static final int ELEMENT_ARRAY_BUFFER_BINDING = webGLConstants.ELEMENT_ARRAY_BUFFER_BINDING();
+	public static final int STREAM_DRAW = webGLConstants.STREAM_DRAW();
+	public static final int STATIC_DRAW = webGLConstants.STATIC_DRAW();
+	public static final int DYNAMIC_DRAW = webGLConstants.DYNAMIC_DRAW();
+	public static final int BUFFER_SIZE = webGLConstants.BUFFER_SIZE();
+	public static final int BUFFER_USAGE = webGLConstants.BUFFER_USAGE();
+	public static final int CURRENT_VERTEX_ATTRIB = webGLConstants.CURRENT_VERTEX_ATTRIB();
+	
+	/* CullFaceMode */
+	public static final int FRONT = webGLConstants.FRONT();
+	public static final int BACK = webGLConstants.BACK();
+	public static final int FRONT_AND_BACK = webGLConstants.FRONT_AND_BACK();
+	
+	/* DepthFunction */
+	/*      NEVER */
+	/*      LESS */
+	/*      EQUAL */
+	/*      LEQUAL */
+	/*      GREATER */
+	/*      NOTEQUAL */
+	/*      GEQUAL */
+	/*      ALWAYS */
+	
+	/* EnableCap */
+	public static final int TEXTURE_2D = webGLConstants.TEXTURE_2D();
+	public static final int CULL_FACE = webGLConstants.CULL_FACE();
+	public static final int BLEND = webGLConstants.BLEND();
+	public static final int DITHER = webGLConstants.DITHER();
+	public static final int STENCIL_TEST = webGLConstants.STENCIL_TEST();
+	public static final int DEPTH_TEST = webGLConstants.DEPTH_TEST();
+	public static final int SCISSOR_TEST = webGLConstants.SCISSOR_TEST();
+	public static final int POLYGON_OFFSET_FILL = webGLConstants.POLYGON_OFFSET_FILL();
+	public static final int SAMPLE_ALPHA_TO_COVERAGE = webGLConstants.SAMPLE_ALPHA_TO_COVERAGE();
+	public static final int SAMPLE_COVERAGE = webGLConstants.SAMPLE_COVERAGE();
+	
+	/* ErrorCode */
+	public static final int NO_ERROR = webGLConstants.NO_ERROR();
+	public static final int INVALID_ENUM = webGLConstants.INVALID_ENUM();
+	public static final int INVALID_VALUE = webGLConstants.INVALID_VALUE();
+	public static final int INVALID_OPERATION = webGLConstants.INVALID_OPERATION();
+	public static final int OUT_OF_MEMORY = webGLConstants.OUT_OF_MEMORY();
+	
+	/* FrontFaceDirection */
+	public static final int CW = webGLConstants.CW();
+	public static final int CCW = webGLConstants.CCW();
+	
+	/* GetPName */
+	public static final int LINE_WIDTH = webGLConstants.LINE_WIDTH();
+	public static final int ALIASED_POINT_SIZE_RANGE = webGLConstants.ALIASED_POINT_SIZE_RANGE();
+	public static final int ALIASED_LINE_WIDTH_RANGE = webGLConstants.ALIASED_LINE_WIDTH_RANGE();
+	public static final int CULL_FACE_MODE = webGLConstants.CULL_FACE_MODE();
+	public static final int FRONT_FACE = webGLConstants.FRONT_FACE();
+	public static final int DEPTH_RANGE = webGLConstants.DEPTH_RANGE();
+	public static final int DEPTH_WRITEMASK = webGLConstants.DEPTH_WRITEMASK();
+	public static final int DEPTH_CLEAR_VALUE = webGLConstants.DEPTH_CLEAR_VALUE();
+	public static final int DEPTH_FUNC = webGLConstants.DEPTH_FUNC();
+	public static final int STENCIL_CLEAR_VALUE = webGLConstants.STENCIL_CLEAR_VALUE();
+	public static final int STENCIL_FUNC = webGLConstants.STENCIL_FUNC();
+	public static final int STENCIL_FAIL = webGLConstants.STENCIL_FAIL();
+	public static final int STENCIL_PASS_DEPTH_FAIL = webGLConstants.STENCIL_PASS_DEPTH_FAIL();
+	public static final int STENCIL_PASS_DEPTH_PASS = webGLConstants.STENCIL_PASS_DEPTH_PASS();
+	public static final int STENCIL_REF = webGLConstants.STENCIL_REF();
+	public static final int STENCIL_VALUE_MASK = webGLConstants.STENCIL_VALUE_MASK();
+	public static final int STENCIL_WRITEMASK = webGLConstants.STENCIL_WRITEMASK();
+	public static final int STENCIL_BACK_FUNC = webGLConstants.STENCIL_BACK_FUNC();
+	public static final int STENCIL_BACK_FAIL = webGLConstants.STENCIL_BACK_FAIL();
+	public static final int STENCIL_BACK_PASS_DEPTH_FAIL = webGLConstants.STENCIL_BACK_PASS_DEPTH_FAIL();
+	public static final int STENCIL_BACK_PASS_DEPTH_PASS = webGLConstants.STENCIL_BACK_PASS_DEPTH_PASS();
+	public static final int STENCIL_BACK_REF = webGLConstants.STENCIL_BACK_REF();
+	public static final int STENCIL_BACK_VALUE_MASK = webGLConstants.STENCIL_BACK_VALUE_MASK();
+	public static final int STENCIL_BACK_WRITEMASK = webGLConstants.STENCIL_BACK_WRITEMASK();
+	public static final int VIEWPORT = webGLConstants.VIEWPORT();
+	public static final int SCISSOR_BOX = webGLConstants.SCISSOR_BOX();
+	/*      SCISSOR_TEST */
+	public static final int COLOR_CLEAR_VALUE = webGLConstants.COLOR_CLEAR_VALUE();
+	public static final int COLOR_WRITEMASK = webGLConstants.COLOR_WRITEMASK();
+	public static final int UNPACK_ALIGNMENT = webGLConstants.UNPACK_ALIGNMENT();
+	public static final int PACK_ALIGNMENT = webGLConstants.PACK_ALIGNMENT();
+	public static final int MAX_TEXTURE_SIZE = webGLConstants.MAX_TEXTURE_SIZE();
+	public static final int MAX_VIEWPORT_DIMS = webGLConstants.MAX_VIEWPORT_DIMS();
+	public static final int SUBPIXEL_BITS = webGLConstants.SUBPIXEL_BITS();
+	public static final int RED_BITS = webGLConstants.RED_BITS();
+	public static final int GREEN_BITS = webGLConstants.GREEN_BITS();
+	public static final int BLUE_BITS = webGLConstants.BLUE_BITS();
+	public static final int ALPHA_BITS = webGLConstants.ALPHA_BITS();
+	public static final int DEPTH_BITS = webGLConstants.DEPTH_BITS();
+	public static final int STENCIL_BITS = webGLConstants.STENCIL_BITS();
+	public static final int POLYGON_OFFSET_UNITS = webGLConstants.POLYGON_OFFSET_UNITS();
+	/*      POLYGON_OFFSET_FILL */
+	public static final int POLYGON_OFFSET_FACTOR = webGLConstants.POLYGON_OFFSET_FACTOR();
+	public static final int TEXTURE_BINDING_2D = webGLConstants.TEXTURE_BINDING_2D();
+	public static final int SAMPLE_BUFFERS = webGLConstants.SAMPLE_BUFFERS();
+	public static final int SAMPLES = webGLConstants.SAMPLES();
+	public static final int SAMPLE_COVERAGE_VALUE = webGLConstants.SAMPLE_COVERAGE_VALUE();
+	public static final int SAMPLE_COVERAGE_INVERT = webGLConstants.SAMPLE_COVERAGE_INVERT();
+	
+	/* GetTextureParameter */
+	/*      TEXTURE_MAG_FILTER */
+	/*      TEXTURE_MIN_FILTER */
+	/*      TEXTURE_WRAP_S */
+	/*      TEXTURE_WRAP_T */
+	public static final int NUM_COMPRESSED_TEXTURE_FORMATS = webGLConstants.NUM_COMPRESSED_TEXTURE_FORMATS();
+	public static final int COMPRESSED_TEXTURE_FORMATS = webGLConstants.COMPRESSED_TEXTURE_FORMATS();
+	
+	/* HintMode */
+	public static final int DONT_CARE = webGLConstants.DONT_CARE();
+	public static final int FASTEST = webGLConstants.FASTEST();
+	public static final int NICEST = webGLConstants.NICEST();
+	
+	/* HintTarget */
+	public static final int GENERATE_MIPMAP_HINT = webGLConstants.GENERATE_MIPMAP_HINT();
+	
+	/* DataType */
+	public static final int BYTE = webGLConstants.BYTE();
+	public static final int UNSIGNED_BYTE = webGLConstants.UNSIGNED_BYTE();
+	public static final int SHORT = webGLConstants.SHORT();
+	public static final int UNSIGNED_SHORT = webGLConstants.UNSIGNED_SHORT();
+	public static final int INT = webGLConstants.INT();
+	public static final int UNSIGNED_INT = webGLConstants.UNSIGNED_INT();
+	public static final int FLOAT = webGLConstants.FLOAT();
+	
+	/* PixelFormat */
+	public static final int DEPTH_COMPONENT = webGLConstants.DEPTH_COMPONENT();
+	public static final int ALPHA = webGLConstants.ALPHA();
+	public static final int RGB = webGLConstants.RGB();
+	public static final int RGBA = webGLConstants.RGBA();
+	public static final int LUMINANCE = webGLConstants.LUMINANCE();
+	public static final int LUMINANCE_ALPHA = webGLConstants.LUMINANCE_ALPHA();
+	
+	/* PixelType */
+	/*      UNSIGNED_BYTE */
+	public static final int UNSIGNED_SHORT_4_4_4_4 = webGLConstants.UNSIGNED_SHORT_4_4_4_4();
+	public static final int UNSIGNED_SHORT_5_5_5_1 = webGLConstants.UNSIGNED_SHORT_5_5_5_1();
+	public static final int UNSIGNED_SHORT_5_6_5 = webGLConstants.UNSIGNED_SHORT_5_6_5();
+	
+	/* Shaders */
+	public static final int FRAGMENT_SHADER = webGLConstants.FRAGMENT_SHADER();
+	public static final int VERTEX_SHADER = webGLConstants.VERTEX_SHADER();
+	public static final int MAX_VERTEX_ATTRIBS = webGLConstants.MAX_VERTEX_ATTRIBS();
+	public static final int MAX_VERTEX_UNIFORM_VECTORS = webGLConstants.MAX_VERTEX_UNIFORM_VECTORS();
+	public static final int MAX_VARYING_VECTORS = webGLConstants.MAX_VARYING_VECTORS();
+	public static final int MAX_COMBINED_TEXTURE_IMAGE_UNITS = webGLConstants.MAX_COMBINED_TEXTURE_IMAGE_UNITS();
+	public static final int MAX_VERTEX_TEXTURE_IMAGE_UNITS = webGLConstants.MAX_VERTEX_TEXTURE_IMAGE_UNITS();
+	public static final int MAX_TEXTURE_IMAGE_UNITS = webGLConstants.MAX_TEXTURE_IMAGE_UNITS();
+	public static final int MAX_FRAGMENT_UNIFORM_VECTORS = webGLConstants.MAX_FRAGMENT_UNIFORM_VECTORS();
+	public static final int SHADER_TYPE = webGLConstants.SHADER_TYPE();
+	public static final int DELETE_STATUS = webGLConstants.DELETE_STATUS();
+	public static final int LINK_STATUS = webGLConstants.LINK_STATUS();
+	public static final int VALIDATE_STATUS = webGLConstants.VALIDATE_STATUS();
+	public static final int ATTACHED_SHADERS = webGLConstants.ATTACHED_SHADERS();
+	public static final int ACTIVE_UNIFORMS = webGLConstants.ACTIVE_UNIFORMS();
+	public static final int ACTIVE_UNIFORM_MAX_LENGTH = webGLConstants.ACTIVE_UNIFORM_MAX_LENGTH();
+	public static final int ACTIVE_ATTRIBUTES = webGLConstants.ACTIVE_ATTRIBUTES();
+	public static final int ACTIVE_ATTRIBUTE_MAX_LENGTH = webGLConstants.ACTIVE_ATTRIBUTE_MAX_LENGTH();
+	public static final int SHADING_LANGUAGE_VERSION = webGLConstants.SHADING_LANGUAGE_VERSION();
+	public static final int CURRENT_PROGRAM = webGLConstants.CURRENT_PROGRAM();
+	
+	/* StencilFunction */
+	public static final int NEVER = webGLConstants.NEVER();
+	public static final int LESS = webGLConstants.LESS();
+	public static final int EQUAL = webGLConstants.EQUAL();
+	public static final int LEQUAL = webGLConstants.LEQUAL();
+	public static final int GREATER = webGLConstants.GREATER();
+	public static final int NOTEQUAL = webGLConstants.NOTEQUAL();
+	public static final int GEQUAL = webGLConstants.GEQUAL();
+	public static final int ALWAYS = webGLConstants.ALWAYS();
+	
+	/* StencilOp */
+	/*      ZERO */
+	public static final int KEEP = webGLConstants.KEEP();
+	public static final int REPLACE = webGLConstants.REPLACE();
+	public static final int INCR = webGLConstants.INCR();
+	public static final int DECR = webGLConstants.DECR();
+	public static final int INVERT = webGLConstants.INVERT();
+	public static final int INCR_WRAP = webGLConstants.INCR_WRAP();
+	public static final int DECR_WRAP = webGLConstants.DECR_WRAP();
+	
+	/* StringName */
+	public static final int VENDOR = webGLConstants.VENDOR();
+	public static final int RENDERER = webGLConstants.RENDERER();
+	public static final int VERSION = webGLConstants.VERSION();
+	public static final int EXTENSIONS = webGLConstants.EXTENSIONS();
+	
+	/* TextureMagFilter */
+	public static final int NEAREST = webGLConstants.NEAREST();
+	public static final int LINEAR = webGLConstants.LINEAR();
+	
+	/* TextureMinFilter */
+	/*      NEAREST */
+	/*      LINEAR */
+	public static final int NEAREST_MIPMAP_NEAREST = webGLConstants.NEAREST_MIPMAP_NEAREST();
+	public static final int LINEAR_MIPMAP_NEAREST = webGLConstants.LINEAR_MIPMAP_NEAREST();
+	public static final int NEAREST_MIPMAP_LINEAR = webGLConstants.NEAREST_MIPMAP_LINEAR();
+	public static final int LINEAR_MIPMAP_LINEAR = webGLConstants.LINEAR_MIPMAP_LINEAR();
+	
+	/* TextureParameterName */
+	public static final int TEXTURE_MAG_FILTER = webGLConstants.TEXTURE_MAG_FILTER();
+	public static final int TEXTURE_MIN_FILTER = webGLConstants.TEXTURE_MIN_FILTER();
+	public static final int TEXTURE_WRAP_S = webGLConstants.TEXTURE_WRAP_S();
+	public static final int TEXTURE_WRAP_T = webGLConstants.TEXTURE_WRAP_T();
+	
+	/* TextureTarget */
+	/*      TEXTURE_2D */
+	public static final int TEXTURE = webGLConstants.TEXTURE();
+	public static final int TEXTURE_CUBE_MAP = webGLConstants.TEXTURE_CUBE_MAP();
+	public static final int TEXTURE_BINDING_CUBE_MAP = webGLConstants.TEXTURE_BINDING_CUBE_MAP();
+	public static final int TEXTURE_CUBE_MAP_POSITIVE_X = webGLConstants.TEXTURE_CUBE_MAP_POSITIVE_X();
+	public static final int TEXTURE_CUBE_MAP_NEGATIVE_X = webGLConstants.TEXTURE_CUBE_MAP_NEGATIVE_X();
+	public static final int TEXTURE_CUBE_MAP_POSITIVE_Y = webGLConstants.TEXTURE_CUBE_MAP_POSITIVE_Y();
+	public static final int TEXTURE_CUBE_MAP_NEGATIVE_Y = webGLConstants.TEXTURE_CUBE_MAP_NEGATIVE_Y();
+	public static final int TEXTURE_CUBE_MAP_POSITIVE_Z = webGLConstants.TEXTURE_CUBE_MAP_POSITIVE_Z();
+	public static final int TEXTURE_CUBE_MAP_NEGATIVE_Z = webGLConstants.TEXTURE_CUBE_MAP_NEGATIVE_Z();
+	public static final int MAX_CUBE_MAP_TEXTURE_SIZE = webGLConstants.MAX_CUBE_MAP_TEXTURE_SIZE();
+	
+	/* TextureUnit */
+	public static final int TEXTURE0 = webGLConstants.TEXTURE0();
+	public static final int TEXTURE1 = webGLConstants.TEXTURE1();
+	public static final int TEXTURE2 = webGLConstants.TEXTURE2();
+	public static final int TEXTURE3 = webGLConstants.TEXTURE3();
+	public static final int TEXTURE4 = webGLConstants.TEXTURE4();
+	public static final int TEXTURE5 = webGLConstants.TEXTURE5();
+	public static final int TEXTURE6 = webGLConstants.TEXTURE6();
+	public static final int TEXTURE7 = webGLConstants.TEXTURE7();
+	public static final int TEXTURE8 = webGLConstants.TEXTURE8();
+	public static final int TEXTURE9 = webGLConstants.TEXTURE9();
+	public static final int TEXTURE10 = webGLConstants.TEXTURE10();
+	public static final int TEXTURE11 = webGLConstants.TEXTURE11();
+	public static final int TEXTURE12 = webGLConstants.TEXTURE12();
+	public static final int TEXTURE13 = webGLConstants.TEXTURE13();
+	public static final int TEXTURE14 = webGLConstants.TEXTURE14();
+	public static final int TEXTURE15 = webGLConstants.TEXTURE15();
+	public static final int TEXTURE16 = webGLConstants.TEXTURE16();
+	public static final int TEXTURE17 = webGLConstants.TEXTURE17();
+	public static final int TEXTURE18 = webGLConstants.TEXTURE18();
+	public static final int TEXTURE19 = webGLConstants.TEXTURE19();
+	public static final int TEXTURE20 = webGLConstants.TEXTURE20();
+	public static final int TEXTURE21 = webGLConstants.TEXTURE21();
+	public static final int TEXTURE22 = webGLConstants.TEXTURE22();
+	public static final int TEXTURE23 = webGLConstants.TEXTURE23();
+	public static final int TEXTURE24 = webGLConstants.TEXTURE24();
+	public static final int TEXTURE25 = webGLConstants.TEXTURE25();
+	public static final int TEXTURE26 = webGLConstants.TEXTURE26();
+	public static final int TEXTURE27 = webGLConstants.TEXTURE27();
+	public static final int TEXTURE28 = webGLConstants.TEXTURE28();
+	public static final int TEXTURE29 = webGLConstants.TEXTURE29();
+	public static final int TEXTURE30 = webGLConstants.TEXTURE30();
+	public static final int TEXTURE31 = webGLConstants.TEXTURE31();
+	public static final int ACTIVE_TEXTURE = webGLConstants.ACTIVE_TEXTURE();
+	
+	/* TextureWrapMode */
+	public static final int REPEAT = webGLConstants.REPEAT();
+	public static final int CLAMP_TO_EDGE = webGLConstants.CLAMP_TO_EDGE();
+	public static final int MIRRORED_REPEAT = webGLConstants.MIRRORED_REPEAT();
+	
+	/* Uniform Types */
+	public static final int FLOAT_VEC2 = webGLConstants.FLOAT_VEC2();
+	public static final int FLOAT_VEC3 = webGLConstants.FLOAT_VEC3();
+	public static final int FLOAT_VEC4 = webGLConstants.FLOAT_VEC4();
+	public static final int INT_VEC2 = webGLConstants.INT_VEC2();
+	public static final int INT_VEC3 = webGLConstants.INT_VEC3();
+	public static final int INT_VEC4 = webGLConstants.INT_VEC4();
+	public static final int BOOL = webGLConstants.BOOL();
+	public static final int BOOL_VEC2 = webGLConstants.BOOL_VEC2();
+	public static final int BOOL_VEC3 = webGLConstants.BOOL_VEC3();
+	public static final int BOOL_VEC4 = webGLConstants.BOOL_VEC4();
+	public static final int FLOAT_MAT2 = webGLConstants.FLOAT_MAT2();
+	public static final int FLOAT_MAT3 = webGLConstants.FLOAT_MAT3();
+	public static final int FLOAT_MAT4 = webGLConstants.FLOAT_MAT4();
+	public static final int SAMPLER_2D = webGLConstants.SAMPLER_2D();
+	public static final int SAMPLER_CUBE = webGLConstants.SAMPLER_CUBE();
+	
+	/* Vertex Arrays */
+	public static final int VERTEX_ATTRIB_ARRAY_ENABLED = webGLConstants.VERTEX_ATTRIB_ARRAY_ENABLED();
+	public static final int VERTEX_ATTRIB_ARRAY_SIZE = webGLConstants.VERTEX_ATTRIB_ARRAY_SIZE();
+	public static final int VERTEX_ATTRIB_ARRAY_STRIDE = webGLConstants.VERTEX_ATTRIB_ARRAY_STRIDE();
+	public static final int VERTEX_ATTRIB_ARRAY_TYPE = webGLConstants.VERTEX_ATTRIB_ARRAY_TYPE();
+	public static final int VERTEX_ATTRIB_ARRAY_NORMALIZED = webGLConstants.VERTEX_ATTRIB_ARRAY_NORMALIZED();
+	public static final int VERTEX_ATTRIB_ARRAY_POINTER = webGLConstants.VERTEX_ATTRIB_ARRAY_POINTER();
+	public static final int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = webGLConstants.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING();
+	
+	/* Read Format */
+	public static final int IMPLEMENTATION_COLOR_READ_TYPE = webGLConstants.IMPLEMENTATION_COLOR_READ_TYPE();
+	public static final int IMPLEMENTATION_COLOR_READ_FORMAT = webGLConstants.IMPLEMENTATION_COLOR_READ_FORMAT();
+	
+	/* Shader Source */
+	public static final int COMPILE_STATUS = webGLConstants.COMPILE_STATUS();
+	public static final int INFO_LOG_LENGTH = webGLConstants.INFO_LOG_LENGTH();
+	public static final int SHADER_SOURCE_LENGTH = webGLConstants.SHADER_SOURCE_LENGTH();
+	public static final int SHADER_COMPILER = webGLConstants.SHADER_COMPILER();
+	
+	/* Shader Precision-Specified Types */
+	public static final int LOW_FLOAT = webGLConstants.LOW_FLOAT();
+	public static final int MEDIUM_FLOAT = webGLConstants.MEDIUM_FLOAT();
+	public static final int HIGH_FLOAT = webGLConstants.HIGH_FLOAT();
+	public static final int LOW_INT = webGLConstants.LOW_INT();
+	public static final int MEDIUM_INT = webGLConstants.MEDIUM_INT();
+	public static final int HIGH_INT = webGLConstants.HIGH_INT();
+	
+	/* Framebuffer Object. */
+	public static final int FRAMEBUFFER = webGLConstants.FRAMEBUFFER();
+	public static final int RENDERBUFFER = webGLConstants.RENDERBUFFER();
+	public static final int RGBA4 = webGLConstants.RGBA4();
+	public static final int RGB5_A1 = webGLConstants.RGB5_A1();
+	public static final int RGB565 = webGLConstants.RGB565();
+	public static final int DEPTH_COMPONENT16 = webGLConstants.DEPTH_COMPONENT16();
+	public static final int STENCIL_INDEX = webGLConstants.STENCIL_INDEX();
+	public static final int STENCIL_INDEX8 = webGLConstants.STENCIL_INDEX8();
+	public static final int RENDERBUFFER_WIDTH = webGLConstants.RENDERBUFFER_WIDTH();
+	public static final int RENDERBUFFER_HEIGHT = webGLConstants.RENDERBUFFER_HEIGHT();
+	public static final int RENDERBUFFER_INTERNAL_FORMAT = webGLConstants.RENDERBUFFER_INTERNAL_FORMAT();
+	public static final int RENDERBUFFER_RED_SIZE = webGLConstants.RENDERBUFFER_RED_SIZE();
+	public static final int RENDERBUFFER_GREEN_SIZE = webGLConstants.RENDERBUFFER_GREEN_SIZE();
+	public static final int RENDERBUFFER_BLUE_SIZE = webGLConstants.RENDERBUFFER_BLUE_SIZE();
+	public static final int RENDERBUFFER_ALPHA_SIZE = webGLConstants.RENDERBUFFER_ALPHA_SIZE();
+	public static final int RENDERBUFFER_DEPTH_SIZE = webGLConstants.RENDERBUFFER_DEPTH_SIZE();
+	public static final int RENDERBUFFER_STENCIL_SIZE = webGLConstants.RENDERBUFFER_STENCIL_SIZE();
+	public static final int FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = webGLConstants.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE();
+	public static final int FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = webGLConstants.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME();
+	public static final int FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = webGLConstants.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL();
+	public static final int FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = webGLConstants.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE();
+	public static final int COLOR_ATTACHMENT0 = webGLConstants.COLOR_ATTACHMENT0();
+	public static final int DEPTH_ATTACHMENT = webGLConstants.DEPTH_ATTACHMENT();
+	public static final int STENCIL_ATTACHMENT = webGLConstants.STENCIL_ATTACHMENT();
+	public static final int NONE = webGLConstants.NONE();
+	public static final int FRAMEBUFFER_COMPLETE = webGLConstants.FRAMEBUFFER_COMPLETE();
+	public static final int FRAMEBUFFER_INCOMPLETE_ATTACHMENT = webGLConstants.FRAMEBUFFER_INCOMPLETE_ATTACHMENT();
+	public static final int FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = webGLConstants.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT();
+	public static final int FRAMEBUFFER_INCOMPLETE_DIMENSIONS = webGLConstants.FRAMEBUFFER_INCOMPLETE_DIMENSIONS();
+	public static final int FRAMEBUFFER_UNSUPPORTED = webGLConstants.FRAMEBUFFER_UNSUPPORTED();
+	public static final int FRAMEBUFFER_BINDING = webGLConstants.FRAMEBUFFER_BINDING();
+	public static final int RENDERBUFFER_BINDING = webGLConstants.RENDERBUFFER_BINDING();
+	public static final int MAX_RENDERBUFFER_SIZE = webGLConstants.MAX_RENDERBUFFER_SIZE();
+	public static final int INVALID_FRAMEBUFFER_OPERATION = webGLConstants.INVALID_FRAMEBUFFER_OPERATION();
+	
 
 	// ///////
 	// Misc //
 	// ///////
 	
-	void viewport(int x, int y, int w, int h);
+	public abstract void viewport(int x, int y, int w, int h);
 	
-	void lineWidth(float width);
+	public abstract void lineWidth(float width);
 	
-	void flush();
+	public abstract void flush();
 	
-	void finish();
+	public abstract void finish();
 	
 	/**
 	 * @param mask COLOR_BUFFER_BIT DEPTH_BUFFER_BIT STENCIL_BUFFER_BIT
 	 */
-	public void clear(int mask);
+	public abstract void clear(int mask);
 	
-	void colorMask(boolean red, boolean green, boolean blue, boolean alpha);
+	public abstract void colorMask(boolean red, boolean green, boolean blue, boolean alpha);
 	
-	public void clearColor(float red, float green, float blue, float alpha);
+	public abstract void clearColor(float red, float green, float blue, float alpha);
 	
-	void scissor(int x, int y, int width, int height);
+	public abstract void scissor(int x, int y, int width, int height);
 	
 
 	/**
 	 * @param param DEPTH_TEST
 	 */
-	public void enable(int param);
+	public abstract void enable(int param);
 
-	public void disable(int param);
+	public abstract void disable(int param);
 
 	/**
 	 * @param pname
@@ -68,7 +476,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 *            DEPTH_RANGE, MAX_VIEWPORT_DIMS, SCISSOR_BOX, VIEWPORT,
 	 *            COLOR_WRITEMASK
 	 */
-	public <T extends JavaScriptObject> T getParameter(int pname);
+	public abstract <T extends JavaScriptObject> T getParameter(int pname);
 	
 	/**
 	 * @param pname
@@ -92,7 +500,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName("getParameter")
-	public int getParameteri(int pname);
+	public abstract int getParameteri(int pname);
 
 	/**
 	 * @param pname
@@ -102,7 +510,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName("getParameter")
-	public boolean getParameterb(int pname);
+	public abstract boolean getParameterb(int pname);
 
 	/**
 	 * @param pname
@@ -111,60 +519,60 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName("getParameter")
-	public float getParameterf(int pname);
+	public abstract float getParameterf(int pname);
 	
-	public int getError();
+	public abstract int getError();
 	
 	// //////////
 	// Buffers //
 	// //////////
 
-	public WebGLBuffer createBuffer();
+	public abstract WebGLBuffer createBuffer();
 
-	public void deleteBuffer(WebGLBuffer buffer);
+	public abstract void deleteBuffer(WebGLBuffer buffer);
 
-	public void isBuffer(WebGLBuffer buffer);
+	public abstract void isBuffer(WebGLBuffer buffer);
 
 	/**
 	 * @param target ARRAY_BUFFER ELEMENT_ARRAY_BUFFER
 	 * @param buffer
 	 */
-	public void bindBuffer(int target, WebGLBuffer buffer);
+	public abstract void bindBuffer(int target, WebGLBuffer buffer);
 
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
 	 * @param dta
 	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
 	 */
-	public void bufferData(int target, WebGLArray<?> dta, int usage);
+	public abstract void bufferData(int target, WebGLArray<?> dta, int usage);
 	
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
 	 * @param dta
 	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
 	 */
-	public void bufferData(int target, WebGLArrayBuffer dta, int usage);
+	public abstract void bufferData(int target, WebGLArrayBuffer dta, int usage);
 	
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
 	 * @param size the size of the buffer to create
 	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
 	 */
-	public void bufferData(int target, int size, int usage);
+	public abstract void bufferData(int target, int size, int usage);
 
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
 	 * @param offset
 	 * @param data
 	 */
-	public void bufferSubData(int target, int offset, WebGLArray<?> data);
+	public abstract void bufferSubData(int target, int offset, WebGLArray<?> data);
 	
 	/**
 	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
 	 * @param offset
 	 * @param data
 	 */
-	public void bufferSubData(int target, int offset, WebGLArrayBuffer data);
+	public abstract void bufferSubData(int target, int offset, WebGLArrayBuffer data);
 
 	/**
 	 * @param target
@@ -172,21 +580,21 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName("getBufferParameter")
-	public int getBufferParameteri(int target, int value);
+	public abstract int getBufferParameteri(int target, int value);
 
 	// ////////////////
 	// Renderbuffers //
 	// ////////////////
 
-	public WebGLRenderbuffer createRenderbuffer();
+	public abstract WebGLRenderbuffer createRenderbuffer();
 
-	public void deleteRenderbuffer(WebGLRenderbuffer buffer);
+	public abstract void deleteRenderbuffer(WebGLRenderbuffer buffer);
 
 	/**
 	 * @param target RENDERBUFFER
 	 * @param buffer
 	 */
-	public void bindRenderbuffer(int target, WebGLRenderbuffer buffer);
+	public abstract void bindRenderbuffer(int target, WebGLRenderbuffer buffer);
 
 	/**
 	 * @param target
@@ -197,7 +605,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 *            RENDERBUFFER_ALPHA_SIZE, RENDERBUFFER_DEPTH_SIZE,
 	 *            RENDERBUFFER_STENCIL_SIZE
 	 */
-	public int getRenderbufferParameteri(int target, int pname);
+	public abstract int getRenderbufferParameteri(int target, int pname);
 
 	/**
 	 * @param target
@@ -205,22 +613,22 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param width
 	 * @param height
 	 */
-	public void renderbufferStorage(int target, int format, int width,
+	public abstract void renderbufferStorage(int target, int format, int width,
 			int height);
 
-	public boolean isRenderbuffer(WebGLRenderbuffer buffer);
+	public abstract boolean isRenderbuffer(WebGLRenderbuffer buffer);
 
 	// ///////////////////
 	// Program objects //
 	// ///////////////////
 
-	public WebGLProgram createProgram();
+	public abstract WebGLProgram createProgram();
 
-	public void validateProgram(WebGLProgram program);
+	public abstract void validateProgram(WebGLProgram program);
 
-	public void linkProgram(WebGLProgram program);
+	public abstract void linkProgram(WebGLProgram program);
 
-	public void deleteProgram(WebGLProgram program);
+	public abstract void deleteProgram(WebGLProgram program);
 
 	/**
 	 * @param program
@@ -228,7 +636,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName(value = "getProgramParameter")
-	public boolean getProgramParameterb(WebGLProgram program,
+	public abstract boolean getProgramParameterb(WebGLProgram program,
 			int param);
 
 	/**
@@ -240,13 +648,13 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName(value = "getProgramParameter")
-	public int getProgramParameteri(WebGLProgram program, int param);
+	public abstract int getProgramParameteri(WebGLProgram program, int param);
 
-	public String getProgramInfoLog(WebGLProgram program);
+	public abstract String getProgramInfoLog(WebGLProgram program);
 
-	public boolean isProgram(WebGLProgram program);
+	public abstract boolean isProgram(WebGLProgram program);
 
-	public void useProgram(WebGLProgram program);
+	public abstract void useProgram(WebGLProgram program);
 	
 	// ///////////
 	// Shaders //
@@ -257,21 +665,21 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param shaderType VERTEX_SHADER FRAGMENT_SHADER
 	 * @return
 	 */
-	public WebGLShader createShader(int shaderType);
+	public abstract WebGLShader createShader(int shaderType);
 
-	public void compileShader(WebGLShader shader);
+	public abstract void compileShader(WebGLShader shader);
 
-	public void attachShader(WebGLProgram program, WebGLShader shader);
+	public abstract void attachShader(WebGLProgram program, WebGLShader shader);
 
-	public void detachShader(WebGLProgram program, WebGLShader shader);
+	public abstract void detachShader(WebGLProgram program, WebGLShader shader);
 
-	public void deleteShader(WebGLShader shader);
+	public abstract void deleteShader(WebGLShader shader);
 
-	public String getShaderSource(WebGLShader shader);
+	public abstract String getShaderSource(WebGLShader shader);
 
-	public void shaderSource(WebGLShader shader, String shaderSrc);
+	public abstract void shaderSource(WebGLShader shader, String shaderSrc);
 
-	public String getShaderInfoLog(WebGLShader shader);
+	public abstract String getShaderInfoLog(WebGLShader shader);
 
 	/**
 	 * @param shader
@@ -279,7 +687,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName(value = "getShaderParameter")
-	public boolean getShaderParameterb(WebGLShader shader, int param);
+	public abstract boolean getShaderParameterb(WebGLShader shader, int param);
 
 	/**
 	 * @param shader
@@ -287,115 +695,115 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName(value = "getShaderParameter")
-	public int getShaderParameteri(WebGLShader shader, int param);
+	public abstract int getShaderParameteri(WebGLShader shader, int param);
 
-	public WebGLObjectArray<WebGLShader> getAttachedShaders(WebGLProgram program);
+	public abstract WebGLObjectArray<WebGLShader> getAttachedShaders(WebGLProgram program);
 
-	public boolean isShader(JavaScriptObject shader);
+	public abstract boolean isShader(JavaScriptObject shader);
 	
 	// ////////////////////
 	// Uniform variables //
 	// ////////////////////
 	
-	public void uniform1f(int location, float v0);
+	public abstract void uniform1f(int location, float v0);
 	
-	public void uniform1fv(int location, WebGLFloatArray v);
+	public abstract void uniform1fv(int location, WebGLFloatArray v);
 	
-	public void uniform1fv(int location, float[] values);
+	public abstract void uniform1fv(int location, float[] values);
 
-	public void uniform1i(int location, int v0);
+	public abstract void uniform1i(int location, int v0);
 	
-	public void uniform1iv(int location, WebGLIntArray v);
+	public abstract void uniform1iv(int location, WebGLIntArray v);
 	
-	public void uniform1iv(int location, int[] values);
+	public abstract void uniform1iv(int location, int[] values);
 	
-	public void uniform2f(int location, float v0, float v1);
+	public abstract void uniform2f(int location, float v0, float v1);
 	
-	public void uniform2fv(int location, WebGLFloatArray v);
+	public abstract void uniform2fv(int location, WebGLFloatArray v);
 	
-	public void uniform2fv(int location, float[] values);
+	public abstract void uniform2fv(int location, float[] values);
 
-	public void uniform2i(int location, int v0, int v1);
+	public abstract void uniform2i(int location, int v0, int v1);
 	
-	public void uniform2iv(int location, WebGLIntArray v);
+	public abstract void uniform2iv(int location, WebGLIntArray v);
 	
-	public void uniform2iv(int location, int[] values);
+	public abstract void uniform2iv(int location, int[] values);
 	
-	public void uniform3f(int location, float v0, float v1, float v2);
+	public abstract void uniform3f(int location, float v0, float v1, float v2);
 	
-	public void uniform3fv(int location, WebGLFloatArray v);
+	public abstract void uniform3fv(int location, WebGLFloatArray v);
 	
-	public void uniform3fv(int location, float[] values);
+	public abstract void uniform3fv(int location, float[] values);
 
-	public void uniform3i(int location, int v0, int v1, int v2);
+	public abstract void uniform3i(int location, int v0, int v1, int v2);
 	
-	public void uniform3iv(int location, WebGLIntArray v);
+	public abstract void uniform3iv(int location, WebGLIntArray v);
 	
-	public void uniform3iv(int location, int[] values);
+	public abstract void uniform3iv(int location, int[] values);
 	
-	public void uniform4f(int location, float v0, float v1, float v2, float v3);
+	public abstract void uniform4f(int location, float v0, float v1, float v2, float v3);
 	
-	public void uniform4fv(int location, WebGLFloatArray v);
+	public abstract void uniform4fv(int location, WebGLFloatArray v);
 	
-	public void uniform4fv(int location, float[] values);
+	public abstract void uniform4fv(int location, float[] values);
 
-	public void uniform4i(int location, int v0, int v1, int v2, int v3);
+	public abstract void uniform4i(int location, int v0, int v1, int v2, int v3);
 	
-	public void uniform4iv(int location, WebGLIntArray v);
+	public abstract void uniform4iv(int location, WebGLIntArray v);
 	
-	public void uniform4iv(int location, int[] values);
+	public abstract void uniform4iv(int location, int[] values);
 
-	public void uniformMatrix2fv(int location, boolean transpose,
+	public abstract void uniformMatrix2fv(int location, boolean transpose,
 			WebGLFloatArray value);
 	
-	public void uniformMatrix2fv(int location, boolean transpose,
+	public abstract void uniformMatrix2fv(int location, boolean transpose,
 			float[] value);
 
-	public void uniformMatrix3fv(int location, boolean transpose,
+	public abstract void uniformMatrix3fv(int location, boolean transpose,
 			WebGLFloatArray value);
 	
-	public void uniformMatrix3fv(int location, boolean transpose,
+	public abstract void uniformMatrix3fv(int location, boolean transpose,
 			float[] value);
 
-	public void uniformMatrix4fv(int location, boolean transpose,
+	public abstract void uniformMatrix4fv(int location, boolean transpose,
 			WebGLFloatArray value);
 	
-	public void uniformMatrix4fv(int location, boolean transpose,
+	public abstract void uniformMatrix4fv(int location, boolean transpose,
 			float[] value);
 
-	public WebGLActiveInfo getActiveUniform(WebGLProgram program, int idx);
+	public abstract WebGLActiveInfo getActiveUniform(WebGLProgram program, int idx);
 	
 	@JsName("getUniform")
-	public boolean getUniformb(WebGLProgram program, int location);
+	public abstract boolean getUniformb(WebGLProgram program, int location);
 	
 	@JsName("getUniform")
-	public int getUniformi(WebGLProgram program, int location);
+	public abstract int getUniformi(WebGLProgram program, int location);
 	
 	@JsName("getUniform")
-	public float getUniformf(WebGLProgram program, int location);
+	public abstract float getUniformf(WebGLProgram program, int location);
 	
 	@JsName("getUniform")
-	public <T extends WebGLArray<?>> T getUniforma(WebGLProgram program, int location);
+	public abstract <T extends WebGLArray<?>> T getUniforma(WebGLProgram program, int location);
 
-	public int getUniformLocation(WebGLProgram program, String name);
+	public abstract int getUniformLocation(WebGLProgram program, String name);
 	
 	// //////////////////////
 	// Attribute variables //
 	// //////////////////////
 	
-	public void vertexAttribPointer(int idx, int size, int type, boolean norm,
+	public abstract void vertexAttribPointer(int idx, int size, int type, boolean norm,
 			int stride, int offset);
 
-	public void enableVertexAttribArray(int index);
+	public abstract void enableVertexAttribArray(int index);
 	
-	public void disableVertexAttribArray(int index);
+	public abstract void disableVertexAttribArray(int index);
 
-	public int getAttribLocation(WebGLProgram program, String name);
+	public abstract int getAttribLocation(WebGLProgram program, String name);
 	
-	public void bindAttribLocation(WebGLProgram program, int idx,
+	public abstract void bindAttribLocation(WebGLProgram program, int idx,
 			String name);
 	
-	public WebGLActiveInfo getActiveAttrib(WebGLProgram program, int idx);
+	public abstract WebGLActiveInfo getActiveAttrib(WebGLProgram program, int idx);
 
 	/**
 	 * @param index
@@ -403,7 +811,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 *            VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, CURRENT_VERTEX_ATTRIB
 	 * @return
 	 */
-	public <T extends JavaScriptObject> T getVertexAttrib(int index, int pname);
+	public abstract <T extends JavaScriptObject> T getVertexAttrib(int index, int pname);
 	
 	/**
 	 * @param index
@@ -412,7 +820,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName("getVertexAttrib")
-	public boolean getVertexAttribb(int index, int pname);
+	public abstract boolean getVertexAttribb(int index, int pname);
 
 	/**
 	 * @param index
@@ -422,33 +830,33 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName("getVertexAttrib")
-	public int getVertexAttribi(int index, int pname);
+	public abstract int getVertexAttribi(int index, int pname);
 	
-	public int getVertexAttribOffset(int index, String pname);
+	public abstract int getVertexAttribOffset(int index, String pname);
 	
-	public void vertexAttrib1f(int indx, float x);
+	public abstract void vertexAttrib1f(int indx, float x);
 
-	public void vertexAttrib2f(int indx, float x, float y);
+	public abstract void vertexAttrib2f(int indx, float x, float y);
 
-	public void vertexAttrib3f(int indx, float x, float y, float z);
+	public abstract void vertexAttrib3f(int indx, float x, float y, float z);
 
-	public void vertexAttrib4f(int indx, float x, float y, float z, float w);
+	public abstract void vertexAttrib4f(int indx, float x, float y, float z, float w);
 
-	public void vertexAttrib1fv(int indx, WebGLFloatArray values);
+	public abstract void vertexAttrib1fv(int indx, WebGLFloatArray values);
 
-	public void vertexAttrib1fv(int indx, float[] values);
+	public abstract void vertexAttrib1fv(int indx, float[] values);
 
-	public void vertexAttrib2fv(int indx, WebGLFloatArray values);
+	public abstract void vertexAttrib2fv(int indx, WebGLFloatArray values);
 
-	public void vertexAttrib2fv(int indx, float[] values);
+	public abstract void vertexAttrib2fv(int indx, float[] values);
 
-	public void vertexAttrib3fv(int indx, WebGLFloatArray values);
+	public abstract void vertexAttrib3fv(int indx, WebGLFloatArray values);
 
-	public void vertexAttrib3fv(int indx, float[] values);
+	public abstract void vertexAttrib3fv(int indx, float[] values);
 
-	public void vertexAttrib4fv(int indx, WebGLFloatArray values);
+	public abstract void vertexAttrib4fv(int indx, WebGLFloatArray values);
 
-	public void vertexAttrib4fv(int indx, float[] values);
+	public abstract void vertexAttrib4fv(int indx, float[] values);
 	
 	// /////////////
 	// Array data //
@@ -459,7 +867,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param first
 	 * @param count
 	 */
-	public void drawArrays(int mode, int first, int count);
+	public abstract void drawArrays(int mode, int first, int count);
 	
 	/**
 	 * @param mode
@@ -467,33 +875,33 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param type UNSIGNED_BYTE UNSIGNED_SHORT
 	 * @param offset
 	 */
-	void drawElements(int mode, int count, int type, int offset);  
+	public abstract void drawElements(int mode, int count, int type, int offset);  
 
 	// ////////////
 	// Textures //
 	// ////////////
 
-	public WebGLTexture createTexture();
+	public abstract WebGLTexture createTexture();
 
-	public void deleteTexture(WebGLTexture texture);
+	public abstract void deleteTexture(WebGLTexture texture);
 
 	/**
 	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
 	 * @param texture the texture to delete
 	 */
-	public void bindTexture(int target, WebGLTexture texture);
+	public abstract void bindTexture(int target, WebGLTexture texture);
 
 	/**
 	 * @param texture the texture unit (TEXTURE0, TEXTURE1, ...)
 	 */
-	public void activeTexture(int texture);
+	public abstract void activeTexture(int texture);
 
 	/**
 	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
 	 * @param level
 	 * @param data JavaScript Image to set
 	 */
-	public void texImage2D(int target, int level, JavaScriptObject data);
+	public abstract void texImage2D(int target, int level, JavaScriptObject data);
 
 	/**
 	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
@@ -506,12 +914,12 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param type UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5
 	 * @param data JavaScript Image to set
 	 */
-	public void texImage2D(int target, int level, int intformat, int width,
+	public abstract void texImage2D(int target, int level, int intformat, int width,
 			int height, int border, int format, int type, JavaScriptObject data);
 
-	public boolean isTexture(WebGLTexture texture);
+	public abstract boolean isTexture(WebGLTexture texture);
 
-	public void generateMipmap(int target);
+	public abstract void generateMipmap(int target);
 	
 	/**
 	 * @param target
@@ -519,17 +927,17 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @return
 	 */
 	@JsName("getTexParameter")
-	public int getTexParameteri(int target, int pname);
+	public abstract int getTexParameteri(int target, int pname);
 	
-	public void texParameteri(int target, int pname, int value);
+	public abstract void texParameteri(int target, int pname, int value);
 	
-	public void texParameterf(int target, int pname, float value);
+	public abstract void texParameterf(int target, int pname, float value);
 
-	void copyTexSubImage2D(int target, int level, int intformat, int xoffset, int yoffset, int x, int y, int width, int height);
+	public abstract void copyTexSubImage2D(int target, int level, int intformat, int xoffset, int yoffset, int x, int y, int width, int height);
 	
-	void copyTexImage2D(int target, int level, int intformat, int x, int y, int width, int height, int border);
+	public abstract void copyTexImage2D(int target, int level, int intformat, int x, int y, int width, int height, int border);
 	
-	void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, JavaScriptObject data);
+	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, JavaScriptObject data);
 
 	// //////////
 	// Culling //
@@ -538,12 +946,12 @@ public interface WebGLRenderingContext extends IBinding {
 	/**
 	 * @param mode FRONT BACK FRONT_AND_BACK
 	 */
-	public void cullFace(int mode);
+	public abstract void cullFace(int mode);
 
 	/**
 	 * @param mode CW CCW
 	 */
-	public void frontFace(int mode);
+	public abstract void frontFace(int mode);
 	
 	// ///////////
 	// Blending //
@@ -553,18 +961,18 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param sfactor ZERO ONE SRC_COLOR DST_COLOR SRC_ALPHA DST_ALPHA CONSTANT_COLOR CONSTANT_ALPHA ONE_MINUS_SRC_ALPHA ONE_MINUS_DST_ALPHA ONE_MINUS_SRC_COLOR ONE_MINUS_DST_COLOR ONE_MINUS_CONSTANT_COLOR ONE_MINUS_CONSTANT_ALPHA SRC_ALPHA_SATURATE
 	 * @param dfactor ZERO ONE SRC_COLOR DST_COLOR SRC_ALPHA DST_ALPHA CONSTANT_COLOR CONSTANT_ALPHA ONE_MINUS_SRC_ALPHA ONE_MINUS_DST_ALPHA ONE_MINUS_SRC_COLOR ONE_MINUS_DST_COLOR ONE_MINUS_CONSTANT_COLOR ONE_MINUS_CONSTANT_ALPHA
 	 */
-	public void blendFunc(int sfactor, int dfactor);
+	public abstract void blendFunc(int sfactor, int dfactor);
 	
-	public void blendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+	public abstract void blendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 	
 	/**
 	 * @param mode FUNC_ADD FUNC_SUBTRACT FUNC_REVERSE_SUBTRACT
 	 */
-	public void blendEquation(int mode);
+	public abstract void blendEquation(int mode);
 	
-	public void blendEquationSeparate(int modeRGB, int modeAlpha);
+	public abstract void blendEquationSeparate(int modeRGB, int modeAlpha);
 	
-	public void blendColor(float red, float green, float blue, float alpha);  
+	public abstract void blendColor(float red, float green, float blue, float alpha);  
 	
 	// ///////////////
 	// Depth buffer //
@@ -573,35 +981,35 @@ public interface WebGLRenderingContext extends IBinding {
 	/**
 	 * @param func NEVER LESS EQUAL LEQUAL GREATER NOTEQUAL GEQUAL ALWAYS
 	 */
-	public void depthFunc(int func);  
+	public abstract void depthFunc(int func);  
 
-	public void depthMask(boolean flag);  
+	public abstract void depthMask(boolean flag);  
 	
-	public void depthRange(float nearVal, float farVal);  
+	public abstract void depthRange(float nearVal, float farVal);  
 	
-	public void clearDepth(float depth);
+	public abstract void clearDepth(float depth);
 	
-	public void polygonOffset(float factor, float units);  
+	public abstract void polygonOffset(float factor, float units);  
 	
 	// ///////////////
 	// Framebuffers //
 	//////////////////
 	
-	public WebGLFramebuffer createFramebuffer();
+	public abstract WebGLFramebuffer createFramebuffer();
 	
-	public void deleteFramebuffer(WebGLFramebuffer buffer);
+	public abstract void deleteFramebuffer(WebGLFramebuffer buffer);
 	
 	/**
 	 * @param target FRAMEBUFFER
 	 * @param buffer
 	 */
-	public void bindFramebuffer(int target, WebGLFramebuffer buffer);
+	public abstract void bindFramebuffer(int target, WebGLFramebuffer buffer);
 	
 	/**
 	 * @param target
 	 * @return one of the following constants: FRAMEBUFFER_COMPLETE FRAMEBUFFER_INCOMPLETE_ATTACHMENT FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT FRAMEBUFFER_INCOMPLETE_DIMENSIONS FRAMEBUFFER_UNSUPPORTED
 	 */
-	public int checkFramebufferStatus(int target);
+	public abstract int checkFramebufferStatus(int target);
 	
 	/**
 	 * @param target
@@ -610,7 +1018,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param rbuffer
 	 * @return
 	 */
-	public int framebufferRenderbuffer(int target, int att, int rbtarget, WebGLRenderbuffer rbuffer);
+	public abstract int framebufferRenderbuffer(int target, int att, int rbtarget, WebGLRenderbuffer rbuffer);
 	
 	/**
 	 * @param target
@@ -618,7 +1026,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param pname
 	 * @return
 	 */
-	public int getFramebufferAttachmentParameteri(int target, int attachment, int pname);
+	public abstract int getFramebufferAttachmentParameteri(int target, int attachment, int pname);
 	
 	/**
 	 * @param target
@@ -628,13 +1036,13 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param level
 	 * @return
 	 */
-	public int framebufferTexture2D(int target, int att, int textarget, WebGLTexture tex, int level);
+	public abstract int framebufferTexture2D(int target, int att, int textarget, WebGLTexture tex, int level);
 	
 	/**
 	 * @param pname PACK_ALIGNMENT UNPACK_ALIGNMENT
 	 * @param param
 	 */
-	public void pixelStorei(int pname, int param);
+	public abstract void pixelStorei(int pname, int param);
 	
 	/**
 	 * @param x
@@ -645,9 +1053,9 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param type UNSIGNED_BYTE UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_6_5
 	 * @return
 	 */
-	public <T extends WebGLArray<?>> T readPixels(int x, int y, int width, int height, int format, int type);
+	public abstract <T extends WebGLArray<?>> T readPixels(int x, int y, int width, int height, int format, int type);
 	
-	public boolean isFramebuffer(WebGLFramebuffer buffer);
+	public abstract boolean isFramebuffer(WebGLFramebuffer buffer);
 	
 	// /////////////////
 	// Stencil buffer //
@@ -658,7 +1066,7 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param ref
 	 * @param mask
 	 */
-	void stencilFunc(int func, int ref, int mask);
+	public abstract void stencilFunc(int func, int ref, int mask);
 	
 	/**
 	 * @param face FRONT BACK FRONT_AND_BACK
@@ -666,27 +1074,27 @@ public interface WebGLRenderingContext extends IBinding {
 	 * @param ref
 	 * @param mask
 	 */
-	void stencilFuncSeparate(int face, int func, int ref, int mask);
+	public abstract void stencilFuncSeparate(int face, int func, int ref, int mask);
 	
-	void stencilMask(int mask);
+	public abstract void stencilMask(int mask);
 	
-	void stencilMaskSeparate(int face, int mask);
+	public abstract void stencilMaskSeparate(int face, int mask);
 	
 	/**
 	 * @param sfail KEEP ZERO INCR INCR_WRAP REPLACE INVERT DECR DECR_WRAP
 	 * @param dpfail KEEP ZERO INCR INCR_WRAP REPLACE INVERT DECR DECR_WRAP
 	 * @param dppass KEEP ZERO INCR INCR_WRAP REPLACE INVERT DECR DECR_WRAP
 	 */
-	void stencilOp(int sfail, int dpfail, int dppass);
+	public abstract void stencilOp(int sfail, int dpfail, int dppass);
 	
-	void stencilOpSeparate(int face, int sfail, int dpfail, int dppass);
+	public abstract void stencilOpSeparate(int face, int sfail, int dpfail, int dppass);
 	
-	void clearStencil(int s);
+	public abstract void clearStencil(int s);
 	
 	// ////////////////
 	// Multisampling //
 	// ////////////////
 	
-	void sampleCoverage(float value, boolean invert);
+	public abstract void sampleCoverage(float value, boolean invert);
 	
 }

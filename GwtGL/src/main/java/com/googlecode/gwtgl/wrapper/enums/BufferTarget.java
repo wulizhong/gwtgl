@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,9 +23,9 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum BufferTarget implements IWebGLConstEnum {
-	ARRAY_BUFFER(WebGLCanvas.ARRAY_BUFFER, WebGLCanvas.ARRAY_BUFFER_BINDING), ELEMENT_ARRAY_BUFFER(
-			WebGLCanvas.ELEMENT_ARRAY_BUFFER,
-			WebGLCanvas.ELEMENT_ARRAY_BUFFER_BINDING);
+	ARRAY_BUFFER(WebGLRenderingContext.ARRAY_BUFFER, WebGLRenderingContext.ARRAY_BUFFER_BINDING), ELEMENT_ARRAY_BUFFER(
+			WebGLRenderingContext.ELEMENT_ARRAY_BUFFER,
+			WebGLRenderingContext.ELEMENT_ARRAY_BUFFER_BINDING);
 	
 	private final int target;
 	private final int binding;

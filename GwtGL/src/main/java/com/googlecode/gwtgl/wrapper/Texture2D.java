@@ -21,7 +21,6 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.googlecode.gwtgl.binding.WebGLCanvas;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.binding.WebGLTexture;
 import com.googlecode.gwtgl.wrapper.enums.TextureTarget;
@@ -140,7 +139,7 @@ public class Texture2D {
 	 * @param textureUnit 0, 1, ... MAX
 	 */
 	public void setActiveAndBind(int textureUnit) {
-		glContext.activeTexture(WebGLCanvas.TEXTURE0 + textureUnit);
+		glContext.activeTexture(WebGLRenderingContext.TEXTURE0 + textureUnit);
 		glContext.bindTexture(target.getIntValue(), nativeTextureObject);
 		if (imageToSet != null) {
 			glContext.texImage2D(target.getIntValue(), levelOfDetail, imageToSet
