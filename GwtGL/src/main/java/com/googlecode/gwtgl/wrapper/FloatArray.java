@@ -125,6 +125,15 @@ public class FloatArray extends Array<WebGLFloatArray, Float> {
 	};
 	
 	/**
+	 * Set multiple values, reading input values from the array.
+	 * 
+	 * @param array
+	 */
+	public void set(WebGLFloatArray array) {
+		getNativeArray().set(array);
+	};
+	
+	/**
 	 * Set multiple values, reading input values from the array. The optional offset value indicates the index in the current array where values are written. If omitted, it is assumed to be 0.
 	 * 
 	 * If the offset plus the length of the given array is out of range for the current WebGLArray, an exception is raised.
@@ -134,6 +143,15 @@ public class FloatArray extends Array<WebGLFloatArray, Float> {
 	 */
 	public void set(WebGLFloatArray array, int offset) {
 		getNativeArray().set(array, offset);
+	};
+	
+	/**
+	 * Set multiple values, reading input values from the array.
+	 * 
+	 * @param array
+	 */
+	public void set(float[] array) {
+		getNativeArray().set(array);
 	};
 	
 	/**

@@ -56,6 +56,17 @@ public abstract class IntBasedWebGLArray<T extends IntBasedWebGLArray<T>> extend
 	}-*/;
 	
 	/**
+	 * Set multiple values, reading input values from the array.
+	 * 
+	 * If the length of the given array is out of range for the current WebGLArray, an exception is raised.
+	 * 
+	 * @param array
+	 */
+	public final native void set(T array) /*-{
+		this.set(array);
+	}-*/;
+	
+	/**
 	 * Set multiple values, reading input values from the array. The optional offset value indicates the index in the current array where values are written. If omitted, it is assumed to be 0.
 	 * 
 	 * If the offset plus the length of the given array is out of range for the current WebGLArray, an exception is raised.
@@ -65,6 +76,15 @@ public abstract class IntBasedWebGLArray<T extends IntBasedWebGLArray<T>> extend
 	 */
 	public final native void set(T array, int offset) /*-{
 		this.set(array, offset);
+	}-*/;
+	
+	/**
+	 * Set multiple values, reading input values from the array.
+	 * 
+	 * @param array
+	 */
+	public final native void set(int[] array) /*-{
+		this.set(array);
 	}-*/;
 	
 	/**
