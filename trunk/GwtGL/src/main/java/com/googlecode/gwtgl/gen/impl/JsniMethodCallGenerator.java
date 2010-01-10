@@ -41,11 +41,12 @@ import com.googlecode.gwtgl.gen.api.Wrap;
  */
 public class JsniMethodCallGenerator extends Generator {
 
-	private String qualifiedInterfaceName;
+	private String qualifiedSuperTypeName;
 	private String qualifiedClassName;
-	private String className;
+	private String generatedClassName;
 	private String packageName;
 	private ClassSourceFileComposerFactory composer;
+	private JClassType superType;
 
 	@Override
 	public String generate(TreeLogger logger, GeneratorContext context,
@@ -53,18 +54,14 @@ public class JsniMethodCallGenerator extends Generator {
 		
 		TypeOracle typeOracle = context.getTypeOracle();
 		try {
-			// get class infos
-			JClassType interfaceType = typeOracle.getType(typeName);
-			if(interfaceType.isInterface()==null) {
-				throw new IllegalArgumentException("The generator only works for interfaces.");
-			}
-			qualifiedInterfaceName = interfaceType.isInterface().getQualifiedSourceName();
-			packageName = interfaceType.getPackage().getName();
-			String simpleInterfaceName = interfaceType.getSimpleSourceName();
-			className = simpleInterfaceName + "Binding";
-			qualifiedClassName = packageName+"."+className;
+			superType = typeOracle.getType(typeName);
+			qualifiedSuperTypeName = superType.isClassOrInterface().getQualifiedSourceName();
+			packageName = superType.getPackage().getName();
+			String simpleInterfaceName = superType.getSimpleSourceName();
+			generatedClassName = simpleInterfaceName + "Binding";
+			qualifiedClassName = packageName+"."+generatedClassName;
 			// Generate the class if it doesn't exist yet
-			generateBindingClass(logger, context, interfaceType);
+			generateBindingClass(logger, context, superType);
 		} catch (Exception e) {
 			logger.log(Type.ERROR, e.getMessage());
 			throw new UnableToCompleteException();
@@ -77,15 +74,19 @@ public class JsniMethodCallGenerator extends Generator {
 			GeneratorContext context, JClassType classType) {
 
 		PrintWriter printWriter = context.tryCreate(logger, packageName,
-				className);
+				generatedClassName);
 
 		if (printWriter == null) {
 			return;
 		}
 
 		composer = null;
-		composer = new ClassSourceFileComposerFactory(packageName, className);
-		composer.addImplementedInterface(qualifiedInterfaceName);
+		composer = new ClassSourceFileComposerFactory(packageName, generatedClassName);
+		if(superType.isInterface() != null) {
+			composer.addImplementedInterface(qualifiedSuperTypeName);
+		} else if(superType.isClass() != null) {
+			composer.setSuperclass(qualifiedSuperTypeName);
+		}
 		composer.addImport(JavaScriptObject.class.getName());
 		SourceWriter sourceWriter = null;
 		sourceWriter = composer.createSourceWriter(context, printWriter);
@@ -139,7 +140,7 @@ public class JsniMethodCallGenerator extends Generator {
 				}
 			}
 
-			sourceWriter.print("this.@" + packageName + "." + className
+			sourceWriter.print("this.@" + packageName + "." + generatedClassName
 					+ "::nativeObj." + jsMethod + "(");
 
 			boolean first = true;
@@ -167,6 +168,9 @@ public class JsniMethodCallGenerator extends Generator {
 		
 		for(JClassType clazz:classType.getImplementedInterfaces()) {
 			generateForType(clazz, sourceWriter);
+		}
+		if(!"java.lang.Object".equals(classType.getSuperclass().getQualifiedSourceName())) {
+			generateForType(classType.getSuperclass(), sourceWriter);
 		}
 	}
 
