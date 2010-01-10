@@ -62,6 +62,35 @@ public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
 	}-*/;
 	
 	/**
+	 * Create a new WebGLIntArray object using the passed WebGLArrayBuffer for its storage.
+	 * 
+	 * @param buffer
+	 * @return the created WebGLIntArray
+	 */
+	public static native WebGLIntArray create(WebGLArrayBuffer buffer) /*-{
+		return new WebGLIntArray(buffer);
+	}-*/;
+	
+	/**
+	 * Create a new WebGLIntArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * 
+	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
+	 * 
+	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * 
+	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
+	 * 
+	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.
+	 * 
+	 * @param buffer
+	 * @param byteOffset
+	 * @return the created WebGLIntArray
+	 */
+	public static native WebGLIntArray create(WebGLArrayBuffer buffer, int byteOffset) /*-{
+		return new WebGLIntArray(buffer, byteOffset);
+	}-*/;
+	
+	/**
 	 * Create a new WebGLIntArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
