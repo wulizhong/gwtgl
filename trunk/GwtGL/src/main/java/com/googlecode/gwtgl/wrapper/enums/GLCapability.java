@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -24,15 +24,15 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum GLCapability implements IWebGLConstEnum {
-	BLEND(WebGLCanvas.BLEND),
-	CULL_FACE(WebGLCanvas.CULL_FACE),
-	DEPTH_TEST(WebGLCanvas.DEPTH_TEST),
-	DITHER(WebGLCanvas.DITHER),
-	POLYGON_OFFSET_FILL(WebGLCanvas.POLYGON_OFFSET_FILL),
-	SAMPLE_ALPHA_TO_COVERAGE(WebGLCanvas.SAMPLE_ALPHA_TO_COVERAGE),
-	SAMPLE_COVERAGE(WebGLCanvas.SAMPLE_COVERAGE),
-	SCISSOR_TEST(WebGLCanvas.SCISSOR_TEST),
-	STENCIL_TEST(WebGLCanvas.STENCIL_TEST);
+	BLEND(WebGLRenderingContext.BLEND),
+	CULL_FACE(WebGLRenderingContext.CULL_FACE),
+	DEPTH_TEST(WebGLRenderingContext.DEPTH_TEST),
+	DITHER(WebGLRenderingContext.DITHER),
+	POLYGON_OFFSET_FILL(WebGLRenderingContext.POLYGON_OFFSET_FILL),
+	SAMPLE_ALPHA_TO_COVERAGE(WebGLRenderingContext.SAMPLE_ALPHA_TO_COVERAGE),
+	SAMPLE_COVERAGE(WebGLRenderingContext.SAMPLE_COVERAGE),
+	SCISSOR_TEST(WebGLRenderingContext.SCISSOR_TEST),
+	STENCIL_TEST(WebGLRenderingContext.STENCIL_TEST);
 	
 	private final int value;
 

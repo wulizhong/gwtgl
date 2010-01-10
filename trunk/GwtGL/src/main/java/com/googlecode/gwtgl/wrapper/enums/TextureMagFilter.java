@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,8 +23,8 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum TextureMagFilter implements IWebGLConstEnum {
-	NEAREST(WebGLCanvas.NEAREST),
-	LINEAR(WebGLCanvas.LINEAR);
+	NEAREST(WebGLRenderingContext.NEAREST),
+	LINEAR(WebGLRenderingContext.LINEAR);
 	
 	private final int value;
 

@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,8 +23,8 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum ShaderType implements IWebGLConstEnum {
-	VERTEX_SHADER(WebGLCanvas.VERTEX_SHADER),
-	FRAGMENT_SHADER(WebGLCanvas.FRAGMENT_SHADER);
+	VERTEX_SHADER(WebGLRenderingContext.VERTEX_SHADER),
+	FRAGMENT_SHADER(WebGLRenderingContext.FRAGMENT_SHADER);
 	
 	private final int type;
 

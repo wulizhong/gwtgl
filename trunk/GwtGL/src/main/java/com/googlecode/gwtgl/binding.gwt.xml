@@ -5,30 +5,6 @@
 	
 	<inherits name='com.googlecode.gwtgl.generator' />
 
-	<replace-with class='com.googlecode.gwtgl.binding.impl.WebGlContextInitializerWebkit'>
-		<when-type-is class='com.googlecode.gwtgl.binding.impl.AbstractWebGlContextInitializer' />
-		<when-property-is name='user.agent' value='safari' />
-	</replace-with>
-
-	<replace-with class='com.googlecode.gwtgl.binding.impl.WebGlContextInitializerGecko'>
-		<when-type-is class='com.googlecode.gwtgl.binding.impl.AbstractWebGlContextInitializer' />
-		<any>
-			<!-- Old Gecko versions don't support WebGl -->
-			<!--<when-property-is name='user.agent' value='gecko' />-->
-			<when-property-is name='user.agent' value='gecko1_8' />
-		</any>
-	</replace-with>
-
-	<!--<replace-with class='com.googlecode.gwtgl.binding.client.impl.WebGlCanvasImpl...'>
-		<when-type-is class='com.googlecode.gwtgl.binding.impl.AbstractWebGlContextInitializer' />
-		<when-property-is name='user.agent' value='ie6' />
-	</replace-with>-->
-
-	<!--<replace-with class='com.googlecode.gwtgl.binding.client.impl.WebGlCanvasImpl...'>
-		<when-type-is class='com.googlecode.gwtgl.binding.impl.AbstractWebGlContextInitializer' />
-		<when-property-is name='user.agent' value='opera' />
-	</replace-with>-->
-
 	<!-- WebGLRenderingContext is the official name of the spec. So this is the default. -->
 	<define-property name="webgl_type" values="WebGLRenderingContext,CanvasRenderingContextWebGL"/>
 	<set-property name="webgl_type" value="WebGLRenderingContext" />

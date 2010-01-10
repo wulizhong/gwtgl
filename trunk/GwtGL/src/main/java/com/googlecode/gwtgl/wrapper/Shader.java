@@ -15,7 +15,6 @@
  */
 package com.googlecode.gwtgl.wrapper;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.binding.WebGLShader;
 import com.googlecode.gwtgl.wrapper.enums.ShaderType;
@@ -91,7 +90,7 @@ public class Shader {
 	 * @return true, if the shader is compiled, false otherwise
 	 */
 	public boolean isCompiled() {
-		return glContext.getShaderParameterb(nativeShaderObject, WebGLCanvas.COMPILE_STATUS);
+		return glContext.getShaderParameterb(nativeShaderObject, WebGLRenderingContext.COMPILE_STATUS);
 	}
 	
 	/**
@@ -100,7 +99,7 @@ public class Shader {
 	 * @return true, if the shader is deleted, false otherwise
 	 */
 	public boolean isDeleted() {
-		return glContext.getShaderParameterb(nativeShaderObject, WebGLCanvas.DELETE_STATUS);
+		return glContext.getShaderParameterb(nativeShaderObject, WebGLRenderingContext.DELETE_STATUS);
 	}
 
 	/**
@@ -109,7 +108,7 @@ public class Shader {
 	 * @return the Type of the Shader Object 
 	 */
 	public ShaderType getShaderType() {
-		int val = glContext.getShaderParameteri(nativeShaderObject, WebGLCanvas.SHADER_TYPE);
+		int val = glContext.getShaderParameteri(nativeShaderObject, WebGLRenderingContext.SHADER_TYPE);
 		return ShaderType.getByIntValue(val);
 	}
 	
@@ -119,7 +118,7 @@ public class Shader {
 	 * @return the length of the info log
 	 */
 	public int getInfoLogLength() {
-		return glContext.getShaderParameteri(nativeShaderObject, WebGLCanvas.INFO_LOG_LENGTH);
+		return glContext.getShaderParameteri(nativeShaderObject, WebGLRenderingContext.INFO_LOG_LENGTH);
 	}
 	
 	/**
@@ -128,7 +127,7 @@ public class Shader {
 	 * @return the Shader source length
 	 */
 	public int getShaderSourceLength() {
-		return glContext.getShaderParameteri(nativeShaderObject, WebGLCanvas.SHADER_SOURCE_LENGTH);
+		return glContext.getShaderParameteri(nativeShaderObject, WebGLRenderingContext.SHADER_SOURCE_LENGTH);
 	}
 
 	/**

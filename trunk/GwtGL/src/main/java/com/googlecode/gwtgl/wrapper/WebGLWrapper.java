@@ -15,7 +15,6 @@
  */
 package com.googlecode.gwtgl.wrapper;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
 import com.googlecode.gwtgl.binding.WebGLFloatArray;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.enums.ClearFlag;
@@ -215,7 +214,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glActiveTexture.xml"
 	 */
 	public void activeTexture(int textureUnit) {
-		glContext.activeTexture(WebGLCanvas.TEXTURE0+textureUnit);
+		glContext.activeTexture(WebGLRenderingContext.TEXTURE0+textureUnit);
 	}
 
 	/**
@@ -345,7 +344,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetTexParameter.xml"
 	 */
 	public TextureWrapMode getTextureWrapS(TextureTarget target) {
-		int val = glContext.getTexParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_WRAP_S);
+		int val = glContext.getTexParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_WRAP_S);
 		return TextureWrapMode.getByIntValue(val);
 	}
 	
@@ -357,7 +356,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexParameter.xml"
 	 */
 	public void setTextureWrapS(TextureTarget target, TextureWrapMode textureWrapMode) {
-		glContext.texParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_WRAP_S, textureWrapMode.getIntValue());
+		glContext.texParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_WRAP_S, textureWrapMode.getIntValue());
 	}
 	
 	/**
@@ -368,7 +367,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetTexParameter.xml"
 	 */
 	public TextureWrapMode getTextureWrapT(TextureTarget target) {
-		int val = glContext.getTexParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_WRAP_T);
+		int val = glContext.getTexParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_WRAP_T);
 		return TextureWrapMode.getByIntValue(val);
 	}
 	
@@ -380,7 +379,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexParameter.xml"
 	 */
 	public void setTextureWrapT(TextureTarget target, TextureWrapMode textureWrapMode) {
-		glContext.texParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_WRAP_T, textureWrapMode.getIntValue());
+		glContext.texParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_WRAP_T, textureWrapMode.getIntValue());
 	}
 	
 	/**
@@ -391,7 +390,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexParameter.xml"
 	 */
 	public void setTextureMinFilter(TextureTarget target, TextureMinFilter textureMinFilter) {
-		glContext.texParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_MIN_FILTER, textureMinFilter.getIntValue());
+		glContext.texParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_MIN_FILTER, textureMinFilter.getIntValue());
 	}
 	
 	/**
@@ -402,7 +401,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetTexParameter.xml"
 	 */
 	public TextureMinFilter getTextureMinFilter(TextureTarget target) {
-		int val = glContext.getTexParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_MIN_FILTER);
+		int val = glContext.getTexParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_MIN_FILTER);
 		return TextureMinFilter.getByIntValue(val);
 	}
 	
@@ -414,7 +413,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexParameter.xml"
 	 */
 	public void setTextureMagFilter(TextureTarget target, TextureMagFilter textureMagFilter) {
-		glContext.texParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_MAG_FILTER, textureMagFilter.getIntValue());
+		glContext.texParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_MAG_FILTER, textureMagFilter.getIntValue());
 	}
 	
 	/**
@@ -425,7 +424,7 @@ public class WebGLWrapper {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetTexParameter.xml"
 	 */
 	public TextureMagFilter getTextureMagFilter(TextureTarget target) {
-		int val = glContext.getTexParameteri(target.getIntValue(), WebGLCanvas.TEXTURE_MAG_FILTER);
+		int val = glContext.getTexParameteri(target.getIntValue(), WebGLRenderingContext.TEXTURE_MAG_FILTER);
 		return TextureMagFilter.getByIntValue(val);
 	}
 }

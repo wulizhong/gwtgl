@@ -15,15 +15,12 @@
  */
 package com.googlecode.gwtgl.binding.impl;
 
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
+import com.googlecode.gwtgl.gen.api.IBinding;
+
 /**
  * @author Steffen Schäfer
- * 
+ *
  */
-public class WebGlContextInitializerWebkit extends AbstractWebGlContextInitializer {
-
-	@Override
-	protected String getContextName() {
-		return "webkit-3d";
-	}
-	
+public abstract class WebGLMethods extends WebGLRenderingContext implements IBinding {
 }

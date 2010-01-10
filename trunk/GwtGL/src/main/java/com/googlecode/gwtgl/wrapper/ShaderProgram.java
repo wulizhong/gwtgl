@@ -15,7 +15,6 @@
  */
 package com.googlecode.gwtgl.wrapper;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
 import com.googlecode.gwtgl.binding.WebGLProgram;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 
@@ -59,7 +58,7 @@ public class ShaderProgram {
 	// TODO check if this is correct and make the method public
 	@SuppressWarnings("unused")
 	private boolean isCurrent() {
-		WebGLProgram program = glContext.getParameter(WebGLCanvas.CURRENT_PROGRAM);
+		WebGLProgram program = glContext.getParameter(WebGLRenderingContext.CURRENT_PROGRAM);
 		if(program == nativeProgramObject || nativeProgramObject.equals(program)) {
 			return true;
 		}
@@ -96,7 +95,7 @@ public class ShaderProgram {
 	 * @return true, if the program is linked, false otherwise
 	 */
 	public boolean isLinked() {
-		return glContext.getProgramParameterb(nativeProgramObject, WebGLCanvas.LINK_STATUS);
+		return glContext.getProgramParameterb(nativeProgramObject, WebGLRenderingContext.LINK_STATUS);
 	}
 	
 	/**
@@ -105,7 +104,7 @@ public class ShaderProgram {
 	 * @return true, if the program is deleted, false otherwise
 	 */
 	public boolean isDeleted() {
-		return glContext.getProgramParameterb(nativeProgramObject, WebGLCanvas.DELETE_STATUS);
+		return glContext.getProgramParameterb(nativeProgramObject, WebGLRenderingContext.DELETE_STATUS);
 	}
 	
 	/**
@@ -114,7 +113,7 @@ public class ShaderProgram {
 	 * @return true, if the program is valid, false otherwise
 	 */
 	public boolean isValid() {
-		return glContext.getProgramParameterb(nativeProgramObject, WebGLCanvas.VALIDATE_STATUS);
+		return glContext.getProgramParameterb(nativeProgramObject, WebGLRenderingContext.VALIDATE_STATUS);
 	}
 	
 	/**
@@ -123,7 +122,7 @@ public class ShaderProgram {
 	 * @return the info log length
 	 */
 	public int getInfoLogLength() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLCanvas.INFO_LOG_LENGTH);
+		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.INFO_LOG_LENGTH);
 	}
 	
 	/**
@@ -132,7 +131,7 @@ public class ShaderProgram {
 	 * @return the active attribute max length length
 	 */
 	public int getActiveAttributeMaxLength() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLCanvas.ACTIVE_ATTRIBUTE_MAX_LENGTH);
+		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_ATTRIBUTE_MAX_LENGTH);
 	}
 	
 	/**
@@ -141,7 +140,7 @@ public class ShaderProgram {
 	 * @return the active uniform max length length
 	 */
 	public int getActiveUniformMaxLength() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLCanvas.ACTIVE_UNIFORM_MAX_LENGTH);
+		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_UNIFORM_MAX_LENGTH);
 	}
 	
 	/**
@@ -150,7 +149,7 @@ public class ShaderProgram {
 	 * @return the number of attached shaders
 	 */
 	public int getNumAttachedShaders() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLCanvas.ATTACHED_SHADERS);
+		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ATTACHED_SHADERS);
 	}
 
 	/**
@@ -159,7 +158,7 @@ public class ShaderProgram {
 	 * @return the number active uniforms
 	 */
 	public int getNumActiveUniforms() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLCanvas.ACTIVE_UNIFORMS);
+		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_UNIFORMS);
 	}
 	
 	/**
@@ -168,7 +167,7 @@ public class ShaderProgram {
 	 * @return the number active attributes
 	 */
 	public int getNumActiveAttributes() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLCanvas.ACTIVE_ATTRIBUTES);
+		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_ATTRIBUTES);
 	}
 	
 	/**

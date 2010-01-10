@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -23,12 +23,12 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum TextureMinFilter implements IWebGLConstEnum {
-	NEAREST(WebGLCanvas.NEAREST),
-	LINEAR(WebGLCanvas.LINEAR),
-	NEAREST_MIPMAP_NEAREST(WebGLCanvas.NEAREST_MIPMAP_NEAREST),
-	LINEAR_MIPMAP_NEAREST(WebGLCanvas.LINEAR_MIPMAP_NEAREST),
-	NEAREST_MIPMAP_LINEAR(WebGLCanvas.NEAREST_MIPMAP_LINEAR),
-	LINEAR_MIPMAP_LINEAR(WebGLCanvas.LINEAR_MIPMAP_LINEAR);
+	NEAREST(WebGLRenderingContext.NEAREST),
+	LINEAR(WebGLRenderingContext.LINEAR),
+	NEAREST_MIPMAP_NEAREST(WebGLRenderingContext.NEAREST_MIPMAP_NEAREST),
+	LINEAR_MIPMAP_NEAREST(WebGLRenderingContext.LINEAR_MIPMAP_NEAREST),
+	NEAREST_MIPMAP_LINEAR(WebGLRenderingContext.NEAREST_MIPMAP_LINEAR),
+	LINEAR_MIPMAP_LINEAR(WebGLRenderingContext.LINEAR_MIPMAP_LINEAR);
 	
 	private final int value;
 

@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper.enums;
 
-import com.googlecode.gwtgl.binding.WebGLCanvas;
+import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
@@ -24,9 +24,9 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
  *
  */
 public enum ClearFlag implements IWebGLConstEnum {
-	COLOR_BUFFER(WebGLCanvas.COLOR_BUFFER_BIT),
-	DEPTH_BUFFER(WebGLCanvas.DEPTH_BUFFER_BIT),
-	STENCIL_BUFFER(WebGLCanvas.STENCIL_BUFFER_BIT);
+	COLOR_BUFFER(WebGLRenderingContext.COLOR_BUFFER_BIT),
+	DEPTH_BUFFER(WebGLRenderingContext.DEPTH_BUFFER_BIT),
+	STENCIL_BUFFER(WebGLRenderingContext.STENCIL_BUFFER_BIT);
 	
 	private final int value;
 
