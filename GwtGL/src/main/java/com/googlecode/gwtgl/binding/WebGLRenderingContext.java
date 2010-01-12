@@ -736,23 +736,97 @@ public abstract class WebGLRenderingContext {
 	// Misc //
 	// ///////
 	
+	
+	/**
+	 * Set the viewport
+	 * @param x x coordinate of the lower left corner of the viewport rectangle, in pixels
+	 * @param y y coordinate of the lower left corner of the viewport rectangle, in pixels
+	 * @param w width of the viewport
+	 * @param h height of the viewport
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glViewport.xml"
+	 */
 	public abstract void viewport(int x, int y, int w, int h);
 	
+	/**
+	 * Specify the width of rasterized lines
+	 * The actual width is determined by rounding the supplied width to the nearest integer. (If the rounding results in the value 0, it is as if the line width were 1.)
+	 * @param width width of rasterized lines. The initial value is 1.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glLineWidth.xml"
+	 */
 	public abstract void lineWidth(float width);
 	
+	/**
+	 * Force execution of GL commands in finite time
+	 * Different GL implementations buffer commands in several different locations, including network buffers and the graphics accelerator itself.
+	 * glFlush empties all of these buffers, causing all issued commands to be executed as quickly as they are accepted by the actual rendering engine.
+	 * Though this execution may not be completed in any particular time period, it does complete in finite time.
+	 * Because any GL program might be executed over a network, or on an accelerator that buffers commands, all programs should call glFlush whenever they count on having all of their previously issued commands completed.
+	 * For example, call glFlush before waiting for user input that depends on the generated image.
+	 * glFlush can return at any time. It does not wait until the execution of all previously issued GL commands is complete.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glFlush.xml"
+	 */
 	public abstract void flush();
 	
+	/**
+	 * Block until all GL execution is complete
+	 * glFinish does not return until the effects of all previously called GL commands are complete.
+	 * Such effects include all changes to GL state, all changes to connection state, and all changes to the frame buffer contents.
+	 * glFinish requires a round trip to the server.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glFinish.xml"
+	 */
 	public abstract void finish();
 	
 	/**
-	 * @param mask COLOR_BUFFER_BIT DEPTH_BUFFER_BIT STENCIL_BUFFER_BIT
+	 * Clear buffers to preset values
+	 * glClear sets the bitplane area of the window to values previously selected by {@link #clearColor(float, float, float, float)}, {@link #clearDepth(float)}, and {@link #clearStencil(int)}.
+	 * The pixel ownership test, the scissor test, dithering, and the buffer writemasks affect the operation of {@link #clear(int)}.
+	 * The scissor box bounds the cleared region. Blend function, stenciling, fragment shading, and depth-buffering are ignored by {@link #clear(int)}.
+	 * @param mask bitwise OR of several values indicating which buffer is to be cleared. Possible values: {@link #COLOR_BUFFER_BIT} {@link #DEPTH_BUFFER_BIT} {@link #STENCIL_BUFFER_BIT}
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glClear.xml"
 	 */
 	public abstract void clear(int mask);
 	
+	/**
+	 * Enable and disable writing of frame buffer color components
+	 * {@link #colorMask(boolean, boolean, boolean, boolean)} specifies whether the individual color components in the frame buffer can or cannot be written.
+	 * If red is true, for example, no change is made to the red component of any pixel in any of the color buffers, regardless of the drawing operation attempted.
+	 * Changes to individual bits of components cannot be controlled.
+	 * Rather, changes are either enabled or disabled for entire color components.
+	 * @param red Specify whether red can or cannot be written into the frame buffer. The initial value is true, indicating that the color components can be written.
+	 * @param green Specify whether green can or cannot be written into the frame buffer. The initial value is true, indicating that the color components can be written.
+	 * @param blue Specify whether blue can or cannot be written into the frame buffer. The initial value is true, indicating that the color components can be written.
+	 * @param alpha Specify whether alpha can or cannot be written into the frame buffer. The initial value is true, indicating that the color components can be written.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glColorMask.xml"
+	 */
 	public abstract void colorMask(boolean red, boolean green, boolean blue, boolean alpha);
 	
+	/**
+	 * Specify clear values for the color buffers
+	 * {@link #clearColor(float, float, float, float)} specifies the red, green, blue, and alpha values used by {@link #clear(int)} to clear the color buffers.
+	 * Values specified by {@link #clearColor(float, float, float, float)} are clamped to the range [0,1].
+	 * @param red red value used when the color buffers are cleared. The initial value is 0.
+	 * @param green green value used when the color buffers are cleared. The initial value is 0.
+	 * @param blue blue value used when the color buffers are cleared. The initial value is 0.
+	 * @param alpha alpha value used when the color buffers are cleared. The initial value is 0.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glClearColor.xml"
+	 */
 	public abstract void clearColor(float red, float green, float blue, float alpha);
 	
+	/**
+	 * Define the scissor box
+	 * {@link #scissor(int, int, int, int)} defines a rectangle, called the scissor box, in window coordinates.
+	 * The first two arguments, x and y, specify the lower left corner of the box. width and height specify the width and height of the box.
+	 * To enable and disable the scissor test, call {@link #enable(int)} and {@link #disable(int)} with argument {@link #SCISSOR_TEST}. The test is initially disabled.
+	 * While the test is enabled, only pixels that lie within the scissor box can be modified by drawing commands.
+	 * Window coordinates have integer values at the shared corners of frame buffer pixels.
+	 * scissor(0,0,1,1) allows modification of only the lower left pixel in the window, and scissor(0,0,0,0) doesn't allow modification of any pixels in the window.
+	 * When the scissor test is disabled, it is as though the scissor box includes the entire canvas.
+	 * @param x x coordinate of lower left corner of the scissor box. Initially 0.
+	 * @param y y coordinate of lower left corner of the scissor box. Initially 0.
+	 * @param width width of the scissor box.
+	 * @param height height of the scissor box.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glScissor.xml"
+	 */
 	public abstract void scissor(int x, int y, int width, int height);
 	
 
