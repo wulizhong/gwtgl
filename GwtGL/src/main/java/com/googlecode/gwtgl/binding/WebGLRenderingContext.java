@@ -1270,9 +1270,26 @@ public abstract class WebGLRenderingContext {
 	/**
 	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
 	 * @param level
-	 * @param data JavaScript Image to set
+	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
 	 */
 	public abstract void texImage2D(int target, int level, JavaScriptObject data);
+	
+	/**
+	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
+	 * @param level
+	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 * @param flipY 
+	 */
+	public abstract void texImage2D(int target, int level, JavaScriptObject data, boolean flipY);
+	
+	/**
+	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
+	 * @param level
+	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 * @param flipY 
+	 * @param asPremultipliedAlpha 
+	 */
+	public abstract void texImage2D(int target, int level, JavaScriptObject data, boolean flipY, boolean asPremultipliedAlpha);
 
 	/**
 	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
@@ -1283,10 +1300,10 @@ public abstract class WebGLRenderingContext {
 	 * @param border
 	 * @param format ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA
 	 * @param type UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5
-	 * @param data JavaScript Image to set
+	 * @param pixels
 	 */
-	public abstract void texImage2D(int target, int level, int intformat, int width,
-			int height, int border, int format, int type, JavaScriptObject data);
+	public abstract void texImage2D(int target, int level, int internalformat, int width,
+			int height, int border, int format, int type, WebGLArray<?> pixels);
 
 	public abstract boolean isTexture(WebGLTexture texture);
 
@@ -1308,8 +1325,34 @@ public abstract class WebGLRenderingContext {
 	
 	public abstract void copyTexImage2D(int target, int level, int intformat, int x, int y, int width, int height, int border);
 	
-	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, JavaScriptObject data);
-
+	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, WebGLArray<?> data);
+	
+	/**
+	 * @param target
+	 * @param level
+	 * @param xoffset
+	 * @param yoffset
+	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 */
+	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data);
+	
+	/**
+	 * @param target
+	 * @param level
+	 * @param xoffset
+	 * @param yoffset
+	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 */
+	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data, boolean flipY);
+	/**
+	 * @param target
+	 * @param level
+	 * @param xoffset
+	 * @param yoffset
+	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 */
+	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data, boolean flipY, boolean asPremultipliedAlpha);
+	
 	// //////////
 	// Culling //
 	// //////////
