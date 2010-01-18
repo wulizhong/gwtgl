@@ -831,14 +831,22 @@ public abstract class WebGLRenderingContext {
 	
 
 	/**
-	 * @param param DEPTH_TEST
+	 * Enable server-side GL capabilities
+	 * @param param CULL_FACE, BLEND, DITHER, STENCIL_TEST, DEPTH_TEST, SCISSOR_TEST, POLYGON_OFFSET_FILL, SAMPLE_ALPHA_TO_COVERAGE, SAMPLE_COVERAGE
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glEnable.xml"
 	 */
 	public abstract void enable(int param);
 
+	/**
+	 * Disable server-side GL capabilities
+	 * @param param CULL_FACE, BLEND, DITHER, STENCIL_TEST, DEPTH_TEST, SCISSOR_TEST, POLYGON_OFFSET_FILL, SAMPLE_ALPHA_TO_COVERAGE, SAMPLE_COVERAGE
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDisable.xml"
+	 */
 	public abstract void disable(int param);
 
 	/**
-	 * @param pname
+	 * Return the value or values of a selected parameter
+	 * @param pname 
 	 *            ARRAY_BUFFER_BINDING, CURRENT_PROGRAM,
 	 *            ELEMENT_ARRAY_BUFFER_BINDING, FRAMEBUFFER_BINDING,
 	 *            RENDERBUFFER_BINDING, TEXTURE_BINDING_2D,
@@ -846,10 +854,13 @@ public abstract class WebGLRenderingContext {
 	 *            ALIASED_POINT_SIZE_RANGE, BLEND_COLOR, COLOR_CLEAR_VALUE,
 	 *            DEPTH_RANGE, MAX_VIEWPORT_DIMS, SCISSOR_BOX, VIEWPORT,
 	 *            COLOR_WRITEMASK
+	 * @return value of selected parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGet.xml"
 	 */
 	public abstract <T extends JavaScriptObject> T getParameter(int pname);
 	
 	/**
+	 * Return the int value of a selected parameter.
 	 * @param pname
 	 *            ACTIVE_TEXTURE, ALPHA_BITS, BLEND_DST_ALPHA, BLEND_DST_RGB,
 	 *            BLEND_EQUATION_ALPHA, BLEND_EQUATION_RGB, BLEND_SRC_ALPHA,
@@ -868,41 +879,70 @@ public abstract class WebGLRenderingContext {
 	 *            STENCIL_FAIL, STENCIL_FUNC, STENCIL_PASS_DEPTH_FAIL,
 	 *            STENCIL_PASS_DEPTH_PASS, STENCIL_REF, STENCIL_VALUE_MASK,
 	 *            STENCIL_WRITEMASK, SUBPIXEL_BITS, UNPACK_ALIGNMENT
-	 * @return
+	 * @return int value of the selected parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGet.xml"
 	 */
 	@JsName("getParameter")
 	public abstract int getParameteri(int pname);
 
 	/**
+	 * Return the boolean value of a selected parameter
 	 * @param pname
 	 *            BLEND, CULL_FACE, DEPTH_TEST, DEPTH_WRITEMASK, DITHER,
 	 *            POLYGON_OFFSET_FILL, SAMPLE_COVERAGE_INVERT, SCISSOR_TEST,
 	 *            STENCIL_TEST
-	 * @return
+	 * @return boolean value of selected parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGet.xml"
 	 */
 	@JsName("getParameter")
 	public abstract boolean getParameterb(int pname);
 
 	/**
+	 * Return the float value of a selected parameter
 	 * @param pname
 	 *            DEPTH_CLEAR_VALUE, LINE_WIDTH, POLYGON_OFFSET_FACTOR,
 	 *            POLYGON_OFFSET_UNITS, SAMPLE_COVERAGE_VALUE
-	 * @return
+	 * @return float value of selected parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGet.xml"
 	 */
 	@JsName("getParameter")
 	public abstract float getParameterf(int pname);
 	
+	/**
+	 * Return error information.
+	 * @return one of NO_ERROR, INVALID_ENUM, INVALID_VALUE, INVALID_OPERATION, OUT_OF_MEMORY
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetError.xml"
+	 */
 	public abstract int getError();
 	
 	// //////////
 	// Buffers //
 	// //////////
 
+	/**
+	 * Create a WebGLBuffer object and initialize it with a buffer object name as if by calling glGenBuffers
+	 * @return created {@link WebGLBuffer}
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGenBuffers.xml"
+	 */
 	public abstract WebGLBuffer createBuffer();
 
+	/**
+	 * Delete the buffer object contained in the passed WebGLBuffer as if by calling glDeleteBuffers.
+	 * If the buffer has already been deleted the call has no effect. 
+	 * Note that the buffer object will be deleted when the WebGLBuffer object is destroyed. 
+	 * This method merely gives the author greater control over when the buffer object is destroyed. 
+	 * @param buffer the buffer to delete
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDeleteBuffers.xml"
+	 */
 	public abstract void deleteBuffer(WebGLBuffer buffer);
 
-	public abstract void isBuffer(WebGLBuffer buffer);
+	/**
+	 * Determine if a name corresponds to a buffer object
+	 * @param buffer
+	 * @return true if parameter is buffer, false otherwise
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glIsBuffer.xml"
+	 */
+	public abstract boolean isBuffer(WebGLBuffer buffer);
 
 	/**
 	 * @param target ARRAY_BUFFER ELEMENT_ARRAY_BUFFER
