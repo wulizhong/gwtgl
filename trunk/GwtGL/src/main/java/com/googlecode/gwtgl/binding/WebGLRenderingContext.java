@@ -1067,38 +1067,83 @@ public abstract class WebGLRenderingContext {
 	// Program objects //
 	// ///////////////////
 
+	/**
+	 * Create a WebGLProgram object and initialize it with a program object name as if by calling glCreateProgram.
+	 * @return created {@link WebGLProgram}
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glCreateProgram.xml"
+	 */
 	public abstract WebGLProgram createProgram();
 
+	/**
+	 * Validate a program object
+	 * @param program the {@link WebGLProgram} to validate
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glValidateProgram.xml"
+	 */
 	public abstract void validateProgram(WebGLProgram program);
 
+	/**
+	 * Link a program object
+	 * @param program the {@link WebGLProgram} to be linked
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glLinkProgram.xml"
+	 */
 	public abstract void linkProgram(WebGLProgram program);
 
+	
+	/**
+	 * Delete the program object contained in the passed WebGLProgram as if by calling glDeleteProgram.
+	 * If the program has already been deleted the call has no effect.
+	 * Note that the program object will be deleted when the WebGLProgram object is destroyed.
+	 * This method merely gives the author greater control over when the program object is destroyed. 
+	 * @param program the {@link WebGLProgram} to be deleted
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDeleteProgram.xml"
+	 */
 	public abstract void deleteProgram(WebGLProgram program);
 
 	/**
-	 * @param program
-	 * @param param LINK_STATUS, DELETE_STATUS, VALIDATE_STATUS
-	 * @return
+	 * Return the boolean value for the passed pname given the passed program
+	 * @param program the {@link WebGLProgram} object to be queried.
+	 * @param pname One of LINK_STATUS, DELETE_STATUS, VALIDATE_STATUS
+	 * @return boolean value for the passed pname given the passed program
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetProgramiv.xml"
 	 */
 	@JsName(value = "getProgramParameter")
 	public abstract boolean getProgramParameterb(WebGLProgram program,
-			int param);
+			int pname);
 
 	/**
-	 * @param program
-	 * @param param
+	 * Return the int value for the passed pname given the passed program
+	 * @param program the {@link WebGLProgram} object to be queried.
+	 * @param pname One of 
 	 *            INFO_LOG_LENGTH, ACTIVE_ATTRIBUTE_MAX_LENGTH,
 	 *            ACTIVE_UNIFORM_MAX_LENGTH, ATTACHED_SHADERS, ACTIVE_UNIFORMS,
 	 *            ACTIVE_ATTRIBUTES
-	 * @return
+	 * @return int value for the passed pname given the passed program
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetProgramiv.xml"
 	 */
 	@JsName(value = "getProgramParameter")
-	public abstract int getProgramParameteri(WebGLProgram program, int param);
+	public abstract int getProgramParameteri(WebGLProgram program, int pname);
 
+	/**
+	 * Return the information log for a {@link WebGLProgram} object
+	 * @param program {@link WebGLProgram} object whose information log is to be queried.
+	 * @return information log
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetProgramInfoLog.xml"
+	 */
 	public abstract String getProgramInfoLog(WebGLProgram program);
 
+	/**
+	 * Return true if the passed WebGLObject is a WebGLProgram and false otherwise. 
+	 * @param program the {@link WebGLProgram} object to check
+	 * @return true if the passed WebGLObject is a WebGLProgram and false otherwise.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glIsProgram.xml"
+	 */
 	public abstract boolean isProgram(WebGLProgram program);
 
+	/**
+	 * Install a {@link WebGLProgram} object as part of current rendering state
+	 * @param program the {link WebGLProgram} object to use
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUseProgram.xml"
+	 */
 	public abstract void useProgram(WebGLProgram program);
 	
 	// ///////////
