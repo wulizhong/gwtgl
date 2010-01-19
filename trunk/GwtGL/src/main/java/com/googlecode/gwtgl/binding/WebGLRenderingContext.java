@@ -945,76 +945,104 @@ public abstract class WebGLRenderingContext {
 	public abstract boolean isBuffer(WebGLBuffer buffer);
 
 	/**
-	 * @param target ARRAY_BUFFER ELEMENT_ARRAY_BUFFER
-	 * @param buffer
+	 * Bind a named buffer object
+	 * @param target target to which the buffer object is bound. One of ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
+	 * @param buffer the buffer to bind
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBindBuffer.xml"
 	 */
 	public abstract void bindBuffer(int target, WebGLBuffer buffer);
 
 	/**
-	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
-	 * @param dta
-	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
+	 * Set the size of the currently bound WebGLBuffer object for the passed target to the size of the passed data, then write the contents of data to the buffer object. 
+	 * @param target target buffer object. One of ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
+	 * @param dta data that will be copied into the data store for initialization
+	 * @param usage expected usage pattern of the data store. One of STREAM_DRAW, STATIC_DRAW DYNAMIC_DRAW
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferData.xml"
 	 */
 	public abstract void bufferData(int target, WebGLArray<?> dta, int usage);
 	
 	/**
-	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
-	 * @param dta
-	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
+	 * Set the size of the currently bound WebGLBuffer object for the passed target to the size of the passed data, then write the contents of data to the buffer object. 
+	 * @param target target buffer object. One of ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
+	 * @param dta data that will be copied into the data store for initialization
+	 * @param usage expected usage pattern of the data store. One of STREAM_DRAW, STATIC_DRAW DYNAMIC_DRAW
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferData.xml"
 	 */
 	public abstract void bufferData(int target, WebGLArrayBuffer dta, int usage);
 	
 	/**
-	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
-	 * @param size the size of the buffer to create
-	 * @param usage STREAM_DRAW STATIC_DRAW DYNAMIC_DRAW
+	 * Set the size of the currently bound WebGLBuffer object for the passed target. The buffer is initialized to 0. 
+	 * @param target target buffer object. One of ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
+	 * @param size size in bytes of the buffer object's new data store
+	 * @param usage expected usage pattern of the data store. One of STREAM_DRAW, STATIC_DRAW DYNAMIC_DRAW
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferData.xml"
 	 */
 	public abstract void bufferData(int target, int size, int usage);
 
 	/**
-	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
-	 * @param offset
-	 * @param data
+	 * For the WebGLBuffer object bound to the passed target write the passed data starting at the passed offset. If the data would be written past the end of the buffer object an INVALID_VALUE error is raised. 
+	 * @param target target buffer object. One of ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
+	 * @param offset offset into the buffer object's data store where data replacement will begin, measured in bytes.
+	 * @param data new data that will be copied into the data store
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferSubData.xml"
 	 */
 	public abstract void bufferSubData(int target, int offset, WebGLArray<?> data);
 	
 	/**
-	 * @param target ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
-	 * @param offset
-	 * @param data
+	 * For the WebGLBuffer object bound to the passed target write the passed data starting at the passed offset. If the data would be written past the end of the buffer object an INVALID_VALUE error is raised. 
+	 * @param target target buffer object. One of ARRAY_BUFFER, ELEMENT_ARRAY_BUFFER
+	 * @param offset offset into the buffer object's data store where data replacement will begin, measured in bytes.
+	 * @param data new data that will be copied into the data store
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferSubData.xml"
 	 */
 	public abstract void bufferSubData(int target, int offset, WebGLArrayBuffer data);
 
 	/**
-	 * @param target
-	 * @param value BUFFER_SIZE, BUFFER_USAGE
-	 * @return
+	 * Return the int value for the passed pname.
+	 * @param target target buffer object
+	 * @param pname symbolic name of a buffer object parameter. One of BUFFER_SIZE, BUFFER_USAGE
+	 * @return int value for the passed pname
 	 */
 	@JsName("getBufferParameter")
-	public abstract int getBufferParameteri(int target, int value);
+	public abstract int getBufferParameteri(int target, int pname);
 
 	// ////////////////
 	// Renderbuffers //
 	// ////////////////
 
+	/**
+	 * Create a WebGLRenderbuffer object and initialize it with a renderbuffer object name as if by calling glGenRenderbuffers. 
+	 * @return created WebGLRenderbuffer
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGenRenderbuffers.xml"
+	 */
 	public abstract WebGLRenderbuffer createRenderbuffer();
 
+	/**
+	 * Delete the renderbuffer object contained in the passed WebGLRenderbuffer as if by calling glDeleteRenderbuffers. If the renderbuffer has already been deleted the call has no effect. Note that the renderbuffer object will be deleted when the WebGLRenderbuffer object is destroyed. This method merely gives the author greater control over when the renderbuffer object is destroyed. 
+	 * @param buffer the {@link WebGLRenderbuffer} to be deleted
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDeleteRenderbuffers.xml"
+	 */
 	public abstract void deleteRenderbuffer(WebGLRenderbuffer buffer);
 
 	/**
-	 * @param target RENDERBUFFER
-	 * @param buffer
+	 * Bind a {@link WebGLRenderbuffer} object
+	 * @param target target to which the renderbuffer object is bound. Must be RENDERBUFFER.
+	 * @param buffer the {@link WebGLRenderbuffer} to bind
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBindRenderbuffer.xml"
 	 */
 	public abstract void bindRenderbuffer(int target, WebGLRenderbuffer buffer);
 
 	/**
-	 * @param target
-	 * @param pname
+	 * Return the int value for the passed pname given the passed target.
+	 * @param target target renderbuffer object. Must be RENDERBUFFER.
+	 * @param pname symbolic name of a renderbuffer object parameter. One of
 	 *            RENDERBUFFER_WIDTH, RENDERBUFFER_HEIGHT,
 	 *            RENDERBUFFER_INTERNAL_FORMAT, RENDERBUFFER_RED_SIZE,
 	 *            RENDERBUFFER_GREEN_SIZE, RENDERBUFFER_BLUE_SIZE,
 	 *            RENDERBUFFER_ALPHA_SIZE, RENDERBUFFER_DEPTH_SIZE,
 	 *            RENDERBUFFER_STENCIL_SIZE
+	 * @return int value for the passed pname given the passed target
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetRenderbufferParameteriv.xml"
 	 */
 	public abstract int getRenderbufferParameteri(int target, int pname);
 
@@ -1027,6 +1055,12 @@ public abstract class WebGLRenderingContext {
 	public abstract void renderbufferStorage(int target, int format, int width,
 			int height);
 
+	/**
+	 * Return true if the passed WebGLObject is a WebGLRenderbuffer and false otherwise. 
+	 * @param buffer {@link WebGLRenderbuffer} to check
+	 * @return true if the passed WebGLObject is a WebGLRenderbuffer and false otherwise.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glIsRenderbuffer.xml"
+	 */
 	public abstract boolean isRenderbuffer(WebGLRenderbuffer buffer);
 
 	// ///////////////////
