@@ -1147,48 +1147,108 @@ public abstract class WebGLRenderingContext {
 	public abstract void useProgram(WebGLProgram program);
 	
 	// ///////////
-	// Shaders //
+	// Shaders  //
 	// ///////////
 
 	/**
-	 * Create a shader object
-	 * @param shaderType VERTEX_SHADER FRAGMENT_SHADER
-	 * @return
+	 * Create a {@link WebGLShader} object and initialize it with a shader object name as if by calling glCreateShader.
+	 * @param shaderType Type of shader to be created. One of VERTEX_SHADER, FRAGMENT_SHADER.
+	 * @return created {@link WebGLShader} object
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glCreateShader.xml"
 	 */
 	public abstract WebGLShader createShader(int shaderType);
 
+	/**
+	 * Compile a {@link WebGLShader} object
+	 * @param shader The {@link WebGLShader} object to compile
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glCompileShader.xml"
+	 */
 	public abstract void compileShader(WebGLShader shader);
 
+	/**
+	 * Attach a {@link WebGLShader} object to a {@link WebGLProgram} object
+	 * @param program {@link WebGLProgram} object to which the given {@link WebGLShader} object will be attached.
+	 * @param shader {@link WebGLShader} object that is to be attached.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glAttachShader.xml"
+	 */
 	public abstract void attachShader(WebGLProgram program, WebGLShader shader);
 
+	/**
+	 * Detach a {@link WebGLShader} object from a {@link WebGLProgram} object
+	 * @param program {@link WebGLProgram} object from which to detach the {@link WebGLShader} object.
+	 * @param shader {@link WebGLShader} object to be detached.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDetachShader.xml"
+	 */
 	public abstract void detachShader(WebGLProgram program, WebGLShader shader);
 
+	/**
+	 * Delete the shader object contained in the passed WebGLShader as if by calling glDeleteShader.
+	 * If the shader has already been deleted the call has no effect.
+	 * Note that the shader object will be deleted when the WebGLShader object is destroyed.
+	 * This method merely gives the author greater control over when the shader object is destroyed. 
+	 * @param shader {@link WebGLShader} object to be deleted.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDeleteShader.xml"
+	 */
 	public abstract void deleteShader(WebGLShader shader);
 
+	/**
+	 * Return the source code string from a {@link WebGLShader} object
+	 * @param shader {@link WebGLShader} object to be queried.
+	 * @return source code of the given {@link WebGLShader} object
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetShaderSource.xml"
+	 */
 	public abstract String getShaderSource(WebGLShader shader);
 
+	/**
+	 * Replace the source code in a {@link WebGLShader} object
+	 * @param shader {@link WebGLShader} object whose source code is to be replaced.
+	 * @param shaderSrc source code to be loaded into the shader.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glShaderSource.xml"
+	 */
 	public abstract void shaderSource(WebGLShader shader, String shaderSrc);
 
+	/**
+	 * Return the information log for a {@link WebGLShader} object
+	 * @param shader {@link WebGLShader} object whose information log is to be queried.
+	 * @return information log
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetShaderInfoLog.xml"
+	 */
 	public abstract String getShaderInfoLog(WebGLShader shader);
 
 	/**
-	 * @param shader
-	 * @param param DELETE_STATUS, COMPILE_STATUS
-	 * @return
+	 * Return the boolean value for the passed pname given the passed {@link WebGLShader} object
+	 * @param shader {@link WebGLShader} object to be queried.
+	 * @param pname object parameter. One of DELETE_STATUS, COMPILE_STATUS
+	 * @return boolean value for the passed pname given the passed {@link WebGLShader} object
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetShaderiv.xml"
 	 */
 	@JsName(value = "getShaderParameter")
-	public abstract boolean getShaderParameterb(WebGLShader shader, int param);
+	public abstract boolean getShaderParameterb(WebGLShader shader, int pname);
 
 	/**
-	 * @param shader
-	 * @param param SHADER_TYPE, INFO_LOG_LENGTH, SHADER_SOURCE_LENGTH
-	 * @return
+	 * Return the int value for the passed pname given the passed {@link WebGLShader} object
+	 * @param shader {@link WebGLShader} object to be queried.
+	 * @param pname object parameter. One of SHADER_TYPE, INFO_LOG_LENGTH, SHADER_SOURCE_LENGTH
+	 * @return int value for the passed pname given the passed {@link WebGLShader} object
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetShaderiv.xml"
 	 */
 	@JsName(value = "getShaderParameter")
-	public abstract int getShaderParameteri(WebGLShader shader, int param);
+	public abstract int getShaderParameteri(WebGLShader shader, int pname);
 
+	/**
+	 * Return the list of {@link WebGLShader}s attached to the passed {@link WebGLProgram}. 
+	 * @param program {@link WebGLProgram} object to be queried.
+	 * @return list of {@link WebGLShader}s attached to the passed {@link WebGLProgram}
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetAttachedShaders.xml"
+	 */
 	public abstract WebGLObjectArray<WebGLShader> getAttachedShaders(WebGLProgram program);
 
+	/**
+	 * Return true if the passed WebGLObject is a WebGLShader and false otherwise. 
+	 * @param shader potential shader object.
+	 * @return true if the passed WebGLObject is a WebGLShader and false otherwise. 
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glIsShader.xml"
+	 */
 	public abstract boolean isShader(JavaScriptObject shader);
 	
 	// ////////////////////
