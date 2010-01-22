@@ -1581,43 +1581,90 @@ public abstract class WebGLRenderingContext {
 	// Attribute variables //
 	// //////////////////////
 	
-	public abstract void vertexAttribPointer(int idx, int size, int type, boolean norm,
-			int stride, int offset);
-
-	public abstract void enableVertexAttribArray(int index);
-	
-	public abstract void disableVertexAttribArray(int index);
-
-	public abstract int getAttribLocation(WebGLProgram program, String name);
-	
-	public abstract void bindAttribLocation(WebGLProgram program, int idx,
-			String name);
-	
-	public abstract WebGLActiveInfo getActiveAttrib(WebGLProgram program, int idx);
+	/**
+	 * Assign the currently bound WebGLBuffer object to the passed vertex attrib index.
+	 * Size is number of components per attribute. 
+	 * Stride and offset are in units of bytes. 
+	 * Passed stride and offset must be appropriate for the passed type and size or an INVALID_VALUE error will be raised. 
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param size number of components per generic vertex attribute. Must be 1, 2, 3, or 4. The initial value is 4.
+	 * @param type data type of each component in the array. Symbolic constants BYTE, UNSIGNED_BYTE, SHORT, UNSIGNED_SHORT, FIXED, or FLOAT are accepted. The initial value is FLOAT.
+	 * @param normalized Specifies whether fixed-point data values should be normalized (true) or converted directly as fixed-point values (false) when they are accessed.
+	 * @param stride Byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in the array. The initial value is 0.
+	 * @param offset 
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttribPointer.xml"
+	 */
+	public abstract void vertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset);
 
 	/**
-	 * @param index
-	 * @param pname
+	 * Enable a generic vertex attribute array
+	 * @param index index of the generic vertex attribute to be enabled
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glEnableVertexAttribArray.xml"
+	 */
+	public abstract void enableVertexAttribArray(int index);
+	
+	/**
+	 * Disable a generic vertex attribute array
+	 * @param index index of the generic vertex attribute to be disabled
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glEnableVertexAttribArray.xml"
+	 */
+	public abstract void disableVertexAttribArray(int index);
+
+	/**
+	 * Return the location of an attribute variable
+	 * @param program {@link WebGLProgram} object to be queried
+	 * @param name name of the attribute variable whose location is to be queried
+	 * @return location of an attribute variable
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetAttribLocation.xml"
+	 */
+	public abstract int getAttribLocation(WebGLProgram program, String name);
+	
+	/**
+	 * Associate a generic vertex attribute index with a named attribute variable
+	 * @param program {@link WebGLProgram} object in which the association is to be made
+	 * @param index index of the generic vertex attribute to be bound
+	 * @param name name of the vertex shader attribute variable to which index is to be bound
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBindAttribLocation.xml"
+	 */
+	public abstract void bindAttribLocation(WebGLProgram program, int index, String name);
+	
+	/**
+	 * Returns information about the size, type and name of the vertex attribute at the passed index of the passed {@link WebGLProgram} object. 
+	 * @param program {@link WebGLProgram} object to be queried
+	 * @param index index of the attribute variable to be queried
+	 * @return {@link WebGLActiveInfo} which contains information about an active attribute variable
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetActiveAttrib.xml"
+	 */
+	public abstract WebGLActiveInfo getActiveAttrib(WebGLProgram program, int index);
+
+	/**
+	 * Return the information requested in pname about the vertex attribute at the passed index
+	 * @param index generic vertex attribute parameter to be queried
+	 * @param pname symbolic name of the vertex attribute parameter to be queried. One of
 	 *            VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, CURRENT_VERTEX_ATTRIB
-	 * @return
+	 * @return generic vertex attribute parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetVertexAttrib.xml"
 	 */
 	public abstract <T extends JavaScriptObject> T getVertexAttrib(int index, int pname);
 	
 	/**
-	 * @param index
-	 * @param pname
+	 * Return the boolean information requested in pname about the vertex attribute at the passed index
+	 * @param index generic vertex attribute parameter to be queried
+	 * @param pname symbolic name of the vertex attribute parameter to be queried. One of
 	 *            VERTEX_ATTRIB_ARRAY_ENABLED, VERTEX_ATTRIB_ARRAY_NORMALIZED
-	 * @return
+	 * @return generic vertex attribute parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetVertexAttrib.xml"
 	 */
 	@JsName("getVertexAttrib")
 	public abstract boolean getVertexAttribb(int index, int pname);
 
 	/**
-	 * @param index
-	 * @param pname
-	 *            VERTEX_ATTRIB_ARRAY_SIZE, VERTEX_ATTRIB_ARRAY_STRIDE,
-	 *            VERTEX_ATTRIB_ARRAY_TYPE
-	 * @return
+	 * Return the int information requested in pname about the vertex attribute at the passed index
+	 * @param index generic vertex attribute parameter to be queried
+	 * @param pname symbolic name of the vertex attribute parameter to be queried. One of
+	 *            VERTEX_ATTRIB_ARRAY_SIZE, VERTEX_ATTRIB_ARRAY_STRIDE, VERTEX_ATTRIB_ARRAY_TYPE
+	 * @return generic vertex attribute parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetVertexAttrib.xml"
 	 */
 	@JsName("getVertexAttrib")
 	public abstract int getVertexAttribi(int index, int pname);
