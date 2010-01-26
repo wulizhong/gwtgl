@@ -855,6 +855,7 @@ public abstract class WebGLRenderingContext {
 	 *            DEPTH_RANGE, MAX_VIEWPORT_DIMS, SCISSOR_BOX, VIEWPORT,
 	 *            COLOR_WRITEMASK
 	 * @return value of selected parameter
+	 * @param <T> expected return type
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGet.xml"
 	 */
 	public abstract <T extends JavaScriptObject> T getParameter(int pname);
@@ -1563,6 +1564,7 @@ public abstract class WebGLRenderingContext {
 	 * @param program {@link WebGLProgram} object to be queried.
 	 * @param location Location of the uniform variable to be queried.
 	 * @return value of the specified uniform variable
+	 * @param <T> expected return type
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetUniform.xml"
 	 */
 	@JsName("getUniform")
@@ -1643,6 +1645,7 @@ public abstract class WebGLRenderingContext {
 	 * @param pname symbolic name of the vertex attribute parameter to be queried. One of
 	 *            VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, CURRENT_VERTEX_ATTRIB
 	 * @return generic vertex attribute parameter
+	 * @param <T> expected return type
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetVertexAttrib.xml"
 	 */
 	public abstract <T extends JavaScriptObject> T getVertexAttrib(int index, int pname);
@@ -1669,48 +1672,137 @@ public abstract class WebGLRenderingContext {
 	@JsName("getVertexAttrib")
 	public abstract int getVertexAttribi(int index, int pname);
 	
+	/**
+	 * Return offset of an generic vertex attribute parameter
+	 * @param index generic vertex attribute parameter to be queried
+	 * @param pname symbolic name of the vertex attribute parameter to be queried.
+	 * @return offset of generic vertex attribute parameter
+	 */
 	public abstract int getVertexAttribOffset(int index, String pname);
 	
-	public abstract void vertexAttrib1f(int indx, float x);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param x new value to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib1f(int index, float x);
 
-	public abstract void vertexAttrib2f(int indx, float x, float y);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param x new x value to be used for the specified vertex attribute
+	 * @param y new y value to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib2f(int index, float x, float y);
 
-	public abstract void vertexAttrib3f(int indx, float x, float y, float z);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param x new x value to be used for the specified vertex attribute
+	 * @param y new y value to be used for the specified vertex attribute
+	 * @param z new z value to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib3f(int index, float x, float y, float z);
 
-	public abstract void vertexAttrib4f(int indx, float x, float y, float z, float w);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param x new x value to be used for the specified vertex attribute
+	 * @param y new y value to be used for the specified vertex attribute
+	 * @param z new z value to be used for the specified vertex attribute
+	 * @param w new w value to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib4f(int index, float x, float y, float z, float w);
 
-	public abstract void vertexAttrib1fv(int indx, WebGLFloatArray values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib1fv(int index, WebGLFloatArray values);
 
-	public abstract void vertexAttrib1fv(int indx, float[] values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib1fv(int index, float[] values);
 
-	public abstract void vertexAttrib2fv(int indx, WebGLFloatArray values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib2fv(int index, WebGLFloatArray values);
 
-	public abstract void vertexAttrib2fv(int indx, float[] values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib2fv(int index, float[] values);
 
-	public abstract void vertexAttrib3fv(int indx, WebGLFloatArray values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib3fv(int index, WebGLFloatArray values);
 
-	public abstract void vertexAttrib3fv(int indx, float[] values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib3fv(int index, float[] values);
 
-	public abstract void vertexAttrib4fv(int indx, WebGLFloatArray values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib4fv(int index, WebGLFloatArray values);
 
-	public abstract void vertexAttrib4fv(int indx, float[] values);
+	/**
+	 * Specify the value of a generic vertex attribute
+	 * @param index index of the generic vertex attribute to be modified
+	 * @param values new values to be used for the specified vertex attribute
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
+	 */
+	public abstract void vertexAttrib4fv(int index, float[] values);
 	
 	// /////////////
 	// Array data //
 	// /////////////
 	
 	/**
-	 * @param mode POINTS LINES LINE_LOOP LINE_STRIP TRIANGLES TRIANGLE_STRIP TRIANGLE_FAN
-	 * @param first
-	 * @param count
+	 * Render primitives from array data
+	 * @param mode Specifies what kind of primitives to render. One of POINTS, LINES, LINE_LOOP, LINE_STRIP, TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN.
+	 * @param first Starting index in the enabled arrays
+	 * @param count Number of indices to be rendered
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDrawArrays.xml"
 	 */
 	public abstract void drawArrays(int mode, int first, int count);
 	
 	/**
-	 * @param mode
-	 * @param count
-	 * @param type UNSIGNED_BYTE UNSIGNED_SHORT
-	 * @param offset
+	 * Draw using the currently bound index array.
+	 * The given offset is in bytes, and must be a valid multiple of the size of the given type or an INVALID_VALUE error will be raised.
+	 * @param mode Specifies what kind of primitives to render. One of POINTS, LINES, LINE_LOOP, LINE_STRIP, TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN.
+	 * @param count Number of elements to be rendered
+	 * @param type Type of the values. One of UNSIGNED_BYTE, UNSIGNED_SHORT.
+	 * @param offset Offset.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDrawElements.xml"
 	 */
 	public abstract void drawElements(int mode, int count, int type, int offset);  
 
