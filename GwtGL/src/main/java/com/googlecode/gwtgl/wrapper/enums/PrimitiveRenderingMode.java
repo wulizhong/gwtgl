@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,17 +21,38 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 /**
  * 
  * @author Sönke Sothmann
- *
+ * 
  */
 public enum PrimitiveRenderingMode implements IWebGLConstEnum {
+	/**
+	 * Value to identify PrimitiveRenderingMode POINTS.
+	 */
 	POINTS(WebGLRenderingContext.POINTS),
+	/**
+	 * Value to identify PrimitiveRenderingMode LINE_STRIP.
+	 */
 	LINE_STRIP(WebGLRenderingContext.LINE_STRIP),
+	/**
+	 * Value to identify PrimitiveRenderingMode LINE_LOOP.
+	 */
 	LINE_LOOP(WebGLRenderingContext.LINE_LOOP),
+	/**
+	 * Value to identify PrimitiveRenderingMode LINES.
+	 */
 	LINES(WebGLRenderingContext.LINES),
+	/**
+	 * Value to identify PrimitiveRenderingMode TRIANGLE_STRIP.
+	 */
 	TRIANGLE_STRIP(WebGLRenderingContext.TRIANGLE_STRIP),
+	/**
+	 * Value to identify PrimitiveRenderingMode TRIANGLE_FAN.
+	 */
 	TRIANGLE_FAN(WebGLRenderingContext.TRIANGLE_FAN),
-	TRIANGLES(WebGLRenderingContext.TRIANGLES),;
-	
+	/**
+	 * Value to identify PrimitiveRenderingMode TRIANGLES.
+	 */
+	TRIANGLES(WebGLRenderingContext.TRIANGLES), ;
+
 	private final int value;
 
 	PrimitiveRenderingMode(int value) {

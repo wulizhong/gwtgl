@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,12 +20,18 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
  * @author Steffen Schäfer
- *
+ * 
  */
 public enum TextureTarget implements IWebGLConstEnum {
+	/**
+	 * Value to identify TextureTarget TEXTURE_2D.
+	 */
 	TEXTURE_2D(WebGLRenderingContext.TEXTURE_2D),
+	/**
+	 * Value to identify TextureTarget TEXTURE_CUBE_MAP.
+	 */
 	TEXTURE_CUBE_MAP(WebGLRenderingContext.TEXTURE_CUBE_MAP);
-	
+
 	private final int target;
 
 	TextureTarget(int target) {

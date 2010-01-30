@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,21 +19,49 @@ import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
- * Specifies a symbolic constant indicating a GL capability
+ * Specifies a symbolic constant indicating a GL capability.
+ * 
  * @author Sönke Sothmann
- *
+ * 
  */
 public enum GLCapability implements IWebGLConstEnum {
+	/**
+	 * Value to identify GLCapability BLEND.
+	 */
 	BLEND(WebGLRenderingContext.BLEND),
+	/**
+	 * Value to identify GLCapability CULL_FACE.
+	 */
 	CULL_FACE(WebGLRenderingContext.CULL_FACE),
+	/**
+	 * Value to identify GLCapability DEPTH_TEST.
+	 */
 	DEPTH_TEST(WebGLRenderingContext.DEPTH_TEST),
+	/**
+	 * Value to identify GLCapability DITHER.
+	 */
 	DITHER(WebGLRenderingContext.DITHER),
+	/**
+	 * Value to identify GLCapability POLYGON_OFFSET_FILL.
+	 */
 	POLYGON_OFFSET_FILL(WebGLRenderingContext.POLYGON_OFFSET_FILL),
+	/**
+	 * Value to identify GLCapability SAMPLE_ALPHA_TO_COVERAGE.
+	 */
 	SAMPLE_ALPHA_TO_COVERAGE(WebGLRenderingContext.SAMPLE_ALPHA_TO_COVERAGE),
+	/**
+	 * Value to identify GLCapability SAMPLE_COVERAGE.
+	 */
 	SAMPLE_COVERAGE(WebGLRenderingContext.SAMPLE_COVERAGE),
+	/**
+	 * Value to identify GLCapability SCISSOR_TEST.
+	 */
 	SCISSOR_TEST(WebGLRenderingContext.SCISSOR_TEST),
+	/**
+	 * Value to identify GLCapability STENCIL_TEST.
+	 */
 	STENCIL_TEST(WebGLRenderingContext.STENCIL_TEST);
-	
+
 	private final int value;
 
 	private GLCapability(int value) {

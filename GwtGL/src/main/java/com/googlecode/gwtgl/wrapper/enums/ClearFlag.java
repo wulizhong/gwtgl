@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,15 +19,25 @@ import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
- * Indicates the buffers to be cleared
+ * Indicates the buffers to be cleared.
+ * 
  * @author Sönke Sothmann
- *
+ * 
  */
 public enum ClearFlag implements IWebGLConstEnum {
+	/**
+	 * Value to identify ClearFlag COLOR_BUFFER.
+	 */
 	COLOR_BUFFER(WebGLRenderingContext.COLOR_BUFFER_BIT),
+	/**
+	 * Value to identify ClearFlag DEPTH_BUFFER.
+	 */
 	DEPTH_BUFFER(WebGLRenderingContext.DEPTH_BUFFER_BIT),
+	/**
+	 * Value to identify ClearFlag STENCIL_BUFFER.
+	 */
 	STENCIL_BUFFER(WebGLRenderingContext.STENCIL_BUFFER_BIT);
-	
+
 	private final int value;
 
 	ClearFlag(int value) {
@@ -38,7 +48,7 @@ public enum ClearFlag implements IWebGLConstEnum {
 	public int getIntValue() {
 		return value;
 	}
-	
+
 	/**
 	 * Returns the matching enum value for the given int value.
 	 * 

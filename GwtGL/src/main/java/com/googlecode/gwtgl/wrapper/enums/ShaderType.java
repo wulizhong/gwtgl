@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,12 +20,18 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
  * @author Steffen Schäfer
- *
+ * 
  */
 public enum ShaderType implements IWebGLConstEnum {
+	/**
+	 * Value to identify ShaderType VERTEX_SHADER.
+	 */
 	VERTEX_SHADER(WebGLRenderingContext.VERTEX_SHADER),
+	/**
+	 * Value to identify ShaderType FRAGMENT_SHADER.
+	 */
 	FRAGMENT_SHADER(WebGLRenderingContext.FRAGMENT_SHADER);
-	
+
 	private final int type;
 
 	ShaderType(int type) {
@@ -45,5 +51,5 @@ public enum ShaderType implements IWebGLConstEnum {
 	public static ShaderType getByIntValue(int value) {
 		return EnumUtil.getByIntValue(values(), value);
 	}
-	
+
 }

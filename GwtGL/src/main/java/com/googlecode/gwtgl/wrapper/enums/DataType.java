@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,41 @@ import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
+ * Enum to identify different primitive data types.
+ * 
  * @author Steffen Schäfer
- *
+ * 
  */
 public enum DataType implements IWebGLConstEnum {
+	/**
+	 * Value to identify DataType BYTE.
+	 */
 	BYTE(WebGLRenderingContext.BYTE),
+	/**
+	 * Value to identify DataType UNSIGNED_BYTE.
+	 */
 	UNSIGNED_BYTE(WebGLRenderingContext.UNSIGNED_BYTE),
+	/**
+	 * Value to identify DataType SHORT.
+	 */
 	SHORT(WebGLRenderingContext.SHORT),
+	/**
+	 * Value to identify DataType UNSIGNED_SHORT.
+	 */
 	UNSIGNED_SHORT(WebGLRenderingContext.UNSIGNED_SHORT),
+	/**
+	 * Value to identify DataType INT.
+	 */
 	INT(WebGLRenderingContext.INT),
+	/**
+	 * Value to identify DataType UNSIGNED_INT.
+	 */
 	UNSIGNED_INT(WebGLRenderingContext.UNSIGNED_INT),
+	/**
+	 * Value to identify DataType FLOAT.
+	 */
 	FLOAT(WebGLRenderingContext.FLOAT);
-	
+
 	private final int value;
 
 	DataType(int value) {
@@ -40,7 +63,7 @@ public enum DataType implements IWebGLConstEnum {
 	public int getIntValue() {
 		return value;
 	}
-	
+
 	/**
 	 * Returns the matching enum value for the given int value.
 	 * 
@@ -50,5 +73,5 @@ public enum DataType implements IWebGLConstEnum {
 	public static DataType getByIntValue(int value) {
 		return EnumUtil.getByIntValue(values(), value);
 	}
-	
+
 }
