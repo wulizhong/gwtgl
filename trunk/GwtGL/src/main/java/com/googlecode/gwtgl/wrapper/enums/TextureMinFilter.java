@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,16 +20,34 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
  * @author Steffen Schäfer
- *
+ * 
  */
 public enum TextureMinFilter implements IWebGLConstEnum {
+	/**
+	 * Value to identify TextureMinFilter NEAREST.
+	 */
 	NEAREST(WebGLRenderingContext.NEAREST),
+	/**
+	 * Value to identify TextureMinFilter LINEAR.
+	 */
 	LINEAR(WebGLRenderingContext.LINEAR),
+	/**
+	 * Value to identify TextureMinFilter NEAREST_MIPMAP_NEAREST.
+	 */
 	NEAREST_MIPMAP_NEAREST(WebGLRenderingContext.NEAREST_MIPMAP_NEAREST),
+	/**
+	 * Value to identify TextureMinFilter LINEAR_MIPMAP_NEAREST.
+	 */
 	LINEAR_MIPMAP_NEAREST(WebGLRenderingContext.LINEAR_MIPMAP_NEAREST),
+	/**
+	 * Value to identify TextureMinFilter NEAREST_MIPMAP_LINEAR.
+	 */
 	NEAREST_MIPMAP_LINEAR(WebGLRenderingContext.NEAREST_MIPMAP_LINEAR),
+	/**
+	 * Value to identify TextureMinFilter LINEAR_MIPMAP_LINEAR.
+	 */
 	LINEAR_MIPMAP_LINEAR(WebGLRenderingContext.LINEAR_MIPMAP_LINEAR);
-	
+
 	private final int value;
 
 	TextureMinFilter(int value) {
@@ -49,5 +67,5 @@ public enum TextureMinFilter implements IWebGLConstEnum {
 	public static TextureMinFilter getByIntValue(int value) {
 		return EnumUtil.getByIntValue(values(), value);
 	}
-	
+
 }

@@ -20,45 +20,48 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
  * Specifies the conditions under which the pixel will be drawn
+ * 
  * @author Sönke Sothmann
- *
+ * 
  */
 public enum DepthComparisonFunction implements IWebGLConstEnum {
 	/**
 	 * Never passes
 	 */
 	NEVER(WebGLRenderingContext.NEVER),
-	
+
 	/**
 	 * Passes if the incoming depth value is less than the stored depth value
 	 */
 	LESS(WebGLRenderingContext.LESS),
-	
+
 	/**
 	 * Passes if the incoming depth value is equal to the stored depth value
 	 */
 	EQUAL(WebGLRenderingContext.EQUAL),
-	
+
 	/**
-	 * Passes if the incoming depth value is less than or equal to the stored depth value
+	 * Passes if the incoming depth value is less than or equal to the stored
+	 * depth value
 	 */
 	LEQUAL(WebGLRenderingContext.LEQUAL),
-	
+
 	/**
 	 * Passes if the incoming depth value is greater than the stored depth value
 	 */
 	GREATER(WebGLRenderingContext.GREATER),
-	
+
 	/**
 	 * Passes if the incoming depth value is not equal to the stored depth value
 	 */
 	NOTEQUAL(WebGLRenderingContext.NOTEQUAL),
-	
+
 	/**
-	 * Passes if the incoming depth value is greater than or equal to the stored depth value
+	 * Passes if the incoming depth value is greater than or equal to the stored
+	 * depth value
 	 */
 	GEQUAL(WebGLRenderingContext.GEQUAL),
-	
+
 	/**
 	 * Always passes
 	 */

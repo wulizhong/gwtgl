@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,12 +20,18 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
  * @author Steffen Schäfer
- *
+ * 
  */
 public enum TextureMagFilter implements IWebGLConstEnum {
+	/**
+	 * Value to identify TextureMagFilter NEAREST.
+	 */
 	NEAREST(WebGLRenderingContext.NEAREST),
+	/**
+	 * Value to identify TextureMagFilter LINEAR.
+	 */
 	LINEAR(WebGLRenderingContext.LINEAR);
-	
+
 	private final int value;
 
 	TextureMagFilter(int value) {
@@ -45,5 +51,5 @@ public enum TextureMagFilter implements IWebGLConstEnum {
 	public static TextureMagFilter getByIntValue(int value) {
 		return EnumUtil.getByIntValue(values(), value);
 	}
-	
+
 }

@@ -17,7 +17,7 @@ package com.googlecode.gwtgl.wrapper.enums;
 
 /**
  * @author Steffen Schäfer
- *
+ * 
  */
 public interface IWebGLConstEnum {
 	/**

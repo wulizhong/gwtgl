@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,13 +20,22 @@ import com.googlecode.gwtgl.wrapper.util.EnumUtil;
 
 /**
  * @author Steffen Schäfer
- *
+ * 
  */
 public enum TextureWrapMode implements IWebGLConstEnum {
+	/**
+	 * Value to identify TextureWrapMode CLAMP_TO_EDGE.
+	 */
 	CLAMP_TO_EDGE(WebGLRenderingContext.CLAMP_TO_EDGE),
+	/**
+	 * Value to identify TextureWrapMode REPEAT.
+	 */
 	REPEAT(WebGLRenderingContext.REPEAT),
+	/**
+	 * Value to identify TextureWrapMode MIRRORED_REPEAT.
+	 */
 	MIRRORED_REPEAT(WebGLRenderingContext.MIRRORED_REPEAT);
-	
+
 	private final int value;
 
 	TextureWrapMode(int value) {
@@ -46,5 +55,5 @@ public enum TextureWrapMode implements IWebGLConstEnum {
 	public static TextureWrapMode getByIntValue(int value) {
 		return EnumUtil.getByIntValue(values(), value);
 	}
-	
+
 }
