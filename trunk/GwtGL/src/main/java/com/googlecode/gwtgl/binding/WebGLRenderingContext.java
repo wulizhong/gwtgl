@@ -1844,7 +1844,10 @@ public abstract class WebGLRenderingContext {
 
 	/**
 	 * Specify a two-dimensional texture image
-	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param target Target texture. One of TEXTURE_2D,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
 	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
@@ -1853,7 +1856,10 @@ public abstract class WebGLRenderingContext {
 	
 	/**
 	 * Specify a two-dimensional texture image
-	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP
+	 * @param target Target texture. One of TEXTURE_2D,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
 	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
 	 * @param flipY 
@@ -1863,7 +1869,10 @@ public abstract class WebGLRenderingContext {
 	
 	/**
 	 * Specify a two-dimensional texture image
-	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP
+	 * @param target Target texture. One of TEXTURE_2D,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
 	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
 	 * @param flipY 
@@ -1959,32 +1968,100 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glCopyTexSubImage2D.xml"
 	 */
 	public abstract void copyTexImage2D(int target, int level, int intformat, int x, int y, int width, int height, int border);
-	
-	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, WebGLArray<?> data);
+
+	/**
+	 * Specify a two-dimensional texture subimage.
+	 * 
+	 * @param target
+	 *            Target texture. One of TEXTURE_2D,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
+	 * @param level
+	 *            Level-of-detail. Level 0 is the base image level. Level n is
+	 *            the nth mipmap reduction image.
+	 * @param xoffset
+	 *            The offset in direction X.
+	 * @param yoffset
+	 *            The offset in direction Y.
+	 * @param width
+	 *            Width of the texture subimage.
+	 * @param height
+	 *            Height of the texture subimage.
+	 * @param format
+	 *            Specifies the format of the pixel data. One of ALPHA, RGB,
+	 *            RGBA, LUMINANCE, LUMINANCE_ALPHA.
+	 * @param type
+	 *            Data type of the pixel data. One of UNSIGNED_BYTE,
+	 *            UNSIGNED_SHORT_5_6_5, UNSIGNED_SHORT_4_4_4_4,
+	 *            UNSIGNED_SHORT_5_5_5_1.
+	 * @param data A {@link WebGLArray} containing the pixel data of the texture
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexSubImage2D.xml"
+	 */
+	public abstract void texSubImage2D(int target, int level, int xoffset,
+			int yoffset, int width, int height, int format, int type,
+			WebGLArray<?> data);
 	
 	/**
+	 * Specify a two-dimensional texture subimage.
+	 * 
 	 * @param target
+	 *            Target texture. One of TEXTURE_2D,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
 	 * @param level
+	 *            Level-of-detail. Level 0 is the base image level. Level n is
+	 *            the nth mipmap reduction image.
 	 * @param xoffset
+	 *            The offset in direction X.
 	 * @param yoffset
+	 *            The offset in direction Y.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexSubImage2D.xml"
 	 */
 	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data);
 	
 	/**
+	 * Specify a two-dimensional texture subimage.
+	 * 
 	 * @param target
+	 *            Target texture. One of TEXTURE_2D,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
 	 * @param level
+	 *            Level-of-detail. Level 0 is the base image level. Level n is
+	 *            the nth mipmap reduction image.
 	 * @param xoffset
+	 *            The offset in direction X.
 	 * @param yoffset
+	 *            The offset in direction Y.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 * @param flipY true if the image should be flipped in the y direction, false otherwise
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexSubImage2D.xml"
 	 */
 	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data, boolean flipY);
+	
 	/**
+	 * Specify a two-dimensional texture subimage.
+	 * 
 	 * @param target
+	 *            Target texture. One of TEXTURE_2D,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
+	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
 	 * @param level
+	 *            Level-of-detail. Level 0 is the base image level. Level n is
+	 *            the nth mipmap reduction image.
 	 * @param xoffset
+	 *            The offset in direction X.
 	 * @param yoffset
+	 *            The offset in direction Y.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 * @param flipY true if the image should be flipped in the y direction, false otherwise
+	 * @param asPremultipliedAlpha 
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexSubImage2D.xml"
 	 */
 	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data, boolean flipY, boolean asPremultipliedAlpha);
 	
@@ -1993,12 +2070,18 @@ public abstract class WebGLRenderingContext {
 	// //////////
 
 	/**
-	 * @param mode FRONT BACK FRONT_AND_BACK
+	 * Specify whether front- or back-facing facets can be culled.
+	 * 
+	 * @param mode One of FRONT, BACK, FRONT_AND_BACK
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glCullFace.xml"
 	 */
 	public abstract void cullFace(int mode);
 
 	/**
-	 * @param mode CW CCW
+	 * Define front- and back-facing polygons.
+	 * 
+	 * @param mode One of CW, CCW
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glFrontFace.xml"
 	 */
 	public abstract void frontFace(int mode);
 	
@@ -2007,20 +2090,94 @@ public abstract class WebGLRenderingContext {
 	// ///////////
 	
 	/**
-	 * @param sfactor ZERO ONE SRC_COLOR DST_COLOR SRC_ALPHA DST_ALPHA CONSTANT_COLOR CONSTANT_ALPHA ONE_MINUS_SRC_ALPHA ONE_MINUS_DST_ALPHA ONE_MINUS_SRC_COLOR ONE_MINUS_DST_COLOR ONE_MINUS_CONSTANT_COLOR ONE_MINUS_CONSTANT_ALPHA SRC_ALPHA_SATURATE
-	 * @param dfactor ZERO ONE SRC_COLOR DST_COLOR SRC_ALPHA DST_ALPHA CONSTANT_COLOR CONSTANT_ALPHA ONE_MINUS_SRC_ALPHA ONE_MINUS_DST_ALPHA ONE_MINUS_SRC_COLOR ONE_MINUS_DST_COLOR ONE_MINUS_CONSTANT_COLOR ONE_MINUS_CONSTANT_ALPHA
+	 * Specify pixel arithmetic.
+	 * 
+	 * @param sfactor
+	 *            One of ZERO, ONE, SRC_COLOR, DST_COLOR SRC_ALPHA, DST_ALPHA,
+	 *            CONSTANT_COLOR, CONSTANT_ALPHA, ONE_MINUS_SRC_ALPHA,
+	 *            ONE_MINUS_DST_ALPHA, ONE_MINUS_SRC_COLOR, ONE_MINUS_DST_COLOR,
+	 *            ONE_MINUS_CONSTANT_COLOR, ONE_MINUS_CONSTANT_ALPHA,
+	 *            SRC_ALPHA_SATURATE
+	 * @param dfactor
+	 *            One of ZERO, ONE, SRC_COLOR, DST_COLOR, SRC_ALPHA, DST_ALPHA,
+	 *            CONSTANT_COLOR, CONSTANT_ALPHA, ONE_MINUS_SRC_ALPHA,
+	 *            ONE_MINUS_DST_ALPHA, ONE_MINUS_SRC_COLOR, ONE_MINUS_DST_COLOR,
+	 *            ONE_MINUS_CONSTANT_COLOR, ONE_MINUS_CONSTANT_ALPHA
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBlendFunc.xml"
 	 */
 	public abstract void blendFunc(int sfactor, int dfactor);
 	
-	public abstract void blendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-	
 	/**
-	 * @param mode FUNC_ADD FUNC_SUBTRACT FUNC_REVERSE_SUBTRACT
+	 * Specify pixel arithmetic for RGB and alpha components separately.
+	 * 
+	 * @param srcRGB
+	 *            Specifies how the red, green, and blue blending factors are
+	 *            computed. One of ZERO, ONE, SRC_COLOR, ONE_MINUS_SRC_COLOR,
+	 *            DST_COLOR, ONE_MINUS_DST_COLOR, SRC_ALPHA,
+	 *            ONE_MINUS_SRC_ALPHA, DST_ALPHA, ONE_MINUS_DST_ALPHA,
+	 *            CONSTANT_COLOR, ONE_MINUS_CONSTANT_COLOR, CONSTANT_ALPHA,
+	 *            ONE_MINUS_CONSTANT_ALPHA, SRC_ALPHA_SATURATE. The initial
+	 *            value is GL_ONE.
+	 * @param dstRGB
+	 *            Specifies how the red, green, and blue destination blending
+	 *            factors are computed. One of ZERO, ONE, SRC_COLOR,
+	 *            ONE_MINUS_SRC_COLOR, DST_COLOR, ONE_MINUS_DST_COLOR,
+	 *            SRC_ALPHA, ONE_MINUS_SRC_ALPHA, DST_ALPHA,
+	 *            ONE_MINUS_DST_ALPHA. CONSTANT_COLOR, ONE_MINUS_CONSTANT_COLOR,
+	 *            CONSTANT_ALPHA, and ONE_MINUS_CONSTANT_ALPHA. The initial
+	 *            value is GL_ZERO.
+	 * @param srcAlpha
+	 *            Specified how the alpha source blending factor is computed.
+	 *            One of ZERO, ONE, SRC_COLOR, ONE_MINUS_SRC_COLOR, DST_COLOR,
+	 *            ONE_MINUS_DST_COLOR, SRC_ALPHA, ONE_MINUS_SRC_ALPHA,
+	 *            DST_ALPHA, ONE_MINUS_DST_ALPHA, CONSTANT_COLOR,
+	 *            ONE_MINUS_CONSTANT_COLOR, CONSTANT_ALPHA,
+	 *            ONE_MINUS_CONSTANT_ALPHA, SRC_ALPHA_SATURATE. The initial
+	 *            value is GL_ONE.
+	 * @param dstAlpha
+	 *            Specified how the alpha destination blending factor is
+	 *            computed. One of ZERO, ONE, SRC_COLOR, ONE_MINUS_SRC_COLOR,
+	 *            DST_COLOR, ONE_MINUS_DST_COLOR, SRC_ALPHA,
+	 *            ONE_MINUS_SRC_ALPHA, DST_ALPHA, ONE_MINUS_DST_ALPHA.
+	 *            CONSTANT_COLOR, ONE_MINUS_CONSTANT_COLOR, CONSTANT_ALPHA, and
+	 *            ONE_MINUS_CONSTANT_ALPHA. The initial value is GL_ZERO.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBlendFuncSeparate.xml"
+	 */
+	public abstract void blendFuncSeparate(int srcRGB, int dstRGB,
+			int srcAlpha, int dstAlpha);
+
+	/**
+	 * Specify the equation used for both the RGB blend equation and the Alpha blend equation.
+	 * 
+	 * @param mode Oe of FUNC_ADD FUNC_SUBTRACT, FUNC_REVERSE_SUBTRACT
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBlendEquation.xml"
 	 */
 	public abstract void blendEquation(int mode);
 	
+	/**
+	 * Set the RGB blend equation and the alpha blend equation separately.
+	 * 
+	 * @param modeRGB
+	 *            The RGB blend equation, how the red, green, and blue
+	 *            components of the source and destination colors are combined.
+	 *            One of FUNC_ADD, FUNC_SUBTRACT, FUNC_REVERSE_SUBTRACT.
+	 * @param modeAlpha
+	 *            The alpha blend equation, how the alpha component of the
+	 *            source and destination colors are combined. One of FUNC_ADD,
+	 *            FUNC_SUBTRACT, FUNC_REVERSE_SUBTRACT.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBlendEquationSeparate.xml"
+	 */
 	public abstract void blendEquationSeparate(int modeRGB, int modeAlpha);
 	
+	/**
+	 * Set the blend color.
+	 * 
+	 * @param red
+	 * @param green
+	 * @param blue
+	 * @param alpha
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBlendColor.xml"
+	 */
 	public abstract void blendColor(float red, float green, float blue, float alpha);  
 	
 	// ///////////////
@@ -2028,92 +2185,225 @@ public abstract class WebGLRenderingContext {
 	// ///////////////
 	
 	/**
-	 * @param func NEVER LESS EQUAL LEQUAL GREATER NOTEQUAL GEQUAL ALWAYS
+	 * Specify the value used for depth buffer comparisons.
+	 * 
+	 * @param func One of NEVER, LESS, EQUAL, LEQUAL, GREATER, NOTEQUAL, GEQUAL, ALWAYS
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDepthFunc.xml"
 	 */
 	public abstract void depthFunc(int func);  
 
+	/**
+	 * Enable or disable writing into the depth buffer.
+	 * 
+	 * @param flag true to enable or false to disable writing into the depth buffer
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDepthMask.xml"
+	 */
 	public abstract void depthMask(boolean flag);  
 	
+	/**
+	 * Specify mapping of depth values from normalized device coordinates to
+	 * window coordinates.
+	 * 
+	 * @param nearVal
+	 *            Mapping of the near clipping plane to window coordinates. The
+	 *            initial value is 0.
+	 * 
+	 * @param farVal
+	 *            Mapping of the far clipping plane to window coordinates. The
+	 *            initial value is 1.
+	 * 
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDepthRangef.xml"
+	 */
 	public abstract void depthRange(float nearVal, float farVal);  
 	
+	/**
+	 * Specify the clear value for the depth buffer.
+	 * 
+	 * @param depth
+	 *            The depth value used when the depth buffer is
+	 *            cleared. The initial value is 1.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glClearDepthf.xml"
+	 */
 	public abstract void clearDepth(float depth);
 	
+	/**
+	 * Set the scale and units used to calculate depth values.
+	 * 
+	 * @param factor
+	 *            Scale factor that is used to create a variable depth offset
+	 *            for each polygon. The initial value is 0.
+	 * @param units
+	 *            Is multiplied by an implementation-specific value to create a
+	 *            constant depth offset. The initial value is 0.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glPolygonOffset.xml"
+	 */
 	public abstract void polygonOffset(float factor, float units);  
 	
 	// ///////////////
 	// Framebuffers //
 	//////////////////
 	
+	/**
+	 * Creates a new Framebuffer object.
+	 * 
+	 * @return The created {@link WebGLFramebuffer}
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGenFramebuffers.xml"
+	 */
 	public abstract WebGLFramebuffer createFramebuffer();
 	
+	/**
+	 * Deletes the Framebuffer object.
+	 * 
+	 * @param buffer the {@link WebGLFramebuffer} to delete.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDeleteFramebuffers.xml"
+	 */
 	public abstract void deleteFramebuffer(WebGLFramebuffer buffer);
 	
 	/**
-	 * @param target FRAMEBUFFER
-	 * @param buffer
+	 * Binds the Framebuffer to the specified target.
+	 * 
+	 * @param target Must be FRAMEBUFFER
+	 * @param buffer The {@link WebGLFramebuffer} to bind
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBindFramebuffer.xml"
 	 */
 	public abstract void bindFramebuffer(int target, WebGLFramebuffer buffer);
 	
 	/**
+	 * Checks the status of the Framebuffer bound to the target.
+	 * 
 	 * @param target
-	 * @return one of the following constants: FRAMEBUFFER_COMPLETE FRAMEBUFFER_INCOMPLETE_ATTACHMENT FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT FRAMEBUFFER_INCOMPLETE_DIMENSIONS FRAMEBUFFER_UNSUPPORTED
+	 *            Must be FRAMEBUFFER
+	 * @return One of FRAMEBUFFER_COMPLETE, FRAMEBUFFER_INCOMPLETE_ATTACHMENT,
+	 *         FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT,
+	 *         FRAMEBUFFER_INCOMPLETE_DIMENSIONS, FRAMEBUFFER_UNSUPPORTED
 	 */
 	public abstract int checkFramebufferStatus(int target);
 	
 	/**
+	 * Attach a renderbuffer object to a framebuffer object.
+	 * 
 	 * @param target
-	 * @param attachment DEPTH_ATTACHMENT COLOR_ATTACHMENT0 STENCIL_ATTACHMENT
+	 *            Must be FRAMEBUFFER
+	 * @param attachment
+	 *            Specifies the attachment point to which renderbuffer should be
+	 *            attached. One of DEPTH_ATTACHMENT, COLOR_ATTACHMENT0,
+	 *            STENCIL_ATTACHMENT
 	 * @param rbtarget
+	 *            Must be RENDERBUFFER
 	 * @param rbuffer
-	 * @return
+	 *            The {@link WebGLRenderbuffer} to attach
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glFramebufferRenderbuffer.xml"
 	 */
-	public abstract int framebufferRenderbuffer(int target, int att, int rbtarget, WebGLRenderbuffer rbuffer);
+	public abstract void framebufferRenderbuffer(int target, int attachment, int rbtarget, WebGLRenderbuffer rbuffer);
 	
 	/**
+	 * Return attachment parameters of a framebuffer object.
+	 * 
 	 * @param target
-	 * @param attachment FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE
+	 *            Must be FRAMEBUFFER
+	 * @param attachment
+	 *            Specifies the symbolic name of a framebuffer object attachment
+	 *            point. One of COLOR_ATTACHMENT0, DEPTH_ATTACHMENT,
+	 *            STENCIL_ATTACHMENT
 	 * @param pname
-	 * @return
+	 *            Must be FRAMEBUFFER_ATTACHMENT_OBJECT_NAME
+	 * @return the current value of the specified parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetFramebufferAttachmentParameteriv.xml"
 	 */
+	public abstract JavaScriptObject getFramebufferAttachmentParameter(int target, int attachment, int pname);
+
+	/**
+	 * Return attachment parameters (of type int) of a framebuffer object.
+	 * 
+	 * @param target
+	 *            Must be FRAMEBUFFER
+	 * @param attachment
+	 *            Specifies the symbolic name of a framebuffer object attachment
+	 *            point. One of COLOR_ATTACHMENT0, DEPTH_ATTACHMENT,
+	 *            STENCIL_ATTACHMENT
+	 * @param pname
+	 *            One of FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE,
+	 *            FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL,
+	 *            FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE
+	 * @return the current value of the specified parameter
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetFramebufferAttachmentParameteriv.xml"
+	 */
+	@JsName("getFramebufferAttachmentParameter")
 	public abstract int getFramebufferAttachmentParameteri(int target, int attachment, int pname);
 	
 	/**
 	 * @param target
+	 *            Must be FRAMEBUFFER
 	 * @param att
-	 * @param textarget TEXTURE_2D TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z
+	 *            Specifies the attachment point to which an image from texture
+	 *            should be attached. One of COLOR_ATTACHMENT0,
+	 *            DEPTH_ATTACHMENT, STENCIL_ATTACHMENT
+	 * @param textarget
+	 *            One of TEXTURE_2D, TEXTURE_CUBE_MAP_POSITIVE_X,
+	 *            TEXTURE_CUBE_MAP_NEGATIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y,
+	 *            TEXTURE_CUBE_MAP_NEGATIVE_Y, TEXTURE_CUBE_MAP_POSITIVE_Z,
+	 *            TEXTURE_CUBE_MAP_NEGATIVE_Z
 	 * @param tex
+	 *            The texture object whose image is to be attached.
 	 * @param level
-	 * @return
+	 *            Specifies the mipmap level of the texture image to be
+	 *            attached, which must be 0.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glFramebufferTexture2D.xml"
 	 */
-	public abstract int framebufferTexture2D(int target, int att, int textarget, WebGLTexture tex, int level);
+	public abstract void framebufferTexture2D(int target, int att, int textarget, WebGLTexture tex, int level);
 	
 	/**
-	 * @param pname PACK_ALIGNMENT UNPACK_ALIGNMENT
+	 * Set pixel storage modes.
+	 * 
+	 * @param pname
+	 *            One of PACK_ALIGNMENT, UNPACK_ALIGNMENT
 	 * @param param
+	 *            The value to set
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glPixelStorei.xml"
 	 */
 	public abstract void pixelStorei(int pname, int param);
 	
 	/**
-	 * @param x
-	 * @param y
-	 * @param width
-	 * @param height
-	 * @param format ALPHA RGB RGBA
-	 * @param type UNSIGNED_BYTE UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_6_5
-	 * @return
+	 * Read pixels from the Framebuffer.
+	 * 
+	 * @param <T> The type of the {@link WebGLArray} returned
+	 * @param x The x position of the section to read
+	 * @param y The y position of the section to read
+	 * @param width The width of the section to read
+	 * @param height The height of the section to read
+	 * @param format The format of the pixel data. One of ALPHA, RGB, RGBA
+	 * @param type The data type of the pixel data One of UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5
+	 * @return The read pixels
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glReadPixels.xml"
 	 */
 	public abstract <T extends WebGLArray<?>> T readPixels(int x, int y, int width, int height, int format, int type);
 	
-	public abstract boolean isFramebuffer(WebGLFramebuffer buffer);
+	/**
+	 * Checks if the given object is a Framebuffer object.
+	 * 
+	 * @param buffer the object to check
+	 * @return true if the object is a Framebuffer object, false otherwise
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glIsFramebuffer.xml"
+	 */
+	public abstract boolean isFramebuffer(JavaScriptObject buffer);
 	
 	// /////////////////
 	// Stencil buffer //
 	// /////////////////
 	
 	/**
-	 * @param func NEVER LESS EQUAL LEQUAL GREATER NOTEQUAL GEQUAL ALWAYS
+	 * Set front and back function and reference value for stencil testing.
+	 * 
+	 * @param func
+	 *            The test function. One of NEVER, LESS, EQUAL, LEQUAL, GREATER,
+	 *            NOTEQUAL, GEQUAL, ALWAYS
 	 * @param ref
+	 *            The reference value for the stencil test.
 	 * @param mask
+	 *            A mask that is ANDed with both the reference value and the
+	 *            stored stencil value when the test is done. The initial value
+	 *            is all 1's.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glStencilFunc.xml"
 	 */
 	public abstract void stencilFunc(int func, int ref, int mask);
 	
