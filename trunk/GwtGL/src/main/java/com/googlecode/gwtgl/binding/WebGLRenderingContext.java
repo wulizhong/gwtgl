@@ -1810,55 +1810,80 @@ public abstract class WebGLRenderingContext {
 	// Textures //
 	// ////////////
 
+	/**
+	 * Create a WebGLTexture object and initialize it with a texture object name as if by calling glGenTextures. 
+	 * @return created {@link WebGLTexture}
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGenTextures.xml"
+	 */
 	public abstract WebGLTexture createTexture();
 
+	/**
+	 * Delete the texture object contained in the passed WebGLTexture as if by calling glDeleteTextures.
+	 * If the texture has already been deleted the call has no effect.
+	 * Note that the texture object will be deleted when the WebGLTexture object is destroyed.
+	 * This method merely gives the author greater control over when the texture object is destroyed. 
+	 * @param texture {@link WebGLTexture} to be deleted
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDeleteTextures.xml"
+	 */
 	public abstract void deleteTexture(WebGLTexture texture);
 
 	/**
-	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
-	 * @param texture the texture to delete
+	 * Bind a {@link WebGLTexture} object to a texturing target
+	 * @param target Target to which the texture is bound. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param texture the {@link WebGLTexture} object to delete
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBindTexture.xml"
 	 */
 	public abstract void bindTexture(int target, WebGLTexture texture);
 
 	/**
-	 * @param texture the texture unit (TEXTURE0, TEXTURE1, ...)
+	 * Select active texture unit
+	 * @param texture the texture unit (TEXTURE0, TEXTURE1, ...) to make active
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glActiveTexture.xml"
 	 */
 	public abstract void activeTexture(int texture);
 
 	/**
-	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
-	 * @param level
+	 * Specify a two-dimensional texture image
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
 	 */
 	public abstract void texImage2D(int target, int level, JavaScriptObject data);
 	
 	/**
-	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
-	 * @param level
+	 * Specify a two-dimensional texture image
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP
+	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
 	 * @param flipY 
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
 	 */
 	public abstract void texImage2D(int target, int level, JavaScriptObject data, boolean flipY);
 	
 	/**
-	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
-	 * @param level
+	 * Specify a two-dimensional texture image
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP
+	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
 	 * @param flipY 
 	 * @param asPremultipliedAlpha 
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
 	 */
 	public abstract void texImage2D(int target, int level, JavaScriptObject data, boolean flipY, boolean asPremultipliedAlpha);
 
 	/**
-	 * @param target TEXTURE_2D, TEXTURE_CUBE_MAP
-	 * @param level
-	 * @param intformat ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA
-	 * @param width
-	 * @param height
-	 * @param border
-	 * @param format ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA
-	 * @param type UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5
+	 * Specify a two-dimensional texture image
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP
+	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat Internal format of the texture. One of ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA.
+	 * @param width Width of the texture image. All implementations support 2D texture images that are at least 64 texels wide and cube-mapped texture images that are at least 16 texels wide.
+	 * @param height Height of the texture image. All implementations support 2D texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high.
+	 * @param border Width of the border.
+	 * @param format Format of the texel data.  Must match internalformat.One of ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA.
+	 * @param type Data type of the texel data. One of UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5.
 	 * @param pixels
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
 	 */
 	public abstract void texImage2D(int target, int level, int internalformat, int width,
 			int height, int border, int format, int type, WebGLArray<?> pixels);
