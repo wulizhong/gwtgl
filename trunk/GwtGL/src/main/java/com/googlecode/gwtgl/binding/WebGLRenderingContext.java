@@ -1888,24 +1888,76 @@ public abstract class WebGLRenderingContext {
 	public abstract void texImage2D(int target, int level, int internalformat, int width,
 			int height, int border, int format, int type, WebGLArray<?> pixels);
 
+	/**
+	 * Determine if a name corresponds to a texture
+	 * @param texture Specifies a value that may be the name of a texture
+	 * @return Return true if the passed object is a WebGLTexture and false otherwise. 
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glIsTexture.xml"
+	 */
 	public abstract boolean isTexture(WebGLTexture texture);
 
-	public abstract void generateMipmap(int target);
+	/**
+	 * Generate a complete set of mipmaps for a texture object
+	 * @param target Texture target of the texture object whose mipmaps will be generated. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGenerateMipmap.xml"
+	 */
+	public abstract void generateMipmap(int target); 
 	
 	/**
-	 * @param target
-	 * @param pname TEXTURE_MAG_FILTER, TEXTURE_MIN_FILTER, TEXTURE_WRAP_S, TEXTURE_WRAP_T
-	 * @return
+	 * Return the int value for the passed pname given the passed target
+	 * @param target Symbolic name of the target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param pname Symbolic name of a texture parameter. One of TEXTURE_MAG_FILTER, TEXTURE_MIN_FILTER, TEXTURE_WRAP_S, TEXTURE_WRAP_T.
+	 * @return texture parameter int value
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetTexParameter.xml"
 	 */
 	@JsName("getTexParameter")
 	public abstract int getTexParameteri(int target, int pname);
 	
+	/**
+	 * Set int texture parameter
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param pname Symbolic name of a single-valued texture parameter. One of TEXTURE_MIN_FILTER, TEXTURE_MAG_FILTER, TEXTURE_WRAP_S, TEXTURE_WRAP_T.
+	 * @param value Int value of texture parameter to set.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexParameter.xml"
+	 */
 	public abstract void texParameteri(int target, int pname, int value);
 	
+	/**
+	 * Set float texture parameter
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param pname Symbolic name of a single-valued texture parameter. One of TEXTURE_MIN_FILTER, TEXTURE_MAG_FILTER, TEXTURE_WRAP_S, TEXTURE_WRAP_T.
+	 * @param value Float value of texture parameter to set.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexParameter.xml"
+	 */
 	public abstract void texParameterf(int target, int pname, float value);
 
+	/**
+	 * Copy a two-dimensional texture subimage
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param intformat 
+	 * @param xoffset Texel offset in the x direction within the texture array
+	 * @param yoffset Texel offset in the y direction within the texture array
+	 * @param x X coordinate of the lower left corner of the rectangular region of pixels to be copied
+	 * @param y Y coordinate of the lower left corner of the rectangular region of pixels to be copied
+	 * @param width Width of the texture subimage
+	 * @param height Height of the texture subimage
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glCopyTexSubImage2D.xml"
+	 */
 	public abstract void copyTexSubImage2D(int target, int level, int intformat, int xoffset, int yoffset, int x, int y, int width, int height);
 	
+	/**
+	 * Copy a two-dimensional texture subimage
+	 * @param target Target texture. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
+	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param intformat
+	 * @param x X coordinate of the lower left corner of the rectangular region of pixels to be copied
+	 * @param y Y coordinate of the lower left corner of the rectangular region of pixels to be copied
+	 * @param width Width of the texture subimage
+	 * @param height Height of the texture subimage
+	 * @param border
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glCopyTexSubImage2D.xml"
+	 */
 	public abstract void copyTexImage2D(int target, int level, int intformat, int x, int y, int width, int height, int border);
 	
 	public abstract void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, WebGLArray<?> data);
