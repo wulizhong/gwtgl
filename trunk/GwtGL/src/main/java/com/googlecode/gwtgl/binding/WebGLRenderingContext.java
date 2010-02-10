@@ -2408,32 +2408,104 @@ public abstract class WebGLRenderingContext {
 	public abstract void stencilFunc(int func, int ref, int mask);
 	
 	/**
-	 * @param face FRONT BACK FRONT_AND_BACK
+	 * Set front and/or back function and reference value for stencil testing.
+	 * 
+	 * @param face
+	 *            One of FRONT, BACK, FRONT_AND_BACK
 	 * @param func
+	 *            The test function. One of NEVER, LESS, EQUAL, LEQUAL, GREATER,
+	 *            NOTEQUAL, GEQUAL, ALWAYS
 	 * @param ref
+	 *            The reference value for the stencil test.
 	 * @param mask
+	 *            A mask that is ANDed with both the reference value and the
+	 *            stored stencil value when the test is done. The initial value
+	 *            is all 1's.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glStencilFuncSeparate.xml"
 	 */
 	public abstract void stencilFuncSeparate(int face, int func, int ref, int mask);
 	
+	/**
+	 * Control the front and back writing of individual bits in the stencil
+	 * planes.
+	 * 
+	 * @param mask
+	 *            Specifies a bit mask to enable and disable writing of
+	 *            individual bits in the stencil planes. Initially, the mask is
+	 *            all 1's.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glStencilMask.xml"
+	 */
 	public abstract void stencilMask(int mask);
 	
+	/**
+	 * @param face
+	 *            One of FRONT, BACK, FRONT_AND_BACK
+	 * @param mask
+	 *            Specifies a bit mask to enable and disable writing of
+	 *            individual bits in the stencil planes. Initially, the mask is
+	 *            all 1's.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glStencilMaskSeparate.xml"
+	 */
 	public abstract void stencilMaskSeparate(int face, int mask);
 	
 	/**
-	 * @param sfail KEEP ZERO INCR INCR_WRAP REPLACE INVERT DECR DECR_WRAP
-	 * @param dpfail KEEP ZERO INCR INCR_WRAP REPLACE INVERT DECR DECR_WRAP
-	 * @param dppass KEEP ZERO INCR INCR_WRAP REPLACE INVERT DECR DECR_WRAP
+	 * Set front and back stencil test actions.
+	 * 
+	 * @param sfail
+	 *            One of KEEP, ZERO, INCR, INCR_WRAP, REPLACE, INVERT, DECR,
+	 *            DECR_WRAP
+	 * @param dpfail
+	 *            One of KEEP, ZERO, INCR, INCR_WRAP, REPLACE, INVERT, DECR,
+	 *            DECR_WRAP
+	 * @param dppass
+	 *            One of KEEP, ZERO, INCR, INCR_WRAP, REPLACE, INVERT, DECR,
+	 *            DECR_WRAP
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glStencilOp.xml"
 	 */
 	public abstract void stencilOp(int sfail, int dpfail, int dppass);
 	
+	/**
+	 * @param face
+	 *            One of FRONT, BACK, FRONT_AND_BACK
+	 * @param sfail
+	 *            One of KEEP, ZERO, INCR, INCR_WRAP, REPLACE, INVERT, DECR,
+	 *            DECR_WRAP
+	 * @param dpfail
+	 *            One of KEEP, ZERO, INCR, INCR_WRAP, REPLACE, INVERT, DECR,
+	 *            DECR_WRAP
+	 * @param dppass
+	 *            One of KEEP, ZERO, INCR, INCR_WRAP, REPLACE, INVERT, DECR,
+	 *            DECR_WRAP
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glStencilOpSeparate.xml"
+	 */
 	public abstract void stencilOpSeparate(int face, int sfail, int dpfail, int dppass);
 	
+	/**
+	 * Specify the clear value for the stencil buffer.
+	 * 
+	 * @param s
+	 *            Specifies the index used when the stencil buffer is cleared.
+	 *            The initial value is 0.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glClearStencil.xml"
+	 */
 	public abstract void clearStencil(int s);
 	
 	// ////////////////
 	// Multisampling //
 	// ////////////////
 	
+	/**
+	 * Specify multisample coverage parameters.
+	 * 
+	 * @param value
+	 *            Specify a single floating-point sample coverage value. The
+	 *            value is clamped to the range [0, 1]. The initial value is
+	 *            1.0.
+	 * @param invert
+	 *            Specify a single boolean value representing if the coverage
+	 *            masks should be inverted. The initial value is false.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glSampleCoverage.xml"
+	 */
 	public abstract void sampleCoverage(float value, boolean invert);
 	
 }
