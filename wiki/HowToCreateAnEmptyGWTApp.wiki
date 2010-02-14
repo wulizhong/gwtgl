@@ -63,8 +63,15 @@ Scroll to the body tag. Below the noscript tag you will find a headline and a sa
 This is our placeholder that will contain the WebGL canvas.
 
 Open the gwt xml configuration file in the root package (e.g. _your.package.structure.GwtGLBindingDemo.gwt.xml_).
-Add the following entry: _<inherits name='com.googlecode.gwtgl.binding'/>_. This will make the WebGL binding available in your project.
-If you want to use the wrapper layer, add an additional entry: <inherits name='com.googlecode.gwtgl.wrapper'/>
+Add the following entry: 
+{{{
+<inherits name='com.googlecode.gwtgl.binding'/>
+}}}
+This will make the WebGL binding available in your project.
+If you want to use the wrapper layer, add an additional entry: 
+{{{
+<inherits name='com.googlecode.gwtgl.wrapper'/>
+}}}
 
 = Implement the entry point =
 
