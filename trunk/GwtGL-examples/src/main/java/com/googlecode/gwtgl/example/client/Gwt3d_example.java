@@ -42,7 +42,7 @@ public class Gwt3d_example implements EntryPoint {
 			tp.selectTab(3);
 			RootPanel.get("gwt3d-example").add(tp);
 		} catch (Exception e) {
-			Window.alert(e.getMessage());
+			Window.alert("Sorry, Your Browser doesn't support WebGL!");
 		}
 	}
 }
