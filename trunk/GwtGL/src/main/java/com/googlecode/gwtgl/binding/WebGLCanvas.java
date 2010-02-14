@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009 Sönke Sothmann & Steffen Schäfer
+ * Copyright 2009-2010 Sönke Sothmann & Steffen Schäfer
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,9 +39,17 @@ public class WebGLCanvas extends FocusWidget {
 	 * Constructs a WebGLCanvas with width=200px and height=200px.
 	 */
 	public WebGLCanvas() {
-		this("200px", "200px");
+		this(null);
 	}
-
+	
+	/**
+	 * Constructs a WebGLCanvas with width=200px and height=200px using the given contextAttributes.
+	 * @param contextAttributes the {@link WebGLContextAttributes} used to construct the {@link WebGLRenderingContext}
+	 */
+	public WebGLCanvas(WebGLContextAttributes contextAttributes) {
+		this(contextAttributes, "200px", "200px");
+	}
+	
 	/**
 	 * Constructs a WebGLCanvas with the given width and height.
 	 * 
@@ -49,13 +57,29 @@ public class WebGLCanvas extends FocusWidget {
 	 * @param height the height of the {@link WebGLCanvas}
 	 */
 	public WebGLCanvas(String width, String height) {
+		this(null, width, height);
+	}
+
+	/**
+	 * Constructs a WebGLCanvas with the given width, height and the contextAttributes.
+	 * 
+	 * @param contextAttributes the {@link WebGLContextAttributes} used to construct the {@link WebGLRenderingContext}
+	 * @param width the width of the {@link WebGLCanvas}
+	 * @param height the height of the {@link WebGLCanvas}
+	 */
+	public WebGLCanvas(WebGLContextAttributes contextAttributes, String width, String height) {
 		if (width == null || height == null) {
 			throw new IllegalArgumentException();
 		}
 		setElement(DOM.createElement("canvas"));
 		
 		// TODO create a JavaScriptObject of the glContext?
-		JavaScriptObject nativeGlContext = createGlContext(getElement());
+		JavaScriptObject nativeGlContext;
+		if(contextAttributes==null) {
+			nativeGlContext = createGlContext(getElement());
+		} else {
+			nativeGlContext = createGlContext(getElement(), contextAttributes);
+		}
 		if(nativeGlContext == null) {
 			throw new RuntimeException("Sorry, your browser doesn't support WebGL");
 		}
@@ -63,6 +87,13 @@ public class WebGLCanvas extends FocusWidget {
 		setWidth(width);
 		setHeight(height);
 	}
+	
+	private native JavaScriptObject createGlContext(Element element ,WebGLContextAttributes contextAttributes) /*-{
+		try {
+			return element.getContext("experimental-webgl", contextAttributes);
+		} catch(e)  {}
+		return null;
+	}-*/;
 	
 	private native JavaScriptObject createGlContext(Element element) /*-{
 		try {
