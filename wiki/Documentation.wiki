@@ -1,0 +1,4 @@
+#summary Welcome to the documentation of the GwtGL project.
+#sidebar TableOfContents
+
+Please select a topic in the sidebar.

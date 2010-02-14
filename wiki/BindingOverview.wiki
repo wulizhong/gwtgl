@@ -1,4 +1,5 @@
 #summary An overview of the GwtGL binding.
+#sidebar TableOfContents
 
 = Introduction =
 
@@ -12,7 +13,6 @@ Java and !JavaScript in spite of their similar names have many differences. Ther
 
 In detail the differences are:
  * WebGL uses a canvas element to display the 3d stuff. To render on this canvas you request the WebGLRenderingContext by calling getContext(contextName). In the GwtGL binding the canvas is wrapped into a GWT widget called WebGLCanvas. You can get access to the rendering context by calling getGlContext() on an instance of the WebGLCanvas.
- * In the GwtGL binding, the constants aren't defined in the rendering context but in the WebGLCanvas.
  * The WebGLArray classes have no constructors in the binding. However there are factory methods in the WebGLArray classes. The factory methods are called create(...) and there is one for every missing constructor with matching parameters. 
  * All methods that can return different primitive values or primitive values and objects, are mapped as multiple methods. The method that returns objects has the original name, the methods that return the primitive values have suffixes:
    * i for int

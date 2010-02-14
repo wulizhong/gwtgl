@@ -1,0 +1,21 @@
+#summary The roadmap of the GwtGL project.
+#sidebar TableOfContents
+
+= 0.2 =
+
+  * (to do) Check specification for changes since 0.1
+  * (to do) Review the generators
+    * (to do) Code cleanup
+    * (to do) Refactoring
+    * (to do) Documentation
+  * (to do) review binding again
+  * (to do) review wrapper and think about improvements/additions of the API
+
+= post 0.2 =
+
+  * Check specification for changes until the final specification is done
+  * Create wrapper objects and methods for whole API
+  * Check wrapper API for more simplifications compared to binding
+    * Iterators for complex objects
+  * Create tech demos
+    * Mesh loading

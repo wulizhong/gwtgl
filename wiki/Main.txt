@@ -1,0 +1,40 @@
+= What is GwtGL? =
+
+GwtGL provides a basic GWT widget and [BindingOverview binding] for the upcoming WebGL standard (maintained by the WebGL working group at Khronos Group).
+
+GwtGL enables you to develop 3D websites and web applications using the Java programming language instead of !JavaScript.
+Type safety and the Java Toolset help you to write your apps in less time compared to plain !JavaScript development.
+The GWT compiler generates optimized !JavaScript code, so you will achieve higher frame rates.
+
+A second part of GwtGL is an object oriented [WrapperOverview wrapper] API.
+This API tries to help you writing WebGL applications using GWT and object oriented programming best practices.
+
+= What is WebGL? =
+
+WebGL is a graphics API based on OpenGL ES 2.0. 
+It enables developers to create hardware accelerated 3D graphics which can be embedded into HTML websites.
+All mayor browsers will support WebGL in the near future, 
+so there is no need for a plugin to be able to view WebGL enriched sites.
+
+= Demos =
+
+[http://gwtgl.googlecode.com/svn/wiki/img/demo_small.png http://gwtgl.googlecode.com/svn/wiki/img/demo.png]
+
+[http://gwtgl-examples.appspot.com/ Click here] to see a live version of our demos. 
+
+= Using GwtGL in your GWT project =
+
+Include GwtGL into your classpath.
+Add the following line to your *.gwt.xml to have access to the WebGL [BindingOverview binding]:
+{{{
+<inherits name='com.googlecode.gwtgl.binding'/>
+}}}
+Add the following line to your *.gwt.xml to have access to the WebGL wrapper:
+{{{
+<inherits name='com.googlecode.gwtgl.wrapper'/>
+}}}
+
+= Getting started =
+
+The easiest way to start learning GwtGL is to read the [Documentation] in our wiki.
+Don't forget to install a [BrowserSupport WebGL compatible browser].

@@ -1,0 +1,21 @@
+#summary An overview of the GwtGL wrapper.
+#sidebar TableOfContents
+
+= Introduction =
+
+The GwtGL wrapper is a thin API around WebGL and the GwtGL binding.
+The aim is not to construct a new and contrary API for WebGL, but to improve and ease the usage of the existing API in an object oriented manner and adds support for standard Java/GWT features where reasonable.
+So some parts are mapped 1:1 in the wrapper but others are constructed in an slightly different way to get simpler access to the features.
+In summary, the original WebGL/OpenGL ES mode of operation is kept.
+
+The aim for the GwtGL developers is to create a basic wrapper object for every WebGL object, to enrich its API bit by bit and add support for standard Java/GWT features.
+
+= Features =
+
+Some of the current features of the GwtGL wrapper are:
+ * The wrapper uses enums instead of numeric constants for improved type safety
+ * All methods that operate on one object are wrapped together in that object
+ * Transparent resource handling
+   * Support of GWT ClientBundle/ImageResource for textures
+ * Automatic index calculations for multiple arrays contained in one buffer
+ * Java Iterable/Iterator support for Array types

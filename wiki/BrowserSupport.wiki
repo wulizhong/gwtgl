@@ -1,0 +1,24 @@
+#summary Tutorial: Description how to get a WebGL compatible browser.
+#sidebar TableOfContents
+
+As the work on WebGL is still in progress, only few browsers provide support
+for it in their *head builds*. You need to use unstable versions, so be sure what you do!
+Browsers with WebGL Support are:
+  * !WebKit Nightly Builds (http://nightly.webkit.org/)
+  * Google Chrome (use the dev channel: http://dev.chromium.org/getting-involved/dev-channel)
+  * Firefox 3.7 pre Alpha aka Minefield(http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/)
+    * Firefox 3.7 pre Alpha portable (http://portableapps.com/apps/internet/firefox_portable/test#minefield)
+
+Other browsers do *NOT* support WebGL.
+
+Use current builds of the mentioned browsers. As WebGL itself is not stable,
+APIs and their implementation change. We try to keep compatibility to current builds of the browsers.
+
+Firefox 3.7 is not compatible with the dev mode extension. The dev mode is thus not usable with Firefox 3.7.
+The dev mode extension for Chrome works with the dev channel but WebGL doesn't work in dev mode and throws weired errors.
+Therefore it is necessary to deploy your GwtGL app and test it in web mode.
+
+For detail informations on how to install the browsers, look at:
+http://learningwebgl.com/blog/?p=11
+
+To check the correctness of your browser installation you can have a look at the [http://gwtgl-examples.appspot.com/ demos].

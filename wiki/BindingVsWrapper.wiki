@@ -1,0 +1,12 @@
+#summary An comparison of the GwtGL binding and wrapper.
+#sidebar TableOfContents
+
+While the binding represents a direct mapping of the WebGL API, the wrapper is designed to provide simplifying functionality.
+The following table shows some of the differences:
+
+|| *Feature* || *Binding* || *Wrapper* ||
+|| Performance || Approximately the same as pure WebGL with JS || A small overhead  due to object creation ||
+|| Memory consumption || Approximately the same as pure WebGL with JS || A small overhead  due to extra objects ||
+|| Type safety || Moderate type safety (int constants, ..) || Better type safety (enum types where possible, ...) ||
+|| Object oriented || C-style API with reference objects || Object oriented approach with support for special Java/GWT features ||
+|| Simplicity || As the original WebGL API || Simplifications like transparent image handling and automatic index calculations ||
