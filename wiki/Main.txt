@@ -18,7 +18,7 @@ so there is no need for a plugin to be able to view WebGL enriched sites.
 
 = Demos =
 
-[http://gwtgl.googlecode.com/svn/wiki/img/demo_small.png http://gwtgl.googlecode.com/svn/wiki/img/demo.png]
+[http://gwtgl.googlecode.com/svn/wiki/img/demo.png http://gwtgl.googlecode.com/svn/wiki/img/demo_small.png]
 
 [http://gwtgl-examples.appspot.com/ Click here] to see a live version of our demos. 
 
