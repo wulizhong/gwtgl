@@ -21,6 +21,7 @@
 	<packaging>war</packaging>
 	<version>0.1</version>
 	<name>GwtGL-examples</name>
+	<description>GwtGL-examples is an examples project for GwtGL.</description>
 	<url>http://code.google.com/p/gwtgl/</url>
 	<scm>
 		<connection>scm:svn:http://gwtgl.googlecode.com/svn/trunk/GwtGL-examples/</connection>
@@ -35,6 +36,7 @@
 			<roles>
 				<role>architect</role>
 				<role>developer</role>
+				<role>release engineer</role>
 			</roles>
 			<timezone>+1</timezone>
 		</developer>

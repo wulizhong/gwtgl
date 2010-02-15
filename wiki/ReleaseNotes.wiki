@@ -1,7 +1,7 @@
 #summary The release notes of the GwtGL project.
 #sidebar TableOfContents
 
-= 0.1 =
+= 0.1 - Feb 15, 2010 =
 
 0.1 is the first release of GwtGL. The binding API should be mostly done with sufficient JavaDocs.
 An initial version of the wrapper is contained to show some technical ideas. 
