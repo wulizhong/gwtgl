@@ -53,6 +53,7 @@ public abstract class AbstractGwtGLExample extends FlexTable {
 		// create the WebGL Canvas
 		webGLCanvas = new WebGLCanvas(contextAttributes, "500px", "500px");
 		glContext = webGLCanvas.getGlContext();
+		glContext.viewport(0, 0, 500, 500);
 
 		setWidget(1, 0, webGLCanvas);
 

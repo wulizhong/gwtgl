@@ -15,7 +15,7 @@ import com.googlecode.gwtgl.example.client.examples.whitetriangle.wrapper.WhiteT
  * @author Sönke Sothmann
  * 
  */
-public class Gwt3d_example implements EntryPoint {
+public class GwtGL_examples implements EntryPoint {
 
 	/**
 	 * This is the entry point method.
@@ -40,7 +40,7 @@ public class Gwt3d_example implements EntryPoint {
 			tp.add(lightingWrapperExample, "Lighting (Wrapper)");
 	
 			tp.selectTab(3);
-			RootPanel.get("gwt3d-example").add(tp);
+			RootPanel.get("gwtgl-examples").add(tp);
 		} catch (Exception e) {
 			Window.alert("Sorry, Your Browser doesn't support WebGL!");
 		}
