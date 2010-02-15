@@ -23,3 +23,5 @@ The work areas of this version in detail:
     * Simple example for wrapper
     * Texturing example for wrapper
     * Lightning example for wrapper
+  * Infrastructure
+    * Created a Maven2 based build
