@@ -21,6 +21,33 @@
 	<packaging>jar</packaging>
 	<version>0.1</version>
 	<name>GwtGL</name>
+	<description>GwtGL is a GWT binding for the WebGL API.</description>
+	<url>http://code.google.com/p/gwtgl/</url>
+	<scm>
+		<connection>scm:svn:http://gwtgl.googlecode.com/svn/trunk/GwtGL/</connection>
+		<developerConnection>scm:svn:https://gwtgl.googlecode.com/svn/trunk/GwtGL/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://code.google.com/p/gwtgl/source/browse/#svn/trunk/GwtGL</url>
+	</scm>
+	<developers>
+		<developer>
+			<id>steffen.schafer</id>
+			<name>Steffen Schäfer</name>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>soenke.sothmann</id>
+			<name>Sönke Sothmann</name>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gwt.version>2.0.1</gwt.version>
