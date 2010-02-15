@@ -1,6 +1,6 @@
 <projectDescription>
   <name>GwtGL</name>
-  <comment/>
+  <comment>GwtGL is a GWT binding for the WebGL API.</comment>
   <projects/>
   <buildSpec>
     <buildCommand>
