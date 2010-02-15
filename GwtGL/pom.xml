@@ -36,6 +36,7 @@
 			<roles>
 				<role>architect</role>
 				<role>developer</role>
+				<role>release engineer</role>
 			</roles>
 			<timezone>+1</timezone>
 		</developer>
