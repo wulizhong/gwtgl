@@ -21,6 +21,32 @@
 	<packaging>war</packaging>
 	<version>0.1</version>
 	<name>GwtGL-examples</name>
+	<url>http://code.google.com/p/gwtgl/</url>
+	<scm>
+		<connection>scm:svn:http://gwtgl.googlecode.com/svn/trunk/GwtGL-examples/</connection>
+		<developerConnection>scm:svn:https://gwtgl.googlecode.com/svn/trunk/GwtGL-examples/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://code.google.com/p/gwtgl/source/browse/#svn/trunk/GwtGL-examples</url>
+	</scm>
+	<developers>
+		<developer>
+			<id>steffen.schafer</id>
+			<name>Steffen Schäfer</name>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>soenke.sothmann</id>
+			<name>Sönke Sothmann</name>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gwt.version>2.0.1</gwt.version>
