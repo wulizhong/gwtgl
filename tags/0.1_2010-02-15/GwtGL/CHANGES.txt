@@ -1,0 +1,25 @@
+= 0.1 - Feb 15, 2010 =
+======================
+
+0.1 is the first release of GwtGL. The binding API should be mostly done with sufficient JavaDocs.
+An initial version of the wrapper is contained to show some technical ideas. 
+
+The work areas of this version in detail:
+  * Implementation of the binding
+    * Binding of all constants and methods according to the specification
+    * JavaDocs for all elements
+  * initial version of the wrapper
+    * Wrapper classes for the objects and methods needed for basic examples
+    * GWT Image support for 2D textures
+    * A wrapper for the Buffer to ease the resource management and do the index calculation automatically
+  * Basic documentation in the wiki
+    * Overview of the binding and wrapper
+    * Simple tutorial
+    * Basic developer documentation
+  * Examples
+    * Simple example for binding
+    * Simple example for wrapper
+    * Texturing example for wrapper
+    * Lightning example for wrapper
+  * Infrastructure
+    * Created a Maven2 based build
