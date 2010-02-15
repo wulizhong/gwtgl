@@ -141,18 +141,18 @@ Finally, the drawArrays() method renders the triangle using the buffer that you 
 The createPerspectiveMatrix() method is needed for the 3D look of our scene. In coming versions of GwtGL, this method will be available to use, so you won't have to implement it by yourself.
 But at the moment, you have to implement it by yourself.
 {{{
-private float[] createPerspectiveMatrix(int fFoVVy, float fAspect, float fZnear, float fZfar) {
-	float fYmaxTop    = fZnear * (float)Math.tan(fFoVVy * Math.PI / 360.0);
-	float fYminBottom = -fYmaxTop;
-	float fXminLeft   = fYminBottom * fAspect;
-	float fXmaxRight  = fYmaxTop * fAspect;
+private float[] createPerspectiveMatrix(int fieldOfViewVertical, float aspectRatio, float minimumClearance, float maximumClearance) {
+	float top    = minimumClearance * (float)Math.tan(fieldOfViewVertical * Math.PI / 360.0);
+	float bottom = -top;
+	float left   = bottom * aspectRatio;
+	float right  = top * aspectRatio;
 
-	float X = 2*fZnear/(fXmaxRight-fXminLeft);
-	float Y = 2*fZnear/(fYmaxTop-fYminBottom);
-	float A = (fXmaxRight+fXminLeft)/(fXmaxRight-fXminLeft);
-	float B = (fYmaxTop+fYminBottom)/(fYmaxTop-fYminBottom);
-	float C = -(fZfar+fZnear)/(fZfar-fZnear);
-	float D = -2*fZfar*fZnear/(fZfar-fZnear);
+	float X = 2*minimumClearance/(right-left);
+	float Y = 2*minimumClearance/(top-bottom);
+	float A = (right+left)/(right-left);
+	float B = (top+bottom)/(top-bottom);
+	float C = -(maximumClearance+minimumClearance)/(maximumClearance-minimumClearance);
+	float D = -2*maximumClearance*minimumClearance/(maximumClearance-minimumClearance);
 
 	return new float[]{	X, 0.0f, A, 0.0f,
 						0.0f, Y, B, 0.0f,
