@@ -30,6 +30,7 @@ public class GwtGLBindingDemo implements EntryPoint {
 	public void onModuleLoad() {
 		final WebGLCanvas webGLCanvas = new WebGLCanvas("500px", "500px");
 		glContext = webGLCanvas.getGlContext();
+		glContext.viewport(0, 0, 500, 500);
 		RootPanel.get("gwtGL").add(webGLCanvas);
 		start();
 	}
