@@ -52,8 +52,8 @@ Your web.xml should now look like this:
 
 = Add GwtGL to your project =
 
-Add the GwtGL source to the build path: right mouse click on your 
-project -> Properties -> Java Build Path -> Tab Projects -> Click add -> Check _GwtGL_ -> click OK -> click OK.
+Extract the GwtGL bin and src jar files from the zip download to the directory _war/WEB-INF/lib_ in your project folder. Add these jars to the build path: right mouse click on your 
+project -> Properties -> Java Build Path -> Tab Libraries-> Click Add JARs-> select the two GWT jar files -> click OK -> click OK.
 
 Open file YourProjectName.html in _war_ directory.
 Scroll to the body tag. Below the noscript tag you will find a headline and a sample, generated html table. replace the table with the following code:
