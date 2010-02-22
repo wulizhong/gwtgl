@@ -1262,7 +1262,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v0 new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1f(int location, float v0);
+	public abstract void uniform1f(WebGLUniformLocation location, float v0);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1270,7 +1270,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1fv(int location, WebGLFloatArray v);
+	public abstract void uniform1fv(WebGLUniformLocation location, WebGLFloatArray v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1278,7 +1278,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1fv(int location, float[] values);
+	public abstract void uniform1fv(WebGLUniformLocation location, float[] values);
 
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1286,7 +1286,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v0 new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1i(int location, int v0);
+	public abstract void uniform1i(WebGLUniformLocation location, int v0);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1294,7 +1294,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1iv(int location, WebGLIntArray v);
+	public abstract void uniform1iv(WebGLUniformLocation location, WebGLIntArray v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1302,7 +1302,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1iv(int location, int[] values);
+	public abstract void uniform1iv(WebGLUniformLocation location, int[] values);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1311,7 +1311,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v1 new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2f(int location, float v0, float v1);
+	public abstract void uniform2f(WebGLUniformLocation location, float v0, float v1);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1319,7 +1319,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2fv(int location, WebGLFloatArray v);
+	public abstract void uniform2fv(WebGLUniformLocation location, WebGLFloatArray v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1327,7 +1327,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2fv(int location, float[] values);
+	public abstract void uniform2fv(WebGLUniformLocation location, float[] values);
 
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1336,7 +1336,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v1 new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2i(int location, int v0, int v1);
+	public abstract void uniform2i(WebGLUniformLocation location, int v0, int v1);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1344,7 +1344,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2iv(int location, WebGLIntArray v);
+	public abstract void uniform2iv(WebGLUniformLocation location, WebGLIntArray v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1352,7 +1352,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2iv(int location, int[] values);
+	public abstract void uniform2iv(WebGLUniformLocation location, int[] values);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1362,7 +1362,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v2 new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3f(int location, float v0, float v1, float v2);
+	public abstract void uniform3f(WebGLUniformLocation location, float v0, float v1, float v2);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1370,7 +1370,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3fv(int location, WebGLFloatArray v);
+	public abstract void uniform3fv(WebGLUniformLocation location, WebGLFloatArray v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1378,7 +1378,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3fv(int location, float[] values);
+	public abstract void uniform3fv(WebGLUniformLocation location, float[] values);
 
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1388,7 +1388,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v2 new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3i(int location, int v0, int v1, int v2);
+	public abstract void uniform3i(WebGLUniformLocation location, int v0, int v1, int v2);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1396,7 +1396,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3iv(int location, WebGLIntArray v);
+	public abstract void uniform3iv(WebGLUniformLocation location, WebGLIntArray v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1404,35 +1404,8 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3iv(int location, int[] values);
+	public abstract void uniform3iv(WebGLUniformLocation location, int[] values);
 	
-	/**
-	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
-	 * @param location Location of the uniform variable to be modified.
-	 * @param v0 new value to be used for the specified uniform variable.
-	 * @param v1 new value to be used for the specified uniform variable.
-	 * @param v2 new value to be used for the specified uniform variable.
-	 * @param v3 new value to be used for the specified uniform variable.
-	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
-	 */
-	public abstract void uniform4f(int location, float v0, float v1, float v2, float v3);
-	
-	/**
-	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
-	 * @param location Location of the uniform variable to be modified.
-	 * @param v new values to be used for the specified uniform variable.
-	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
-	 */
-	public abstract void uniform4fv(int location, WebGLFloatArray v);
-	
-	/**
-	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
-	 * @param location Location of the uniform variable to be modified.
-	 * @param values new values to be used for the specified uniform variable.
-	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
-	 */
-	public abstract void uniform4fv(int location, float[] values);
-
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
 	 * @param location Location of the uniform variable to be modified.
@@ -1442,7 +1415,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v3 new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform4i(int location, int v0, int v1, int v2, int v3);
+	public abstract void uniform4f(WebGLUniformLocation location, float v0, float v1, float v2, float v3);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1450,7 +1423,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform4iv(int location, WebGLIntArray v);
+	public abstract void uniform4fv(WebGLUniformLocation location, WebGLFloatArray v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1458,7 +1431,34 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform4iv(int location, int[] values);
+	public abstract void uniform4fv(WebGLUniformLocation location, float[] values);
+
+	/**
+	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
+	 * @param location Location of the uniform variable to be modified.
+	 * @param v0 new value to be used for the specified uniform variable.
+	 * @param v1 new value to be used for the specified uniform variable.
+	 * @param v2 new value to be used for the specified uniform variable.
+	 * @param v3 new value to be used for the specified uniform variable.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
+	 */
+	public abstract void uniform4i(WebGLUniformLocation location, int v0, int v1, int v2, int v3);
+	
+	/**
+	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
+	 * @param location Location of the uniform variable to be modified.
+	 * @param v new values to be used for the specified uniform variable.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
+	 */
+	public abstract void uniform4iv(WebGLUniformLocation location, WebGLIntArray v);
+	
+	/**
+	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
+	 * @param location Location of the uniform variable to be modified.
+	 * @param values new values to be used for the specified uniform variable.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
+	 */
+	public abstract void uniform4iv(WebGLUniformLocation location, int[] values);
 
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1467,7 +1467,7 @@ public abstract class WebGLRenderingContext {
 	 * @param value new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniformMatrix2fv(int location, boolean transpose,
+	public abstract void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose,
 			WebGLFloatArray value);
 	
 	/**
@@ -1477,7 +1477,7 @@ public abstract class WebGLRenderingContext {
 	 * @param value new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniformMatrix2fv(int location, boolean transpose,
+	public abstract void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose,
 			float[] value);
 
 	/**
@@ -1487,7 +1487,7 @@ public abstract class WebGLRenderingContext {
 	 * @param value new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniformMatrix3fv(int location, boolean transpose,
+	public abstract void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose,
 			WebGLFloatArray value);
 	
 	/**
@@ -1497,7 +1497,7 @@ public abstract class WebGLRenderingContext {
 	 * @param value new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniformMatrix3fv(int location, boolean transpose,
+	public abstract void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose,
 			float[] value);
 
 	/**
@@ -1507,7 +1507,7 @@ public abstract class WebGLRenderingContext {
 	 * @param value new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniformMatrix4fv(int location, boolean transpose,
+	public abstract void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose,
 			WebGLFloatArray value);
 	
 	/**
@@ -1517,7 +1517,7 @@ public abstract class WebGLRenderingContext {
 	 * @param value new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniformMatrix4fv(int location, boolean transpose,
+	public abstract void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose,
 			float[] value);
 
 	/**
@@ -1537,7 +1537,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetUniform.xml"
 	 */
 	@JsName("getUniform")
-	public abstract boolean getUniformb(WebGLProgram program, int location);
+	public abstract boolean getUniformb(WebGLProgram program, WebGLUniformLocation location);
 	
 	/**
 	 * Return the int uniform value at the passed location in the passed program
@@ -1547,7 +1547,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetUniform.xml"
 	 */
 	@JsName("getUniform")
-	public abstract int getUniformi(WebGLProgram program, int location);
+	public abstract int getUniformi(WebGLProgram program, WebGLUniformLocation location);
 	
 	/**
 	 * Return the float uniform value at the passed location in the passed program
@@ -1557,7 +1557,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetUniform.xml"
 	 */
 	@JsName("getUniform")
-	public abstract float getUniformf(WebGLProgram program, int location);
+	public abstract float getUniformf(WebGLProgram program, WebGLUniformLocation location);
 	
 	/**
 	 * Return the uniform value at the passed location in the passed program
@@ -1568,7 +1568,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetUniform.xml"
 	 */
 	@JsName("getUniform")
-	public abstract <T extends WebGLArray<?>> T getUniforma(WebGLProgram program, int location);
+	public abstract <T extends WebGLArray<?>> T getUniforma(WebGLProgram program, WebGLUniformLocation location);
 
 	/**
 	 * Return the location of a uniform variable
@@ -1577,7 +1577,7 @@ public abstract class WebGLRenderingContext {
 	 * @return location of a uniform variable
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetUniformLocation.xml"
 	 */
-	public abstract int getUniformLocation(WebGLProgram program, String name);
+	public abstract WebGLUniformLocation getUniformLocation(WebGLProgram program, String name);
 	
 	// //////////////////////
 	// Attribute variables //

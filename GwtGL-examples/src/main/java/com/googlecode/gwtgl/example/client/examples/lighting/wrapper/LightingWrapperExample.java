@@ -23,6 +23,7 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLWrapperExample;
 import com.googlecode.gwtgl.example.client.util.Cube;
 import com.googlecode.gwtgl.example.client.util.MatrixWidget;
@@ -68,7 +69,7 @@ public class LightingWrapperExample extends AbstractGwtGLWrapperExample {
 	private MatrixWidget resultingMatrixWidget;
 
 	private Texture2D texture;
-	private int textureUniform;
+	private WebGLUniformLocation textureUniform;
 	private ShaderProgram shaderProgram;
 	private Buffer buffer;
 
@@ -271,7 +272,7 @@ public class LightingWrapperExample extends AbstractGwtGLWrapperExample {
 				.getOffset(NORMALS));
 
 		// set up projection matrix
-		int mvUniform = shaderProgram.getUniformLocation("projectionMatrix");
+		WebGLUniformLocation mvUniform = shaderProgram.getUniformLocation("projectionMatrix");
 		perspectiveMatrix = MatrixUtil.createPerspectiveMatrix(45, 1.0f, 0.1f,
 				100);
 		translationMatrix = MatrixUtil
