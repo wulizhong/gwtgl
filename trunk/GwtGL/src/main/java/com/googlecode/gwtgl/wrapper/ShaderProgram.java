@@ -17,6 +17,7 @@ package com.googlecode.gwtgl.wrapper;
 
 import com.googlecode.gwtgl.binding.WebGLProgram;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
+import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 
 /**
  * A wrapper class for the shader program
@@ -193,7 +194,7 @@ public class ShaderProgram {
 	 * @param name
 	 * @return the location of the uniform variable with the given name
 	 */
-	public int getUniformLocation(String name) {
+	public WebGLUniformLocation getUniformLocation(String name) {
 		return glContext.getUniformLocation(nativeProgramObject, name);
 	}
 	

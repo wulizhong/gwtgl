@@ -17,6 +17,7 @@ package com.googlecode.gwtgl.wrapper;
 
 import com.googlecode.gwtgl.binding.WebGLFloatArray;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
+import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.wrapper.enums.ClearFlag;
 import com.googlecode.gwtgl.wrapper.enums.DataType;
 import com.googlecode.gwtgl.wrapper.enums.DepthComparisonFunction;
@@ -178,32 +179,32 @@ public class WebGLWrapper {
 	}
 
 	/**
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix2fv(int location, boolean transpose, WebGLFloatArray value)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
 	 * @param location Specifies the location of the uniform value to be modified
 	 * @param transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param values Specifies an array of values that will be used to update the specified uniform variable
 	 */
-	public void uniformMatrix2fv(int location, boolean transpose, float[] values) {
+	public void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, float[] values) {
 		glContext.uniformMatrix2fv(location, transpose, WebGLFloatArray.create(values));
 	}
 
 	/**
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix3fv(int location, boolean transpose, WebGLFloatArray value)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix3fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
 	 * @param location Specifies the location of the uniform value to be modified
 	 * @param transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param values Specifies an array of values that will be used to update the specified uniform variable
 	 */
-	public void uniformMatrix3fv(int location, boolean transpose, float[] values) {
+	public void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose, float[] values) {
 		glContext.uniformMatrix3fv(location, transpose, WebGLFloatArray.create(values));
 	}
 
 	/**
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix4fv(int location, boolean transpose, WebGLFloatArray value)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix4fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
 	 * @param location Specifies the location of the uniform value to be modified
 	 * @param transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param values Specifies an array of values that will be used to update the specified uniform variable
 	 */
-	public void uniformMatrix4fv(int location, boolean transpose, float[] values) {
+	public void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose, float[] values) {
 		glContext.uniformMatrix4fv(location, transpose, WebGLFloatArray.create(values));
 	}
 
@@ -233,7 +234,7 @@ public class WebGLWrapper {
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 */
-	public void uniform1f(int location, float v0) {
+	public void uniform1f(WebGLUniformLocation location, float v0) {
 		glContext.uniform1f(location, v0);
 	}
 
@@ -243,7 +244,7 @@ public class WebGLWrapper {
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 */
-	public void uniform1i(int location, int v0) {
+	public void uniform1i(WebGLUniformLocation location, int v0) {
 		glContext.uniform1i(location, v0);
 	}
 
@@ -254,7 +255,7 @@ public class WebGLWrapper {
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
 	 */
-	public void uniform2f(int location, float v0, float v1) {
+	public void uniform2f(WebGLUniformLocation location, float v0, float v1) {
 		glContext.uniform2f(location, v0, v1);
 	}
 
@@ -265,7 +266,7 @@ public class WebGLWrapper {
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
 	 */
-	public void uniform2i(int location, int v0, int v1) {
+	public void uniform2i(WebGLUniformLocation location, int v0, int v1) {
 		glContext.uniform2i(location, v0, v1);
 	}
 
@@ -277,7 +278,7 @@ public class WebGLWrapper {
 	 * @param v1 value 1 to be used for the specified uniform variable
 	 * @param v2 value 2 to be used for the specified uniform variable
 	 */
-	public void uniform3f(int location, float v0, float v1, float v2) {
+	public void uniform3f(WebGLUniformLocation location, float v0, float v1, float v2) {
 		glContext.uniform3f(location, v0, v1, v2);
 	}
 
@@ -289,7 +290,7 @@ public class WebGLWrapper {
 	 * @param v1 value 1 to be used for the specified uniform variable
 	 * @param v2 value 2 to be used for the specified uniform variable
 	 */
-	public void uniform3i(int location, int v0, int v1, int v2) {
+	public void uniform3i(WebGLUniformLocation location, int v0, int v1, int v2) {
 		glContext.uniform3i(location, v0, v1, v2);
 	}
 
@@ -302,7 +303,7 @@ public class WebGLWrapper {
 	 * @param v2 value 2 to be used for the specified uniform variable
 	 * @param v3 value 3 to be used for the specified uniform variable
 	 */
-	public void uniform4f(int location, float v0, float v1, float v2, float v3) {
+	public void uniform4f(WebGLUniformLocation location, float v0, float v1, float v2, float v3) {
 		glContext.uniform4f(location, v0, v1, v2, v3);
 	}
 
@@ -315,7 +316,7 @@ public class WebGLWrapper {
 	 * @param v2 value 2 to be used for the specified uniform variable
 	 * @param v3 value 3 to be used for the specified uniform variable
 	 */
-	public void uniform4i(int location, int v0, int v1, int v2, int v3) {
+	public void uniform4i(WebGLUniformLocation location, int v0, int v1, int v2, int v3) {
 		glContext.uniform4i(location, v0, v1, v2, v3);
 	}
 

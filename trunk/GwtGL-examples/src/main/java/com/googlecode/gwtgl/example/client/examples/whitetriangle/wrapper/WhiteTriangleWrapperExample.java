@@ -15,6 +15,7 @@
  */
 package com.googlecode.gwtgl.example.client.examples.whitetriangle.wrapper;
 
+import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLWrapperExample;
 import com.googlecode.gwtgl.example.client.util.math.FloatMatrix;
 import com.googlecode.gwtgl.example.client.util.math.MatrixUtil;
@@ -115,7 +116,7 @@ public class WhiteTriangleWrapperExample extends AbstractGwtGLWrapperExample {
 		webGLWrapper.enableVertexAttribArray(vertexPositionAttribute);
 
 		// Bind the projection matrix to the shader
-		int pUniform = shaderProgram.getUniformLocation("projectionMatrix");
+		WebGLUniformLocation pUniform = shaderProgram.getUniformLocation("projectionMatrix");
 		webGLWrapper.uniformMatrix4fv(pUniform, false, projectionMatrix
 				.getColumnWiseFlatData());
 

@@ -20,6 +20,7 @@ import com.googlecode.gwtgl.binding.WebGLFloatArray;
 import com.googlecode.gwtgl.binding.WebGLProgram;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.binding.WebGLShader;
+import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLExample;
 import com.googlecode.gwtgl.example.client.util.math.FloatMatrix4x4;
 import com.googlecode.gwtgl.example.client.util.math.MatrixUtil;
@@ -37,7 +38,7 @@ public class WhiteTriangleExample extends AbstractGwtGLExample {
 	private int vertexPositionAttribute;
 	private FloatMatrix4x4 projectionMatrix;
 	private WebGLBuffer vertexBuffer;
-	private int projectionMatrixUniform;
+	private WebGLUniformLocation projectionMatrixUniform;
 
 	/*
 	 * (non-Javadoc)
