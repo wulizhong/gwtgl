@@ -65,8 +65,8 @@
 			<groupId>com.cooglecode.gwtgl</groupId>
 			<artifactId>gwtgl</artifactId>
 			<version>0.1</version>
-			<scope>compile</scope>
 			<classifier>sources</classifier>
+			<scope>provided</scope>
 		</dependency>
 		<!--  GWT dependencies -->
 		<dependency>
@@ -129,10 +129,7 @@
 				<configuration>
 					<warSourceDirectory>war</warSourceDirectory>
 					<webXml>war/WEB-INF/web.xml</webXml>
-					<excludes>
-						<exclude>gwt-dev*.jar</exclude>
-					</excludes>
-
+					<warSourceExcludes>WEB-INF/lib/gwt-dev*.jar,WEB-INF/lib/gwtgl*.jar,WEB-INF/classes/**/*</warSourceExcludes>
 				</configuration>
 			</plugin>
 		</plugins>
