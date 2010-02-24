@@ -119,7 +119,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<runTarget>com.googlecode.gwtgl.HwtGL_examples/GwtGL_examples.html</runTarget>
+					<runTarget>com.googlecode.gwtgl.GwtGL_examples/GwtGL_examples.html</runTarget>
 				</configuration>
 			</plugin>
 			<plugin>
