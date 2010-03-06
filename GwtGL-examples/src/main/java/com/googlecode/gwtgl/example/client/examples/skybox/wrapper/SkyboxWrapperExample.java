@@ -16,21 +16,10 @@
 package com.googlecode.gwtgl.example.client.examples.skybox.wrapper;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.dom.client.KeyDownHandler;
-import com.google.gwt.event.dom.client.MouseDownEvent;
-import com.google.gwt.event.dom.client.MouseDownHandler;
-import com.google.gwt.event.dom.client.MouseMoveEvent;
-import com.google.gwt.event.dom.client.MouseMoveHandler;
-import com.google.gwt.event.dom.client.MouseOverEvent;
-import com.google.gwt.event.dom.client.MouseOverHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.MouseListenerAdapter;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLWrapperExample;
 import com.googlecode.gwtgl.example.client.util.Cube;
@@ -272,34 +261,24 @@ public class SkyboxWrapperExample extends AbstractGwtGLWrapperExample {
 		resultingMatrix = perspectiveMatrix.multiply(translationMatrix).multiply(rotationMatrix);
 
 		webGLWrapper.uniformMatrix4fv(mvUniform, false, resultingMatrix.getColumnWiseFlatData());
+		webGLWrapper.uniform1i(textureUniform, 0);
 				
 		textureBack.setActiveAndBind(0);
-		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 0, 6);
-		webGLWrapper.flush();
 		
 		textureFront.setActiveAndBind(0);
-		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 6, 6);
-		webGLWrapper.flush();
 		
 		textureLeft.setActiveAndBind(0);
-		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 12, 6);
-		webGLWrapper.flush();
 		
 		textureRight.setActiveAndBind(0);
-		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 18, 6);
-		webGLWrapper.flush();
 		
 		textureTop.setActiveAndBind(0);
-		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 24, 6);
-		webGLWrapper.flush();
 		
 		textureBottom.setActiveAndBind(0);
-		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 30, 6);
 		checkErrors();
 		webGLWrapper.flush();
