@@ -6,6 +6,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabPanel;
 import com.googlecode.gwtgl.example.client.examples.coloredtriangle.wrapper.ColoredTriangleWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.lighting.wrapper.LightingWrapperExample;
+import com.googlecode.gwtgl.example.client.examples.skybox.wrapper.SkyboxWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.texturedcube.wrapper.TexturedCubeWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.whitetriangle.WhiteTriangleExample;
 import com.googlecode.gwtgl.example.client.examples.whitetriangle.wrapper.WhiteTriangleWrapperExample;
@@ -38,6 +39,9 @@ public class GwtGL_examples implements EntryPoint {
 	
 			LightingWrapperExample lightingWrapperExample = new LightingWrapperExample();
 			tp.add(lightingWrapperExample, "Lighting (Wrapper)");
+			
+			SkyboxWrapperExample skyboxWrapperExample = new SkyboxWrapperExample();
+			tp.add(skyboxWrapperExample, "Skybox (Wrapper)");
 	
 			tp.selectTab(3);
 			RootPanel.get("gwtgl-examples").add(tp);
