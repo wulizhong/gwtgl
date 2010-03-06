@@ -276,22 +276,27 @@ public class SkyboxWrapperExample extends AbstractGwtGLWrapperExample {
 		textureBack.setActiveAndBind(0);
 		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 0, 6);
+		webGLWrapper.flush();
 		
 		textureFront.setActiveAndBind(0);
 		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 6, 6);
+		webGLWrapper.flush();
 		
 		textureLeft.setActiveAndBind(0);
 		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 12, 6);
+		webGLWrapper.flush();
 		
 		textureRight.setActiveAndBind(0);
 		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 18, 6);
+		webGLWrapper.flush();
 		
 		textureTop.setActiveAndBind(0);
 		webGLWrapper.uniform1i(textureUniform, 0);
 		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 24, 6);
+		webGLWrapper.flush();
 		
 		textureBottom.setActiveAndBind(0);
 		webGLWrapper.uniform1i(textureUniform, 0);
@@ -317,14 +322,29 @@ public class SkyboxWrapperExample extends AbstractGwtGLWrapperExample {
 
 		// set the texture active on texture unit 0 and bind the texture
 		textureFront.setActiveAndBind(0);
-		textureBack.setActiveAndBind(0);
-		textureLeft.setActiveAndBind(0);
-		textureRight.setActiveAndBind(0);
-		textureTop.setActiveAndBind(0);
-		textureBottom.setActiveAndBind(0);
-
 		webGLWrapper.setTextureMinFilter(TextureTarget.TEXTURE_2D, TextureMinFilter.NEAREST);
 		webGLWrapper.setTextureMagFilter(TextureTarget.TEXTURE_2D, TextureMagFilter.NEAREST);
+		
+		textureBack.setActiveAndBind(0);
+		webGLWrapper.setTextureMinFilter(TextureTarget.TEXTURE_2D, TextureMinFilter.NEAREST);
+		webGLWrapper.setTextureMagFilter(TextureTarget.TEXTURE_2D, TextureMagFilter.NEAREST);
+		
+		textureLeft.setActiveAndBind(0);
+		webGLWrapper.setTextureMinFilter(TextureTarget.TEXTURE_2D, TextureMinFilter.NEAREST);
+		webGLWrapper.setTextureMagFilter(TextureTarget.TEXTURE_2D, TextureMagFilter.NEAREST);
+		
+		textureRight.setActiveAndBind(0);
+		webGLWrapper.setTextureMinFilter(TextureTarget.TEXTURE_2D, TextureMinFilter.NEAREST);
+		webGLWrapper.setTextureMagFilter(TextureTarget.TEXTURE_2D, TextureMagFilter.NEAREST);
+		
+		textureTop.setActiveAndBind(0);
+		webGLWrapper.setTextureMinFilter(TextureTarget.TEXTURE_2D, TextureMinFilter.NEAREST);
+		webGLWrapper.setTextureMagFilter(TextureTarget.TEXTURE_2D, TextureMagFilter.NEAREST);
+		
+		textureBottom.setActiveAndBind(0);
+		webGLWrapper.setTextureMinFilter(TextureTarget.TEXTURE_2D, TextureMinFilter.NEAREST);
+		webGLWrapper.setTextureMagFilter(TextureTarget.TEXTURE_2D, TextureMagFilter.NEAREST);
+		
 	}
 
 	/**
