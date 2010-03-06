@@ -61,14 +61,19 @@ public class Cube {
 
 	private List<Vector2f> createPlaneTexCoords() {
 		List<Vector2f> texCoords = new ArrayList<Vector2f>(6);
-		texCoords.addAll(Arrays.asList(vec(0, 1), vec(0, 0), vec(1, 1), vec(1,
-				1), vec(0, 0), vec(1, 0)));
+		texCoords.addAll(Arrays.asList(
+				vec(0, 0), 
+				vec(1, 0), 
+				vec(0, 1), 
+				vec(0, 1), 
+				vec(1, 0), 
+				vec(1, 1)));
 		return texCoords;
 	}
 
 	private float[] createVerticesArray() {
 		List<Vector3f> front = createPlaneVertices(
-		// topleft
+				// topleft
 				vec(-halfscale, halfscale, halfscale),
 				// topright
 				vec(halfscale, halfscale, halfscale),
@@ -77,7 +82,7 @@ public class Cube {
 				// bottomleft
 				vec(-halfscale, -halfscale, halfscale));
 		List<Vector3f> back = createPlaneVertices(
-		// topleft
+				// topleft
 				vec(halfscale, halfscale, -halfscale),
 				// topright
 				vec(-halfscale, halfscale, -halfscale),
@@ -86,7 +91,7 @@ public class Cube {
 				// bottomleft
 				vec(halfscale, -halfscale, -halfscale));
 		List<Vector3f> left = createPlaneVertices(
-		// topleft
+				// topleft
 				vec(-halfscale, halfscale, -halfscale),
 				// topright
 				vec(-halfscale, halfscale, halfscale),
@@ -95,7 +100,7 @@ public class Cube {
 				// bottomleft
 				vec(-halfscale, -halfscale, -halfscale));
 		List<Vector3f> right = createPlaneVertices(
-		// topleft
+				// topleft
 				vec(halfscale, halfscale, halfscale),
 				// topright
 				vec(halfscale, halfscale, -halfscale),
@@ -104,23 +109,23 @@ public class Cube {
 				// bottomleft
 				vec(halfscale, -halfscale, halfscale));
 		List<Vector3f> top = createPlaneVertices(
-		// topleft
+				// topleft
+				vec(-halfscale, halfscale, halfscale),
+				// topright
 				vec(-halfscale, halfscale, -halfscale),
-				// topright
+				// bottomright
 				vec(halfscale, halfscale, -halfscale),
-				// bottomright
-				vec(halfscale, halfscale, halfscale),
 				// bottomleft
-				vec(-halfscale, halfscale, halfscale));
+				vec(halfscale, halfscale, halfscale));
 		List<Vector3f> bottom = createPlaneVertices(
-		// topleft
-				vec(-halfscale, -halfscale, halfscale),
-				// topright
+				// topleft
 				vec(halfscale, -halfscale, halfscale),
-				// bottomright
+				// topright
 				vec(halfscale, -halfscale, -halfscale),
+				// bottomright
+				vec(-halfscale, -halfscale, -halfscale),
 				// bottomleft
-				vec(-halfscale, -halfscale, -halfscale));
+				vec(-halfscale, -halfscale, halfscale));
 
 		List<Float> vertices = new ArrayList<Float>(108);
 		vertices.addAll(flattenVector3fList(front));
