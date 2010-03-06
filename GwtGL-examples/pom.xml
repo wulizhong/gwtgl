@@ -19,7 +19,7 @@
 	<groupId>com.cooglecode.gwtgl</groupId>
 	<artifactId>gwtgl-examples</artifactId>
 	<packaging>war</packaging>
-	<version>0.1</version>
+	<version>0.2-SNAPSHOT</version>
 	<name>GwtGL-examples</name>
 	<description>GwtGL-examples is an examples project for GwtGL.</description>
 	<url>http://code.google.com/p/gwtgl/</url>
@@ -58,13 +58,13 @@
 		<dependency>
 			<groupId>com.cooglecode.gwtgl</groupId>
 			<artifactId>gwtgl</artifactId>
-			<version>0.1</version>
+			<version>0.2-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.cooglecode.gwtgl</groupId>
 			<artifactId>gwtgl</artifactId>
-			<version>0.1</version>
+			<version>0.2-SNAPSHOT</version>
 			<classifier>sources</classifier>
 			<scope>provided</scope>
 		</dependency>
@@ -129,7 +129,8 @@
 				<configuration>
 					<warSourceDirectory>war</warSourceDirectory>
 					<webXml>war/WEB-INF/web.xml</webXml>
-					<warSourceExcludes>WEB-INF/lib/gwt-dev*.jar,WEB-INF/lib/gwtgl*.jar,WEB-INF/classes/**/*</warSourceExcludes>
+					<packagingExcludes>WEB-INF/lib/gwt-dev*.jar,WEB-INF/lib/gwtgl*.jar</packagingExcludes>
+					<warSourceExcludes>WEB-INF/classes/**/*</warSourceExcludes>
 				</configuration>
 			</plugin>
 		</plugins>
