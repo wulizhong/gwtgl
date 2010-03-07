@@ -7,6 +7,10 @@ import com.google.gwt.event.dom.client.MouseMoveHandler;
 import com.google.gwt.event.dom.client.MouseUpEvent;
 import com.google.gwt.event.dom.client.MouseUpHandler;
 
+/**
+ * Simple camera class that can consume mouse events and provides camera rotation data.
+ * @author Sönke Sothmann
+ */
 public class Camera implements MouseMoveHandler, MouseDownHandler, MouseUpHandler {
 
 	int oldMouseX = 0;
@@ -15,10 +19,18 @@ public class Camera implements MouseMoveHandler, MouseDownHandler, MouseUpHandle
 	private int angleX;
 	private int angleY;
 	
+	/**
+	 * Get camera rotation on x axis
+	 * @return rotation on x axis
+	 */
 	public int getRotationXAxis() {
 		return angleX;
 	}
 
+	/**
+	 * Get camera rotation on y axis
+	 * @return rotation on y axis
+	 */
 	public int getRotationYAxis() {
 		return angleY;
 	}
@@ -46,5 +58,4 @@ public class Camera implements MouseMoveHandler, MouseDownHandler, MouseUpHandle
 	public void onMouseUp(MouseUpEvent event) {
 		mouseDown = false;
 	}
-
 }
