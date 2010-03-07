@@ -46,7 +46,7 @@ import com.googlecode.gwtgl.wrapper.enums.TextureTarget;
 import com.googlecode.gwtgl.wrapper.enums.TextureWrapMode;
 
 /**
- * Example that shows a skybox.
+ * Example that shows a skybox. User can look around using the mouse.
  * 
  * @author Sönke Sothmann
  * 
@@ -98,7 +98,7 @@ public class SkyboxWrapperExample extends AbstractGwtGLWrapperExample {
 
 		// Show a description of the controls
 		HTML exampleDescription = new HTML(
-				"<h2>Skyox Wrapper Example</h2><h3>Controls</h3><p></p>");
+				"<h2>Skyox Wrapper Example</h2><h3>Controls</h3><p>Hold down left mouse button on the canvas and move the mouse to look around.</p>");
 		VerticalPanel descriptionAndControls = new VerticalPanel();
 		descriptionAndControls.add(exampleDescription);
 		setWidget(1, 1, descriptionAndControls);
@@ -140,22 +140,6 @@ public class SkyboxWrapperExample extends AbstractGwtGLWrapperExample {
 	 * Initializes the controls of the example.
 	 */
 	private void initControls() {
-		/*// Handle keyboard input
-		webGLCanvas.addKeyDownHandler(new KeyDownHandler() {
-			@Override
-			public void onKeyDown(KeyDownEvent event) {
-				if (event.getNativeKeyCode() == KeyCodes.KEY_PAGEUP) {
-					translateZ += 0.1f;
-					event.stopPropagation();
-					event.preventDefault();
-				}
-				if (event.getNativeKeyCode() == KeyCodes.KEY_PAGEDOWN) {
-					translateZ -= 0.1f;
-					event.stopPropagation();
-					event.preventDefault();
-				}
-			}
-		});*/
 		webGLCanvas.addMouseMoveHandler(camera);
 		
 		webGLCanvas.addMouseDownHandler(camera);

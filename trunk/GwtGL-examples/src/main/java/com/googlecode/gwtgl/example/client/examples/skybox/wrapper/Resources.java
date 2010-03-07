@@ -21,7 +21,7 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.resources.client.TextResource;
 
 /**
- * @author Steffen Schäfer
+ * @author Sönke Sothmann
  * 
  */
 public interface Resources extends ClientBundle {
