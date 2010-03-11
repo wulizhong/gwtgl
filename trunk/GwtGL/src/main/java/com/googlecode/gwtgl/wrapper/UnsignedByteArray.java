@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+ * Copyright 2010 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,63 +13,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.googlecode.gwtgl.binding;
+package com.googlecode.gwtgl.wrapper;
 
-import com.google.gwt.core.client.JavaScriptObject;
-
+import com.googlecode.gwtgl.binding.WebGLArrayBuffer;
+import com.googlecode.gwtgl.binding.WebGLUnsignedByteArray;
+import com.googlecode.gwtgl.wrapper.Array.IntBasedArray;
+import com.googlecode.gwtgl.wrapper.enums.DataType;
 
 /**
- * @author Steffen Schäfer
+ * Wrapper for unsigned byte array type.
+ * 
+ * @author Sönke Sothmann
  *
  */
-public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByteArray> {
-
-	/**
-	 * protected standard constructor as specified by {@link JavaScriptObject}.
-	 */
-	protected WebGLUnsignedByteArray() {
-		super();
-	}
+public class UnsignedByteArray extends IntBasedArray<WebGLUnsignedByteArray> {
 	
 	/**
 	 * Create a new WebGLUnsignedByteArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
-	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static native WebGLUnsignedByteArray create(int length) /*-{
-		return new WebGLUnsignedByteArray(length);
-	}-*/;
+	public UnsignedByteArray(int length) {
+		super(WebGLUnsignedByteArray.create(length));
+	};
 	
 	/**
 	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
-	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static native WebGLUnsignedByteArray create(WebGLUnsignedByteArray array) /*-{
-		return new WebGLUnsignedByteArray(array);
-	}-*/;
+	public UnsignedByteArray(WebGLUnsignedByteArray array) {
+		super(WebGLUnsignedByteArray.create(array));
+	};
 	
 	/**
 	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
-	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static native WebGLUnsignedByteArray create(byte[] array) /*-{
-		return new WebGLUnsignedByteArray(array);
-	}-*/;
+	public UnsignedByteArray(byte[] array) {
+		super(WebGLUnsignedByteArray.create(array));
+	};
 	
 	/**
 	 * Create a new WebGLUnsignedByteArray object using the passed WebGLArrayBuffer for its storage.
 	 * 
 	 * @param buffer
-	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static native WebGLUnsignedByteArray create(WebGLArrayBuffer buffer) /*-{
-		return new WebGLUnsignedByteArray(buffer);
-	}-*/;
+	public UnsignedByteArray(WebGLArrayBuffer buffer) {
+		super(WebGLUnsignedByteArray.create(buffer));
+	};
 	
 	/**
 	 * Create a new WebGLUnsignedByteArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
@@ -84,11 +77,10 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * 
 	 * @param buffer
 	 * @param byteOffset
-	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static native WebGLUnsignedByteArray create(WebGLArrayBuffer buffer, int byteOffset) /*-{
-		return new WebGLUnsignedByteArray(buffer, byteOffset);
-	}-*/;
+	public UnsignedByteArray(WebGLArrayBuffer buffer, int byteOffset) {
+		super(WebGLUnsignedByteArray.create(buffer, byteOffset));
+	};
 	
 	/**
 	 * Create a new WebGLUnsignedByteArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
@@ -104,10 +96,14 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * @param buffer
 	 * @param byteOffset
 	 * @param length
-	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static native WebGLUnsignedByteArray create(WebGLArrayBuffer buffer, int byteOffset, int length) /*-{
-		return new WebGLUnsignedByteArray(buffer, byteOffset, length);
-	}-*/;
+	public UnsignedByteArray(WebGLArrayBuffer buffer, int byteOffset, int length) {
+		super(WebGLUnsignedByteArray.create(buffer, byteOffset, length));
+	};
+
+	@Override
+	public DataType getDataType() {
+		return DataType.UNSIGNED_BYTE;
+	}
 
 }
