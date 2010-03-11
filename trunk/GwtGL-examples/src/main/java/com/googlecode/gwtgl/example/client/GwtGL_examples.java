@@ -8,6 +8,7 @@ import com.googlecode.gwtgl.example.client.examples.coloredtriangle.wrapper.Colo
 import com.googlecode.gwtgl.example.client.examples.lighting.wrapper.LightingWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.skybox.wrapper.SkyboxWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.texturedcube.wrapper.TexturedCubeWrapperExample;
+import com.googlecode.gwtgl.example.client.examples.texturedsphere.wrapper.TexturedSphereWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.whitetriangle.WhiteTriangleExample;
 import com.googlecode.gwtgl.example.client.examples.whitetriangle.wrapper.WhiteTriangleWrapperExample;
 
@@ -36,6 +37,9 @@ public class GwtGL_examples implements EntryPoint {
 	
 			TexturedCubeWrapperExample texturedCubeWrapperExample = new TexturedCubeWrapperExample();
 			tp.add(texturedCubeWrapperExample, "Textured Cube (Wrapper)");
+			
+			TexturedSphereWrapperExample texturedSphereWrapperExample = new TexturedSphereWrapperExample();
+			tp.add(texturedSphereWrapperExample, "Textured Sphere (Wrapper)");
 	
 			LightingWrapperExample lightingWrapperExample = new LightingWrapperExample();
 			tp.add(lightingWrapperExample, "Lighting (Wrapper)");

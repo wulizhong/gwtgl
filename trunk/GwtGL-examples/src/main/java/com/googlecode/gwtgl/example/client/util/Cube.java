@@ -28,7 +28,7 @@ import com.googlecode.gwtgl.example.client.util.math.Vector3f;
  * @author Sönke Sothmann
  * 
  */
-public class Cube {
+public class Cube extends Geometry {
 	private final float[] verticesArray;
 	private final float[] texCoordsArray;
 	private final float[] vertexNormals;
@@ -198,14 +198,6 @@ public class Cube {
 
 		List<Float> vertexNormals = flattenVector3fList(normals);
 		return floatListToFloatArray(vertexNormals);
-	}
-
-	private float[] floatListToFloatArray(List<Float> list) {
-		float[] array = new float[list.size()];
-		for (int i = 0; i < list.size(); i++) {
-			array[i] = list.get(i);
-		}
-		return array;
 	}
 
 	/**
