@@ -177,9 +177,21 @@ public class WebGLWrapper {
 	public void drawArrays(PrimitiveRenderingMode primitiveRenderingMode, int first, int count) {
 		glContext.drawArrays(primitiveRenderingMode.getIntValue(), first, count);
 	}
+	
+	/**
+	 * Render primitives using the currently bound index array.
+	 * Wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#drawElements(int, int, int, int)}
+	 * @param primitiveRenderingMode Specifies what kind of primitives to render.
+	 * @param count Number of elements to be rendered
+	 * @param offset Offset.
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glDrawElements.xml"
+	 */
+	public void drawElements(PrimitiveRenderingMode primitiveRenderingMode, int count, int offset) {
+		glContext.drawElements(primitiveRenderingMode.getIntValue(), count, WebGLRenderingContext.UNSIGNED_BYTE, offset);
+	}
 
 	/**
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
+	 * Wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
 	 * @param location Specifies the location of the uniform value to be modified
 	 * @param transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param values Specifies an array of values that will be used to update the specified uniform variable

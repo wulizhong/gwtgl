@@ -1796,7 +1796,7 @@ public abstract class WebGLRenderingContext {
 	public abstract void drawArrays(int mode, int first, int count);
 	
 	/**
-	 * Draw using the currently bound index array.
+	 * Render primitives using the currently bound index array.
 	 * The given offset is in bytes, and must be a valid multiple of the size of the given type or an INVALID_VALUE error will be raised.
 	 * @param mode Specifies what kind of primitives to render. One of POINTS, LINES, LINE_LOOP, LINE_STRIP, TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN.
 	 * @param count Number of elements to be rendered
