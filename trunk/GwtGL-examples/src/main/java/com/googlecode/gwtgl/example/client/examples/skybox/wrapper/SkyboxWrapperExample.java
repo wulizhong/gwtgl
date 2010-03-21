@@ -22,10 +22,11 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLWrapperExample;
-import com.googlecode.gwtgl.example.client.util.Cube;
 import com.googlecode.gwtgl.example.client.util.MatrixWidget;
 import com.googlecode.gwtgl.example.client.util.math.FloatMatrix;
 import com.googlecode.gwtgl.example.client.util.math.MatrixUtil;
+import com.googlecode.gwtgl.example.client.util.mesh.CubeFactory;
+import com.googlecode.gwtgl.example.client.util.mesh.Mesh;
 import com.googlecode.gwtgl.wrapper.Buffer;
 import com.googlecode.gwtgl.wrapper.FloatArray;
 import com.googlecode.gwtgl.wrapper.Shader;
@@ -55,7 +56,7 @@ public class SkyboxWrapperExample extends AbstractGwtGLWrapperExample {
 
 	private static final String VERTICES = "vertices";
 	private static final String TEX_COORDS = "tex_coords";
-	private Cube cube = new Cube(1.0f);
+	private Mesh cube = CubeFactory.createNewInstance(1.0f);
 	private MatrixWidget perspectiveMatrixWidget;
 	private MatrixWidget translationMatrixWidget;
 	private MatrixWidget rotationMatrixWidget;

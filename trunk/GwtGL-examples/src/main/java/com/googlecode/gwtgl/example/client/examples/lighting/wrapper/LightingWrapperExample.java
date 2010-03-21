@@ -25,11 +25,13 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLWrapperExample;
-import com.googlecode.gwtgl.example.client.util.Cube;
 import com.googlecode.gwtgl.example.client.util.MatrixWidget;
 import com.googlecode.gwtgl.example.client.util.math.FloatMatrix4x4;
 import com.googlecode.gwtgl.example.client.util.math.MatrixUtil;
+import com.googlecode.gwtgl.example.client.util.math.Vectorf;
 import com.googlecode.gwtgl.example.client.util.math.Vector3f;
+import com.googlecode.gwtgl.example.client.util.mesh.CubeFactory;
+import com.googlecode.gwtgl.example.client.util.mesh.Mesh;
 import com.googlecode.gwtgl.wrapper.Buffer;
 import com.googlecode.gwtgl.wrapper.FloatArray;
 import com.googlecode.gwtgl.wrapper.Shader;
@@ -62,7 +64,7 @@ public class LightingWrapperExample extends AbstractGwtGLWrapperExample {
 	private static final String TEX_COORDS = "tex_coords";
 	private static final String NORMALS = "normals";
 
-	private Cube cube = new Cube(1.0f);
+	private Mesh cube = CubeFactory.createNewInstance(1.0f);
 	private MatrixWidget perspectiveMatrixWidget;
 	private MatrixWidget translationMatrixWidget;
 	private MatrixWidget rotationMatrixWidget;
@@ -81,7 +83,7 @@ public class LightingWrapperExample extends AbstractGwtGLWrapperExample {
 	private FloatMatrix4x4 translationMatrix;
 	private FloatMatrix4x4 rotationMatrix;
 	private FloatMatrix4x4 resultingMatrix;
-	private Vector3f lightingDirection = new Vector3f(0, -1, -1);
+	private Vectorf lightingDirection = new Vector3f(0, -1, -1);
 	private float directionalColorRed = 1.0f;
 	private float directionalColorGreen = 0.1f;
 	private float directionalColorBlue = 0.1f;
@@ -296,7 +298,7 @@ public class LightingWrapperExample extends AbstractGwtGLWrapperExample {
 		webGLWrapper.uniform3f(
 				shaderProgram.getUniformLocation("ambientColor"),
 				ambientColorRed, ambientColorGreen, ambientColorBlue);
-		Vector3f adjustedLightDirection = lightingDirection.toUnitVector()
+		Vectorf adjustedLightDirection = lightingDirection.toUnitVector()
 				.multiply(-1);
 		float[] flatLightDirection = adjustedLightDirection.toArray();
 		webGLWrapper.uniform3f(shaderProgram

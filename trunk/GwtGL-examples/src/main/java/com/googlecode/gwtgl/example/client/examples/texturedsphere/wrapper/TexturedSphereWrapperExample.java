@@ -26,9 +26,10 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLWrapperExample;
 import com.googlecode.gwtgl.example.client.util.MatrixWidget;
-import com.googlecode.gwtgl.example.client.util.Sphere;
 import com.googlecode.gwtgl.example.client.util.math.FloatMatrix;
 import com.googlecode.gwtgl.example.client.util.math.MatrixUtil;
+import com.googlecode.gwtgl.example.client.util.mesh.IndexedMesh;
+import com.googlecode.gwtgl.example.client.util.mesh.Sphere;
 import com.googlecode.gwtgl.wrapper.Buffer;
 import com.googlecode.gwtgl.wrapper.FloatArray;
 import com.googlecode.gwtgl.wrapper.Shader;
@@ -62,7 +63,7 @@ public class TexturedSphereWrapperExample extends AbstractGwtGLWrapperExample {
 	private static final String NORMALS = "normals";
 	private static final String INDICES = "indices";
 	
-	private Sphere sphere = new Sphere();
+	private IndexedMesh sphere = new Sphere();
 	private MatrixWidget perspectiveMatrixWidget;
 	private MatrixWidget translationMatrixWidget;
 	private MatrixWidget rotationMatrixWidget;
