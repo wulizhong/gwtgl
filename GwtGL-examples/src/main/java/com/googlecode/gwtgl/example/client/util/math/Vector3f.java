@@ -19,10 +19,9 @@ package com.googlecode.gwtgl.example.client.util.math;
  * Represents a vector with three elements.
  * 
  * @author Sönke Sothmann
- * @author Steffen Schäfer
  * 
  */
-public class Vector3f {
+public class Vector3f implements Vectorf {
 	private float x;
 	private float y;
 	private float z;
@@ -99,42 +98,36 @@ public class Vector3f {
 		this.z = z;
 	}
 
-	/**
-	 * Creates a new Vector3f that is this vector multiplied with the given
-	 * scalar.
-	 * 
-	 * @param scalar
-	 * @return the multiplied Vector3f
+	/* (non-Javadoc)
+	 * @see com.googlecode.gwtgl.example.client.util.math.Vector#multiply(float)
 	 */
-	public Vector3f multiply(float scalar) {
+	@Override
+	public Vectorf multiply(float scalar) {
 		return new Vector3f(this.x * scalar, this.y * scalar, this.z * scalar);
 	}
 
-	/**
-	 * Returns the length of the vector.
-	 * 
-	 * @return the length of the vector
+	/* (non-Javadoc)
+	 * @see com.googlecode.gwtgl.example.client.util.math.Vector#length()
 	 */
+	@Override
 	public float length() {
 		return (float) Math.sqrt(this.x * this.x + this.y * this.y + this.z
 				* this.z);
 	}
 
-	/**
-	 * Creates a new Vector3f that is the unit vector of this vector.
-	 * 
-	 * @return the unit vector
+	/* (non-Javadoc)
+	 * @see com.googlecode.gwtgl.example.client.util.math.Vector#toUnitVector()
 	 */
-	public Vector3f toUnitVector() {
+	@Override
+	public Vectorf toUnitVector() {
 		float length = length();
 		return new Vector3f(this.x / length, this.y / length, this.z / length);
 	}
 
-	/**
-	 * Returns the data of this vector as array.
-	 * 
-	 * @return the data as array
+	/* (non-Javadoc)
+	 * @see com.googlecode.gwtgl.example.client.util.math.Vector#toArray()
 	 */
+	@Override
 	public float[] toArray() {
 		return new float[] { this.x, this.y, this.z };
 	}

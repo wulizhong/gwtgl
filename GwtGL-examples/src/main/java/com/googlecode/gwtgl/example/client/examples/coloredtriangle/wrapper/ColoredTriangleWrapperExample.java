@@ -23,6 +23,7 @@ import com.googlecode.gwtgl.wrapper.Buffer;
 import com.googlecode.gwtgl.wrapper.FloatArray;
 import com.googlecode.gwtgl.wrapper.Shader;
 import com.googlecode.gwtgl.wrapper.ShaderProgram;
+import com.googlecode.gwtgl.wrapper.UnsignedByteArray;
 import com.googlecode.gwtgl.wrapper.enums.BufferTarget;
 import com.googlecode.gwtgl.wrapper.enums.BufferUsage;
 import com.googlecode.gwtgl.wrapper.enums.ClearFlag;
@@ -42,11 +43,13 @@ import com.googlecode.gwtgl.wrapper.enums.ShaderType;
 public class ColoredTriangleWrapperExample extends AbstractGwtGLWrapperExample {
 
 	private static final String VERTICES = "vertices";
+	private static final String INDICES = "indices";
 	private static final String COLORS = "colors";
 
 	private ShaderProgram shaderProgram;
 	private FloatMatrix projectionMatrix;
 	private Buffer buffer;
+	private Buffer indexBuffer;
 
 	/*
 	 * (non-Javadoc)
@@ -91,10 +94,15 @@ public class ColoredTriangleWrapperExample extends AbstractGwtGLWrapperExample {
 		// One Triangle with 3 Points à 3 coordinates
 		float[] vertices = new float[] { 0.0f, 1.0f, -2.0f, -1.0f, -1.0f,
 				-2.0f, 1.0f, -1.0f, -2.0f };
+		byte[] indices = new byte[] {0, 1, 2};
+		
 		// create the vertexBuffer
-		buffer = new Buffer(webGLWrapper, BufferTarget.ARRAY_BUFFER,
-				BufferUsage.STATIC_DRAW);
+		buffer = new Buffer(webGLWrapper, BufferTarget.ARRAY_BUFFER, BufferUsage.STATIC_DRAW);
 		buffer.addData(VERTICES, new FloatArray(vertices));
+		
+		// create the indexBuffer
+		indexBuffer = new Buffer(webGLWrapper, BufferTarget.ELEMENT_ARRAY_BUFFER, BufferUsage.STREAM_DRAW);
+		indexBuffer.addData(INDICES, new UnsignedByteArray(indices));
 
 		float[] colors = new float[] { 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
 				0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f };
@@ -136,8 +144,10 @@ public class ColoredTriangleWrapperExample extends AbstractGwtGLWrapperExample {
 		webGLWrapper.uniformMatrix4fv(pUniform, false, projectionMatrix
 				.getColumnWiseFlatData());
 
+		indexBuffer.bind();
+		
 		// Draw the polygons (3 triangles)
-		webGLWrapper.drawArrays(PrimitiveRenderingMode.TRIANGLES, 0, 3);
+		webGLWrapper.drawElements(PrimitiveRenderingMode.TRIANGLES, 3, 0);
 	}
 
 	/**
