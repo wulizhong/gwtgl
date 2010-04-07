@@ -5,8 +5,12 @@ As the work on WebGL is still in progress, only few browsers provide support
 for it in their *head builds*. You need to use unstable versions, so be sure what you do!
 Browsers with WebGL Support are:
   * !WebKit Nightly Builds (http://nightly.webkit.org/)
-  * Google Chrome (use the dev channel: http://dev.chromium.org/getting-involved/dev-channel)
-    * Start browser with _chrome.exe --enable-webgl --no-sandbox_
+  * Chromium - the open source browser Google's Chrome is based on
+    * Download nightlybuild for [http://build.chromium.org/buildbot/continuous/win/LATEST/ windows], [http://build.chromium.org/buildbot/continuous/linux/LATEST/ linux] or [http://build.chromium.org/buildbot/continuous/mac/LATEST/ macos]
+    * Start browser with the following command line:
+      * windows: _chrome.exe --enable-webgl --no-sandbox_
+      * linux: _./chromium --enable-webgl --no-sandbox_
+      * macos: _./Chromium.app/Contents/MacOS/Chromium --enable-webgl --no-sandbox_
   * Firefox 3.7 pre Alpha aka Minefield(http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/)
     * Firefox 3.7 pre Alpha portable (http://portableapps.com/apps/internet/firefox_portable/test#minefield)
     * Open _about:config_ and set value _webgl.enabled_for_all_sites_ to _true_
