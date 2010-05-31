@@ -17,7 +17,10 @@ package com.googlecode.gwtgl.gen.impl;
 
 import java.io.PrintWriter;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayInteger;
+import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.ext.Generator;
 import com.google.gwt.core.ext.GeneratorContext;
 import com.google.gwt.core.ext.TreeLogger;
@@ -32,8 +35,7 @@ import com.google.gwt.user.rebind.ClassSourceFileComposerFactory;
 import com.google.gwt.user.rebind.SourceWriter;
 import com.googlecode.gwtgl.gen.api.IBinding;
 import com.googlecode.gwtgl.gen.api.JsName;
-import com.googlecode.gwtgl.gen.api.Unwrap;
-import com.googlecode.gwtgl.gen.api.Wrap;
+import com.googlecode.gwtgl.gen.util.JsArrayUtil;
 
 /**
  * @author Steffen Schäfer
@@ -88,6 +90,10 @@ public class JsniMethodCallGenerator extends Generator {
 			composer.setSuperclass(qualifiedSuperTypeName);
 		}
 		composer.addImport(JavaScriptObject.class.getName());
+		composer.addImport(JsArrayNumber.class.getName());
+		composer.addImport(JsArrayInteger.class.getName());
+		composer.addImport(JsArrayUtil.class.getName());
+		composer.addImport(GWT.class.getName());
 		SourceWriter sourceWriter = null;
 		sourceWriter = composer.createSourceWriter(context, printWriter);
 
@@ -115,55 +121,7 @@ public class JsniMethodCallGenerator extends Generator {
 		// generate the implementation of all defined methods
 		JMethod[] methods = classType.getMethods();
 		for (JMethod method : methods) {
-			JsName jsName = method.getAnnotation(JsName.class);
-			String jsMethod = method.getName();
-			if(jsName!=null) {
-				jsMethod=jsName.value();
-			}
-			
-			JType returnType = method.getReturnType();
-			String ret = returnType.getQualifiedSourceName();
-			
-			sourceWriter.print(method.getReadableDeclaration(false, false, false, false, true).replaceFirst("public", "public native"));
-			
-			boolean wrapped=false;
-			sourceWriter.println(" /*-{");
-			if (!"void".equals(ret)) {
-				sourceWriter.print("return ");
-				Wrap wrap=method.getAnnotation(Wrap.class);
-				if(wrap!=null) {
-					wrapped=true;
-					Class<?> wrapperClass=wrap.value();
-					// TODO generic impl to find constructor with param that is JavaScriptObject or a subclass
-					sourceWriter.print("@"+wrapperClass.getPackage().getName()+"."+wrapperClass.getSimpleName()+
-							"::new(Lcom/google/gwt/core/client/JavaScriptObject;)(");
-				}
-			}
-
-			sourceWriter.print("this.@" + packageName + "." + generatedClassName
-					+ "::nativeObj." + jsMethod + "(");
-
-			boolean first = true;
-			for (JParameter parameter : method.getParameters()) {
-				if (!first) {
-					sourceWriter.print(", ");
-				}
-				first = false;
-				sourceWriter.print(parameter.getName());
-				Unwrap unwrap=parameter.getAnnotation(Unwrap.class);
-				if(unwrap != null) {
-					JType paramType = parameter.getType();
-					sourceWriter.print(".@"+paramType.getQualifiedSourceName()+"::");
-					sourceWriter.print(unwrap.value()+"()()");
-				}
-			}
-			sourceWriter.print(")");
-			if(wrapped) {
-				sourceWriter.print(")");
-			}
-			sourceWriter.println(";");
-
-			sourceWriter.println("}-*/;");
+			generateForMethod(sourceWriter, method);
 		}
 		
 		for(JClassType clazz:classType.getImplementedInterfaces()) {
@@ -174,4 +132,102 @@ public class JsniMethodCallGenerator extends Generator {
 		}
 	}
 
+	private void generateForMethod(SourceWriter sourceWriter, JMethod method) {
+		generateForMethodWrapper(sourceWriter, method);
+		generateForMethodNative(sourceWriter, method, true);
+		generateForMethodNative(sourceWriter, method, false);
+	}
+	
+	private void generateForMethodWrapper(SourceWriter sourceWriter,
+			JMethod method) {
+		
+		sourceWriter.print(method.getReadableDeclaration(false, false, false, false, true));
+		sourceWriter.println(" {");
+		
+		sourceWriter.println("if(GWT.isScript()) {");
+		generateMethodCall(sourceWriter, method, false);
+		sourceWriter.println("} else {");
+		generateMethodCall(sourceWriter, method, true);
+		sourceWriter.println("}");
+		
+		sourceWriter.println("}");
+	}
+
+	private void generateMethodCall(SourceWriter sourceWriter, JMethod method,
+			boolean devMode) {
+		JType returnType = method.getReturnType();
+		String ret = returnType.getQualifiedSourceName();
+		if (!"void".equals(ret)) {
+			sourceWriter.print("return ");
+		}
+		
+		if(devMode) {
+			sourceWriter.print(method.getName() + "Dev(");
+		} else {
+			sourceWriter.print(method.getName() + "Prod(");
+		}
+		
+		boolean first = true;
+		for (JParameter parameter : method.getParameters()) {
+			if (!first) {
+				sourceWriter.print(", ");
+			}
+			first = false;
+			if(devMode && parameter.getType().isArray() != null) {
+				sourceWriter.print("JsArrayUtil.wrapArray(");
+			}
+			sourceWriter.print(parameter.getName());
+			if(devMode && parameter.getType().isArray() != null) {
+				sourceWriter.print(")");
+			}
+		}
+		sourceWriter.print(");");
+	}
+
+	private void generateForMethodNative(SourceWriter sourceWriter,
+			JMethod method, boolean devMode) {
+		JsName jsName = method.getAnnotation(JsName.class);
+		String jsMethod = method.getName();
+		if(jsName!=null) {
+			jsMethod=jsName.value();
+		}
+		
+		JType returnType = method.getReturnType();
+		String ret = returnType.getQualifiedSourceName();
+		
+		String methodDeclaration = method.getReadableDeclaration(false, false, false, false, true).replaceFirst("public", "public native");
+		if(devMode) {
+			methodDeclaration=methodDeclaration.replaceAll(method.getName(), method.getName()+"Dev");
+		} else {
+			methodDeclaration=methodDeclaration.replaceAll(method.getName(), method.getName()+"Prod");
+		}
+		if(devMode) {
+			methodDeclaration=methodDeclaration.replaceAll("float\\[\\]", "JsArrayNumber");
+			methodDeclaration=methodDeclaration.replaceAll("double\\[\\]", "JsArrayNumber");
+			methodDeclaration=methodDeclaration.replaceAll("int\\[\\]", "JsArrayInteger");
+		}
+		sourceWriter.print(methodDeclaration);
+		
+		sourceWriter.println(" /*-{");
+		if (!"void".equals(ret)) {
+			sourceWriter.print("return ");
+		}
+		
+		sourceWriter.print("this.@" + packageName + "." + generatedClassName
+				+ "::nativeObj." + jsMethod + "(");
+		
+		boolean first = true;
+		for (JParameter parameter : method.getParameters()) {
+			if (!first) {
+				sourceWriter.print(", ");
+			}
+			first = false;
+			sourceWriter.print(parameter.getName());
+		}
+		sourceWriter.print(")");
+		sourceWriter.println(";");
+		
+		sourceWriter.println("}-*/;");
+	}
+	
 }

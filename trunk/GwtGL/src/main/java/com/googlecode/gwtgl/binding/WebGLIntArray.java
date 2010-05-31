@@ -15,7 +15,10 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayInteger;
+import com.googlecode.gwtgl.gen.util.JsArrayUtil;
 
 
 /**
@@ -57,7 +60,18 @@ public class WebGLIntArray extends IntBasedWebGLArray<WebGLIntArray> {
 	 * @param array
 	 * @return the created WebGLIntArray
 	 */
-	public static native WebGLIntArray create(int[] array) /*-{
+	public static WebGLIntArray create(int[] array) {
+		if(GWT.isScript()) {
+			return innerCreate(array);
+		}
+		return innerCreate(JsArrayUtil.wrapArray(array));
+	};
+	
+	private static native WebGLIntArray innerCreate(int[] array) /*-{
+		return new WebGLIntArray(array);
+	}-*/;
+	
+	private static native WebGLIntArray innerCreate(JsArrayInteger array) /*-{
 		return new WebGLIntArray(array);
 	}-*/;
 	

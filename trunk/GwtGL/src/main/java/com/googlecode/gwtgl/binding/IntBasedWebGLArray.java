@@ -15,7 +15,10 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayInteger;
+import com.googlecode.gwtgl.gen.util.JsArrayUtil;
 
 /**
  * Abstract parent class for all WebGLArrays which use int to get/set the inner values.
@@ -83,7 +86,18 @@ public abstract class IntBasedWebGLArray<T extends IntBasedWebGLArray<T>> extend
 	 * 
 	 * @param array
 	 */
-	public final native void set(int[] array) /*-{
+	public final void set(int[] array) {
+		if(GWT.isScript()) {
+			innerSet(array);
+		}
+		innerSet(JsArrayUtil.wrapArray(array));
+	};
+	
+	private static native void innerSet(int[] array) /*-{
+		this.set(array);
+	}-*/;
+	
+	private static native void innerSet(JsArrayInteger array) /*-{
 		this.set(array);
 	}-*/;
 	
@@ -95,7 +109,18 @@ public abstract class IntBasedWebGLArray<T extends IntBasedWebGLArray<T>> extend
 	 * @param array
 	 * @param offset
 	 */
-	public final native void set(int[] array, int offset) /*-{
-		this.set(array, offset);
+	public final void set(int[] array, int offset) {
+		if(GWT.isScript()) {
+			innerSet(array, offset);
+		}
+		innerSet(JsArrayUtil.wrapArray(array), offset);
+	};
+	
+	private static native void innerSet(int[] array, int offset) /*-{
+		this.set(array);
+	}-*/;
+	
+	private static native void innerSet(JsArrayInteger array, int offset) /*-{
+		this.set(array);
 	}-*/;
 }

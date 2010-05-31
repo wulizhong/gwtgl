@@ -15,7 +15,10 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayInteger;
+import com.googlecode.gwtgl.gen.util.JsArrayUtil;
 
 
 /**
@@ -57,7 +60,18 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * @param array
 	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static native WebGLUnsignedByteArray create(byte[] array) /*-{
+	public static WebGLUnsignedByteArray create(byte[] array) {
+		if(GWT.isScript()) {
+			return innerCreate(array);
+		}
+		return innerCreate(JsArrayUtil.wrapArray(array));
+	};
+	
+	private static native WebGLUnsignedByteArray innerCreate(byte[] array) /*-{
+		return new WebGLUnsignedByteArray(array);
+	}-*/;
+	
+	private static native WebGLUnsignedByteArray innerCreate(JsArrayInteger array) /*-{
 		return new WebGLUnsignedByteArray(array);
 	}-*/;
 	

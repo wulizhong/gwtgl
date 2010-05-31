@@ -30,5 +30,6 @@ limitations under the License.
 
 	<!-- Specify the paths for translatable code                    -->
 	<source path='gen/api' />
+	<source path='gen/util' />
 
 </module>

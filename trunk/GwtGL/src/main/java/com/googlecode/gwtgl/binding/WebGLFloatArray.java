@@ -15,7 +15,10 @@
  */
 package com.googlecode.gwtgl.binding;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayNumber;
+import com.googlecode.gwtgl.gen.util.JsArrayUtil;
 
 /**
  * @author Steffen Schäfer
@@ -56,7 +59,18 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param array
 	 * @return the created WebGLFloatArray
 	 */
-	public static native WebGLFloatArray create(float[] array) /*-{
+	public static WebGLFloatArray create(float[] array) {
+		if(GWT.isScript()) {
+			return innerCreate(array);
+		}
+		return innerCreate(JsArrayUtil.wrapArray(array));
+	};
+	
+	private static native WebGLFloatArray innerCreate(float[] array) /*-{
+		return new WebGLFloatArray(array);
+	}-*/;
+	
+	private static native WebGLFloatArray innerCreate(JsArrayNumber array) /*-{
 		return new WebGLFloatArray(array);
 	}-*/;
 	
@@ -160,7 +174,18 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * 
 	 * @param array
 	 */
-	public final native void set(float[] array) /*-{
+	public final void set(float[] array) {
+		if(GWT.isScript()) {
+			innerSet(array);
+		}
+		innerSet(JsArrayUtil.wrapArray(array));
+	};
+	
+	private static native void innerSet(float[] array) /*-{
+		this.set(array);
+	}-*/;
+	
+	private static native void innerSet(JsArrayNumber array) /*-{
 		this.set(array);
 	}-*/;
 	
@@ -172,8 +197,19 @@ public class WebGLFloatArray extends WebGLArray<WebGLFloatArray> {
 	 * @param array
 	 * @param offset
 	 */
-	public final native void set(float[] array, int offset) /*-{
-		this.set(array, offset);
+	public final void set(float[] array, int offset) {
+		if(GWT.isScript()) {
+			innerSet(array, offset);
+		}
+		innerSet(JsArrayUtil.wrapArray(array), offset);
+	};
+	
+	private static native void innerSet(float[] array, int offset) /*-{
+		this.set(array);
+	}-*/;
+	
+	private static native void innerSet(JsArrayNumber array, int offset) /*-{
+		this.set(array);
 	}-*/;
 
 }
