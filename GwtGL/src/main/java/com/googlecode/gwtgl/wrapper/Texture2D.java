@@ -111,7 +111,6 @@ public class Texture2D {
 		// ImageBundle if the browser doesn't support data:... urls
 		// So it's no problem at the moment because Chrome and FF support it
 		img.setUrl(imageResource.getURL());
-		System.out.println(imageResource.getURL());
 
 	}
 
