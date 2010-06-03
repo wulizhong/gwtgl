@@ -94,7 +94,7 @@ public class ColoredTriangleWrapperExample extends AbstractGwtGLWrapperExample {
 		// One Triangle with 3 Points à 3 coordinates
 		float[] vertices = new float[] { 0.0f, 1.0f, -2.0f, -1.0f, -1.0f,
 				-2.0f, 1.0f, -1.0f, -2.0f };
-		byte[] indices = new byte[] {0, 1, 2};
+		int[] indices = new int[] {0, 1, 2};
 		
 		// create the vertexBuffer
 		buffer = new Buffer(webGLWrapper, BufferTarget.ARRAY_BUFFER, BufferUsage.STATIC_DRAW);
