@@ -68,25 +68,25 @@ public class Sphere extends IndexedMesh {
 			}
 		}
 
-		List<Byte> indicesList = new ArrayList<Byte>();
+		List<Integer> indicesList = new ArrayList<Integer>();
 		for (int latNumber = 0; latNumber < latitudeBands; latNumber++) {
 			for (int longNumber = 0; longNumber < longitudeBands; longNumber++) {
-				byte first = (byte) ((latNumber * (longitudeBands + 1)) + longNumber);
-				byte second = (byte) (first + longitudeBands + 1);
+				int first = ((latNumber * (longitudeBands + 1)) + longNumber);
+				int second = (first + longitudeBands + 1);
 				indicesList.add(first);
 				indicesList.add(second);
-				indicesList.add((byte) (first + 1));
+				indicesList.add((first + 1));
 
 				indicesList.add(second);
-				indicesList.add((byte) (second + 1));
-				indicesList.add((byte) (first + 1));
+				indicesList.add( second + 1);
+				indicesList.add(first + 1);
 			}
 		}
 		
 		verticesArray = floatListToFloatArray(verticesList);
 		texCoordsArray = floatListToFloatArray(texCoordsList);
 		vertexNormalsArray = floatListToFloatArray(vertexNormalsList);
-		indices = byteListToByteArray(indicesList);
+		indices = integerListToIntegerArray(indicesList);
 	}
 
 	/**

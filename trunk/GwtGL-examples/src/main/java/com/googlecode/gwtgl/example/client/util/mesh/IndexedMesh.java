@@ -9,14 +9,14 @@ public class IndexedMesh extends Mesh {
 	/**
 	 * Indices of this IndexedMesh
 	 */
-	protected byte[] indices;
+	protected int[] indices;
 	
 	/**
 	 * Returns the indices for this IndexedMesh.
 	 * 
 	 * @return the indices
 	 */
-	public byte[] getIndices() {
+	public int[] getIndices() {
 		return indices;
 	}
 	
