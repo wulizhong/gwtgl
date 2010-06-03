@@ -51,7 +51,7 @@ public class UnsignedByteArray extends IntBasedArray<WebGLUnsignedByteArray> {
 	 * 
 	 * @param array
 	 */
-	public UnsignedByteArray(byte[] array) {
+	public UnsignedByteArray(int[] array) {
 		super(WebGLUnsignedByteArray.create(array));
 	};
 	

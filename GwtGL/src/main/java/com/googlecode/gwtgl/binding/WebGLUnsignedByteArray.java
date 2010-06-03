@@ -60,14 +60,14 @@ public class WebGLUnsignedByteArray extends IntBasedWebGLArray<WebGLUnsignedByte
 	 * @param array
 	 * @return the created WebGLUnsignedByteArray
 	 */
-	public static WebGLUnsignedByteArray create(byte[] array) {
+	public static WebGLUnsignedByteArray create(int[] array) {
 		if(GWT.isScript()) {
 			return innerCreate(array);
 		}
 		return innerCreate(JsArrayUtil.wrapArray(array));
 	};
 	
-	private static native WebGLUnsignedByteArray innerCreate(byte[] array) /*-{
+	private static native WebGLUnsignedByteArray innerCreate(int[] array) /*-{
 		return new WebGLUnsignedByteArray(array);
 	}-*/;
 	
