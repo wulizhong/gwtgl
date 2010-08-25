@@ -57,6 +57,8 @@ public class WhiteTriangleExample extends AbstractGwtGLExample {
 	 * Initialized the params of WebGL.
 	 */
 	private void initParams() {
+		glContext.viewport(0, 0, webGLCanvas.getOffsetWidth(), webGLCanvas.getOffsetHeight());
+		
 		// clear with color black
 		glContext.clearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
