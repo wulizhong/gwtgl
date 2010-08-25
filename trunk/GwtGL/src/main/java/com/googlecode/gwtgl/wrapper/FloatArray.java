@@ -17,8 +17,8 @@ package com.googlecode.gwtgl.wrapper;
 
 import java.util.Iterator;
 
-import com.googlecode.gwtgl.binding.WebGLArrayBuffer;
-import com.googlecode.gwtgl.binding.WebGLFloatArray;
+import com.googlecode.gwtgl.array.ArrayBuffer;
+import com.googlecode.gwtgl.array.Float32Array;
 import com.googlecode.gwtgl.wrapper.enums.DataType;
 
 /**
@@ -26,79 +26,79 @@ import com.googlecode.gwtgl.wrapper.enums.DataType;
  * @author Steffen Schäfer
  *
  */
-public class FloatArray extends Array<WebGLFloatArray, Float> {
+public class FloatArray extends Array<Float32Array, Float> {
 
 	/**
-	 * Create a new WebGLFloatArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
+	 * Create a new Float32Array object of the given length with a new underlying ArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
 	 */
 	public FloatArray(int length) {
-		super(WebGLFloatArray.create(length));
+		super(Float32Array.create(length));
 	};
 	
 	/**
-	 * Create a new WebGLFloatArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Create a new Float32Array object with a new underlying ArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
 	 */
-	public FloatArray(WebGLFloatArray array) {
-		super(WebGLFloatArray.create(array));
+	public FloatArray(Float32Array array) {
+		super(Float32Array.create(array));
 	};
 	
 	/**
-	 * Create a new WebGLFloatArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Create a new Float32Array object with a new underlying ArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
 	 */
 	public FloatArray(float[] array) {
-		super(WebGLFloatArray.create(array));
+		super(Float32Array.create(array));
 	};
 	
 	/**
-	 * Create a new WebGLFloatArray object using the passed WebGLArrayBuffer for its storage.
+	 * Create a new Float32Array object using the passed ArrayBuffer for its storage.
 	 * 
 	 * @param buffer
 	 */
-	public FloatArray(WebGLArrayBuffer buffer) {
-		super(WebGLFloatArray.create(buffer));
+	public FloatArray(ArrayBuffer buffer) {
+		super(Float32Array.create(buffer));
 	};
 	
 	/**
-	 * Create a new WebGLFloatArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * Create a new Float32Array object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.
 	 * 
 	 * @param buffer
 	 * @param byteOffset
 	 */
-	public FloatArray(WebGLArrayBuffer buffer, int byteOffset) {
-		super(WebGLFloatArray.create(buffer, byteOffset));
+	public FloatArray(ArrayBuffer buffer, int byteOffset) {
+		super(Float32Array.create(buffer, byteOffset));
 	};
 	
 	/**
-	 * Create a new WebGLFloatArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * Create a new Float32Array object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.
 	 * 
 	 * @param buffer
 	 * @param byteOffset
 	 * @param length
 	 */
-	public FloatArray(WebGLArrayBuffer buffer, int byteOffset, int length) {
-		super(WebGLFloatArray.create(buffer, byteOffset, length));
+	public FloatArray(ArrayBuffer buffer, int byteOffset, int length) {
+		super(Float32Array.create(buffer, byteOffset, length));
 	};
 
 	/**
@@ -129,7 +129,7 @@ public class FloatArray extends Array<WebGLFloatArray, Float> {
 	 * 
 	 * @param array
 	 */
-	public void set(WebGLFloatArray array) {
+	public void set(Float32Array array) {
 		getNativeArray().set(array);
 	};
 	
@@ -141,7 +141,7 @@ public class FloatArray extends Array<WebGLFloatArray, Float> {
 	 * @param array
 	 * @param offset
 	 */
-	public void set(WebGLFloatArray array, int offset) {
+	public void set(Float32Array array, int offset) {
 		getNativeArray().set(array, offset);
 	};
 	

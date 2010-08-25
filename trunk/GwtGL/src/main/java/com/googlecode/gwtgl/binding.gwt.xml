@@ -18,6 +18,7 @@ limitations under the License.
 	<!-- Inherit the core Web Toolkit stuff.                        -->
 	<inherits name='com.google.gwt.user.User' />
 	
+	<inherits name='com.googlecode.gwtgl.array' />
 	<inherits name='com.googlecode.gwtgl.generator' />
 
 	<!-- WebGLRenderingContext is the official name of the spec. So this is the default. -->

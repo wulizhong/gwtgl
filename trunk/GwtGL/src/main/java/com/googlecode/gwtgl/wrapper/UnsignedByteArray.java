@@ -15,8 +15,8 @@
  */
 package com.googlecode.gwtgl.wrapper;
 
-import com.googlecode.gwtgl.binding.WebGLArrayBuffer;
-import com.googlecode.gwtgl.binding.WebGLUnsignedByteArray;
+import com.googlecode.gwtgl.array.ArrayBuffer;
+import com.googlecode.gwtgl.array.Uint8Array;
 import com.googlecode.gwtgl.wrapper.Array.IntBasedArray;
 import com.googlecode.gwtgl.wrapper.enums.DataType;
 
@@ -26,79 +26,79 @@ import com.googlecode.gwtgl.wrapper.enums.DataType;
  * @author Sönke Sothmann
  *
  */
-public class UnsignedByteArray extends IntBasedArray<WebGLUnsignedByteArray> {
+public class UnsignedByteArray extends IntBasedArray<Uint8Array> {
 	
 	/**
-	 * Create a new WebGLUnsignedByteArray object of the given length with a new underlying WebGLArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
+	 * Create a new Uint8Array object of the given length with a new underlying ArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
 	 * 
 	 * @param length
 	 */
 	public UnsignedByteArray(int length) {
-		super(WebGLUnsignedByteArray.create(length));
+		super(Uint8Array.create(length));
 	};
 	
 	/**
-	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Create a new Uint8Array object with a new underlying ArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
 	 */
-	public UnsignedByteArray(WebGLUnsignedByteArray array) {
-		super(WebGLUnsignedByteArray.create(array));
+	public UnsignedByteArray(Uint8Array array) {
+		super(Uint8Array.create(array));
 	};
 	
 	/**
-	 * Create a new WebGLUnsignedByteArray object with a new underlying WebGLArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Create a new Uint8Array object with a new underlying ArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
 	 * 
 	 * @param array
 	 */
 	public UnsignedByteArray(int[] array) {
-		super(WebGLUnsignedByteArray.create(array));
+		super(Uint8Array.create(array));
 	};
 	
 	/**
-	 * Create a new WebGLUnsignedByteArray object using the passed WebGLArrayBuffer for its storage.
+	 * Create a new Uint8Array object using the passed ArrayBuffer for its storage.
 	 * 
 	 * @param buffer
 	 */
-	public UnsignedByteArray(WebGLArrayBuffer buffer) {
-		super(WebGLUnsignedByteArray.create(buffer));
+	public UnsignedByteArray(ArrayBuffer buffer) {
+		super(Uint8Array.create(buffer));
 	};
 	
 	/**
-	 * Create a new WebGLUnsignedByteArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * Create a new Uint8Array object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.
 	 * 
 	 * @param buffer
 	 * @param byteOffset
 	 */
-	public UnsignedByteArray(WebGLArrayBuffer buffer, int byteOffset) {
-		super(WebGLUnsignedByteArray.create(buffer, byteOffset));
+	public UnsignedByteArray(ArrayBuffer buffer, int byteOffset) {
+		super(Uint8Array.create(buffer, byteOffset));
 	};
 	
 	/**
-	 * Create a new WebGLUnsignedByteArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * Create a new Uint8Array object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed WebGLArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the WebGLArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire WebGLArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the WebGLArrayBuffer.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
 	 * 
 	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the WebGLArrayBuffer an exception is raised.
+	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.
 	 * 
 	 * @param buffer
 	 * @param byteOffset
 	 * @param length
 	 */
-	public UnsignedByteArray(WebGLArrayBuffer buffer, int byteOffset, int length) {
-		super(WebGLUnsignedByteArray.create(buffer, byteOffset, length));
+	public UnsignedByteArray(ArrayBuffer buffer, int byteOffset, int length) {
+		super(Uint8Array.create(buffer, byteOffset, length));
 	};
 
 	@Override

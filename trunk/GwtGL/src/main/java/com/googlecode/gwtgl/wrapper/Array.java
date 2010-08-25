@@ -17,20 +17,20 @@ package com.googlecode.gwtgl.wrapper;
 
 import java.util.Iterator;
 
-import com.googlecode.gwtgl.binding.IntBasedWebGLArray;
-import com.googlecode.gwtgl.binding.WebGLArray;
-import com.googlecode.gwtgl.binding.WebGLArrayBuffer;
+import com.googlecode.gwtgl.array.ArrayBuffer;
+import com.googlecode.gwtgl.array.IntBasedTypedArray;
+import com.googlecode.gwtgl.array.TypedArray;
 import com.googlecode.gwtgl.wrapper.enums.DataType;
 
 /**
- * Base class for all wrapped {@link WebGLArray} types.
+ * Base class for all wrapped {@link TypedArray} types.
  * 
  * @author Steffen Schäfer
  *
  * @param <T>
  * @param <S>
  */
-public abstract class Array<T extends WebGLArray<T>, S extends Number> implements Iterable<S> {
+public abstract class Array<T extends TypedArray<T>, S extends Number> implements Iterable<S> {
 	private final T nativeArray;
 
 	/**
@@ -61,9 +61,9 @@ public abstract class Array<T extends WebGLArray<T>, S extends Number> implement
 	}
 
 	/**
-	 * Returns the offset of the WebGLArray in the underlying {@link WebGLArrayBuffer}.
+	 * Returns the offset of the TypedArray in the underlying {@link ArrayBuffer}.
 	 * 
-	 * @return the offset of the WebGLArray in the WebGLArrayBuffer
+	 * @return the offset of the WebGLArray in the ArrayBuffer
 	 */
 	public int getByteOffset() {
 		return nativeArray.getByteOffset();
@@ -85,7 +85,7 @@ public abstract class Array<T extends WebGLArray<T>, S extends Number> implement
 	 */
 	public abstract DataType getDataType();
 	
-	abstract static class IntBasedArray<T extends IntBasedWebGLArray<T>> extends Array<T, Integer> {
+	abstract static class IntBasedArray<T extends IntBasedTypedArray<T>> extends Array<T, Integer> {
 
 		protected IntBasedArray(T nativeArray) {
 			super(nativeArray);
