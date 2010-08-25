@@ -18,7 +18,7 @@ package com.googlecode.gwtgl.array;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayInteger;
-import com.googlecode.gwtgl.gen.util.JsArrayUtil;
+import com.googlecode.gwtgl.util.JsArrayUtil;
 
 
 /**

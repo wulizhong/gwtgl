@@ -1,4 +1,4 @@
-package com.googlecode.gwtgl.array.internal;
+package com.googlecode.gwtgl.util;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayBoolean;
