@@ -15,8 +15,8 @@
  */
 package com.googlecode.gwtgl.example.client.examples.whitetriangle;
 
+import com.googlecode.gwtgl.array.Float32Array;
 import com.googlecode.gwtgl.binding.WebGLBuffer;
-import com.googlecode.gwtgl.binding.WebGLFloatArray;
 import com.googlecode.gwtgl.binding.WebGLProgram;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.binding.WebGLShader;
@@ -81,7 +81,7 @@ public class WhiteTriangleExample extends AbstractGwtGLExample {
 				1.0f, -1.0f, -5.0f // x y z des dritten Dreieckpunktes
 		};
 		glContext.bufferData(WebGLRenderingContext.ARRAY_BUFFER,
-				WebGLFloatArray.create(vertices),
+				Float32Array.create(vertices),
 				WebGLRenderingContext.STATIC_DRAW);
 
 	}
