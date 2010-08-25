@@ -242,7 +242,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform1f(int, float)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform1f(WebGLUniformLocation, float)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 */
@@ -252,7 +252,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform1i(int, int)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform1i(WebGLUniformLocation, int)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 */
@@ -262,7 +262,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform2f(int, float, float)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform2f(WebGLUniformLocation, float, float)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
@@ -273,7 +273,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform2i(int, int, int)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform2i(WebGLUniformLocation, int, int)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
@@ -284,7 +284,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform3f(int, float, float, float)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform3f(WebGLUniformLocation, float, float, float)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
@@ -296,7 +296,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform3i(int, int, int, int)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform3i(WebGLUniformLocation, int, int, int)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
@@ -308,7 +308,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform4f(int, float, float, float, float)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform4f(WebGLUniformLocation, float, float, float, float)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
@@ -321,7 +321,7 @@ public class WebGLWrapper {
 
 	/**
 	 * Specify the value of a uniform variable for the current program object
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform4i(int, int, int, int, int)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniform4i(WebGLUniformLocation, int, int, int, int)}
 	 * @param location Specifies the location of the uniform variable to be modified
 	 * @param v0 value 0 to be used for the specified uniform variable
 	 * @param v1 value 1 to be used for the specified uniform variable
