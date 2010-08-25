@@ -140,7 +140,7 @@ public class WhiteTriangleWrapperExample extends AbstractGwtGLWrapperExample {
 
 		// Check if the ShaderProgram is correctly linked
 		if (!shaderProgram.isLinked()) {
-			throw new RuntimeException("Could not initialise shaders");
+			throw new RuntimeException(shaderProgram.getProgramInfoLog());
 		}
 
 	}
