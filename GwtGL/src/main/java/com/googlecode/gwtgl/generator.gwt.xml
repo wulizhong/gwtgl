@@ -17,6 +17,8 @@ limitations under the License.
 <module>
 	<!-- Inherit the core Web Toolkit stuff.                        -->
 	<inherits name='com.google.gwt.user.User' />
+	
+	<inherits name='com.googlecode.gwtgl.util' />
 
 	<generate-with
 		class="com.googlecode.gwtgl.gen.impl.JsniMethodCallGenerator">
