@@ -45,7 +45,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	 * 
 	 * @param array
 	 */
-	public native void set(T array)/*-{
+	public final native void set(T array)/*-{
 		return this.set(array);
 	}-*/;
 
@@ -55,7 +55,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	 * @param array
 	 * @param offset
 	 */
-	public native void set(T array, int offset)/*-{
+	public final native void set(T array, int offset)/*-{
 		return this.set(array, offset);
 	}-*/;
 
