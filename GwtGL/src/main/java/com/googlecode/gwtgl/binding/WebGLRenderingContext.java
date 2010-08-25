@@ -17,6 +17,11 @@ package com.googlecode.gwtgl.binding;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.googlecode.gwtgl.array.ArrayBuffer;
+import com.googlecode.gwtgl.array.ArrayBufferView;
+import com.googlecode.gwtgl.array.Float32Array;
+import com.googlecode.gwtgl.array.Int32Array;
+import com.googlecode.gwtgl.array.TypedArray;
 import com.googlecode.gwtgl.binding.impl.IWebGLConstants;
 import com.googlecode.gwtgl.gen.api.JsName;
 
@@ -960,7 +965,7 @@ public abstract class WebGLRenderingContext {
 	 * @param usage expected usage pattern of the data store. One of STREAM_DRAW, STATIC_DRAW DYNAMIC_DRAW
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferData.xml"
 	 */
-	public abstract void bufferData(int target, WebGLArray<?> dta, int usage);
+	public abstract void bufferData(int target, TypedArray<?> dta, int usage);
 	
 	/**
 	 * Set the size of the currently bound WebGLBuffer object for the passed target to the size of the passed data, then write the contents of data to the buffer object. 
@@ -969,7 +974,7 @@ public abstract class WebGLRenderingContext {
 	 * @param usage expected usage pattern of the data store. One of STREAM_DRAW, STATIC_DRAW DYNAMIC_DRAW
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferData.xml"
 	 */
-	public abstract void bufferData(int target, WebGLArrayBuffer dta, int usage);
+	public abstract void bufferData(int target, ArrayBuffer dta, int usage);
 	
 	/**
 	 * Set the size of the currently bound WebGLBuffer object for the passed target. The buffer is initialized to 0. 
@@ -987,7 +992,7 @@ public abstract class WebGLRenderingContext {
 	 * @param data new data that will be copied into the data store
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferSubData.xml"
 	 */
-	public abstract void bufferSubData(int target, int offset, WebGLArray<?> data);
+	public abstract void bufferSubData(int target, int offset, TypedArray<?> data);
 	
 	/**
 	 * For the WebGLBuffer object bound to the passed target write the passed data starting at the passed offset. If the data would be written past the end of the buffer object an INVALID_VALUE error is raised. 
@@ -996,7 +1001,7 @@ public abstract class WebGLRenderingContext {
 	 * @param data new data that will be copied into the data store
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBufferSubData.xml"
 	 */
-	public abstract void bufferSubData(int target, int offset, WebGLArrayBuffer data);
+	public abstract void bufferSubData(int target, int offset, ArrayBuffer data);
 
 	/**
 	 * Return the int value for the passed pname.
@@ -1270,7 +1275,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1fv(WebGLUniformLocation location, WebGLFloatArray v);
+	public abstract void uniform1fv(WebGLUniformLocation location, Float32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1294,7 +1299,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform1iv(WebGLUniformLocation location, WebGLIntArray v);
+	public abstract void uniform1iv(WebGLUniformLocation location, Int32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1319,7 +1324,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new value to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2fv(WebGLUniformLocation location, WebGLFloatArray v);
+	public abstract void uniform2fv(WebGLUniformLocation location, Float32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1344,7 +1349,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform2iv(WebGLUniformLocation location, WebGLIntArray v);
+	public abstract void uniform2iv(WebGLUniformLocation location, Int32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1370,7 +1375,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3fv(WebGLUniformLocation location, WebGLFloatArray v);
+	public abstract void uniform3fv(WebGLUniformLocation location, Float32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1396,7 +1401,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform3iv(WebGLUniformLocation location, WebGLIntArray v);
+	public abstract void uniform3iv(WebGLUniformLocation location, Int32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1423,7 +1428,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform4fv(WebGLUniformLocation location, WebGLFloatArray v);
+	public abstract void uniform4fv(WebGLUniformLocation location, Float32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1450,7 +1455,7 @@ public abstract class WebGLRenderingContext {
 	 * @param v new values to be used for the specified uniform variable.
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
-	public abstract void uniform4iv(WebGLUniformLocation location, WebGLIntArray v);
+	public abstract void uniform4iv(WebGLUniformLocation location, Int32Array v);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1468,7 +1473,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
 	public abstract void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose,
-			WebGLFloatArray value);
+			Float32Array value);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1488,7 +1493,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
 	public abstract void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose,
-			WebGLFloatArray value);
+			Float32Array value);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1508,7 +1513,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glUniform.xml"
 	 */
 	public abstract void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose,
-			WebGLFloatArray value);
+			Float32Array value);
 	
 	/**
 	 * Specify the value of a uniform variable for the current {@link WebGLProgram} object
@@ -1568,7 +1573,7 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetUniform.xml"
 	 */
 	@JsName("getUniform")
-	public abstract <T extends WebGLArray<?>> T getUniforma(WebGLProgram program, WebGLUniformLocation location);
+	public abstract <T extends TypedArray<?>> T getUniforma(WebGLProgram program, WebGLUniformLocation location);
 
 	/**
 	 * Return the location of a uniform variable
@@ -1724,7 +1729,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified vertex attribute
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
 	 */
-	public abstract void vertexAttrib1fv(int index, WebGLFloatArray values);
+	public abstract void vertexAttrib1fv(int index, Float32Array values);
 
 	/**
 	 * Specify the value of a generic vertex attribute
@@ -1740,7 +1745,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified vertex attribute
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
 	 */
-	public abstract void vertexAttrib2fv(int index, WebGLFloatArray values);
+	public abstract void vertexAttrib2fv(int index, Float32Array values);
 
 	/**
 	 * Specify the value of a generic vertex attribute
@@ -1756,7 +1761,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified vertex attribute
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
 	 */
-	public abstract void vertexAttrib3fv(int index, WebGLFloatArray values);
+	public abstract void vertexAttrib3fv(int index, Float32Array values);
 
 	/**
 	 * Specify the value of a generic vertex attribute
@@ -1772,7 +1777,7 @@ public abstract class WebGLRenderingContext {
 	 * @param values new values to be used for the specified vertex attribute
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glVertexAttrib.xml"
 	 */
-	public abstract void vertexAttrib4fv(int index, WebGLFloatArray values);
+	public abstract void vertexAttrib4fv(int index, Float32Array values);
 
 	/**
 	 * Specify the value of a generic vertex attribute
@@ -1849,37 +1854,13 @@ public abstract class WebGLRenderingContext {
 	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
 	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
 	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param internalformat Internal format of the texture. One of ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA.
+	 * @param format Format of the texel data. Must match internalformat.One of ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA.
+	 * @param type Data type of the texel data. One of UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5.
 	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
 	 */
-	public abstract void texImage2D(int target, int level, JavaScriptObject data);
-	
-	/**
-	 * Specify a two-dimensional texture image
-	 * @param target Target texture. One of TEXTURE_2D,
-	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
-	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
-	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
-	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
-	 * @param flipY 
-	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
-	 */
-	public abstract void texImage2D(int target, int level, JavaScriptObject data, boolean flipY);
-	
-	/**
-	 * Specify a two-dimensional texture image
-	 * @param target Target texture. One of TEXTURE_2D,
-	 *            TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_NEGATIVE_X,
-	 *            TEXTURE_CUBE_MAP_POSITIVE_Y, TEXTURE_CUBE_MAP_NEGATIVE_Y,
-	 *            TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_Z.
-	 * @param level Level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-	 * @param data ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement
-	 * @param flipY 
-	 * @param asPremultipliedAlpha 
-	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
-	 */
-	public abstract void texImage2D(int target, int level, JavaScriptObject data, boolean flipY, boolean asPremultipliedAlpha);
+	public abstract void texImage2D(int target, int level, int internalformat, int format, int type, JavaScriptObject data);
 
 	/**
 	 * Specify a two-dimensional texture image
@@ -1889,13 +1870,13 @@ public abstract class WebGLRenderingContext {
 	 * @param width Width of the texture image. All implementations support 2D texture images that are at least 64 texels wide and cube-mapped texture images that are at least 16 texels wide.
 	 * @param height Height of the texture image. All implementations support 2D texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high.
 	 * @param border Width of the border.
-	 * @param format Format of the texel data.  Must match internalformat.One of ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA.
+	 * @param format Format of the texel data. Must match internalformat.One of ALPHA, RGB, RGBA, LUMINANCE, LUMINANCE_ALPHA.
 	 * @param type Data type of the texel data. One of UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5.
-	 * @param pixels
+	 * @param pixels Array structure containing the pixel data
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexImage2D.xml"
 	 */
 	public abstract void texImage2D(int target, int level, int internalformat, int width,
-			int height, int border, int format, int type, WebGLArray<?> pixels);
+			int height, int border, int format, int type, ArrayBufferView pixels);
 
 	/**
 	 * Determine if a name corresponds to a texture
@@ -1995,12 +1976,12 @@ public abstract class WebGLRenderingContext {
 	 *            Data type of the pixel data. One of UNSIGNED_BYTE,
 	 *            UNSIGNED_SHORT_5_6_5, UNSIGNED_SHORT_4_4_4_4,
 	 *            UNSIGNED_SHORT_5_5_5_1.
-	 * @param data A {@link WebGLArray} containing the pixel data of the texture
+	 * @param data A {@link TypedArray} containing the pixel data of the texture
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glTexSubImage2D.xml"
 	 */
 	public abstract void texSubImage2D(int target, int level, int xoffset,
 			int yoffset, int width, int height, int format, int type,
-			WebGLArray<?> data);
+			TypedArray<?> data);
 	
 	/**
 	 * Specify a two-dimensional texture subimage.
@@ -2366,7 +2347,7 @@ public abstract class WebGLRenderingContext {
 	/**
 	 * Read pixels from the Framebuffer.
 	 * 
-	 * @param <T> The type of the {@link WebGLArray} returned
+	 * @param <T> The type of the {@link TypedArray} returned
 	 * @param x The x position of the section to read
 	 * @param y The y position of the section to read
 	 * @param width The width of the section to read
@@ -2376,7 +2357,7 @@ public abstract class WebGLRenderingContext {
 	 * @return The read pixels
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glReadPixels.xml"
 	 */
-	public abstract <T extends WebGLArray<?>> T readPixels(int x, int y, int width, int height, int format, int type);
+	public abstract <T extends TypedArray<?>> T readPixels(int x, int y, int width, int height, int format, int type);
 	
 	/**
 	 * Checks if the given object is a Framebuffer object.

@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper;
 
-import com.googlecode.gwtgl.binding.WebGLFloatArray;
+import com.googlecode.gwtgl.array.Float32Array;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.wrapper.enums.ClearFlag;
@@ -191,33 +191,33 @@ public class WebGLWrapper {
 	}
 
 	/**
-	 * Wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
+	 * Wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, Float32Array value)}
 	 * @param location Specifies the location of the uniform value to be modified
 	 * @param transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param values Specifies an array of values that will be used to update the specified uniform variable
 	 */
 	public void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, float[] values) {
-		glContext.uniformMatrix2fv(location, transpose, WebGLFloatArray.create(values));
+		glContext.uniformMatrix2fv(location, transpose, Float32Array.create(values));
 	}
 
 	/**
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix3fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix3fv(WebGLUniformLocation location, boolean transpose, Float32Array value)}
 	 * @param location Specifies the location of the uniform value to be modified
 	 * @param transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param values Specifies an array of values that will be used to update the specified uniform variable
 	 */
 	public void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose, float[] values) {
-		glContext.uniformMatrix3fv(location, transpose, WebGLFloatArray.create(values));
+		glContext.uniformMatrix3fv(location, transpose, Float32Array.create(values));
 	}
 
 	/**
-	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix4fv(WebGLUniformLocation location, boolean transpose, WebGLFloatArray value)}
+	 * wrapps {@link com.googlecode.gwtgl.binding.WebGLRenderingContext#uniformMatrix4fv(WebGLUniformLocation location, boolean transpose, Float32Array value)}
 	 * @param location Specifies the location of the uniform value to be modified
 	 * @param transpose Specifies whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param values Specifies an array of values that will be used to update the specified uniform variable
 	 */
 	public void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose, float[] values) {
-		glContext.uniformMatrix4fv(location, transpose, WebGLFloatArray.create(values));
+		glContext.uniformMatrix4fv(location, transpose, Float32Array.create(values));
 	}
 
 	/**
