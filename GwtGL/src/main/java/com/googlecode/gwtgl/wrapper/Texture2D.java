@@ -142,7 +142,7 @@ public class Texture2D {
 		glContext.bindTexture(target.getIntValue(), nativeTextureObject);
 		if (imageToSet != null) {
 			// FIXME remove hardcoded constants
-			glContext.texImage2D(target.getIntValue(), levelOfDetail, WebGLRenderingContext.RGB,WebGLRenderingContext.RGB, WebGLRenderingContext.UNSIGNED_BYTE, imageToSet
+			glContext.texImage2D(target.getIntValue(), levelOfDetail, WebGLRenderingContext.RGBA,WebGLRenderingContext.RGBA, WebGLRenderingContext.UNSIGNED_BYTE, imageToSet
 					.getElement());
 			imageToSet=null;
 		}
