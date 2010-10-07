@@ -433,8 +433,5 @@ public interface IWebGLConstants extends IConst {
 	/* WebGL-specific enums */
 	int UNPACK_FLIP_Y_WEBGL();
 	int UNPACK_PREMULTIPLY_ALPHA_WEBGL();
-	int CONTEXT_LOST_WEBGL();
-	int UNPACK_COLORSPACE_CONVERSION_WEBGL();
-	int BROWSER_DEFAULT_WEBGL();
 
 }

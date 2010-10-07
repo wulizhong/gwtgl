@@ -741,13 +741,7 @@ public abstract class WebGLRenderingContext {
 	public static final int UNPACK_FLIP_Y_WEBGL = webGLConstants.UNPACK_FLIP_Y_WEBGL();
 	/** */
 	public static final int UNPACK_PREMULTIPLY_ALPHA_WEBGL = webGLConstants.UNPACK_PREMULTIPLY_ALPHA_WEBGL();
-	/** */
-	public static final int CONTEXT_LOST_WEBGL = webGLConstants.CONTEXT_LOST_WEBGL();
-	/** */
-	public static final int UNPACK_COLORSPACE_CONVERSION_WEBGL = webGLConstants.CONTEXT_LOST_WEBGL();
-	/** */
-	public static final int BROWSER_DEFAULT_WEBGL = webGLConstants.BROWSER_DEFAULT_WEBGL();
-
+	
 	
 
 	// ///////
