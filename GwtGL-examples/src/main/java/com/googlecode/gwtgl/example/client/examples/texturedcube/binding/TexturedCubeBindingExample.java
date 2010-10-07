@@ -91,6 +91,7 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 	
 	private WebGLProgram shaderProgram;
 	private int vertexPositionAttribute;
+	private int textureCoordAttribute;
 	private FloatMatrix4x4 projectionMatrix;
 	private WebGLBuffer vertexBuffer;
 	private WebGLBuffer vertexTextureCoordBuffer;
@@ -255,10 +256,11 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 		// Set the ShaderProgram active
 		glContext.useProgram(shaderProgram);
 
-		// Get the position of the
-		vertexPositionAttribute = glContext.getAttribLocation(shaderProgram,
-				"vertexPosition");
+		vertexPositionAttribute = glContext.getAttribLocation(shaderProgram, "vertexPosition");
 		glContext.enableVertexAttribArray(vertexPositionAttribute);
+		
+		textureCoordAttribute = glContext.getAttribLocation(shaderProgram, "texPosition");
+	    glContext.enableVertexAttribArray(textureCoordAttribute);
 
 		// get the position of the projectionMatrix uniform.
 		projectionMatrixUniform = glContext.getUniformLocation(shaderProgram,
@@ -345,6 +347,9 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 		checkErrors();
 		glContext.vertexAttribPointer(vertexPositionAttribute, 3, WebGLRenderingContext.FLOAT, false, 0, 0);
 		checkErrors();
+		
+		glContext.bindBuffer(WebGLRenderingContext.ARRAY_BUFFER, vertexTextureCoordBuffer);
+		glContext.vertexAttribPointer(textureCoordAttribute, 2, WebGLRenderingContext.FLOAT, false, 0, 0);
 
 		perspectiveMatrix = MatrixUtil.createPerspectiveMatrix(45, 1.0f, 0.1f,
 				100);
@@ -373,17 +378,12 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 	 * Initializes the texture of this example.
 	 */
 	private void initTexture() {
+		texture = glContext.createTexture();
 		glContext.bindTexture(WebGLRenderingContext.TEXTURE_2D, texture);
-		checkErrors();
-		glContext.pixelStorei(WebGLRenderingContext.UNPACK_FLIP_Y_WEBGL, 1);
-		checkErrors();
-//		glContext.texImage2D(WebGLRenderingContext.TEXTURE_2D, 0, WebGLRenderingContext.RGBA, WebGLRenderingContext.RGBA, WebGLRenderingContext.UNSIGNED_BYTE, getImage(Resources.INSTANCE.texture()).getElement());
-		checkErrors();
-//		glContext.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MAG_FILTER, WebGLRenderingContext.NEAREST);
-		checkErrors();
-//		glContext.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MIN_FILTER, WebGLRenderingContext.NEAREST);
-		checkErrors();
-//		glContext.bindTexture(WebGLRenderingContext.TEXTURE_2D, null);
+		glContext.texImage2D(WebGLRenderingContext.TEXTURE_2D, 0, WebGLRenderingContext.RGBA, WebGLRenderingContext.RGBA, WebGLRenderingContext.UNSIGNED_BYTE, getImage(Resources.INSTANCE.texture()).getElement());
+		glContext.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MAG_FILTER, WebGLRenderingContext.LINEAR);
+		glContext.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MIN_FILTER, WebGLRenderingContext.LINEAR);
+		glContext.bindTexture(WebGLRenderingContext.TEXTURE_2D, null);
 		checkErrors();
 	}
 	
