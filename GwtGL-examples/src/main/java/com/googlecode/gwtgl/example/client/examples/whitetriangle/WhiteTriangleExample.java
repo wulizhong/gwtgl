@@ -15,6 +15,7 @@
  */
 package com.googlecode.gwtgl.example.client.examples.whitetriangle;
 
+import static com.google.gwt.core.client.GWT.log;
 import com.googlecode.gwtgl.array.Float32Array;
 import com.googlecode.gwtgl.binding.WebGLBuffer;
 import com.googlecode.gwtgl.binding.WebGLProgram;
@@ -95,14 +96,11 @@ public class WhiteTriangleExample extends AbstractGwtGLExample {
 	 */
 	@Override
 	protected void draw() {
-		glContext.clear(WebGLRenderingContext.COLOR_BUFFER_BIT
-				| WebGLRenderingContext.DEPTH_BUFFER_BIT);
+		glContext.clear(WebGLRenderingContext.COLOR_BUFFER_BIT | WebGLRenderingContext.DEPTH_BUFFER_BIT);
 
-		glContext.vertexAttribPointer(vertexPositionAttribute, 3,
-				WebGLRenderingContext.FLOAT, false, 0, 0);
+		glContext.vertexAttribPointer(vertexPositionAttribute, 3, WebGLRenderingContext.FLOAT, false, 0, 0);
 
-		glContext.uniformMatrix4fv(projectionMatrixUniform, false,
-				projectionMatrix.getColumnWiseFlatData());
+		glContext.uniformMatrix4fv(projectionMatrixUniform, false, projectionMatrix.getColumnWiseFlatData());
 		glContext.drawArrays(WebGLRenderingContext.TRIANGLES, 0, 3);
 	}
 
@@ -110,8 +108,7 @@ public class WhiteTriangleExample extends AbstractGwtGLExample {
 	 * initializes the projection matrix used in this example.
 	 */
 	private void initProjectionMatrix() {
-		projectionMatrix = MatrixUtil.createPerspectiveMatrix(45, 1.0f, 0.1f,
-				100);
+		projectionMatrix = MatrixUtil.createPerspectiveMatrix(45, 1.0f, 0.1f, 100);
 	}
 
 	/**
@@ -119,26 +116,37 @@ public class WhiteTriangleExample extends AbstractGwtGLExample {
 	 */
 	private void createShaderProgram() {
 		// Create the Shaders
-		WebGLShader fragmentShader = getShader(
-				WebGLRenderingContext.FRAGMENT_SHADER, Shaders.INSTANCE
-						.fragmentShader().getText());
-		WebGLShader vertexShader = getShader(
-				WebGLRenderingContext.VERTEX_SHADER, Shaders.INSTANCE
-						.vertexShader().getText());
+		WebGLShader fragmentShader = getShader(WebGLRenderingContext.FRAGMENT_SHADER, Shaders.INSTANCE.fragmentShader().getText());
+		log("Created fragment shader");
+		
+		WebGLShader vertexShader = getShader(WebGLRenderingContext.VERTEX_SHADER, Shaders.INSTANCE.vertexShader().getText());
+		log("Created vertex shader");
+		if (vertexShader == null || fragmentShader == null) {
+			log("Shader error");
+			throw new RuntimeException("shader error");
+		}
 
 		// create the ShaderProgram and attach the Shaders
 		shaderProgram = glContext.createProgram();
+		if (shaderProgram == null || glContext.getError() != WebGLRenderingContext.NO_ERROR) {
+			log("Program errror");
+			throw new RuntimeException("program error");
+		}
+
+		log("Shader program created");
 		glContext.attachShader(shaderProgram, vertexShader);
+		log("vertex shader attached to shader program");
 		glContext.attachShader(shaderProgram, fragmentShader);
+		log("fragment shader attached to shader program");
 
 		// Link the Shader Program
 		glContext.linkProgram(shaderProgram);
-
-		// check if the ShaderProgram is successfully linked
 		if (!glContext.getProgramParameterb(shaderProgram,
 				WebGLRenderingContext.LINK_STATUS)) {
-			throw new RuntimeException("Could not initialise shaders");
+			throw new RuntimeException("Could not initialise shaders: " + glContext.getProgramInfoLog (shaderProgram));
 		}
+		log("Shader program linked");
+		
 
 		// Set the ShaderProgram active
 		glContext.useProgram(shaderProgram);
@@ -175,6 +183,5 @@ public class WhiteTriangleExample extends AbstractGwtGLExample {
 		}
 
 		return shader;
-
 	}
 }
