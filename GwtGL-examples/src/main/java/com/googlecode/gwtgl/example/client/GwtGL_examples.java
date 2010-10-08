@@ -4,6 +4,7 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabPanel;
+import com.googlecode.gwtgl.example.client.examples.coloredtriangle.binding.ColoredTriangleBindingExample;
 import com.googlecode.gwtgl.example.client.examples.coloredtriangle.wrapper.ColoredTriangleWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.lighting.wrapper.LightingWrapperExample;
 import com.googlecode.gwtgl.example.client.examples.skybox.wrapper.SkyboxWrapperExample;
@@ -29,6 +30,9 @@ public class GwtGL_examples implements EntryPoint {
 	
 			WhiteTriangleExample whiteTriangleExample = new WhiteTriangleExample();
 			tp.add(whiteTriangleExample, "White Triangle (Binding)");
+			
+			ColoredTriangleBindingExample coloredTriangleBindingExample = new ColoredTriangleBindingExample();
+			tp.add(coloredTriangleBindingExample, "Colored Triangle (Binding)");
 			
 			TexturedCubeBindingExample texturedCubeBindingExample = new TexturedCubeBindingExample();
 			tp.add(texturedCubeBindingExample, "Textured Cube (Binding)");
