@@ -38,31 +38,11 @@ import com.googlecode.gwtgl.binding.WebGLShader;
 import com.googlecode.gwtgl.binding.WebGLTexture;
 import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.example.client.AbstractGwtGLExample;
-import com.googlecode.gwtgl.example.client.AbstractGwtGLWrapperExample;
-import com.googlecode.gwtgl.example.client.examples.whitetriangle.Shaders;
 import com.googlecode.gwtgl.example.client.util.MatrixWidget;
 import com.googlecode.gwtgl.example.client.util.math.FloatMatrix;
-import com.googlecode.gwtgl.example.client.util.math.FloatMatrix4x4;
 import com.googlecode.gwtgl.example.client.util.math.MatrixUtil;
 import com.googlecode.gwtgl.example.client.util.mesh.CubeFactory;
 import com.googlecode.gwtgl.example.client.util.mesh.Mesh;
-import com.googlecode.gwtgl.wrapper.Buffer;
-import com.googlecode.gwtgl.wrapper.FloatArray;
-import com.googlecode.gwtgl.wrapper.Shader;
-import com.googlecode.gwtgl.wrapper.ShaderProgram;
-import com.googlecode.gwtgl.wrapper.Texture2D;
-import com.googlecode.gwtgl.wrapper.enums.BufferTarget;
-import com.googlecode.gwtgl.wrapper.enums.BufferUsage;
-import com.googlecode.gwtgl.wrapper.enums.ClearFlag;
-import com.googlecode.gwtgl.wrapper.enums.DataType;
-import com.googlecode.gwtgl.wrapper.enums.DepthComparisonFunction;
-import com.googlecode.gwtgl.wrapper.enums.GLCapability;
-import com.googlecode.gwtgl.wrapper.enums.GLError;
-import com.googlecode.gwtgl.wrapper.enums.PrimitiveRenderingMode;
-import com.googlecode.gwtgl.wrapper.enums.ShaderType;
-import com.googlecode.gwtgl.wrapper.enums.TextureMagFilter;
-import com.googlecode.gwtgl.wrapper.enums.TextureMinFilter;
-import com.googlecode.gwtgl.wrapper.enums.TextureTarget;
 
 /**
  * Example that shows a rotating cube with a texture applied to all sides.
@@ -72,8 +52,6 @@ import com.googlecode.gwtgl.wrapper.enums.TextureTarget;
  */
 public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 
-	private static final String VERTICES = "vertices";
-	private static final String TEX_COORDS = "tex_coords";
 	private Mesh cube = CubeFactory.createNewInstance(1.0f);
 	private MatrixWidget perspectiveMatrixWidget;
 	private MatrixWidget translationMatrixWidget;
@@ -92,12 +70,10 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 	private WebGLProgram shaderProgram;
 	private int vertexPositionAttribute;
 	private int textureCoordAttribute;
-	private FloatMatrix4x4 projectionMatrix;
 	private WebGLBuffer vertexBuffer;
 	private WebGLBuffer vertexTextureCoordBuffer;
 	private WebGLUniformLocation projectionMatrixUniform;
 	private WebGLUniformLocation textureUniform;
-	private WebGLUniformLocation samplerUniform;
 	private WebGLTexture texture;
 
 	/**
@@ -240,8 +216,8 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 		log("fragment shader attached to shader program");
 
 		// Bind vertexPosition to attribute 0
-		// Bind texPosition to attribute 1
 		glContext.bindAttribLocation(shaderProgram, 0, "vertexPosition");
+		// Bind texPosition to attribute 1
 		glContext.bindAttribLocation(shaderProgram, 1, "texPosition");
 		
 		// Link the Shader Program
@@ -269,8 +245,6 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 		// get the position of the tex uniform.
 		textureUniform = glContext.getUniformLocation(shaderProgram, "tex");
 		
-		samplerUniform = glContext.getUniformLocation(shaderProgram, "uSampler");
-
 		checkErrors();
 	}
 	
@@ -285,15 +259,12 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 	 */
 	private WebGLShader getShader(int type, String source) {
 		WebGLShader shader = glContext.createShader(type);
-		checkErrors();
 		glContext.shaderSource(shader, source);
-		checkErrors();
 		glContext.compileShader(shader);
 		checkErrors();
 
 		// check if the Shader is successfully compiled
-		if (!glContext.getShaderParameterb(shader,
-				WebGLRenderingContext.COMPILE_STATUS)) {
+		if (!glContext.getShaderParameterb(shader, WebGLRenderingContext.COMPILE_STATUS)) {
 			throw new RuntimeException(glContext.getShaderInfoLog(shader));
 		}
 
@@ -307,17 +278,12 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 	 */
 	private void initBuffers() {
 		vertexBuffer = glContext.createBuffer();
-		checkErrors();
 		glContext.bindBuffer(WebGLRenderingContext.ARRAY_BUFFER, vertexBuffer);
-		checkErrors();
 		glContext.bufferData(WebGLRenderingContext.ARRAY_BUFFER,
 				Float32Array.create(cube.getVertices()),
 				WebGLRenderingContext.STATIC_DRAW);
-		checkErrors();
 		vertexTextureCoordBuffer = glContext.createBuffer();
-		checkErrors();
 		glContext.bindBuffer(WebGLRenderingContext.ARRAY_BUFFER, vertexTextureCoordBuffer);
-		checkErrors();
 		glContext.bufferData(WebGLRenderingContext.ARRAY_BUFFER, Float32Array.create(cube.getTexCoords()), WebGLRenderingContext.STATIC_DRAW);
 		checkErrors();
 	}
@@ -334,44 +300,34 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 		// angleZ=(angleZ+2)%360;
 
 		glContext.clear(WebGLRenderingContext.COLOR_BUFFER_BIT | WebGLRenderingContext.DEPTH_BUFFER_BIT);
-		checkErrors();
 
 		glContext.vertexAttribPointer(vertexPositionAttribute, 3,
 				WebGLRenderingContext.FLOAT, false, 0, 0);
 
-		
-		checkErrors();
-
 		// Load the vertex data
 		glContext.bindBuffer(WebGLRenderingContext.ARRAY_BUFFER, vertexBuffer);
-		checkErrors();
 		glContext.vertexAttribPointer(vertexPositionAttribute, 3, WebGLRenderingContext.FLOAT, false, 0, 0);
-		checkErrors();
 		
+		// Load the texture coordinates data
 		glContext.bindBuffer(WebGLRenderingContext.ARRAY_BUFFER, vertexTextureCoordBuffer);
 		glContext.vertexAttribPointer(textureCoordAttribute, 2, WebGLRenderingContext.FLOAT, false, 0, 0);
 
-		perspectiveMatrix = MatrixUtil.createPerspectiveMatrix(45, 1.0f, 0.1f,
-				100);
+		perspectiveMatrix = MatrixUtil.createPerspectiveMatrix(45, 1.0f, 0.1f, 100);
 		translationMatrix = MatrixUtil.createTranslationMatrix(0, 0, translateZ);
 		rotationMatrix = MatrixUtil.createRotationMatrix(angleX, angleY, angleZ);
 		resultingMatrix = perspectiveMatrix.multiply(translationMatrix).multiply(rotationMatrix);
 
-		glContext.uniformMatrix4fv(projectionMatrixUniform, false,
-				resultingMatrix.getColumnWiseFlatData());
-		checkErrors();
+		glContext.uniformMatrix4fv(projectionMatrixUniform, false, resultingMatrix.getColumnWiseFlatData());
 		
 		// Bind the texture to texture unit 0
 		glContext.activeTexture(WebGLRenderingContext.TEXTURE0);
 		glContext.bindTexture(WebGLRenderingContext.TEXTURE_2D, texture);
-		checkErrors();
 
 		// Point the uniform sampler to texture unit 0
 		glContext.uniform1i(textureUniform, 0);
-		checkErrors();
 		glContext.drawArrays(WebGLRenderingContext.TRIANGLES, 0, 36);
-		checkErrors();
 		glContext.flush();
+		checkErrors();
 	}
 
 	/**
@@ -387,6 +343,11 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 		checkErrors();
 	}
 	
+	/**
+	 * Handles image loading.
+	 * @param imageResource
+	 * @return {@link Image} to be used as a texture
+	 */
 	public Image getImage(final ImageResource imageResource) {
 		final Image img = new Image();
 		img.addLoadHandler(new LoadHandler() {
