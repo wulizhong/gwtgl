@@ -336,7 +336,17 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 	private void initTexture() {
 		texture = glContext.createTexture();
 		glContext.bindTexture(WebGLRenderingContext.TEXTURE_2D, texture);
-		glContext.texImage2D(WebGLRenderingContext.TEXTURE_2D, 0, WebGLRenderingContext.RGBA, WebGLRenderingContext.RGBA, WebGLRenderingContext.UNSIGNED_BYTE, getImage(Resources.INSTANCE.texture()).getElement());
+		final Image img = getImage(Resources.INSTANCE.texture());
+		img.addLoadHandler(new LoadHandler() {
+			@Override
+			public void onLoad(LoadEvent event) {
+				RootPanel.get().remove(img);
+				GWT.log("texture image loaded", null);
+				glContext.bindTexture(WebGLRenderingContext.TEXTURE_2D, texture);
+				glContext.texImage2D(WebGLRenderingContext.TEXTURE_2D, 0, WebGLRenderingContext.RGBA, WebGLRenderingContext.RGBA, WebGLRenderingContext.UNSIGNED_BYTE, img.getElement());
+			}
+		});
+		checkErrors();
 		glContext.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MAG_FILTER, WebGLRenderingContext.LINEAR);
 		glContext.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MIN_FILTER, WebGLRenderingContext.LINEAR);
 		glContext.bindTexture(WebGLRenderingContext.TEXTURE_2D, null);
@@ -344,23 +354,17 @@ public class TexturedCubeBindingExample extends AbstractGwtGLExample {
 	}
 	
 	/**
-	 * Handles image loading.
+	 * Converts ImageResource to Image.
 	 * @param imageResource
 	 * @return {@link Image} to be used as a texture
 	 */
 	public Image getImage(final ImageResource imageResource) {
 		final Image img = new Image();
-		img.addLoadHandler(new LoadHandler() {
-			@Override
-			public void onLoad(LoadEvent event) {
-				RootPanel.get().remove(img);
-			}
-		});
 		img.setVisible(false);
 		RootPanel.get().add(img);
 
 		img.setUrl(imageResource.getURL());
-		
+	
 		return img;
 	}
 
