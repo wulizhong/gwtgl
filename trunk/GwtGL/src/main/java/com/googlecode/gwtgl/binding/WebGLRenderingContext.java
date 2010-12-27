@@ -458,8 +458,6 @@ public abstract class WebGLRenderingContext {
 	public static final int RENDERER = webGLConstants.RENDERER();
 	/**  */
 	public static final int VERSION = webGLConstants.VERSION();
-	/**  */
-	public static final int EXTENSIONS = webGLConstants.EXTENSIONS();
 	
 	/* TextureMagFilter */
 	/**  */
@@ -635,12 +633,6 @@ public abstract class WebGLRenderingContext {
 	public static final int VERTEX_ATTRIB_ARRAY_POINTER = webGLConstants.VERTEX_ATTRIB_ARRAY_POINTER();
 	/**  */
 	public static final int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = webGLConstants.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING();
-	
-	/* Read Format */
-	/**  */
-	public static final int IMPLEMENTATION_COLOR_READ_TYPE = webGLConstants.IMPLEMENTATION_COLOR_READ_TYPE();
-	/**  */
-	public static final int IMPLEMENTATION_COLOR_READ_FORMAT = webGLConstants.IMPLEMENTATION_COLOR_READ_FORMAT();
 	
 	/* Shader Source */
 	/**  */
@@ -927,6 +919,11 @@ public abstract class WebGLRenderingContext {
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetError.xml"
 	 */
 	public abstract int getError();
+	
+	// TODO check how extension handling works in WebGL
+    public abstract String[] getSupportedExtensions();
+    
+    public abstract JavaScriptObject getExtension(String name);
 	
 	// //////////
 	// Buffers //

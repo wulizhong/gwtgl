@@ -277,7 +277,6 @@ public interface IWebGLConstants extends IConst {
 	int VENDOR();
 	int RENDERER();
 	int VERSION();
-	int EXTENSIONS();
     
     /* TextureMagFilter */
 	int NEAREST();
@@ -375,10 +374,6 @@ public interface IWebGLConstants extends IConst {
 	int VERTEX_ATTRIB_ARRAY_NORMALIZED();
 	int VERTEX_ATTRIB_ARRAY_POINTER();
 	int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING();
-    
-    /* Read Format */
-	int IMPLEMENTATION_COLOR_READ_TYPE();
-	int IMPLEMENTATION_COLOR_READ_FORMAT();
     
     /* Shader Source */
 	int COMPILE_STATUS();
