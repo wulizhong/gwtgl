@@ -159,7 +159,7 @@ public class ColoredTriangleBindingExample extends AbstractGwtGLExample {
 		glContext.uniformMatrix4fv(projectionMatrixUniform, false, projectionMatrix.getColumnWiseFlatData());
 
 		// Draw the polygon
-		glContext.drawElements(WebGLRenderingContext.TRIANGLES, 3, WebGLRenderingContext.UNSIGNED_BYTE, 0);
+		glContext.drawElements(WebGLRenderingContext.TRIANGLES, 3, WebGLRenderingContext.UNSIGNED_SHORT, 0);
 //		glContext.drawArrays(WebGLRenderingContext.TRIANGLES, 0, 3);
 		glContext.flush();
 		checkErrors();
