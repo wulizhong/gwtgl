@@ -1,13 +1,16 @@
 [Documentation]
   * Basic documentation
     * [BindingOverview introduction of binding]
-    * [WrapperOverview introduction of wrapper]
-    * [BindingVsWrapper comparison of binding and wrapper]
+    * [TypedArrays Typed arrays specification]
     * [ReleaseNotes the release notes of past releases]
     * [BrowserSupport getting a compatible browser]
   * Tutorials
     * [HowToCreateAnEmptyGWTApp create an empty GWT App to work with GwtGL]
     * [BindingTutorial white triangle example using binding]
+  * Tech Demos
+    * Object Oriented Wrapper API
+      * [WrapperOverview introduction of wrapper]
+      * [BindingVsWrapper comparison of binding and wrapper]
   * Development documentation
     * [DevelopmentEnvironment the development environment]
     * [Roadmap the GwtGL roadmap for upcoming releases]

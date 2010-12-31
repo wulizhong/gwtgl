@@ -3,19 +3,20 @@
 
 = 0.2 =
 
-  * (to do) Check specification for changes since 0.1
+  * (in progress) Check specification for changes since 0.1
+    * (done) implement the Typed arrays specification
+    * (done) update the shaders in the examples to match the specification
+    * (in progress) implement added/changed/removed methods and constants
   * (to do) Review the generators
     * (to do) Code cleanup
     * (to do) Refactoring
     * (to do) Documentation
-  * (to do) review binding again
-  * (to do) review wrapper and think about improvements/additions of the API
+  * (in progress) review binding again
+  * (in progress) move the wrapper to a "tech demo" area and focus on the binding as core API
+  * (done) create more examples
 
 = post 0.2 =
 
   * Check specification for changes until the final specification is done
-  * Create wrapper objects and methods for whole API
-  * Check wrapper API for more simplifications compared to binding
-    * Iterators for complex objects
-  * Create tech demos
-    * Mesh loading
+  * Create/improve tech demos
+    * e.g. Mesh loading
