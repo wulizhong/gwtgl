@@ -8,11 +8,11 @@ Browsers with WebGL Support are:
   * Chromium - the open source browser Google's Chrome is based on
     * Download nightlybuild for [http://build.chromium.org/buildbot/continuous/win/LATEST/ windows], [http://build.chromium.org/buildbot/continuous/linux/LATEST/ linux] or [http://build.chromium.org/buildbot/continuous/mac/LATEST/ macos]
     * Start browser with the following command line:
-      * windows: _chrome.exe --enable-webgl --no-sandbox_
-      * linux: _./chromium --enable-webgl --no-sandbox_
-      * macos: _./Chromium.app/Contents/MacOS/Chromium --enable-webgl --no-sandbox_
-  * Firefox 3.7 pre Alpha aka Minefield(http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/)
-    * Firefox 3.7 pre Alpha portable (http://portableapps.com/apps/internet/firefox_portable/test#minefield)
+      * windows: no options needed
+      * linux: _./chromium --enable-webgl
+      * macos: _./Chromium.app/Contents/MacOS/Chromium --enable-webgl
+  * Firefox 4 beta (http://www.mozilla.com/de/firefox/beta/)
+    * Firefox 4 beta portable (http://portableapps.com/apps/internet/firefox_portable/test)
     * Open _about:config_ and set value _webgl.enabled_for_all_sites_ to _true_
 
 Other browsers do *NOT* support WebGL.
@@ -20,9 +20,10 @@ Other browsers do *NOT* support WebGL.
 Use current builds of the mentioned browsers. As WebGL itself is not stable,
 APIs and their implementation change. We try to keep compatibility to current builds of the browsers.
 
-Firefox 3.7 is not compatible with the dev mode extension. The dev mode is thus not usable with Firefox 3.7.
-The dev mode extension for Chrome works with the dev channel but WebGL doesn't work in dev mode and throws weired errors.
+Firefox 4 is not compatible with the dev mode extension. The dev mode is thus not usable with Firefox 3.7.
 Therefore it is necessary to deploy your GwtGL app and test it in web mode.
+
+The dev mode extension for Chrome doesn't work with recent chromium nightlies. We use a version of mid Nov 2010 that used to work.
 
 For detail informations on how to install the browsers, look at:
 http://learningwebgl.com/blog/?p=11
