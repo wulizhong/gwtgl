@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * GWT binding of the Khronos TypedArray spec at
- * {@link "https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/doc/spec/TypedArray-spec.html"}
+ * GWT binding of the Khronos WebGL spec at
+ * {@link "http://www.khronos.org/webgl/"}
  */
-package com.googlecode.gwtgl.array;
+package com.googlecode.gwtgl.binding;

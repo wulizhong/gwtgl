@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 /**
- * GWT binding of the Khronos TypedArray spec at
- * {@link "https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/doc/spec/TypedArray-spec.html"}
+ * API for the GwtGL generators. Contains marker interfaces and annotations to configure the generation.
  */
-package com.googlecode.gwtgl.array;
+package com.googlecode.gwtgl.gen.api;
