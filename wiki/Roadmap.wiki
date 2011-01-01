@@ -12,7 +12,7 @@
     * (to do) Refactoring
     * (to do) Documentation
   * (in progress) review binding again
-  * (in progress) move the wrapper to a "tech demo" area and focus on the binding as core API
+  * (done) move the wrapper to a "tech demo" area and focus on the binding as core API
   * (done) create more examples
 
 = post 0.2 =
