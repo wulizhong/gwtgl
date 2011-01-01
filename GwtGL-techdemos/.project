@@ -1,6 +1,6 @@
 <projectDescription>
   <name>GwtGL-examples</name>
-  <comment>GwtGL-examples is an examples project for GwtGL.</comment>
+  <comment>GwtGL-techdemos is an examples project for GwtGL.</comment>
   <projects>
     <project>GwtGL</project>
   </projects>
