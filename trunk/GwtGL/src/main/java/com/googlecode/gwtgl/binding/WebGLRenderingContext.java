@@ -1839,7 +1839,7 @@ public abstract class WebGLRenderingContext {
 	/**
 	 * Bind a {@link WebGLTexture} object to a texturing target
 	 * @param target Target to which the texture is bound. One of TEXTURE_2D, TEXTURE_CUBE_MAP.
-	 * @param texture the {@link WebGLTexture} object to delete
+	 * @param texture the {@link WebGLTexture} object to bind
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glBindTexture.xml"
 	 */
 	public abstract void bindTexture(int target, WebGLTexture texture);
