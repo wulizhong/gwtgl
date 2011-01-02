@@ -5,6 +5,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabPanel;
 import com.googlecode.gwtgl.example.client.examples.coloredtriangle.binding.ColoredTriangleBindingExample;
+import com.googlecode.gwtgl.example.client.examples.skybox.SkyboxExample;
 import com.googlecode.gwtgl.example.client.examples.texturedcube.binding.TexturedCubeBindingExample;
 import com.googlecode.gwtgl.example.client.examples.whitetriangle.WhiteTriangleExample;
 
@@ -31,7 +32,10 @@ public class GwtGL_examples implements EntryPoint {
 			TexturedCubeBindingExample texturedCubeBindingExample = new TexturedCubeBindingExample();
 			tp.add(texturedCubeBindingExample, "Textured Cube");
 	
-			tp.selectTab(2);
+			SkyboxExample skyboxExample  = new SkyboxExample();
+			tp.add(skyboxExample, "Skybox");
+			
+			tp.selectTab(3);
 			RootPanel.get("gwtgl-examples").add(tp);
 		} catch (Exception e) {
 			Window.alert("Sorry, Your Browser doesn't support WebGL!");
