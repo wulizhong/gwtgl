@@ -7,10 +7,10 @@
     * (done) implement the Typed arrays specification
     * (done) update the shaders in the examples to match the specification
     * (in progress) implement added/changed/removed methods and constants
-  * (to do) Review the generators
-    * (to do) Code cleanup
-    * (to do) Refactoring
-    * (to do) Documentation
+  * (in progress) Review the generators
+    * (in progress) Code cleanup
+    * (in progress) Refactoring
+    * (in progress) Code documentation
   * (in progress) review binding again
   * (done) move the wrapper to a "tech demo" area and focus on the binding as core API
   * (done) create more examples
