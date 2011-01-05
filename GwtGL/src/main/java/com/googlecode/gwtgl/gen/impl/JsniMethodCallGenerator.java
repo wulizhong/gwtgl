@@ -20,6 +20,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.ext.GeneratorContext;
+import com.google.gwt.core.ext.TreeLogger;
 import com.google.gwt.core.ext.typeinfo.JClassType;
 import com.google.gwt.core.ext.typeinfo.JMethod;
 import com.google.gwt.core.ext.typeinfo.JParameter;
@@ -37,7 +38,7 @@ import com.googlecode.gwtgl.util.JsArrayUtil;
 public class JsniMethodCallGenerator extends AbstractMethodCallGenerator {
 
 	@Override
-	protected String getGeneratedClassName(GeneratorContext context,
+	protected String getGeneratedClassName(GeneratorContext context, TreeLogger logger,
 			String simpleSourceName) {
 		return simpleSourceName + "Binding";
 	}
@@ -180,5 +181,11 @@ public class JsniMethodCallGenerator extends AbstractMethodCallGenerator {
 		sourceWriter.println(";");
 
 		sourceWriter.println("}-*/;");
+	}
+
+	@Override
+	protected void preprocessSuperType(TreeLogger logger,
+			GeneratorContext context, JClassType superType) {
+		// nothing to do
 	}
 }
