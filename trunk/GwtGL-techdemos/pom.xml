@@ -19,7 +19,7 @@
 	<groupId>com.cooglecode.gwtgl</groupId>
 	<artifactId>gwtgl-techdemos</artifactId>
 	<packaging>war</packaging>
-	<version>0.2</version>
+	<version>0.3-SNAPSHOT</version>
 	<name>GwtGL-techdemos</name>
 	<description>GwtGL-techdemos is an examples project for GwtGL.</description>
 	<url>http://code.google.com/p/gwtgl/</url>
@@ -52,19 +52,20 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gwt.version>2.1.1</gwt.version>
+		<gwtgl.version>0.3-SNAPSHOT</gwtgl.version>
 		<project.build.directory>war/WEB-INF/classes</project.build.directory>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.cooglecode.gwtgl</groupId>
 			<artifactId>gwtgl</artifactId>
-			<version>0.2</version>
+			<version>${gwtgl.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.cooglecode.gwtgl</groupId>
 			<artifactId>gwtgl</artifactId>
-			<version>0.2</version>
+			<version>${gwtgl.version}</version>
 			<classifier>sources</classifier>
 			<scope>provided</scope>
 		</dependency>

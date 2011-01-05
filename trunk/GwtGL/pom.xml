@@ -19,7 +19,7 @@
 	<groupId>com.cooglecode.gwtgl</groupId>
 	<artifactId>gwtgl</artifactId>
 	<packaging>jar</packaging>
-	<version>0.2</version>
+	<version>0.3-SNAPSHOT</version>
 	<name>GwtGL</name>
 	<description>GwtGL is a GWT binding for the WebGL API.</description>
 	<url>http://code.google.com/p/gwtgl/</url>
