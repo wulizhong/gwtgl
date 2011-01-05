@@ -2351,7 +2351,6 @@ public abstract class WebGLRenderingContext {
 	/**
 	 * Read pixels from the Framebuffer.
 	 * 
-	 * @param <T> The type of the {@link TypedArray} returned
 	 * @param x The x position of the section to read
 	 * @param y The y position of the section to read
 	 * @param width The width of the section to read
@@ -2359,10 +2358,9 @@ public abstract class WebGLRenderingContext {
 	 * @param format The format of the pixel data. One of ALPHA, RGB, RGBA
 	 * @param type The data type of the pixel data One of UNSIGNED_BYTE, UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1, UNSIGNED_SHORT_5_6_5
 	 * @param pixels the ArrayBufferView to write the values
-	 * @return The read pixels
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glReadPixels.xml"
 	 */
-	public abstract <T extends TypedArray<?>> T readPixels(int x, int y, int width, int height, int format, int type, ArrayBufferView pixels);
+	public abstract void readPixels(int x, int y, int width, int height, int format, int type, ArrayBufferView pixels);
 	
 	/**
 	 * Checks if the given object is a Framebuffer object.
