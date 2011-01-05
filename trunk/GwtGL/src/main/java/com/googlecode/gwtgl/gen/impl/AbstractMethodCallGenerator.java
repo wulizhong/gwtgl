@@ -67,11 +67,12 @@ public abstract class AbstractMethodCallGenerator extends Generator {
 	/**
 	 * Calculates the name of the generated class.
 	 * 
-	 * @param context the GeneratorContext
+	 * @param context the GeneratorContext.
+	 * @param logger the logger to use.
 	 * @param simpleSourceName the simple source name of the supertype
 	 * @return the name of the class to be generated
 	 */
-	protected abstract String getGeneratedClassName(GeneratorContext context,
+	protected abstract String getGeneratedClassName(GeneratorContext context, TreeLogger logger,
 			String simpleSourceName);
 
 	/**
@@ -109,7 +110,7 @@ public abstract class AbstractMethodCallGenerator extends Generator {
 
 		packageName = superType.getPackage().getName();
 		String simpleSourceName = superType.getSimpleSourceName();
-		generatedClassName = getGeneratedClassName(context, simpleSourceName);
+		generatedClassName = getGeneratedClassName(context, logger, simpleSourceName);
 		String qualifiedClassName = packageName + "." + generatedClassName;
 
 		PrintWriter printWriter = context.tryCreate(logger, packageName,
@@ -148,6 +149,8 @@ public abstract class AbstractMethodCallGenerator extends Generator {
 
 		SourceWriter sourceWriter = composer.createSourceWriter(context,
 				printWriter);
+		
+		preprocessSuperType(logger, context, superType);
 
 		generateInitialClassContent(sourceWriter);
 
@@ -155,6 +158,15 @@ public abstract class AbstractMethodCallGenerator extends Generator {
 
 		sourceWriter.commit(logger);
 	}
+
+	/**
+	 * Processes the super type of the generated class to read informations (e.g. annotations) that are needed by the generator.
+	 * 
+	 * @param logger the logger to use.
+	 * @param context the {@link GeneratorContext} to use.
+	 * @param superType the super type (super class or interface).
+	 */
+	protected abstract void preprocessSuperType(TreeLogger logger, GeneratorContext context, JClassType superType);
 
 	/**
 	 * recursively processes the methods of the given type and all super classes and interfaces.
@@ -181,7 +193,9 @@ public abstract class AbstractMethodCallGenerator extends Generator {
 			processType(clazz, sourceWriter);
 		}
 		// process the super class
-		processType(typeToProcess.getSuperclass(), sourceWriter);
+		if(typeToProcess.isClass() != null) {
+			processType(typeToProcess.getSuperclass(), sourceWriter);
+		}
 	}
 
 }
