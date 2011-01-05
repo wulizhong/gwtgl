@@ -1,7 +1,7 @@
 #summary The release notes of the GwtGL project.
 #sidebar TableOfContents
 
-= 0.2 - TODO =
+= 0.2 - Jan 05, 2011 =
 
 The focus of release 0.2 is updating the binding to reflect the spec changes since 0.1.
 
