@@ -6,9 +6,6 @@ GwtGL enables you to develop 3D websites and web applications using the Java pro
 Type safety and the Java Toolset help you to write your apps in less time compared to plain !JavaScript development.
 The GWT compiler generates optimized !JavaScript code, so you will achieve higher frame rates.
 
-A second part of GwtGL is an object oriented [WrapperOverview wrapper] API.
-This API tries to help you writing WebGL applications using GWT and object oriented programming best practices.
-
 = What is WebGL? =
 
 WebGL is a graphics API based on OpenGL ES 2.0. 
@@ -20,7 +17,8 @@ so there is no need for a plugin to be able to view WebGL enriched sites.
 
 [http://gwtgl.googlecode.com/svn/wiki/img/demo.png http://gwtgl.googlecode.com/svn/wiki/img/demo_small.png]
 
-[http://gwtgl-examples.appspot.com/ Click here] to see a live version of our demos. You need a WebGL enabled browser to see the examples.
+[http://gwtgl-examples.appspot.com/ Click here] to see a live version of our demos. You need a [BrowserSupport WebGL enabled browser] to see the examples.
+*Online demos are outdated. A new version will be uploaded soon.*
 
 = Using GwtGL in your GWT project =
 
@@ -28,10 +26,6 @@ Include GwtGL into your classpath.
 Add the following line to your *.gwt.xml to have access to the WebGL [BindingOverview binding]:
 {{{
 <inherits name='com.googlecode.gwtgl.binding'/>
-}}}
-Add the following line to your *.gwt.xml to have access to the WebGL wrapper:
-{{{
-<inherits name='com.googlecode.gwtgl.wrapper'/>
 }}}
 
 = Getting started =
