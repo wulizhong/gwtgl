@@ -1,21 +1,13 @@
 #summary The roadmap of the GwtGL project.
 #sidebar TableOfContents
 
-= 0.2 =
+= 0.3 =
 
-  * (in progress) Check specification for changes since 0.1
-    * (done) implement the Typed arrays specification
-    * (done) update the shaders in the examples to match the specification
-    * (in progress) implement added/changed/removed methods and constants
-  * (done) Review the generators
-    * (done) Code cleanup
-    * (done) Refactoring
-    * (done) Code documentation
-  * (in progress) review binding again
-  * (done) move the wrapper to a "tech demo" area and focus on the binding as core API
+  * (todo) Check specification for changes
+  * (todo) review the API
   * (done) create more examples
 
-= post 0.2 =
+= post 0.3 =
 
   * Check specification for changes until the final specification is done
   * Create/improve tech demos
