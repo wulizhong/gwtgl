@@ -22,15 +22,8 @@ limitations under the License.
 	<inherits name='com.googlecode.gwtgl.generator' />
 
 	<!-- WebGLRenderingContext is the official name of the spec. So this is the default. -->
-	<define-property name="webgl_type" values="WebGLRenderingContext,CanvasRenderingContextWebGL"/>
+	<define-property name="webgl_type" values="WebGLRenderingContext"/>
 	<set-property name="webgl_type" value="WebGLRenderingContext" />
-	<set-property name="webgl_type" value="CanvasRenderingContextWebGL">
-		<any>
-			<!-- Old Gecko versions don't support WebGl -->
-			<!--<when-property-is name='user.agent' value='gecko' />-->
-			<when-property-is name='user.agent' value='gecko1_8' />
-		</any>
-	</set-property>
 	
 	<!-- Specify the paths for translatable code                    -->
 	<source path='binding' />
