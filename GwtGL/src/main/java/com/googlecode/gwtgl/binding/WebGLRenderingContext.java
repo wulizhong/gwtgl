@@ -266,8 +266,10 @@ public abstract class WebGLRenderingContext {
 	public static final int STENCIL_BACK_VALUE_MASK = webGLConstants.STENCIL_BACK_VALUE_MASK();
 	/**  */
 	public static final int STENCIL_BACK_WRITEMASK = webGLConstants.STENCIL_BACK_WRITEMASK();
-	/**  */
-	public static final int VIEWPORT = webGLConstants.VIEWPORT();
+	
+	// TODO constant VIEWPORT doesn't work on Firefox 4.0 beta 10
+//	/**  */
+//	public static final int VIEWPORT = webGLConstants.VIEWPORT();
 	/**  */
 	public static final int SCISSOR_BOX = webGLConstants.SCISSOR_BOX();
 	/*      SCISSOR_TEST */
