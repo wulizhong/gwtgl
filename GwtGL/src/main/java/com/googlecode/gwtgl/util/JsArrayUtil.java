@@ -30,6 +30,20 @@ public final class JsArrayUtil {
 	}
 	
 	/**
+	 * Converts a JsArrayString to a String[].
+	 * 
+	 * @param jsArrayString the array to unwrap.
+	 * @return the created String[].
+	 */
+	public static String[] unwrapArray(JsArrayString jsArrayString) {
+		String[] result = new String[jsArrayString.length()];
+		for(int i=0; i<jsArrayString.length();i++) {
+			result[i]=jsArrayString.get(i);
+		}
+		return result;
+	}
+	
+	/**
 	 * Wraps a Java float Array to a JsArrayNumber for dev mode.
 	 * 
 	 * @param srcArray the array to wrap
