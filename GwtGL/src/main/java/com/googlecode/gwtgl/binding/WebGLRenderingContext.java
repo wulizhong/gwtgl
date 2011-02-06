@@ -17,6 +17,7 @@ package com.googlecode.gwtgl.binding;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayString;
 import com.googlecode.gwtgl.array.ArrayBuffer;
 import com.googlecode.gwtgl.array.ArrayBufferView;
 import com.googlecode.gwtgl.array.Float32Array;
@@ -24,6 +25,7 @@ import com.googlecode.gwtgl.array.Int32Array;
 import com.googlecode.gwtgl.array.TypedArray;
 import com.googlecode.gwtgl.binding.impl.IWebGLConstants;
 import com.googlecode.gwtgl.gen.api.JsName;
+import com.googlecode.gwtgl.util.JsArrayUtil;
 
 
 /**
@@ -922,10 +924,57 @@ public abstract class WebGLRenderingContext {
 	 */
 	public abstract int getError();
 	
-	// TODO check how extension handling works in WebGL
-    public abstract String[] getSupportedExtensions();
+	/**
+	 * Determines the extensions supported by the WebGL implementation.
+	 * 
+	 * @return an array containing the names of the supported extensions.
+	 */
+	public String[] getSupportedExtensions() {
+		try {
+			if(GWT.isProdMode()) {
+				return getSupportedExtensionsProd();
+			}
+			return JsArrayUtil.unwrapArray(getSupportedExtensionsDev());
+		} catch (Exception e) {
+			return new String[0];
+		}
+	}
+	
+	/**
+	 * Definition of getSupportedExtensions for Prod Mode.
+	 * 
+	 * @return the supported extensions.
+	 */
+	@JsName("getSupportedExtensions")
+    protected abstract String[] getSupportedExtensionsProd();
     
+	/**
+	 * Definition of getSupportedExtensions for Dev Mode.
+	 * 
+	 * @return the supported extensions.
+	 */
+    @JsName("getSupportedExtensions")
+    protected abstract JsArrayString getSupportedExtensionsDev();
+    
+    /**
+     * Returns the extension object associated with the given extension name (as returned by getSupportedExtensions).
+     * 
+     * @param name the extension name as returned by getSupportedExtensions.
+     * @return the associated extension object.
+     */
     public abstract JavaScriptObject getExtension(String name);
+    
+	/**
+	 * Returns the extension object associated with the given extension name (as
+	 * returned by getSupportedExtensions). Only use this variant of
+	 * getExtension if the given extension is defined to return a int value.
+	 * 
+	 * @param name
+	 *            the extension name as returned by getSupportedExtensions.
+	 * @return the associated extension object.
+	 */
+    @JsName("getSupportedExtensions")
+    public abstract int getExtensioni(String name);
 	
 	// //////////
 	// Buffers //
