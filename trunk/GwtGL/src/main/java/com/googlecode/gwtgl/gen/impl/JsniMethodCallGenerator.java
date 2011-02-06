@@ -91,7 +91,7 @@ public class JsniMethodCallGenerator extends AbstractMethodCallGenerator {
 				false, true));
 		sourceWriter.println(" {");
 
-		sourceWriter.println("if(GWT.isScript()) {");
+		sourceWriter.println("if(GWT.isProdMode()) {");
 		generateMethodCall(sourceWriter, method, false);
 		sourceWriter.println("} else {");
 		generateMethodCall(sourceWriter, method, true);
@@ -142,8 +142,7 @@ public class JsniMethodCallGenerator extends AbstractMethodCallGenerator {
 		JType returnType = method.getReturnType();
 		String ret = returnType.getQualifiedSourceName();
 
-		String methodDeclaration = method.getReadableDeclaration(false, false,
-				false, false, true).replaceFirst("public", "public native");
+		String methodDeclaration = getNativeDeclaration(method);
 		if (devMode) {
 			methodDeclaration = methodDeclaration.replaceAll(method.getName(),
 					method.getName() + "Dev");
@@ -181,6 +180,19 @@ public class JsniMethodCallGenerator extends AbstractMethodCallGenerator {
 		sourceWriter.println(";");
 
 		sourceWriter.println("}-*/;");
+	}
+
+	private String getNativeDeclaration(JMethod method) {
+		String methodDeclaration = method.getReadableDeclaration(false, false,
+				false, false, true);
+		if(method.isDefaultAccess()) {
+			methodDeclaration="native "+methodDeclaration;
+		} else if(method.isPublic()) {
+			methodDeclaration=methodDeclaration.replaceFirst("public", "public native");
+		} else if(method.isProtected()) {
+			methodDeclaration=methodDeclaration.replaceFirst("protected", "protected native");
+		}
+		return methodDeclaration;
 	}
 
 	@Override
