@@ -65,7 +65,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	 * @param offset
 	 * @return the new Array
 	 */
-	protected final native T slice(int offset)/*-{
+	public final native T slice(int offset)/*-{
 		return this.slice(offset);
 	}-*/;
 	
@@ -76,7 +76,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	 * @param length
 	 * @return the new Array
 	 */
-	protected final native T slice(int offset, int length)/*-{
+	public final native T slice(int offset, int length)/*-{
 		return this.slice(offset, length);
 	}-*/;
 
