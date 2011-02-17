@@ -10,9 +10,9 @@ mvn install
 }}}
 
 After that you can find the following files under <project.home>/target:
- * gwtgl-<VERSION>.jar
- * gwtgl-<VERSION>-sources.jar
- * gwtgl-<VERSION>-javadocs.jar
+ * 'gwtgl-<VERSION>.jar'
+ * 'gwtgl-<VERSION>-sources.jar'
+ * 'gwtgl-<VERSION>-javadocs.jar'
 
 = The release =
 
@@ -21,4 +21,4 @@ A release (bin, src and javadoc zipped together) can be build using the maven as
 mvn assembly:single
 }}}
 
-The artifact can be found at <project.home>/target/gwtgl-<VERSION>-dist.zip
+The artifact can be found at '<project.home>/target/gwtgl-<VERSION>-dist.zip'
