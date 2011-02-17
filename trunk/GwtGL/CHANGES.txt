@@ -1,3 +1,21 @@
+= 0.2 - Jan 05, 2011 =
+======================
+
+The focus of release 0.2 is updating the binding to reflect the spec changes since 0.1.
+
+The work areas of this version in detail:
+  * Spec changes
+    * Implementation of the [TypedArrays Typed arrays specification]
+    * Added/changed/removed methods and constants
+  * Infrastructure
+    * Moved the wrapper to a new tech demo area to make clear that the wrapper is not part of the core API
+    * updated the poms
+    * cleanup of the project structure
+    * Refactoring/cleanup of the code generators
+  * Examples
+    * updated the examples to reflect the spec changes
+    * Created more binding demos
+
 = 0.1 - Feb 15, 2010 =
 ======================
 
