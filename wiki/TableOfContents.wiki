@@ -13,5 +13,5 @@
       * [BindingVsWrapper comparison of binding and wrapper]
   * Development documentation
     * [DevelopmentEnvironment the development environment]
-    * [BuildAndRelease.wiki how to build and release GwtGL]
+    * [BuildAndRelease how to build and release GwtGL]
     * [Roadmap the GwtGL roadmap for upcoming releases]
