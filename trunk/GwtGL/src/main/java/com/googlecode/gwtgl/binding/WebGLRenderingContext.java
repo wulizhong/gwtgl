@@ -17,6 +17,7 @@ package com.googlecode.gwtgl.binding;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
 import com.googlecode.gwtgl.array.ArrayBuffer;
 import com.googlecode.gwtgl.array.ArrayBufferView;
@@ -1295,14 +1296,46 @@ public abstract class WebGLRenderingContext {
 	 */
 	@JsName(value = "getShaderParameter")
 	public abstract int getShaderParameteri(WebGLShader shader, int pname);
-
+	
 	/**
 	 * Return the list of {@link WebGLShader}s attached to the passed {@link WebGLProgram}. 
 	 * @param program {@link WebGLProgram} object to be queried.
-	 * @return list of {@link WebGLShader}s attached to the passed {@link WebGLProgram}
+	 * @return array of {@link WebGLShader}s attached to the passed {@link WebGLProgram}
 	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetAttachedShaders.xml"
 	 */
-	public abstract WebGLObjectArray<WebGLShader> getAttachedShaders(WebGLProgram program);
+	public WebGLShader[] getAttachedShaders(WebGLProgram program) {
+		// TODO implement this in the generator
+		try {
+			if(GWT.isProdMode()) {
+				return getAttachedShadersProd(program);
+			}
+			JsArray<WebGLShader> shaders = getAttachedShadersDev(program);
+			
+			WebGLShader[] result = new WebGLShader[shaders.length()];
+			for(int i=0; i<shaders.length();i++) {
+				result[i]=shaders.get(i);
+			}
+			return result;
+		} catch (Exception e) {
+			return new WebGLShader[0];
+		}
+	}
+	
+	/**
+	 * Definition of getAttachedShadersProd for Prod Mode.
+	 * @param program the WebGLProgram to get the {@link WebGLShader}s of.
+	 * @return array of {@link WebGLShader}s attached to the passed {@link WebGLProgram}
+	 */
+	@JsName("getAttachedShaders")
+	protected abstract WebGLShader[] getAttachedShadersProd(WebGLProgram program);
+	
+	/**
+	 * Definition of getAttachedShadersProd for Dev Mode.
+	 * @param program the WebGLProgram to get the {@link WebGLShader}s of.
+	 * @return array of {@link WebGLShader}s attached to the passed {@link WebGLProgram}
+	 */
+	@JsName("getAttachedShaders")
+	protected abstract JsArray<WebGLShader> getAttachedShadersDev(WebGLProgram program);
 
 	/**
 	 * Return true if the passed WebGLObject is a WebGLShader and false otherwise. 

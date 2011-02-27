@@ -62,22 +62,22 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	/**
 	 * Returns a new Array with the same underlying {@link ArrayBuffer}.
 	 * 
-	 * @param offset
+	 * @param begin
 	 * @return the new Array
 	 */
-	public final native T slice(int offset)/*-{
-		return this.slice(offset);
+	public final native T subarray(int begin)/*-{
+		return this.slice(begin);
 	}-*/;
 	
 	/**
 	 * Returns a new Array with the same underlying {@link ArrayBuffer}.
 	 * 
-	 * @param offset
-	 * @param length
+	 * @param begin
+	 * @param end
 	 * @return the new Array
 	 */
-	public final native T slice(int offset, int length)/*-{
-		return this.slice(offset, length);
+	public final native T subarray(int begin, int end)/*-{
+		return this.slice(begin, length);
 	}-*/;
 
 }

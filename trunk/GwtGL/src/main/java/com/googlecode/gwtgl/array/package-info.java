@@ -15,6 +15,6 @@
  */
 /**
  * GWT binding of the Khronos TypedArray spec at
- * {@link "https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/doc/spec/TypedArray-spec.html"}
+ * {@link "http://www.khronos.org/registry/typedarray/specs/latest/"}
  */
 package com.googlecode.gwtgl.array;

@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+ * Copyright 2009-2011 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -130,7 +130,7 @@ public class Float64Array extends TypedArray<Float64Array> {
 	 * @return the element at the given index
 	 */
 	public final native float get(int index) /*-{
-		return this.get(index);
+		return this[index];
 	}-*/;
 	
 	/**
@@ -143,7 +143,7 @@ public class Float64Array extends TypedArray<Float64Array> {
 	 * @param value
 	 */
 	public final native void set(int index, double value) /*-{
-		this.set(index, value);
+		this[index] = value;
 	}-*/;
 	
 	/**
@@ -182,11 +182,11 @@ public class Float64Array extends TypedArray<Float64Array> {
 	};
 	
 	private static native void innerSet(double[] array, int offset) /*-{
-		this.set(array);
+		this.set(array, offset);
 	}-*/;
 	
 	private static native void innerSet(JsArrayNumber array, int offset) /*-{
-		this.set(array);
+		this.set(array, offset);
 	}-*/;
 
 }
