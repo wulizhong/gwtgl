@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+ * Copyright 2009-2011 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -130,7 +130,7 @@ public class Float32Array extends TypedArray<Float32Array> {
 	 * @return the element at the given index
 	 */
 	public final native float get(int index) /*-{
-		return this.get(index);
+		return this[index];
 	}-*/;
 	
 	/**
@@ -143,7 +143,7 @@ public class Float32Array extends TypedArray<Float32Array> {
 	 * @param value
 	 */
 	public final native void set(int index, float value) /*-{
-		this.set(index, value);
+		this[index] = value;
 	}-*/;
 	
 	/**
@@ -182,11 +182,11 @@ public class Float32Array extends TypedArray<Float32Array> {
 	};
 	
 	private static native void innerSet(float[] array, int offset) /*-{
-		this.set(array);
+		this.set(array, offset);
 	}-*/;
 	
 	private static native void innerSet(JsArrayNumber array, int offset) /*-{
-		this.set(array);
+		this.set(array, offset);
 	}-*/;
 
 }

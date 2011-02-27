@@ -1,5 +1,5 @@
 /* 
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+ * Copyright 2009-2011 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ import com.googlecode.gwtgl.util.JsArrayUtil;
 
 /**
  * Abstract parent class for all TypedArrays which use int to get/set the inner values.
- * 
+ * Do not rely on this class as it's not part of the spec and only
+ * introduced in GwtGL to simplify the implementation of the Int*Arrays.
  *
  * @param <T>
  */
@@ -42,7 +43,7 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 	 * @return the element at the given index
 	 */
 	public final native int get(int index) /*-{
-		return this.get(index);
+		return this[index];
 	}-*/;
 	
 	/**
@@ -55,7 +56,7 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 	 * @param value
 	 */
 	public final native void set(int index, int value) /*-{
-		this.set(index, value);
+		this[index] = value;
 	}-*/;
 	
 	/**
@@ -94,10 +95,10 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 	};
 	
 	private static native void innerSet(int[] array, int offset) /*-{
-		this.set(array);
+		this.set(array, offset);
 	}-*/;
 	
 	private static native void innerSet(JsArrayInteger array, int offset) /*-{
-		this.set(array);
+		this.set(array, offset);
 	}-*/;
 }
