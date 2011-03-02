@@ -63,115 +63,115 @@ public class DataView extends ArrayBufferView {
 		return new DataView(buffer, byteOffset, length);
 	}-*/;
 	
-	public native int getInt8(int byteOffset) /*-{
+	public final native int getInt8(int byteOffset) /*-{
 		return this.getInt8(byteOffset);
 	}-*/;
 	
-	public native int getUint8(int byteOffset) /*-{
+	public final native int getUint8(int byteOffset) /*-{
 		return this.getUint8(byteOffset);
 	}-*/;
 	
-	public native int getInt16(int byteOffset) /*-{
+	public final native int getInt16(int byteOffset) /*-{
 		return this.getInt16(byteOffset);
 	}-*/;
 	
-	public native int getInt16(int byteOffset, boolean littleEndian) /*-{
+	public final native int getInt16(int byteOffset, boolean littleEndian) /*-{
 		return this.getInt16(byteOffset, littleEndian);
 	}-*/;
 	
-	public native int getUint16(int byteOffset) /*-{
+	public final native int getUint16(int byteOffset) /*-{
 		return this.getUint16(byteOffset);
 	}-*/;
 	
-	public native int getUint16(int byteOffset, boolean littleEndian) /*-{
+	public final native int getUint16(int byteOffset, boolean littleEndian) /*-{
 		return this.getUint16(byteOffset, littleEndian);
 	}-*/;
 	
-	public native int getInt32(int byteOffset) /*-{
+	public final native int getInt32(int byteOffset) /*-{
 		return this.getInt32(byteOffset);
 	}-*/;
 	
-	public native int getInt32(int byteOffset, boolean littleEndian) /*-{
+	public final native int getInt32(int byteOffset, boolean littleEndian) /*-{
 		return this.getInt32(byteOffset, littleEndian);
 	}-*/;
 	
-	public native int getUint32(int byteOffset) /*-{
+	public final native int getUint32(int byteOffset) /*-{
 		return this.getUint32(byteOffset);
 	}-*/;
 	
-	public native int getUint32(int byteOffset, boolean littleEndian) /*-{
+	public final native int getUint32(int byteOffset, boolean littleEndian) /*-{
 		return this.getUint32(byteOffset, littleEndian);
 	}-*/;
 	
-	public native float getFloat32(int byteOffset) /*-{
+	public final native float getFloat32(int byteOffset) /*-{
 		return this.getFloat32(byteOffset);
 	}-*/;
 	
-	public native float getFloat32(int byteOffset, boolean littleEndian) /*-{
+	public final native float getFloat32(int byteOffset, boolean littleEndian) /*-{
 		return this.getFloat32(byteOffset, littleEndian);
 	}-*/;
 	
-	public native double getFloat64(int byteOffset) /*-{
+	public final native double getFloat64(int byteOffset) /*-{
 		return this.getFloat64(byteOffset);
 	}-*/;
 	
-	public native double getFloat64(int byteOffset, boolean littleEndian) /*-{
+	public final native double getFloat64(int byteOffset, boolean littleEndian) /*-{
 		return this.getFloat64(byteOffset, littleEndian);
 	}-*/;
 	
-	public native void setInt8(int byteOffset, int value) /*-{
+	public final native void setInt8(int byteOffset, int value) /*-{
 		this.setInt8(byteOffset, value);
 	}-*/;
 	
-	public native void setUint8(int byteOffset, int value) /*-{
+	public final native void setUint8(int byteOffset, int value) /*-{
 		this.setUint8(byteOffset, value);
 	}-*/;
 	
-	public native void setInt16(int byteOffset, int value) /*-{
+	public final native void setInt16(int byteOffset, int value) /*-{
 		this.setInt16(byteOffset, value);
 	}-*/;
 	
-	public native void setInt16(int byteOffset, int value, boolean littleEndian) /*-{
+	public final native void setInt16(int byteOffset, int value, boolean littleEndian) /*-{
 		this.setInt16(byteOffset, value, littleEndian);
 	}-*/;
 	
-	public native void setUint16(int byteOffset, int value) /*-{
+	public final native void setUint16(int byteOffset, int value) /*-{
 		this.setUint16(byteOffset, value);
 	}-*/;
 	
-	public native void setUint16(int byteOffset, int value, boolean littleEndian) /*-{
+	public final native void setUint16(int byteOffset, int value, boolean littleEndian) /*-{
 		this.setUint16(byteOffset, value, littleEndian);
 	}-*/;
 	
-	public native void setInt32(int byteOffset, int value) /*-{
+	public final native void setInt32(int byteOffset, int value) /*-{
 		this.setInt32(byteOffset, value);
 	}-*/;
 	
-	public native void setInt32(int byteOffset, int value, boolean littleEndian) /*-{
+	public final native void setInt32(int byteOffset, int value, boolean littleEndian) /*-{
 		this.setInt32(byteOffset, value, littleEndian);
 	}-*/;
 	
-	public native void setUint32(int byteOffset, int value) /*-{
+	public final native void setUint32(int byteOffset, int value) /*-{
 		this.setUint32(byteOffset, value);
 	}-*/;
 	
-	public native void setUint32(int byteOffset, int value, boolean littleEndian) /*-{
+	public final native void setUint32(int byteOffset, int value, boolean littleEndian) /*-{
 		this.setUint32(byteOffset, value, littleEndian);
 	}-*/;
 	
-	public native void setFloat32(int byteOffset, float value) /*-{
+	public final native void setFloat32(int byteOffset, float value) /*-{
 		this.setFloat32(byteOffset, value);
 	}-*/;
 	
-	public native void setFloat32(int byteOffset, float value, boolean littleEndian) /*-{
+	public final native void setFloat32(int byteOffset, float value, boolean littleEndian) /*-{
 		this.setFloat32(byteOffset, value, littleEndian);
 	}-*/;
 	
-	public native void setFloat64(int byteOffset, double value) /*-{
+	public final native void setFloat64(int byteOffset, double value) /*-{
 		this.setFloat64(byteOffset, value);
 	}-*/;
 	
-	public native void setFloat64(int byteOffset, double value, boolean littleEndian) /*-{
+	public final native void setFloat64(int byteOffset, double value, boolean littleEndian) /*-{
 		this.setFloat64(byteOffset, value, littleEndian);
 	}-*/;
 
