@@ -1,5 +1,5 @@
-/**   
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+/*   
+ * Copyright 2009-2011 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,14 @@ package com.googlecode.gwtgl.array;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * A TypedArray is an ArrayBufferView that reads and writes value of one
+ * specific type to/from an {@link ArrayBuffer}.
+ * 
  * @author Steffen Schäfer
- *
+ * 
  * @param <T>
+ *            the concrete subtype of the TypedArray itself. Used for methods
+ *            using the type of the TypedArray as Parameter or return value.
  */
 public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferView {
 
@@ -32,52 +37,65 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	}
 	
 	/**
-	 * Returns the number of objects contained in the array.
+	 * Returns the number of values of the array type contained in the array.
 	 * 
-	 * @return the length of the array
+	 * @return the number of values of the array type contained in the array.
 	 */
 	public final native int getLength() /*-{
 		return this.length;
 	}-*/;
 	
 	/**
-	 * Set multiple values, reading input values from the array.
+	 * Set multiple values, of the given array to this array.
 	 * 
-	 * @param array
+	 * @param array the array to get the values from
 	 */
 	public final native void set(T array)/*-{
 		return this.set(array);
 	}-*/;
 
 	/**
-	 * Set multiple values, reading input values from the array.
+	 * Set multiple values, of the given array to this array starting at the
+	 * given offset.
 	 * 
 	 * @param array
+	 *            the array to get the values from
 	 * @param offset
+	 *            the offset to start setting the values
 	 */
 	public final native void set(T array, int offset)/*-{
 		return this.set(array, offset);
 	}-*/;
 
 	/**
-	 * Returns a new Array with the same underlying {@link ArrayBuffer}.
+	 * Returns a new {@link TypedArray} with the same underlying
+	 * {@link ArrayBuffer}.
 	 * 
 	 * @param begin
+	 *            the beginning offset of the new {@link TypedArray} from the
+	 *            start of this {@link TypedArray}. If the value is negative,
+	 *            it's the offset from the end of this {@link TypedArray}.
 	 * @return the new Array
 	 */
 	public final native T subarray(int begin)/*-{
-		return this.slice(begin);
+		return this.subarray(begin);
 	}-*/;
 	
 	/**
-	 * Returns a new Array with the same underlying {@link ArrayBuffer}.
+	 * Returns a new {@link TypedArray} with the same underlying
+	 * {@link ArrayBuffer}.
 	 * 
 	 * @param begin
+	 *            the beginning offset of the new {@link TypedArray} from the
+	 *            start of this {@link TypedArray}. If the value is negative,
+	 *            it's the offset from the end of this {@link TypedArray}.
 	 * @param end
+	 *            the end offset (exclusive). If the value is negative, it's the
+	 *            offset from the end of this {@link TypedArray}.
 	 * @return the new Array
 	 */
 	public final native T subarray(int begin, int end)/*-{
-		return this.slice(begin, length);
+		return this.subarray(begin, length);
 	}-*/;
 
 }

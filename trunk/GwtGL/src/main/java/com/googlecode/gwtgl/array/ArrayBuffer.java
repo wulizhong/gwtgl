@@ -1,5 +1,5 @@
 /* 
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+ * Copyright 2009-2011 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,8 @@ package com.googlecode.gwtgl.array;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * The ArrayBuffer is buffer to the data of {@link TypedArray}s.
+ * 
  * @author Steffen Schäfer
  *
  */
@@ -31,10 +33,11 @@ public class ArrayBuffer extends JavaScriptObject {
 	}
 
 	/**
-	 * Create a new ArrayBuffer of the passed length in bytes. Data in the
-	 * buffer is initialized to 0.
+	 * Constructs a new ArrayBuffer instance. The newly created ArrayBuffer has
+	 * the given length in bytes. The ArrayBuffer is initialized with 0 values.
 	 * 
-	 * @param length the byte length of the newly created ArrayBuffer
+	 * @param length
+	 *            the byte length of the newly created ArrayBuffer
 	 * @return the created ArrayBuffer
 	 */
 	public static native ArrayBuffer create(int length) /*-{
@@ -42,9 +45,9 @@ public class ArrayBuffer extends JavaScriptObject {
 	}-*/;
 	
 	/**
-	 * Returns the length of the ArrayBuffer in bytes.
+	 * Returns the non changeable length of the ArrayBuffer in bytes.
 	 * 
-	 * @return the length of the ArrayBuffer in bytes
+	 * @return the non changeable length of the ArrayBuffer in bytes.
 	 */
 	public final native int getByteLength() /*-{
 		return this.byteLength;
