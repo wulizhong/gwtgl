@@ -1,3 +1,15 @@
+= 0.3 - Mar 21, 2011 =
+======================
+
+GwtGL 0.3 provides basic compatibility to browsers implementing WebGL 1.0 (Chrome 10, Firefox 4) and an updated version of the Typed Arrays binding.
+
+The work areas of this version in detail:
+  * Update of the poms (used plugins, GWT 2.2, ...)
+  * spec changes
+    * implement changes of the Typed Arrays spec
+    * basic support for extensions
+  * Update of the Typed Arrays JavaDocs
+
 = 0.2 - Jan 05, 2011 =
 ======================
 
