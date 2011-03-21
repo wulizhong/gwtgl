@@ -35,30 +35,36 @@ public class Uint16Array extends IntBasedTypedArray<Uint16Array> {
 	}
 	
 	/**
-	 * Create a new Uint16Array object of the given length with a new underlying ArrayBuffer large enough to hold length elements of the specific type. Data in the buffer is initialized to 0.
+	 * Creates a new instance of the {@link TypedArray} of the given length in
+	 * values. All values are set to 0.
 	 * 
-	 * @param length
-	 * @return the created Uint16Array
+	 * @param length the length in values of the type used by this {@link TypedArray}
+	 * @return the created {@link TypedArray}.
 	 */
 	public static native Uint16Array create(int length) /*-{
 		return new Uint16Array(length);
 	}-*/;
 	
 	/**
-	 * Create a new Uint16Array object with a new underlying ArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Creates a new instance of the {@link TypedArray} of the same length as
+	 * the given {@link TypedArray}. The values are set to the values of the
+	 * given {@link TypedArray}.
 	 * 
-	 * @param array
-	 * @return the created Uint16Array
+	 * @param array the {@link TypedArray} to get the values from
+	 * @return the created {@link TypedArray}.
 	 */
 	public static native Uint16Array create(Uint16Array array) /*-{
 		return new Uint16Array(array);
 	}-*/;
 	
 	/**
-	 * Create a new Uint16Array object with a new underlying ArrayBuffer large enough to hold the given data, then copy the passed data into the buffer.
+	 * Creates a new instance of the {@link TypedArray} of the length of the
+	 * given array in values. The values are set to the values of the given
+	 * array.
 	 * 
 	 * @param array
-	 * @return the created Uint16Array
+	 *            the array to get the values from
+	 * @return the created {@link TypedArray}.
 	 */
 	public static Uint16Array create(int[] array) {
 		if(GWT.isScript()) {
@@ -76,49 +82,63 @@ public class Uint16Array extends IntBasedTypedArray<Uint16Array> {
 	}-*/;
 	
 	/**
-	 * Create a new Uint16Array object using the passed ArrayBuffer for its storage.
+	 * Creates a new instance of the {@link TypedArray} using the given
+	 * {@link ArrayBuffer} to read/write values from/to.
 	 * 
 	 * @param buffer
-	 * @return the created Uint16Array
+	 *            the underlying {@link ArrayBuffer} of the newly created
+	 *            {@link TypedArray}.
+	 * @return the created {@link TypedArray}.
 	 */
 	public static native Uint16Array create(ArrayBuffer buffer) /*-{
 		return new Uint16Array(buffer);
 	}-*/;
 	
 	/**
-	 * Create a new Uint16Array object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
+	 * Creates a new instance of the {@link TypedArray} using the given
+	 * {@link ArrayBuffer} to read/write values from/to.
 	 * 
-	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
+	 * The {@link TypedArray} is created using the byteOffset to specify the
+	 * starting point (in bytes) of the {@link TypedArray} relative to the
+	 * beginning of the underlying {@link ArrayBuffer}. The byte offset must
+	 * match (multiple) the value length of this {@link TypedArray}.
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
-	 * 
-	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
-	 * 
-	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.
+	 * if the byteLength is not valid for the given {@link ArrayBuffer}, an
+	 * exception is thrown
 	 * 
 	 * @param buffer
+	 *            the underlying {@link ArrayBuffer} of the newly created
+	 *            {@link TypedArray}.
 	 * @param byteOffset
-	 * @return the created Uint16Array
+	 *            the offset relative to the beginning of the ArrayBuffer
+	 *            (multiple of the value length of this {@link TypedArray})
+	 * @return the newly created {@link TypedArray}.
 	 */
 	public static native Uint16Array create(ArrayBuffer buffer, int byteOffset) /*-{
 		return new Uint16Array(buffer, byteOffset);
 	}-*/;
 	
 	/**
-	 * Create a new Uint16Array object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
+	 * Creates a new instance of the {@link TypedArray} using the given
+	 * {@link ArrayBuffer} to read/write values from/to.
 	 * 
-	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
+	 * The {@link TypedArray} is created using the byteOffset and length to specify the
+	 * start and end (in bytes) of the {@link TypedArray} relative to the
+	 * beginning of the underlying {@link ArrayBuffer}. The byte offset must
+	 * match (multiple) the value length of this {@link TypedArray}.
+	 * The length is in values of the type of the {@link TypedArray}
 	 * 
-	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.Create a new WebGLTypeNameArray object using the passed ArrayBuffer for its storage. Optional byteOffset and length can be used to limit the section of the buffer referenced. The byteOffset indicates the offset in bytes from the start of the ArrayBuffer, and the length is the count of elements from the offset that this WebGLByteArray will reference. If both byteOffset and length are omitted, the WebGLTypeNameArray spans the entire ArrayBuffer range. If the length is omitted, the WebGLTypeNameArray extends from the given byteOffset until the end of the ArrayBuffer.
-	 * 
-	 * The given byteOffset must be a multiple of the element size of the specific type, otherwise an exception is raised.
-	 * 
-	 * If a given byteOffset and length references an area beyond the end of the ArrayBuffer an exception is raised.
+	 * if the byteLength or length is not valid for the given {@link ArrayBuffer}, an
+	 * exception is thrown
 	 * 
 	 * @param buffer
+	 *            the underlying {@link ArrayBuffer} of the newly created
+	 *            {@link TypedArray}.
 	 * @param byteOffset
-	 * @param length
-	 * @return the created Uint16Array
+	 *            the offset relative to the beginning of the ArrayBuffer
+	 *            (multiple of the value length of this {@link TypedArray})
+	 * @param length the lenght of the {@link TypedArray} in vales.
+	 * @return the newly created {@link TypedArray}.
 	 */
 	public static native Uint16Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new Uint16Array(buffer, byteOffset, length);
