@@ -19,7 +19,7 @@
 	<groupId>com.cooglecode.gwtgl</groupId>
 	<artifactId>gwtgl-examples</artifactId>
 	<packaging>war</packaging>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.3</version>
 	<name>GwtGL-examples</name>
 	<description>GwtGL-examples is an examples project for GwtGL.</description>
 	<url>http://code.google.com/p/gwtgl/</url>
@@ -52,7 +52,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<gwt.version>2.2.0</gwt.version>
-		<gwtgl.version>0.3-SNAPSHOT</gwtgl.version>
+		<gwtgl.version>0.3</gwtgl.version>
 		<project.build.directory>war/WEB-INF/classes</project.build.directory>
 	</properties>
 	<dependencies>
