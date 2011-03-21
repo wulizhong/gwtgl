@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 /**
- * GWT binding of the Khronos WebGL spec at
+ * GWT binding of the Khronos WebGL 1.0 spec at
  * {@link "http://www.khronos.org/webgl/"}
+ * {@link "https://www.khronos.org/registry/webgl/specs/1.0/"}
  */
 package com.googlecode.gwtgl.binding;

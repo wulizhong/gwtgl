@@ -35,34 +35,41 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 	protected IntBasedTypedArray() {
 		super();
 	}
-	
+
 	/**
-	 * Return the element at the given index. If the index is out of range, an exception is raised. This is an index getter function, and may be invoked via array index syntax where applicable.
+	 * Reads the value at the given index. The index is based on the value length
+	 * of the type used by this {@link TypedArray}.
+	 * Accessing an index that doesn't exist will cause an exception.
 	 * 
-	 * @param index
-	 * @return the element at the given index
+	 * 
+	 * @param index the index relative to the beginning of the TypedArray.
+	 * @return the value at the given index
 	 */
 	public final native int get(int index) /*-{
 		return this[index];
 	}-*/;
-	
+
 	/**
+	 * Writes the given value at the given index. The index is based on the
+	 * value length of the type used by this {@link TypedArray}. Accessing an index that
+	 * doesn't exist will cause an exception.
 	 * 
-	 * Sets the element at the given index to the given value. If the index is out of range, an exception is raised. This is an index setter function, and may be invoked via array index syntax where applicable.
+	 * Values that are out of the range for the type used by this TypedAray
+	 * are silently casted to be in range.
 	 * 
-	 * If the given value is out of range for the type of the array, a C-style cast operation is performed to coerce the value to the valid range. No clamping or rounding is performed.
-	 * 
-	 * @param index
-	 * @param value
+	 * @param index the index relative to the beginning of the TypedArray.
+	 * @param value the new value to set
 	 */
 	public final native void set(int index, int value) /*-{
 		this[index] = value;
 	}-*/;
-	
+
 	/**
-	 * Set multiple values, reading input values from the array.
+	 * Writes multiple values to the TypedArray using the values of the given
+	 * Array.
 	 * 
 	 * @param array
+	 *            an array containing the new values to set.
 	 */
 	public final void set(int[] array) {
 		if(GWT.isScript()) {
@@ -78,14 +85,14 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 	private static native void innerSet(JsArrayInteger array) /*-{
 		this.set(array);
 	}-*/;
-	
+
 	/**
-	 * Set multiple values, reading input values from the array. The optional offset value indicates the index in the current array where values are written. If omitted, it is assumed to be 0.
-	 * 
-	 * If the offset plus the length of the given array is out of range for the current WebGLArray, an exception is raised.
+	 * Writes multiple values to the TypedArray using the values of the given
+	 * Array. Writes the values beginning at the given offset.
 	 * 
 	 * @param array
-	 * @param offset
+	 *            an array containing the new values to set.
+	 * @param offset the offset relative to the beginning of the TypedArray.
 	 */
 	public final void set(int[] array, int offset) {
 		if(GWT.isScript()) {
