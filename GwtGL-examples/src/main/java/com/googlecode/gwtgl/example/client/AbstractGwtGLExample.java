@@ -15,9 +15,11 @@
  */
 package com.googlecode.gwtgl.example.client;
 
+import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.PushButton;
 import com.googlecode.gwtgl.binding.WebGLContextAttributes;
@@ -34,7 +36,7 @@ import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 public abstract class AbstractGwtGLExample extends FlexTable {
 
 	/** The Canvas to render on. */
-	protected final WebGLCanvas webGLCanvas;
+	protected final Canvas webGLCanvas;
 	/** The Canvas' 3D rendering context. */
 	protected final WebGLRenderingContext glContext;
 
@@ -47,12 +49,14 @@ public abstract class AbstractGwtGLExample extends FlexTable {
 		final PushButton button = new PushButton("Launch example!");
 		setWidget(0, 0, button);
 		
-		WebGLContextAttributes contextAttributes = WebGLContextAttributes.create();
-		contextAttributes.setAlpha(false);
-
 		// create the WebGL Canvas
-		webGLCanvas = new WebGLCanvas(contextAttributes, "500px", "500px");
-		glContext = webGLCanvas.getGlContext();
+		webGLCanvas = Canvas.createIfSupported();
+		webGLCanvas.setCoordinateSpaceHeight(500);
+		webGLCanvas.setCoordinateSpaceWidth(500);
+		glContext = (WebGLRenderingContext) webGLCanvas.getContext("experimental-webgl");
+		if(glContext == null) {
+			Window.alert("Sorry, Your Browser doesn't support WebGL!");
+		}
 		glContext.viewport(0, 0, 500, 500);
 
 		setWidget(1, 0, webGLCanvas);

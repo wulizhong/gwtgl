@@ -117,32 +117,33 @@ public class ShaderProgram {
 		return glContext.getProgramParameterb(nativeProgramObject, WebGLRenderingContext.VALIDATE_STATUS);
 	}
 	
-	/**
-	 * Returns the info log length.
-	 * 
-	 * @return the info log length
-	 */
-	public int getInfoLogLength() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.INFO_LOG_LENGTH);
-	}
-	
-	/**
-	 * Returns the active attribute max length length.
-	 * 
-	 * @return the active attribute max length length
-	 */
-	public int getActiveAttributeMaxLength() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_ATTRIBUTE_MAX_LENGTH);
-	}
-	
-	/**
-	 * Returns the active uniform max length length.
-	 * 
-	 * @return the active uniform max length length
-	 */
-	public int getActiveUniformMaxLength() {
-		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_UNIFORM_MAX_LENGTH);
-	}
+	// FIXME
+//	/**
+//	 * Returns the info log length.
+//	 * 
+//	 * @return the info log length
+//	 */
+//	public int getInfoLogLength() {
+//		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.INFO_LOG_LENGTH);
+//	}
+//	
+//	/**
+//	 * Returns the active attribute max length length.
+//	 * 
+//	 * @return the active attribute max length length
+//	 */
+//	public int getActiveAttributeMaxLength() {
+//		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_ATTRIBUTE_MAX_LENGTH);
+//	}
+//	
+//	/**
+//	 * Returns the active uniform max length length.
+//	 * 
+//	 * @return the active uniform max length length
+//	 */
+//	public int getActiveUniformMaxLength() {
+//		return glContext.getProgramParameteri(nativeProgramObject, WebGLRenderingContext.ACTIVE_UNIFORM_MAX_LENGTH);
+//	}
 	
 	/**
 	 * Returns the number of attached shaders.

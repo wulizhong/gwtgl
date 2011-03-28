@@ -19,12 +19,7 @@ limitations under the License.
 	<inherits name='com.google.gwt.user.User' />
 	
 	<inherits name='com.googlecode.gwtgl.array' />
-	<inherits name='com.googlecode.gwtgl.generator' />
 
-	<!-- WebGLRenderingContext is the official name of the spec. So this is the default. -->
-	<define-property name="webgl_type" values="WebGLRenderingContext"/>
-	<set-property name="webgl_type" value="WebGLRenderingContext" />
-	
 	<!-- Specify the paths for translatable code                    -->
 	<source path='binding' />
 
