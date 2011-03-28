@@ -20,25 +20,21 @@ public class GwtGL_examples implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		try{
-			TabPanel tp = new TabPanel();
-	
-			WhiteTriangleExample whiteTriangleExample = new WhiteTriangleExample();
-			tp.add(whiteTriangleExample, "White Triangle");
-			
-			ColoredTriangleBindingExample coloredTriangleBindingExample = new ColoredTriangleBindingExample();
-			tp.add(coloredTriangleBindingExample, "Colored Triangle");
-			
-			TexturedCubeBindingExample texturedCubeBindingExample = new TexturedCubeBindingExample();
-			tp.add(texturedCubeBindingExample, "Textured Cube");
-	
-			SkyboxExample skyboxExample  = new SkyboxExample();
-			tp.add(skyboxExample, "Skybox");
-			
-			tp.selectTab(3);
-			RootPanel.get("gwtgl-examples").add(tp);
-		} catch (Exception e) {
-			Window.alert("Sorry, Your Browser doesn't support WebGL!");
-		}
+		TabPanel tp = new TabPanel();
+
+		WhiteTriangleExample whiteTriangleExample = new WhiteTriangleExample();
+		tp.add(whiteTriangleExample, "White Triangle");
+		
+		ColoredTriangleBindingExample coloredTriangleBindingExample = new ColoredTriangleBindingExample();
+		tp.add(coloredTriangleBindingExample, "Colored Triangle");
+		
+		TexturedCubeBindingExample texturedCubeBindingExample = new TexturedCubeBindingExample();
+		tp.add(texturedCubeBindingExample, "Textured Cube");
+
+		SkyboxExample skyboxExample  = new SkyboxExample();
+		tp.add(skyboxExample, "Skybox");
+		
+		tp.selectTab(3);
+		RootPanel.get("gwtgl-examples").add(tp);
 	}
 }

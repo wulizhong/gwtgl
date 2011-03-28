@@ -1,5 +1,5 @@
 /**   
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+ * Copyright 2009-2011 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,9 @@
  */
 package com.googlecode.gwtgl.binding;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.FocusWidget;
-import com.googlecode.gwtgl.binding.impl.WebGLMethods;
 
 
 /**
@@ -31,9 +28,8 @@ import com.googlecode.gwtgl.binding.impl.WebGLMethods;
  * @author Sönke Sothmann
  *
  */
+@Deprecated
 public class WebGLCanvas extends FocusWidget {
-	
-	private final WebGLMethods glContext = GWT.create(WebGLMethods.class);
 	
 	/**
 	 * Constructs a WebGLCanvas with width=200px and height=200px.
@@ -73,29 +69,15 @@ public class WebGLCanvas extends FocusWidget {
 		}
 		setElement(DOM.createElement("canvas"));
 		
-		// TODO create a JavaScriptObject of the glContext?
-		JavaScriptObject nativeGlContext;
-		if(contextAttributes==null) {
-			nativeGlContext = createGlContext(getElement());
-		} else {
-			nativeGlContext = createGlContext(getElement(), contextAttributes);
-		}
-		if(nativeGlContext == null) {
-			throw new RuntimeException("Sorry, your browser doesn't support WebGL");
-		}
-		glContext.init(nativeGlContext);
 		setWidth(width);
 		setHeight(height);
 	}
 	
-	private native JavaScriptObject createGlContext(Element element ,WebGLContextAttributes contextAttributes) /*-{
-		try {
-			return element.getContext("experimental-webgl", contextAttributes);
-		} catch(e)  {}
-		return null;
-	}-*/;
+	public WebGLRenderingContext getGlContext() {
+		return getGlContext(getElement());
+	}
 	
-	private native JavaScriptObject createGlContext(Element element) /*-{
+	private native WebGLRenderingContext getGlContext(Element element) /*-{
 		try {
 			return element.getContext("experimental-webgl");
 		} catch(e)  {}
@@ -112,13 +94,4 @@ public class WebGLCanvas extends FocusWidget {
 		DOM.setElementAttribute(getElement(), "height", height);
 	}
 
-	/**
-	 * Returns the WebGLRenderingContext of this {@link WebGLCanvas}.
-	 * 
-	 * @return the WebGLRenderingContext
-	 */
-	public WebGLRenderingContext getGlContext() {
-		return glContext;
-	}
-	
 }

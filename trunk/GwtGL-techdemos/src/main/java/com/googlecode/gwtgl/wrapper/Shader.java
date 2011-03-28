@@ -112,23 +112,24 @@ public class Shader {
 		return ShaderType.getByIntValue(val);
 	}
 	
-	/**
-	 * Returns the length of the info log of this Shader.
-	 * 
-	 * @return the length of the info log
-	 */
-	public int getInfoLogLength() {
-		return glContext.getShaderParameteri(nativeShaderObject, WebGLRenderingContext.INFO_LOG_LENGTH);
-	}
-	
-	/**
-	 * Returns the Shader source length.
-	 * 
-	 * @return the Shader source length
-	 */
-	public int getShaderSourceLength() {
-		return glContext.getShaderParameteri(nativeShaderObject, WebGLRenderingContext.SHADER_SOURCE_LENGTH);
-	}
+	// FIXME
+//	/**
+//	 * Returns the length of the info log of this Shader.
+//	 * 
+//	 * @return the length of the info log
+//	 */
+//	public int getInfoLogLength() {
+//		return glContext.getShaderParameteri(nativeShaderObject, WebGLRenderingContext.INFO_LOG_LENGTH);
+//	}
+//	
+//	/**
+//	 * Returns the Shader source length.
+//	 * 
+//	 * @return the Shader source length
+//	 */
+//	public int getShaderSourceLength() {
+//		return glContext.getShaderParameteri(nativeShaderObject, WebGLRenderingContext.SHADER_SOURCE_LENGTH);
+//	}
 
 	/**
 	 * Returns the contents of the shaders info log.
