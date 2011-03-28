@@ -5,10 +5,10 @@
 
 This release will provide an improved binding for the WebGL 1.0 spec and support for the GWT 2.2 Canvas widget.
 
-  * (todo) Improvements for the WebGLRenderingContext and WebGlCanvas
-    * (todo) GWT 2.2 Canvas Support
-    * (todo) Change WebGLRenderingContext to be a JavaScriptObject (the generator will be removed)
-    * (todo) Generator for accessing the constants WebGL constants will be removed
+  * (done) Improvements for the WebGLRenderingContext and WebGlCanvas
+    * (done) GWT 2.2 Canvas Support
+    * (done) Change WebGLRenderingContext to be a JavaScriptObject (the generator will be removed)
+    * (done) Generator for accessing the constants WebGL constants will be removed
     
 _this release will break the existing APIs_
 
