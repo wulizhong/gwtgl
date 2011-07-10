@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='com.googlecode.gwtgl.arraytest'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <!-- Other module inherits                                      -->
+  
+  <inherits name='com.googlecode.gwtgl.array' />
+  
+  <inherits name='com.google.gwt.junit.JUnit' />
+
+  <!-- Specify the app entry point class.                         -->
+-->
+  <source path='arraytest'/>
+  <inherits name="com.google.gwt.junit.JUnit"/>
+
+</module>
