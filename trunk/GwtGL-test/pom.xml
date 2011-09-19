@@ -19,7 +19,7 @@
 	<groupId>com.cooglecode.gwtgl</groupId>
 	<artifactId>gwtgl-test</artifactId>
 	<packaging>war</packaging>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.9-SNAPSHOT</version>
 	<name>GwtGL-test</name>
 	<description>GwtGL-test is the test project for GwtGL.</description>
 	<url>http://code.google.com/p/gwtgl/</url>
@@ -51,7 +51,7 @@
 	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<gwt.version>2.3.0</gwt.version>
+		<gwt.version>2.4.0</gwt.version>
 		<gwtgl.version>0.9-SNAPSHOT</gwtgl.version>
 		<project.build.directory>war/WEB-INF/classes</project.build.directory>
 	</properties>
@@ -118,13 +118,14 @@
 						<!-- Provided by the GWT container -->
 						<exclude>com.google.gwt:gwt-user</exclude>
 						<exclude>com.google.gwt:gwt-dev</exclude>
+						<exclude>javax.validation:validation-api</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.3.0</version>
+				<version>2.3.0-1</version>
 				<dependencies>
 					<dependency>
 						<groupId>com.google.gwt</groupId>
@@ -149,6 +150,8 @@
 					<warSourceDirectory>war</warSourceDirectory>
 					<runTarget>GwtGL_test.html</runTarget>
 					<webMode>true</webMode>
+					<mode>manual</mode>
+					<includes>**/GwtTestArray.java</includes>
 				</configuration>
 			</plugin>
 		</plugins>

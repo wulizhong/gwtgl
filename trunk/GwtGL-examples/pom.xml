@@ -51,7 +51,7 @@
 	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<gwt.version>2.2.0</gwt.version>
+		<gwt.version>2.4.0</gwt.version>
 		<gwtgl.version>0.9-SNAPSHOT</gwtgl.version>
 		<project.build.directory>war/WEB-INF/classes</project.build.directory>
 	</properties>
@@ -105,13 +105,14 @@
 						<!-- Provided by the GWT container -->
 						<exclude>com.google.gwt:gwt-user</exclude>
 						<exclude>com.google.gwt:gwt-dev</exclude>
+						<exclude>javax.validation:validation-api</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.1.0-1</version>
+				<version>2.3.0-1</version>
 				<dependencies>
 					<dependency>
 						<groupId>com.google.gwt</groupId>
