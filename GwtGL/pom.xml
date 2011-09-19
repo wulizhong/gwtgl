@@ -51,7 +51,7 @@
 	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<gwt.version>2.2.0</gwt.version>
+		<gwt.version>2.4.0</gwt.version>
 	</properties>
 	<dependencies>
 		<!--  GWT dependencies -->
@@ -93,6 +93,7 @@
 						<!-- Provided by the GWT container -->
 						<exclude>com.google.gwt:gwt-user</exclude>
 						<exclude>com.google.gwt:gwt-dev</exclude>
+						<exclude>javax.validation:validation-api</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
