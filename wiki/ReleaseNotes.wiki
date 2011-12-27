@@ -1,6 +1,23 @@
 #summary The release notes of the GwtGL project.
 #sidebar TableOfContents
 
+= 0.9 - Dec 27, 2011 =
+
+GwtGL 0.9 provides an improved binding for the WebGL 1.0 spec, support for the GWT 2.2 Canvas widget and support for the current Typed Arrays spec.
+
+The work areas of this version in detail:
+  * Improvements for the WebGLRenderingContext and WebGlCanvas
+    * GWT 2.2 Canvas Support
+    * WebGLRenderingContext is now a JavaScriptObject
+    * Generator for accessing the constants WebGL was removed
+  * Basic Tests for the Typed Arrays binding
+  * Binding of the current Typed Arays specification
+    * Bugfixing of the existing binding (set methods were partially broken)
+    * Binding of new functionality (newe class Uint8ClampedArray)
+  * Improved handling of Java Arrays using the JsArrayUtil
+
+_this release breaks the existing APIs in some parts_
+
 = 0.3 - Mar 21, 2011 =
 
 GwtGL 0.3 provides basic compatibility to browsers implementing WebGL 1.0 (Chrome 10, Firefox 4) and an updated version of the Typed Arrays binding.
