@@ -78,11 +78,11 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 		innerSet(JsArrayUtil.wrapArray(array));
 	};
 	
-	private static native void innerSet(int[] array) /*-{
+	private final native void innerSet(int[] array) /*-{
 		this.set(array);
 	}-*/;
 	
-	private static native void innerSet(JsArrayInteger array) /*-{
+	private final native void innerSet(JsArrayInteger array) /*-{
 		this.set(array);
 	}-*/;
 
@@ -101,11 +101,11 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 		innerSet(JsArrayUtil.wrapArray(array), offset);
 	};
 	
-	private static native void innerSet(int[] array, int offset) /*-{
+	private final native void innerSet(int[] array, int offset) /*-{
 		this.set(array, offset);
 	}-*/;
 	
-	private static native void innerSet(JsArrayInteger array, int offset) /*-{
+	private final native void innerSet(JsArrayInteger array, int offset) /*-{
 		this.set(array, offset);
 	}-*/;
 }
