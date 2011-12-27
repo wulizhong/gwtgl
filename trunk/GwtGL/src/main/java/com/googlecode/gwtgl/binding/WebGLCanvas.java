@@ -73,6 +73,11 @@ public class WebGLCanvas extends FocusWidget {
 		setHeight(height);
 	}
 	
+	/**
+	 * Returns the {@link WebGLRenderingContext} for this Canvas.
+	 * 
+	 * @return the rendering context
+	 */
 	public WebGLRenderingContext getGlContext() {
 		return getGlContext(getElement());
 	}
