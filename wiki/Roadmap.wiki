@@ -9,6 +9,10 @@ This release will provide an improved binding for the WebGL 1.0 spec and support
     * (done) GWT 2.2 Canvas Support
     * (done) Change WebGLRenderingContext to be a JavaScriptObject (the generator will be removed)
     * (done) Generator for accessing the constants WebGL constants will be removed
+  * (done) Tests for the Typed Arrays binding
+  * (in progress) Binding of the current Typed Arays specification
+    * (done) Bugfixing of the existing binding (set methods are partially broken)
+    * (todo) Binding of new functionality (currently I know Uint8ClampedArray)
     
 _this release will break the existing APIs_
 
@@ -16,6 +20,5 @@ _this release will break the existing APIs_
 
   * (todo) Improved documentation
     * (todo) JavaDocs for the WebGLRenderingContext
-  * (todo) Tests for the Typed Arrays binding
   * (todo) Review of the API against WebGL 1.0 final
   
