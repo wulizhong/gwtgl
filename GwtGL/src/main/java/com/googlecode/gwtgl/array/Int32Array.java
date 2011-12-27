@@ -15,7 +15,6 @@
  */
 package com.googlecode.gwtgl.array;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.googlecode.gwtgl.util.JsArrayUtil;
@@ -67,17 +66,19 @@ public class Int32Array extends IntBasedTypedArray<Int32Array> {
 	 * @return the created {@link TypedArray}.
 	 */
 	public static Int32Array create(int[] array) {
-		if(GWT.isScript()) {
-			return innerCreate(array);
-		}
-		return innerCreate(JsArrayUtil.wrapArray(array));
+		return create(JsArrayUtil.wrapArray(array));
 	};
 	
-	private static native Int32Array innerCreate(int[] array) /*-{
-		return new Int32Array(array);
-	}-*/;
-	
-	private static native Int32Array innerCreate(JsArrayInteger array) /*-{
+	/**
+	 * Creates a new instance of the {@link TypedArray} of the length of the
+	 * given array in values. The values are set to the values of the given
+	 * array.
+	 * 
+	 * @param array
+	 *            the array to get the values from
+	 * @return the created {@link TypedArray}.
+	 */
+	public static native Int32Array create(JsArrayInteger array) /*-{
 		return new Int32Array(array);
 	}-*/;
 	
