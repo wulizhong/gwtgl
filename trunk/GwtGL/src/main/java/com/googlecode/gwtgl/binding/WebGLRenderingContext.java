@@ -28,14 +28,14 @@ import com.googlecode.gwtgl.array.Int32Array;
 import com.googlecode.gwtgl.array.TypedArray;
 import com.googlecode.gwtgl.util.JsArrayUtil;
 
-
 /**
  * @author Steffen Schäfer
  * @author Sönke Sothmann
  * 
  */
-public final class WebGLRenderingContext extends JavaScriptObject implements Context {
-	
+public final class WebGLRenderingContext extends JavaScriptObject implements
+		Context {
+
 	/**
 	 * protected standard constructor as specified by {@link JavaScriptObject}.
 	 */
@@ -114,7 +114,10 @@ public final class WebGLRenderingContext extends JavaScriptObject implements Con
 	/** */
 	public static final int BLEND_EQUATION = 0x8009;
 	/** */
-	public static final int BLEND_EQUATION_RGB = 0x8009; /* same as BLEND_EQUATION */
+	public static final int BLEND_EQUATION_RGB = 0x8009; /*
+														 * same as
+														 * BLEND_EQUATION
+														 */
 	/** */
 	public static final int BLEND_EQUATION_ALPHA = 0x883D;
 
@@ -753,829 +756,826 @@ public final class WebGLRenderingContext extends JavaScriptObject implements Con
 	public static final int UNPACK_COLORSPACE_CONVERSION_WEBGL = 0x9243;
 	/** */
 	public static final int BROWSER_DEFAULT_WEBGL = 0x9244;
-	
-	  public native void viewport(int x, int y, int w, int h) /*-{
-	  this.viewport(x, y, w, h);
-	  }-*/;
-	  
-	  public native void lineWidth(float width) /*-{
-	  this.lineWidth(width);
-	  }-*/;
-	  
-	  public native void flush() /*-{
-	  this.flush();
-	  }-*/;
-	  
-	  public native void finish() /*-{
-	  this.finish();
-	  }-*/;
-	  
-	  public native void clear(int mask) /*-{
-	  this.clear(mask);
-	  }-*/;
-	  
-	  public native void colorMask(boolean red, boolean green, boolean blue, boolean alpha) /*-{
-	  this.colorMask(red, green, blue, alpha);
-	  }-*/;
-	  
-	  public native void clearColor(float red, float green, float blue, float alpha) /*-{
-	  this.clearColor(red, green, blue, alpha);
-	  }-*/;
-	  
-	  public native void scissor(int x, int y, int width, int height) /*-{
-	  this.scissor(x, y, width, height);
-	  }-*/;
-	  
-	  
-	  public native void enable(int param) /*-{
-	  this.enable(param);
-	  }-*/;
-	  
-	  public native void disable(int param) /*-{
-	  this.disable(param);
-	  }-*/;
-	  
-	  public native <T extends JavaScriptObject> T getParameter(int pname) /*-{
-	  return this.getParameter(pname);
-	  }-*/;
-	  
-	  public native int getParameteri(int pname) /*-{
-	  return this.getParameter(pname);
-	  }-*/;
-	  
-	  public native boolean getParameterb(int pname) /*-{
-	  return this.getParameter(pname);
-	  }-*/;
-	  
-	  public native float getParameterf(int pname) /*-{
-	  return this.getParameter(pname);
-	  }-*/;
-	  
-	  public native int getError() /*-{
-	  return this.getError();
-	  }-*/;
 
-	  /**
-	   * Determines the extensions supported by the WebGL implementation.
-	   * 
-	   * @return an array containing the names of the supported extensions.
-	   */
-	  public String[] getSupportedExtensions() {
-		  try {
-			  if(GWT.isProdMode()) {
-				  return getSupportedExtensionsProd();
-			  }
-			  return JsArrayUtil.unwrapArray(getSupportedExtensionsDev());
-		  } catch (Exception e) {
-			  return new String[0];
-		  }
-	  }
-		
-	  protected native String[] getSupportedExtensionsProd() /*-{
-	  return this.getSupportedExtensions();
-	  }-*/;
+	public native void viewport(int x, int y, int w, int h) /*-{
+		this.viewport(x, y, w, h);
+	}-*/;
 
-	  protected native com.google.gwt.core.client.JsArrayString getSupportedExtensionsDev() /*-{
-	  return this.getSupportedExtensions();
-	  }-*/;
-	  
-	  public native JavaScriptObject getExtension(String name) /*-{
-	  return this.getExtension(name);
-	  }-*/;
-	  
-	  public native int getExtensioni(String name) /*-{
-	  return this.getExtension(name);
-	  }-*/;
-	  
-	  public native WebGLBuffer createBuffer() /*-{
-	  return this.createBuffer();
-	  }-*/;
-	  
-	  public native void deleteBuffer(WebGLBuffer buffer) /*-{
-	  this.deleteBuffer(buffer);
-	  }-*/;
-	  
-	  public native boolean isBuffer(WebGLBuffer buffer) /*-{
-	  return this.isBuffer(buffer);
-	  }-*/;
-	  
-	  public native void bindBuffer(int target, WebGLBuffer buffer) /*-{
-	  this.bindBuffer(target, buffer);
-	  }-*/;
-	  
-	  public native void bufferData(int target, TypedArray<?> dta, int usage) /*-{
-	  this.bufferData(target, dta, usage);
-	  }-*/;
-	  
-	  public native void bufferData(int target, ArrayBuffer dta, int usage) /*-{
-	  this.bufferData(target, dta, usage);
-	  }-*/;
-	  
-	  public native void bufferData(int target, int size, int usage) /*-{
-	  this.bufferData(target, size, usage);
-	  }-*/;
-	  
-	  public native void bufferSubData(int target, int offset, TypedArray<?> data) /*-{
-	  this.bufferSubData(target, offset, data);
-	  }-*/;
-	  
-	  public native void bufferSubData(int target, int offset, ArrayBuffer data) /*-{
-	  this.bufferSubData(target, offset, data);
-	  }-*/;
-	  
-	  public native int getBufferParameteri(int target, int pname) /*-{
-	  return this.getBufferParameter(target, pname);
-	  }-*/;
-	  
-	  public native WebGLRenderbuffer createRenderbuffer() /*-{
-	  return this.createRenderbuffer();
-	  }-*/;
-	  
-	  public native void deleteRenderbuffer(WebGLRenderbuffer buffer) /*-{
-	  this.deleteRenderbuffer(buffer);
-	  }-*/;
-	  
-	  public native void bindRenderbuffer(int target, WebGLRenderbuffer buffer) /*-{
-	  this.bindRenderbuffer(target, buffer);
-	  }-*/;
-	  
-	  public native int getRenderbufferParameteri(int target, int pname) /*-{
-	  return this.getRenderbufferParameter(target, pname);
-	  }-*/;
-	  
-	  public native void renderbufferStorage(int target, int format, int width, int height) /*-{
-	  this.renderbufferStorage(target, format, width, height);
-	  }-*/;
-	  
-	  public native boolean isRenderbuffer(WebGLRenderbuffer buffer) /*-{
-	  return this.isRenderbuffer(buffer);
-	  }-*/;
-	  
-	  public native WebGLProgram createProgram() /*-{
-	  return this.createProgram();
-	  }-*/;
-	  
-	  public native void validateProgram(WebGLProgram program) /*-{
-	  this.validateProgram(program);
-	  }-*/;
-	  
-	  public native void linkProgram(WebGLProgram program) /*-{
-	  this.linkProgram(program);
-	  }-*/;
-	  
-	  public native void deleteProgram(WebGLProgram program) /*-{
-	  this.deleteProgram(program);
-	  }-*/;
-	  
-	  public native boolean getProgramParameterb(WebGLProgram program, int pname) /*-{
-	  return this.getProgramParameter(program, pname);
-	  }-*/;
-	  
-	  public native int getProgramParameteri(WebGLProgram program, int pname) /*-{
-	  return this.getProgramParameter(program, pname);
-	  }-*/;
-	  
-	  public native String getProgramInfoLog(WebGLProgram program) /*-{
-	  return this.getProgramInfoLog(program);
-	  }-*/;
-	  
-	  
-	  public native boolean isProgram(WebGLProgram program) /*-{
-	  return this.isProgram(program);
-	  }-*/;
-	  
-	  
-	  public native void useProgram(WebGLProgram program) /*-{
-	  this.useProgram(program);
-	  }-*/;
-	  
-	  public native WebGLShader createShader(int shaderType) /*-{
-	  return this.createShader(shaderType);
-	  }-*/;
-	  
-	  public native void compileShader(WebGLShader shader) /*-{
-	  this.compileShader(shader);
-	  }-*/;
-	  
-	  public native void attachShader(WebGLProgram program, WebGLShader shader) /*-{
-	  this.attachShader(program, shader);
-	  }-*/;
-	  
-	  public native void detachShader(WebGLProgram program, WebGLShader shader) /*-{
-	  this.detachShader(program, shader);
-	  }-*/;
-	  
-	  public native void deleteShader(WebGLShader shader) /*-{
-	  this.deleteShader(shader);
-	  }-*/;
-	  
-	  public native String getShaderSource(WebGLShader shader) /*-{
-	  return this.getShaderSource(shader);
-	  }-*/;
-	  
-	  public native void shaderSource(WebGLShader shader, String shaderSrc) /*-{
-	  this.shaderSource(shader, shaderSrc);
-	  }-*/;
-	  
-	  public native String getShaderInfoLog(WebGLShader shader) /*-{
-	  return this.getShaderInfoLog(shader);
-	  }-*/;
-	  
-	  public native boolean getShaderParameterb(WebGLShader shader, int pname) /*-{
-	  return this.getShaderParameter(shader, pname);
-	  }-*/;
-	  
-	  public native int getShaderParameteri(WebGLShader shader, int pname) /*-{
-	  return this.getShaderParameter(shader, pname);
-	  }-*/;
-	  
-	  /**
-	   * Return the list of {@link WebGLShader}s attached to the passed {@link WebGLProgram}. 
-	   * @param program {@link WebGLProgram} object to be queried.
-	   * @return array of {@link WebGLShader}s attached to the passed {@link WebGLProgram}
-	   * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetAttachedShaders.xml"
-	   */
-	  public WebGLShader[] getAttachedShaders(WebGLProgram program) {
-		  // TODO implement this in the generator
-		  try {
-			  if(GWT.isProdMode()) {
-				  return getAttachedShadersProd(program);
-			  }
-			  JsArray<WebGLShader> shaders = getAttachedShadersDev(program);
-			  
-			  WebGLShader[] result = new WebGLShader[shaders.length()];
-			  for(int i=0; i<shaders.length();i++) {
-				  result[i]=shaders.get(i);
-			  }
-			  return result;
-		  } catch (Exception e) {
-			  return new WebGLShader[0];
-		  }
-	  }
+	public native void lineWidth(float width) /*-{
+		this.lineWidth(width);
+	}-*/;
 
-	  protected native WebGLShader[] getAttachedShadersProd(WebGLProgram program) /*-{
-	  return this.getAttachedShaders(program);
-	  }-*/;
-	  
-	  
-	  protected native com.google.gwt.core.client.JsArray<WebGLShader> getAttachedShadersDev(WebGLProgram program) /*-{
-	  return this.getAttachedShaders(program);
-	  }-*/;
-	  
-	  public native boolean isShader(JavaScriptObject shader) /*-{
-	  return this.isShader(shader);
-	  }-*/;
-	  
-	  public native void uniform1f(WebGLUniformLocation location, float v0) /*-{
-	  this.uniform1f(location, v0);
-	  }-*/;
-	  
-	  public native void uniform1fvProd(WebGLUniformLocation location, Float32Array v) /*-{
-	  this.uniform1fv(location, v);
-	  }-*/;
-	  
-	  public void uniform1fv(WebGLUniformLocation location, float[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform1fvProd(location, values);} else {
-	  uniform1fvDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  public native void uniform1fvDev(WebGLUniformLocation location, JsArrayNumber values) /*-{
-	  this.uniform1fv(location, values);
-	  }-*/;
-	  public native void uniform1fvProd(WebGLUniformLocation location, float[] values) /*-{
-	  this.uniform1fv(location, values);
-	  }-*/;
-	  
-	  public native void uniform1i(WebGLUniformLocation location, int v0) /*-{
-	  this.uniform1i(location, v0);
-	  }-*/;
-	  
-	  public native void uniform1iv(WebGLUniformLocation location, Int32Array v) /*-{
-	  this.uniform1iv(location, v);
-	  }-*/;
-	  
-	  public void uniform1iv(WebGLUniformLocation location, int[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform1ivProd(location, values);} else {
-	  uniform1ivDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void uniform1ivDev(WebGLUniformLocation location, JsArrayInteger values) /*-{
-	  this.uniform1iv(location, values);
-	  }-*/;
-	  private native void uniform1ivProd(WebGLUniformLocation location, int[] values) /*-{
-	  this.uniform1iv(location, values);
-	  }-*/;
-	  
-	  public native void uniform2f(WebGLUniformLocation location, float v0, float v1) /*-{
-	  this.uniform2f(location, v0, v1);
-	  }-*/;
-	  
-	  public native void uniform2fv(WebGLUniformLocation location, Float32Array v) /*-{
-	  this.uniform2fv(location, v);
-	  }-*/;
-	  
-	  public void uniform2fv(WebGLUniformLocation location, float[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform2fvProd(location, values);} else {
-	  uniform2fvDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void uniform2fvDev(WebGLUniformLocation location, JsArrayNumber values) /*-{
-	  this.uniform2fv(location, values);
-	  }-*/;
-	  private native void uniform2fvProd(WebGLUniformLocation location, float[] values) /*-{
-	  this.uniform2fv(location, values);
-	  }-*/;
-	  
-	  public native void uniform2i(WebGLUniformLocation location, int v0, int v1) /*-{
-	  this.uniform2i(location, v0, v1);
-	  }-*/;
-	  
-	  public native void uniform2iv(WebGLUniformLocation location, Int32Array v) /*-{
-	  this.uniform2iv(location, v);
-	  }-*/;
-	  
-	  public void uniform2iv(WebGLUniformLocation location, int[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform2ivProd(location, values);} else {
-	  uniform2ivDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void uniform2ivDev(WebGLUniformLocation location, JsArrayInteger values) /*-{
-	  this.uniform2iv(location, values);
-	  }-*/;
-	  private native void uniform2ivProd(WebGLUniformLocation location, int[] values) /*-{
-	  this.uniform2iv(location, values);
-	  }-*/;
-	  
-	  public native void uniform3f(WebGLUniformLocation location, float v0, float v1, float v2) /*-{
-	  this.uniform3f(location, v0, v1, v2);
-	  }-*/;
-	  
-	  public native void uniform3fv(WebGLUniformLocation location, Float32Array v) /*-{
-	  this.uniform3fv(location, v);
-	  }-*/;
-	  
-	  public void uniform3fv(WebGLUniformLocation location, float[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform3fvProd(location, values);} else {
-	  uniform3fvDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void uniform3fvDev(WebGLUniformLocation location, JsArrayNumber values) /*-{
-	  this.uniform3fv(location, values);
-	  }-*/;
-	  private native void uniform3fvProd(WebGLUniformLocation location, float[] values) /*-{
-	  this.uniform3fv(location, values);
-	  }-*/;
-	  
-	  public native void uniform3i(WebGLUniformLocation location, int v0, int v1, int v2) /*-{
-	  this.uniform3i(location, v0, v1, v2);
-	  }-*/;
-	  
-	  public native void uniform3ivProd(WebGLUniformLocation location, Int32Array v) /*-{
-	  this.uniform3iv(location, v);
-	  }-*/;
-	  
-	  public void uniform3iv(WebGLUniformLocation location, int[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform3ivProd(location, values);} else {
-	  uniform3ivDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void uniform3ivDev(WebGLUniformLocation location, JsArrayInteger values) /*-{
-	  this.uniform3iv(location, values);
-	  }-*/;
-	  private native void uniform3ivProd(WebGLUniformLocation location, int[] values) /*-{
-	  this.uniform3iv(location, values);
-	  }-*/;
-	  
-	  public native void uniform4f(WebGLUniformLocation location, float v0, float v1, float v2, float v3) /*-{
-	  this.uniform4f(location, v0, v1, v2, v3);
-	  }-*/;
-	  
-	  public native void uniform4fv(WebGLUniformLocation location, Float32Array v) /*-{
-	  this.uniform4fv(location, v);
-	  }-*/;
-	  
-	  public void uniform4fv(WebGLUniformLocation location, float[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform4fvProd(location, values);} else {
-	  uniform4fvDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void uniform4fvDev(WebGLUniformLocation location, JsArrayNumber values) /*-{
-	  this.uniform4fv(location, values);
-	  }-*/;
-	  private native void uniform4fvProd(WebGLUniformLocation location, float[] values) /*-{
-	  this.uniform4fv(location, values);
-	  }-*/;
-	  
-	  public native void uniform4i(WebGLUniformLocation location, int v0, int v1, int v2, int v3) /*-{
-	  this.uniform4i(location, v0, v1, v2, v3);
-	  }-*/;
-	  
-	  public native void uniform4iv(WebGLUniformLocation location, Int32Array v) /*-{
-	  this.uniform4iv(location, v);
-	  }-*/;
-	  
-	  public void uniform4iv(WebGLUniformLocation location, int[] values) {
-	  if(GWT.isProdMode()) {
-	  uniform4ivProd(location, values);} else {
-	  uniform4ivDev(location, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void uniform4ivDev(WebGLUniformLocation location, JsArrayInteger values) /*-{
-	  this.uniform4iv(location, values);
-	  }-*/;
-	  private native void uniform4ivProd(WebGLUniformLocation location, int[] values) /*-{
-	  this.uniform4iv(location, values);
-	  }-*/;
-	  
-	  public native void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, Float32Array value) /*-{
-	  this.uniformMatrix2fv(location, transpose, value);
-	  }-*/;
-	  
-	  public void uniformMatrix2fv(WebGLUniformLocation location, boolean transpose, float[] value) {
-	  if(GWT.isProdMode()) {
-	  uniformMatrix2fvProd(location, transpose, value);} else {
-	  uniformMatrix2fvDev(location, transpose, JsArrayUtil.wrapArray(value));}
-	  }
-	  private native void uniformMatrix2fvDev(WebGLUniformLocation location, boolean transpose, JsArrayNumber value) /*-{
-	  this.uniformMatrix2fv(location, transpose, value);
-	  }-*/;
-	  private native void uniformMatrix2fvProd(WebGLUniformLocation location, boolean transpose, float[] value) /*-{
-	  this.uniformMatrix2fv(location, transpose, value);
-	  }-*/;
-	  
-	  public native void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose, Float32Array value) /*-{
-	  this.uniformMatrix3fv(location, transpose, value);
-	  }-*/;
-	  
-	  public void uniformMatrix3fv(WebGLUniformLocation location, boolean transpose, float[] value) {
-	  if(GWT.isProdMode()) {
-	  uniformMatrix3fvProd(location, transpose, value);} else {
-	  uniformMatrix3fvDev(location, transpose, JsArrayUtil.wrapArray(value));}
-	  }
-	  private native void uniformMatrix3fvDev(WebGLUniformLocation location, boolean transpose, JsArrayNumber value) /*-{
-	  this.uniformMatrix3fv(location, transpose, value);
-	  }-*/;
-	  private native void uniformMatrix3fvProd(WebGLUniformLocation location, boolean transpose, float[] value) /*-{
-	  this.uniformMatrix3fv(location, transpose, value);
-	  }-*/;
-	  
-	  public native void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose, Float32Array value) /*-{
-	  this.uniformMatrix4fv(location, transpose, value);
-	  }-*/;
-	  
-	  public void uniformMatrix4fv(WebGLUniformLocation location, boolean transpose, float[] value) {
-	  if(GWT.isProdMode()) {
-	  uniformMatrix4fvProd(location, transpose, value);} else {
-	  uniformMatrix4fvDev(location, transpose, JsArrayUtil.wrapArray(value));}
-	  }
-	  private native void uniformMatrix4fvDev(WebGLUniformLocation location, boolean transpose, JsArrayNumber value) /*-{
-	  this.uniformMatrix4fv(location, transpose, value);
-	  }-*/;
-	  private native void uniformMatrix4fvProd(WebGLUniformLocation location, boolean transpose, float[] value) /*-{
-	  this.uniformMatrix4fv(location, transpose, value);
-	  }-*/;
-	  
-	  public native WebGLActiveInfo getActiveUniform(WebGLProgram program, int idx) /*-{
-	  return this.getActiveUniform(program, idx);
-	  }-*/;
-	  
-	  public native boolean getUniformb(WebGLProgram program, WebGLUniformLocation location) /*-{
-	  return this.getUniform(program, location);
-	  }-*/;
-	  
-	  public native int getUniformi(WebGLProgram program, WebGLUniformLocation location) /*-{
-	  return this.getUniform(program, location);
-	  }-*/;
-	  
-	  public native float getUniformf(WebGLProgram program, WebGLUniformLocation location) /*-{
-	  return this.getUniform(program, location);
-	  }-*/;
-	  
-	  public native <T extends com.googlecode.gwtgl.array.TypedArray<?>> T getUniforma(WebGLProgram program, WebGLUniformLocation location) /*-{
-	  return this.getUniform(program, location);
-	  }-*/;
-	  
-	  public native WebGLUniformLocation getUniformLocation(WebGLProgram program, String name) /*-{
-	  return this.getUniformLocation(program, name);
-	  }-*/;
-	  
-	  public native void vertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int offset) /*-{
-	  this.vertexAttribPointer(index, size, type, normalized, stride, offset);
-	  }-*/;
-	  
-	  public native void enableVertexAttribArray(int index) /*-{
-	  this.enableVertexAttribArray(index);
-	  }-*/;
-	  
-	  public native void disableVertexAttribArray(int index) /*-{
-	  this.disableVertexAttribArray(index);
-	  }-*/;
-	  
-	  public native int getAttribLocation(WebGLProgram program, String name) /*-{
-	  return this.getAttribLocation(program, name);
-	  }-*/;
-	  
-	  public native void bindAttribLocation(WebGLProgram program, int index, String name) /*-{
-	  this.bindAttribLocation(program, index, name);
-	  }-*/;
-	  
-	  public native WebGLActiveInfo getActiveAttrib(WebGLProgram program, int index) /*-{
-	  return this.getActiveAttrib(program, index);
-	  }-*/;
-	  
-	  public native <T extends JavaScriptObject> T getVertexAttrib(int index, int pname) /*-{
-	  return this.getVertexAttrib(index, pname);
-	  }-*/;
-	  
-	  public native boolean getVertexAttribb(int index, int pname) /*-{
-	  return this.getVertexAttrib(index, pname);
-	  }-*/;
-	  
-	  public native int getVertexAttribi(int index, int pname) /*-{
-	  return this.getVertexAttrib(index, pname);
-	  }-*/;
-	  
-	  public native int getVertexAttribOffset(int index, String pname) /*-{
-	  return this.getVertexAttribOffset(index, pname);
-	  }-*/;
-	  
-	  public native void vertexAttrib1f(int index, float x) /*-{
-	  this.vertexAttrib1f(index, x);
-	  }-*/;
-	  
-	  public native void vertexAttrib2f(int index, float x, float y) /*-{
-	  this.vertexAttrib2f(index, x, y);
-	  }-*/;
-	  
-	  public native void vertexAttrib3f(int index, float x, float y, float z) /*-{
-	  this.vertexAttrib3f(index, x, y, z);
-	  }-*/;
-	  
-	  public native void vertexAttrib4f(int index, float x, float y, float z, float w) /*-{
-	  this.vertexAttrib4f(index, x, y, z, w);
-	  }-*/;
-	  
-	  public native void vertexAttrib1fv(int index, Float32Array values) /*-{
-	  this.vertexAttrib1fv(index, values);
-	  }-*/;
-	  
-	  public void vertexAttrib1fv(int index, float[] values) {
-	  if(GWT.isProdMode()) {
-	  vertexAttrib1fvProd(index, values);} else {
-	  vertexAttrib1fvDev(index, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void vertexAttrib1fvDev(int index, JsArrayNumber values) /*-{
-	  this.vertexAttrib1fv(index, values);
-	  }-*/;
-	  private native void vertexAttrib1fvProd(int index, float[] values) /*-{
-	  this.vertexAttrib1fv(index, values);
-	  }-*/;
-	  
-	  public native void vertexAttrib2fv(int index, Float32Array values) /*-{
-	  this.vertexAttrib2fv(index, values);
-	  }-*/;
-	  
-	  public void vertexAttrib2fv(int index, float[] values) {
-	  if(GWT.isProdMode()) {
-	  vertexAttrib2fvProd(index, values);} else {
-	  vertexAttrib2fvDev(index, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void vertexAttrib2fvDev(int index, JsArrayNumber values) /*-{
-	  this.vertexAttrib2fv(index, values);
-	  }-*/;
-	  private native void vertexAttrib2fvProd(int index, float[] values) /*-{
-	  this.vertexAttrib2fv(index, values);
-	  }-*/;
-	  
-	  public native void vertexAttrib3fv(int index, Float32Array values) /*-{
-	  this.vertexAttrib3fv(index, values);
-	  }-*/;
-	  
-	  public void vertexAttrib3fv(int index, float[] values) {
-	  if(GWT.isProdMode()) {
-	  vertexAttrib3fvProd(index, values);} else {
-	  vertexAttrib3fvDev(index, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void vertexAttrib3fvDev(int index, JsArrayNumber values) /*-{
-	  this.vertexAttrib3fv(index, values);
-	  }-*/;
-	  private native void vertexAttrib3fvProd(int index, float[] values) /*-{
-	  this.vertexAttrib3fv(index, values);
-	  }-*/;
-	  
-	  public native void vertexAttrib4fv(int index, Float32Array values) /*-{
-	  this.vertexAttrib4fv(index, values);
-	  }-*/;
-	  
-	  public void vertexAttrib4fv(int index, float[] values) {
-	  if(GWT.isProdMode()) {
-	  vertexAttrib4fvProd(index, values);} else {
-	  vertexAttrib4fvDev(index, JsArrayUtil.wrapArray(values));}
-	  }
-	  private native void vertexAttrib4fvDev(int index, JsArrayNumber values) /*-{
-	  this.vertexAttrib4fv(index, values);
-	  }-*/;
-	  private native void vertexAttrib4fvProd(int index, float[] values) /*-{
-	  this.vertexAttrib4fv(index, values);
-	  }-*/;
-	  
-	  public native void drawArrays(int mode, int first, int count) /*-{
-	  this.drawArrays(mode, first, count);
-	  }-*/;
-	  
-	  public native void drawElements(int mode, int count, int type, int offset) /*-{
-	  this.drawElements(mode, count, type, offset);
-	  }-*/;
-	  
-	  public native WebGLTexture createTexture() /*-{
-	  return this.createTexture();
-	  }-*/;
-	  
-	  public native void deleteTexture(WebGLTexture texture) /*-{
-	  this.deleteTexture(texture);
-	  }-*/;
-	  
-	  public native void bindTexture(int target, WebGLTexture texture) /*-{
-	  this.bindTexture(target, texture);
-	  }-*/;
-	  
-	  public native void activeTexture(int texture) /*-{
-	  this.activeTexture(texture);
-	  }-*/;
-	  
-	  public native void texImage2D(int target, int level, int internalformat, int format, int type, JavaScriptObject data) /*-{
-	  this.texImage2D(target, level, internalformat, format, type, data);
-	  }-*/;
-	  
-	  public native void texImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ArrayBufferView pixels) /*-{
-	  this.texImage2D(target, level, internalformat, width, height, border, format, type, pixels);
-	  }-*/;
-	  
-	  public native boolean isTexture(WebGLTexture texture) /*-{
-	  return this.isTexture(texture);
-	  }-*/;
-	  
-	  public native void generateMipmap(int target) /*-{
-	  this.generateMipmap(target);
-	  }-*/;
-	  
-	  public native int getTexParameteri(int target, int pname) /*-{
-	  return this.getTexParameter(target, pname);
-	  }-*/;
-	  
-	  public native void texParameteri(int target, int pname, int value) /*-{
-	  this.texParameteri(target, pname, value);
-	  }-*/;
-	  
-	  public native void texParameterf(int target, int pname, float value) /*-{
-	  this.texParameterf(target, pname, value);
-	  }-*/;
-	  
-	  public native void copyTexSubImage2D(int target, int level, int intformat, int xoffset, int yoffset, int x, int y, int width, int height) /*-{
-	  this.copyTexSubImage2D(target, level, intformat, xoffset, yoffset, x, y, width, height);
-	  }-*/;
-	  
-	  public native void copyTexImage2D(int target, int level, int intformat, int x, int y, int width, int height, int border) /*-{
-	  this.copyTexImage2D(target, level, intformat, x, y, width, height, border);
-	  }-*/;
-	  
-	  public native void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, TypedArray<?> data) /*-{
-	  this.texSubImage2D(target, level, xoffset, yoffset, width, height, format, type, data);
-	  }-*/;
-	  
-	  public native void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data) /*-{
-	  this.texSubImage2D(target, level, xoffset, yoffset, data);
-	  }-*/;
-	  
-	  public native void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data, boolean flipY) /*-{
-	  this.texSubImage2D(target, level, xoffset, yoffset, data, flipY);
-	  }-*/;
-	  
-	  public native void texSubImage2D(int target, int level, int xoffset, int yoffset, JavaScriptObject data, boolean flipY, boolean asPremultipliedAlpha) /*-{
-	  this.texSubImage2D(target, level, xoffset, yoffset, data, flipY, asPremultipliedAlpha);
-	  }-*/;
-	  
-	  public native void cullFace(int mode) /*-{
-	  this.cullFace(mode);
-	  }-*/;
-	  
-	  public native void frontFace(int mode) /*-{
-	  this.frontFace(mode);
-	  }-*/;
-	  
-	  public native void blendFunc(int sfactor, int dfactor) /*-{
-	  this.blendFunc(sfactor, dfactor);
-	  }-*/;
-	  
-	  public native void blendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) /*-{
-	  this.blendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
-	  }-*/;
-	  
-	  public native void blendEquation(int mode) /*-{
-	  this.blendEquation(mode);
-	  }-*/;
-	  
-	  public native void blendEquationSeparate(int modeRGB, int modeAlpha) /*-{
-	  this.blendEquationSeparate(modeRGB, modeAlpha);
-	  }-*/;
-	  
-	  public native void blendColor(float red, float green, float blue, float alpha) /*-{
-	  this.blendColor(red, green, blue, alpha);
-	  }-*/;
-	  
-	  public native void depthFunc(int func) /*-{
-	  this.depthFunc(func);
-	  }-*/;
-	  
-	  public native void depthMask(boolean flag) /*-{
-	  this.depthMask(flag);
-	  }-*/;
-	  
-	  public native void depthRange(float nearVal, float farVal) /*-{
-	  this.depthRange(nearVal, farVal);
-	  }-*/;
-	  
-	  public native void clearDepth(float depth) /*-{
-	  this.clearDepth(depth);
-	  }-*/;
-	  
-	  public native void polygonOffset(float factor, float units) /*-{
-	  this.polygonOffset(factor, units);
-	  }-*/;
-	  
-	  public native WebGLFramebuffer createFramebuffer() /*-{
-	  return this.createFramebuffer();
-	  }-*/;
-	  
-	  public native void deleteFramebuffer(WebGLFramebuffer buffer) /*-{
-	  this.deleteFramebuffer(buffer);
-	  }-*/;
-	  
-	  public native void bindFramebuffer(int target, WebGLFramebuffer buffer) /*-{
-	  this.bindFramebuffer(target, buffer);
-	  }-*/;
-	  
-	  public native int checkFramebufferStatus(int target) /*-{
-	  return this.checkFramebufferStatus(target);
-	  }-*/;
-	  
-	  public native void framebufferRenderbuffer(int target, int attachment, int rbtarget, WebGLRenderbuffer rbuffer) /*-{
-	  this.framebufferRenderbuffer(target, attachment, rbtarget, rbuffer);
-	  }-*/;
-	  
-	  public native JavaScriptObject getFramebufferAttachmentParameter(int target, int attachment, int pname) /*-{
-	  return this.getFramebufferAttachmentParameter(target, attachment, pname);
-	  }-*/;
-	  
-	  public native int getFramebufferAttachmentParameteri(int target, int attachment, int pname) /*-{
-	  return this.getFramebufferAttachmentParameter(target, attachment, pname);
-	  }-*/;
-	  
-	  public native void framebufferTexture2D(int target, int att, int textarget, WebGLTexture tex, int level) /*-{
-	  this.framebufferTexture2D(target, att, textarget, tex, level);
-	  }-*/;
-	  
-	  public native void pixelStorei(int pname, int param) /*-{
-	  this.pixelStorei(pname, param);
-	  }-*/;
-	  
-	  public native void readPixels(int x, int y, int width, int height, int format, int type, ArrayBufferView pixels) /*-{
-	  this.readPixels(x, y, width, height, format, type, pixels);
-	  }-*/;
-	  
-	  public native boolean isFramebuffer(JavaScriptObject buffer) /*-{
-	  return this.isFramebuffer(buffer);
-	  }-*/;
-	  
-	  public native void stencilFunc(int func, int ref, int mask) /*-{
-	  this.stencilFunc(func, ref, mask);
-	  }-*/;
-	  
-	  public native void stencilFuncSeparate(int face, int func, int ref, int mask) /*-{
-	  this.stencilFuncSeparate(face, func, ref, mask);
-	  }-*/;
-	  
-	  public native void stencilMask(int mask) /*-{
-	  this.stencilMask(mask);
-	  }-*/;
-	  
-	  public native void stencilMaskSeparate(int face, int mask) /*-{
-	  this.stencilMaskSeparate(face, mask);
-	  }-*/;
-	  
-	  public native void stencilOp(int sfail, int dpfail, int dppass) /*-{
-	  this.stencilOp(sfail, dpfail, dppass);
-	  }-*/;
-	  
-	  public native void stencilOpSeparate(int face, int sfail, int dpfail, int dppass) /*-{
-	  this.stencilOpSeparate(face, sfail, dpfail, dppass);
-	  }-*/;
-	  
-	  public native void clearStencil(int s) /*-{
-	  this.clearStencil(s);
-	  }-*/;
-	  
-	  public native void sampleCoverage(float value, boolean invert) /*-{
-	  this.sampleCoverage(value, invert);
-	  }-*/;
-	
+	public native void flush() /*-{
+		this.flush();
+	}-*/;
+
+	public native void finish() /*-{
+		this.finish();
+	}-*/;
+
+	public native void clear(int mask) /*-{
+		this.clear(mask);
+	}-*/;
+
+	public native void colorMask(boolean red, boolean green, boolean blue,
+			boolean alpha) /*-{
+		this.colorMask(red, green, blue, alpha);
+	}-*/;
+
+	public native void clearColor(float red, float green, float blue,
+			float alpha) /*-{
+		this.clearColor(red, green, blue, alpha);
+	}-*/;
+
+	public native void scissor(int x, int y, int width, int height) /*-{
+		this.scissor(x, y, width, height);
+	}-*/;
+
+	public native void enable(int param) /*-{
+		this.enable(param);
+	}-*/;
+
+	public native void disable(int param) /*-{
+		this.disable(param);
+	}-*/;
+
+	public native <T extends JavaScriptObject> T getParameter(int pname) /*-{
+		return this.getParameter(pname);
+	}-*/;
+
+	public native int getParameteri(int pname) /*-{
+		return this.getParameter(pname);
+	}-*/;
+
+	public native boolean getParameterb(int pname) /*-{
+		return this.getParameter(pname);
+	}-*/;
+
+	public native float getParameterf(int pname) /*-{
+		return this.getParameter(pname);
+	}-*/;
+
+	public native int getError() /*-{
+		return this.getError();
+	}-*/;
+
+	/**
+	 * Determines the extensions supported by the WebGL implementation.
+	 * 
+	 * @return an array containing the names of the supported extensions.
+	 */
+	public String[] getSupportedExtensions() {
+		try {
+			return JsArrayUtil.unwrapArray(getSupportedExtensionsAsJsArray());
+		} catch (Exception e) {
+			return new String[0];
+		}
+	}
+
+	public native com.google.gwt.core.client.JsArrayString getSupportedExtensionsAsJsArray() /*-{
+		return this.getSupportedExtensions();
+	}-*/;
+
+	public native JavaScriptObject getExtension(String name) /*-{
+		return this.getExtension(name);
+	}-*/;
+
+	public native int getExtensioni(String name) /*-{
+		return this.getExtension(name);
+	}-*/;
+
+	public native WebGLBuffer createBuffer() /*-{
+		return this.createBuffer();
+	}-*/;
+
+	public native void deleteBuffer(WebGLBuffer buffer) /*-{
+		this.deleteBuffer(buffer);
+	}-*/;
+
+	public native boolean isBuffer(WebGLBuffer buffer) /*-{
+		return this.isBuffer(buffer);
+	}-*/;
+
+	public native void bindBuffer(int target, WebGLBuffer buffer) /*-{
+		this.bindBuffer(target, buffer);
+	}-*/;
+
+	public native void bufferData(int target, TypedArray<?> dta, int usage) /*-{
+		this.bufferData(target, dta, usage);
+	}-*/;
+
+	public native void bufferData(int target, ArrayBuffer dta, int usage) /*-{
+		this.bufferData(target, dta, usage);
+	}-*/;
+
+	public native void bufferData(int target, int size, int usage) /*-{
+		this.bufferData(target, size, usage);
+	}-*/;
+
+	public native void bufferSubData(int target, int offset, TypedArray<?> data) /*-{
+		this.bufferSubData(target, offset, data);
+	}-*/;
+
+	public native void bufferSubData(int target, int offset, ArrayBuffer data) /*-{
+		this.bufferSubData(target, offset, data);
+	}-*/;
+
+	public native int getBufferParameteri(int target, int pname) /*-{
+		return this.getBufferParameter(target, pname);
+	}-*/;
+
+	public native WebGLRenderbuffer createRenderbuffer() /*-{
+		return this.createRenderbuffer();
+	}-*/;
+
+	public native void deleteRenderbuffer(WebGLRenderbuffer buffer) /*-{
+		this.deleteRenderbuffer(buffer);
+	}-*/;
+
+	public native void bindRenderbuffer(int target, WebGLRenderbuffer buffer) /*-{
+		this.bindRenderbuffer(target, buffer);
+	}-*/;
+
+	public native int getRenderbufferParameteri(int target, int pname) /*-{
+		return this.getRenderbufferParameter(target, pname);
+	}-*/;
+
+	public native void renderbufferStorage(int target, int format, int width,
+			int height) /*-{
+		this.renderbufferStorage(target, format, width, height);
+	}-*/;
+
+	public native boolean isRenderbuffer(WebGLRenderbuffer buffer) /*-{
+		return this.isRenderbuffer(buffer);
+	}-*/;
+
+	public native WebGLProgram createProgram() /*-{
+		return this.createProgram();
+	}-*/;
+
+	public native void validateProgram(WebGLProgram program) /*-{
+		this.validateProgram(program);
+	}-*/;
+
+	public native void linkProgram(WebGLProgram program) /*-{
+		this.linkProgram(program);
+	}-*/;
+
+	public native void deleteProgram(WebGLProgram program) /*-{
+		this.deleteProgram(program);
+	}-*/;
+
+	public native boolean getProgramParameterb(WebGLProgram program, int pname) /*-{
+		return this.getProgramParameter(program, pname);
+	}-*/;
+
+	public native int getProgramParameteri(WebGLProgram program, int pname) /*-{
+		return this.getProgramParameter(program, pname);
+	}-*/;
+
+	public native String getProgramInfoLog(WebGLProgram program) /*-{
+		return this.getProgramInfoLog(program);
+	}-*/;
+
+	public native boolean isProgram(WebGLProgram program) /*-{
+		return this.isProgram(program);
+	}-*/;
+
+	public native void useProgram(WebGLProgram program) /*-{
+		this.useProgram(program);
+	}-*/;
+
+	public native WebGLShader createShader(int shaderType) /*-{
+		return this.createShader(shaderType);
+	}-*/;
+
+	public native void compileShader(WebGLShader shader) /*-{
+		this.compileShader(shader);
+	}-*/;
+
+	public native void attachShader(WebGLProgram program, WebGLShader shader) /*-{
+		this.attachShader(program, shader);
+	}-*/;
+
+	public native void detachShader(WebGLProgram program, WebGLShader shader) /*-{
+		this.detachShader(program, shader);
+	}-*/;
+
+	public native void deleteShader(WebGLShader shader) /*-{
+		this.deleteShader(shader);
+	}-*/;
+
+	public native String getShaderSource(WebGLShader shader) /*-{
+		return this.getShaderSource(shader);
+	}-*/;
+
+	public native void shaderSource(WebGLShader shader, String shaderSrc) /*-{
+		this.shaderSource(shader, shaderSrc);
+	}-*/;
+
+	public native String getShaderInfoLog(WebGLShader shader) /*-{
+		return this.getShaderInfoLog(shader);
+	}-*/;
+
+	public native boolean getShaderParameterb(WebGLShader shader, int pname) /*-{
+		return this.getShaderParameter(shader, pname);
+	}-*/;
+
+	public native int getShaderParameteri(WebGLShader shader, int pname) /*-{
+		return this.getShaderParameter(shader, pname);
+	}-*/;
+
+	/**
+	 * Return the list of {@link WebGLShader}s attached to the passed
+	 * {@link WebGLProgram}.
+	 * 
+	 * @param program
+	 *            {@link WebGLProgram} object to be queried.
+	 * @return array of {@link WebGLShader}s attached to the passed
+	 *         {@link WebGLProgram}
+	 * @see "http://www.khronos.org/opengles/sdk/docs/man/glGetAttachedShaders.xml"
+	 */
+	public WebGLShader[] getAttachedShaders(WebGLProgram program) {
+		// TODO implement this in the generator
+		try {
+			if (GWT.isProdMode()) {
+				return getAttachedShadersProd(program);
+			}
+			JsArray<WebGLShader> shaders = getAttachedShadersDev(program);
+
+			WebGLShader[] result = new WebGLShader[shaders.length()];
+			for (int i = 0; i < shaders.length(); i++) {
+				result[i] = shaders.get(i);
+			}
+			return result;
+		} catch (Exception e) {
+			return new WebGLShader[0];
+		}
+	}
+
+	protected native WebGLShader[] getAttachedShadersProd(WebGLProgram program) /*-{
+		return this.getAttachedShaders(program);
+	}-*/;
+
+	protected native com.google.gwt.core.client.JsArray<WebGLShader> getAttachedShadersDev(
+			WebGLProgram program) /*-{
+		return this.getAttachedShaders(program);
+	}-*/;
+
+	public native boolean isShader(JavaScriptObject shader) /*-{
+		return this.isShader(shader);
+	}-*/;
+
+	public native void uniform1f(WebGLUniformLocation location, float v0) /*-{
+		this.uniform1f(location, v0);
+	}-*/;
+
+	public native void uniform1fvProd(WebGLUniformLocation location,
+			Float32Array v) /*-{
+		this.uniform1fv(location, v);
+	}-*/;
+
+	public void uniform1fv(WebGLUniformLocation location, float[] values) {
+		uniform1fv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform1fv(WebGLUniformLocation location,
+			JsArrayNumber values) /*-{
+		this.uniform1fv(location, values);
+	}-*/;
+
+	public native void uniform1i(WebGLUniformLocation location, int v0) /*-{
+		this.uniform1i(location, v0);
+	}-*/;
+
+	public native void uniform1iv(WebGLUniformLocation location, Int32Array v) /*-{
+		this.uniform1iv(location, v);
+	}-*/;
+
+	public void uniform1iv(WebGLUniformLocation location, int[] values) {
+		uniform1iv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform1iv(WebGLUniformLocation location,
+			JsArrayInteger values) /*-{
+		this.uniform1iv(location, values);
+	}-*/;
+
+	public native void uniform2f(WebGLUniformLocation location, float v0,
+			float v1) /*-{
+		this.uniform2f(location, v0, v1);
+	}-*/;
+
+	public native void uniform2fv(WebGLUniformLocation location, Float32Array v) /*-{
+		this.uniform2fv(location, v);
+	}-*/;
+
+	public void uniform2fv(WebGLUniformLocation location, float[] values) {
+		uniform2fv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform2fv(WebGLUniformLocation location,
+			JsArrayNumber values) /*-{
+		this.uniform2fv(location, values);
+	}-*/;
+
+	public native void uniform2i(WebGLUniformLocation location, int v0, int v1) /*-{
+		this.uniform2i(location, v0, v1);
+	}-*/;
+
+	public native void uniform2iv(WebGLUniformLocation location, Int32Array v) /*-{
+		this.uniform2iv(location, v);
+	}-*/;
+
+	public void uniform2iv(WebGLUniformLocation location, int[] values) {
+		uniform2iv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform2iv(WebGLUniformLocation location,
+			JsArrayInteger values) /*-{
+		this.uniform2iv(location, values);
+	}-*/;
+
+	public native void uniform3f(WebGLUniformLocation location, float v0,
+			float v1, float v2) /*-{
+		this.uniform3f(location, v0, v1, v2);
+	}-*/;
+
+	public native void uniform3fv(WebGLUniformLocation location, Float32Array v) /*-{
+		this.uniform3fv(location, v);
+	}-*/;
+
+	public void uniform3fv(WebGLUniformLocation location, float[] values) {
+		uniform3fv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform3fv(WebGLUniformLocation location,
+			JsArrayNumber values) /*-{
+		this.uniform3fv(location, values);
+	}-*/;
+
+	public native void uniform3i(WebGLUniformLocation location, int v0, int v1,
+			int v2) /*-{
+		this.uniform3i(location, v0, v1, v2);
+	}-*/;
+
+	public native void uniform3ivProd(WebGLUniformLocation location,
+			Int32Array v) /*-{
+		this.uniform3iv(location, v);
+	}-*/;
+
+	public void uniform3iv(WebGLUniformLocation location, int[] values) {
+		uniform3iv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform3iv(WebGLUniformLocation location,
+			JsArrayInteger values) /*-{
+		this.uniform3iv(location, values);
+	}-*/;
+
+	public native void uniform4f(WebGLUniformLocation location, float v0,
+			float v1, float v2, float v3) /*-{
+		this.uniform4f(location, v0, v1, v2, v3);
+	}-*/;
+
+	public native void uniform4fv(WebGLUniformLocation location, Float32Array v) /*-{
+		this.uniform4fv(location, v);
+	}-*/;
+
+	public void uniform4fv(WebGLUniformLocation location, float[] values) {
+		uniform4fv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform4fv(WebGLUniformLocation location,
+			JsArrayNumber values) /*-{
+		this.uniform4fv(location, values);
+	}-*/;
+
+	public native void uniform4i(WebGLUniformLocation location, int v0, int v1,
+			int v2, int v3) /*-{
+		this.uniform4i(location, v0, v1, v2, v3);
+	}-*/;
+
+	public native void uniform4iv(WebGLUniformLocation location, Int32Array v) /*-{
+		this.uniform4iv(location, v);
+	}-*/;
+
+	public void uniform4iv(WebGLUniformLocation location, int[] values) {
+		uniform4iv(location, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void uniform4iv(WebGLUniformLocation location,
+			JsArrayInteger values) /*-{
+		this.uniform4iv(location, values);
+	}-*/;
+
+	public native void uniformMatrix2fv(WebGLUniformLocation location,
+			boolean transpose, Float32Array value) /*-{
+		this.uniformMatrix2fv(location, transpose, value);
+	}-*/;
+
+	public void uniformMatrix2fv(WebGLUniformLocation location,
+			boolean transpose, float[] value) {
+		uniformMatrix2fv(location, transpose, JsArrayUtil.wrapArray(value));
+	}
+
+	public native void uniformMatrix2fv(WebGLUniformLocation location,
+			boolean transpose, JsArrayNumber value) /*-{
+		this.uniformMatrix2fv(location, transpose, value);
+	}-*/;
+
+	public native void uniformMatrix3fv(WebGLUniformLocation location,
+			boolean transpose, Float32Array value) /*-{
+		this.uniformMatrix3fv(location, transpose, value);
+	}-*/;
+
+	public void uniformMatrix3fv(WebGLUniformLocation location,
+			boolean transpose, float[] value) {
+		uniformMatrix3fv(location, transpose, JsArrayUtil.wrapArray(value));
+	}
+
+	public native void uniformMatrix3fv(WebGLUniformLocation location,
+			boolean transpose, JsArrayNumber value) /*-{
+		this.uniformMatrix3fv(location, transpose, value);
+	}-*/;
+
+	public native void uniformMatrix4fv(WebGLUniformLocation location,
+			boolean transpose, Float32Array value) /*-{
+		this.uniformMatrix4fv(location, transpose, value);
+	}-*/;
+
+	public void uniformMatrix4fv(WebGLUniformLocation location,
+			boolean transpose, float[] value) {
+		uniformMatrix4fv(location, transpose, JsArrayUtil.wrapArray(value));
+	}
+
+	public native void uniformMatrix4fv(WebGLUniformLocation location,
+			boolean transpose, JsArrayNumber value) /*-{
+		this.uniformMatrix4fv(location, transpose, value);
+	}-*/;
+
+	public native WebGLActiveInfo getActiveUniform(WebGLProgram program, int idx) /*-{
+		return this.getActiveUniform(program, idx);
+	}-*/;
+
+	public native boolean getUniformb(WebGLProgram program,
+			WebGLUniformLocation location) /*-{
+		return this.getUniform(program, location);
+	}-*/;
+
+	public native int getUniformi(WebGLProgram program,
+			WebGLUniformLocation location) /*-{
+		return this.getUniform(program, location);
+	}-*/;
+
+	public native float getUniformf(WebGLProgram program,
+			WebGLUniformLocation location) /*-{
+		return this.getUniform(program, location);
+	}-*/;
+
+	public native <T extends com.googlecode.gwtgl.array.TypedArray<?>> T getUniforma(
+			WebGLProgram program, WebGLUniformLocation location) /*-{
+		return this.getUniform(program, location);
+	}-*/;
+
+	public native WebGLUniformLocation getUniformLocation(WebGLProgram program,
+			String name) /*-{
+		return this.getUniformLocation(program, name);
+	}-*/;
+
+	public native void vertexAttribPointer(int index, int size, int type,
+			boolean normalized, int stride, int offset) /*-{
+		this.vertexAttribPointer(index, size, type, normalized, stride, offset);
+	}-*/;
+
+	public native void enableVertexAttribArray(int index) /*-{
+		this.enableVertexAttribArray(index);
+	}-*/;
+
+	public native void disableVertexAttribArray(int index) /*-{
+		this.disableVertexAttribArray(index);
+	}-*/;
+
+	public native int getAttribLocation(WebGLProgram program, String name) /*-{
+		return this.getAttribLocation(program, name);
+	}-*/;
+
+	public native void bindAttribLocation(WebGLProgram program, int index,
+			String name) /*-{
+		this.bindAttribLocation(program, index, name);
+	}-*/;
+
+	public native WebGLActiveInfo getActiveAttrib(WebGLProgram program,
+			int index) /*-{
+		return this.getActiveAttrib(program, index);
+	}-*/;
+
+	public native <T extends JavaScriptObject> T getVertexAttrib(int index,
+			int pname) /*-{
+		return this.getVertexAttrib(index, pname);
+	}-*/;
+
+	public native boolean getVertexAttribb(int index, int pname) /*-{
+		return this.getVertexAttrib(index, pname);
+	}-*/;
+
+	public native int getVertexAttribi(int index, int pname) /*-{
+		return this.getVertexAttrib(index, pname);
+	}-*/;
+
+	public native int getVertexAttribOffset(int index, String pname) /*-{
+		return this.getVertexAttribOffset(index, pname);
+	}-*/;
+
+	public native void vertexAttrib1f(int index, float x) /*-{
+		this.vertexAttrib1f(index, x);
+	}-*/;
+
+	public native void vertexAttrib2f(int index, float x, float y) /*-{
+		this.vertexAttrib2f(index, x, y);
+	}-*/;
+
+	public native void vertexAttrib3f(int index, float x, float y, float z) /*-{
+		this.vertexAttrib3f(index, x, y, z);
+	}-*/;
+
+	public native void vertexAttrib4f(int index, float x, float y, float z,
+			float w) /*-{
+		this.vertexAttrib4f(index, x, y, z, w);
+	}-*/;
+
+	public native void vertexAttrib1fv(int index, Float32Array values) /*-{
+		this.vertexAttrib1fv(index, values);
+	}-*/;
+
+	public void vertexAttrib1fv(int index, float[] values) {
+		vertexAttrib1fv(index, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void vertexAttrib1fv(int index, JsArrayNumber values) /*-{
+		this.vertexAttrib1fv(index, values);
+	}-*/;
+
+	public native void vertexAttrib2fv(int index, Float32Array values) /*-{
+		this.vertexAttrib2fv(index, values);
+	}-*/;
+
+	public void vertexAttrib2fv(int index, float[] values) {
+		vertexAttrib2fv(index, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void vertexAttrib2fv(int index, JsArrayNumber values) /*-{
+		this.vertexAttrib2fv(index, values);
+	}-*/;
+
+	public native void vertexAttrib3fv(int index, Float32Array values) /*-{
+		this.vertexAttrib3fv(index, values);
+	}-*/;
+
+	public void vertexAttrib3fv(int index, float[] values) {
+		vertexAttrib3fv(index, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void vertexAttrib3fv(int index, JsArrayNumber values) /*-{
+		this.vertexAttrib3fv(index, values);
+	}-*/;
+
+	public native void vertexAttrib4fv(int index, Float32Array values) /*-{
+		this.vertexAttrib4fv(index, values);
+	}-*/;
+
+	public void vertexAttrib4fv(int index, float[] values) {
+			vertexAttrib4fv(index, JsArrayUtil.wrapArray(values));
+	}
+
+	public native void vertexAttrib4fv(int index, JsArrayNumber values) /*-{
+		this.vertexAttrib4fv(index, values);
+	}-*/;
+
+	public native void drawArrays(int mode, int first, int count) /*-{
+		this.drawArrays(mode, first, count);
+	}-*/;
+
+	public native void drawElements(int mode, int count, int type, int offset) /*-{
+		this.drawElements(mode, count, type, offset);
+	}-*/;
+
+	public native WebGLTexture createTexture() /*-{
+		return this.createTexture();
+	}-*/;
+
+	public native void deleteTexture(WebGLTexture texture) /*-{
+		this.deleteTexture(texture);
+	}-*/;
+
+	public native void bindTexture(int target, WebGLTexture texture) /*-{
+		this.bindTexture(target, texture);
+	}-*/;
+
+	public native void activeTexture(int texture) /*-{
+		this.activeTexture(texture);
+	}-*/;
+
+	public native void texImage2D(int target, int level, int internalformat,
+			int format, int type, JavaScriptObject data) /*-{
+		this.texImage2D(target, level, internalformat, format, type, data);
+	}-*/;
+
+	public native void texImage2D(int target, int level, int internalformat,
+			int width, int height, int border, int format, int type,
+			ArrayBufferView pixels) /*-{
+		this.texImage2D(target, level, internalformat, width, height, border,
+				format, type, pixels);
+	}-*/;
+
+	public native boolean isTexture(WebGLTexture texture) /*-{
+		return this.isTexture(texture);
+	}-*/;
+
+	public native void generateMipmap(int target) /*-{
+		this.generateMipmap(target);
+	}-*/;
+
+	public native int getTexParameteri(int target, int pname) /*-{
+		return this.getTexParameter(target, pname);
+	}-*/;
+
+	public native void texParameteri(int target, int pname, int value) /*-{
+		this.texParameteri(target, pname, value);
+	}-*/;
+
+	public native void texParameterf(int target, int pname, float value) /*-{
+		this.texParameterf(target, pname, value);
+	}-*/;
+
+	public native void copyTexSubImage2D(int target, int level, int intformat,
+			int xoffset, int yoffset, int x, int y, int width, int height) /*-{
+		this.copyTexSubImage2D(target, level, intformat, xoffset, yoffset, x,
+				y, width, height);
+	}-*/;
+
+	public native void copyTexImage2D(int target, int level, int intformat,
+			int x, int y, int width, int height, int border) /*-{
+		this.copyTexImage2D(target, level, intformat, x, y, width, height,
+				border);
+	}-*/;
+
+	public native void texSubImage2D(int target, int level, int xoffset,
+			int yoffset, int width, int height, int format, int type,
+			TypedArray<?> data) /*-{
+		this.texSubImage2D(target, level, xoffset, yoffset, width, height,
+				format, type, data);
+	}-*/;
+
+	public native void texSubImage2D(int target, int level, int xoffset,
+			int yoffset, JavaScriptObject data) /*-{
+		this.texSubImage2D(target, level, xoffset, yoffset, data);
+	}-*/;
+
+	public native void texSubImage2D(int target, int level, int xoffset,
+			int yoffset, JavaScriptObject data, boolean flipY) /*-{
+		this.texSubImage2D(target, level, xoffset, yoffset, data, flipY);
+	}-*/;
+
+	public native void texSubImage2D(int target, int level, int xoffset,
+			int yoffset, JavaScriptObject data, boolean flipY,
+			boolean asPremultipliedAlpha) /*-{
+		this.texSubImage2D(target, level, xoffset, yoffset, data, flipY,
+				asPremultipliedAlpha);
+	}-*/;
+
+	public native void cullFace(int mode) /*-{
+		this.cullFace(mode);
+	}-*/;
+
+	public native void frontFace(int mode) /*-{
+		this.frontFace(mode);
+	}-*/;
+
+	public native void blendFunc(int sfactor, int dfactor) /*-{
+		this.blendFunc(sfactor, dfactor);
+	}-*/;
+
+	public native void blendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha,
+			int dstAlpha) /*-{
+		this.blendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
+	}-*/;
+
+	public native void blendEquation(int mode) /*-{
+		this.blendEquation(mode);
+	}-*/;
+
+	public native void blendEquationSeparate(int modeRGB, int modeAlpha) /*-{
+		this.blendEquationSeparate(modeRGB, modeAlpha);
+	}-*/;
+
+	public native void blendColor(float red, float green, float blue,
+			float alpha) /*-{
+		this.blendColor(red, green, blue, alpha);
+	}-*/;
+
+	public native void depthFunc(int func) /*-{
+		this.depthFunc(func);
+	}-*/;
+
+	public native void depthMask(boolean flag) /*-{
+		this.depthMask(flag);
+	}-*/;
+
+	public native void depthRange(float nearVal, float farVal) /*-{
+		this.depthRange(nearVal, farVal);
+	}-*/;
+
+	public native void clearDepth(float depth) /*-{
+		this.clearDepth(depth);
+	}-*/;
+
+	public native void polygonOffset(float factor, float units) /*-{
+		this.polygonOffset(factor, units);
+	}-*/;
+
+	public native WebGLFramebuffer createFramebuffer() /*-{
+		return this.createFramebuffer();
+	}-*/;
+
+	public native void deleteFramebuffer(WebGLFramebuffer buffer) /*-{
+		this.deleteFramebuffer(buffer);
+	}-*/;
+
+	public native void bindFramebuffer(int target, WebGLFramebuffer buffer) /*-{
+		this.bindFramebuffer(target, buffer);
+	}-*/;
+
+	public native int checkFramebufferStatus(int target) /*-{
+		return this.checkFramebufferStatus(target);
+	}-*/;
+
+	public native void framebufferRenderbuffer(int target, int attachment,
+			int rbtarget, WebGLRenderbuffer rbuffer) /*-{
+		this.framebufferRenderbuffer(target, attachment, rbtarget, rbuffer);
+	}-*/;
+
+	public native JavaScriptObject getFramebufferAttachmentParameter(
+			int target, int attachment, int pname) /*-{
+		return this
+				.getFramebufferAttachmentParameter(target, attachment, pname);
+	}-*/;
+
+	public native int getFramebufferAttachmentParameteri(int target,
+			int attachment, int pname) /*-{
+		return this
+				.getFramebufferAttachmentParameter(target, attachment, pname);
+	}-*/;
+
+	public native void framebufferTexture2D(int target, int att, int textarget,
+			WebGLTexture tex, int level) /*-{
+		this.framebufferTexture2D(target, att, textarget, tex, level);
+	}-*/;
+
+	public native void pixelStorei(int pname, int param) /*-{
+		this.pixelStorei(pname, param);
+	}-*/;
+
+	public native void readPixels(int x, int y, int width, int height,
+			int format, int type, ArrayBufferView pixels) /*-{
+		this.readPixels(x, y, width, height, format, type, pixels);
+	}-*/;
+
+	public native boolean isFramebuffer(JavaScriptObject buffer) /*-{
+		return this.isFramebuffer(buffer);
+	}-*/;
+
+	public native void stencilFunc(int func, int ref, int mask) /*-{
+		this.stencilFunc(func, ref, mask);
+	}-*/;
+
+	public native void stencilFuncSeparate(int face, int func, int ref, int mask) /*-{
+		this.stencilFuncSeparate(face, func, ref, mask);
+	}-*/;
+
+	public native void stencilMask(int mask) /*-{
+		this.stencilMask(mask);
+	}-*/;
+
+	public native void stencilMaskSeparate(int face, int mask) /*-{
+		this.stencilMaskSeparate(face, mask);
+	}-*/;
+
+	public native void stencilOp(int sfail, int dpfail, int dppass) /*-{
+		this.stencilOp(sfail, dpfail, dppass);
+	}-*/;
+
+	public native void stencilOpSeparate(int face, int sfail, int dpfail,
+			int dppass) /*-{
+		this.stencilOpSeparate(face, sfail, dpfail, dppass);
+	}-*/;
+
+	public native void clearStencil(int s) /*-{
+		this.clearStencil(s);
+	}-*/;
+
+	public native void sampleCoverage(float value, boolean invert) /*-{
+		this.sampleCoverage(value, invert);
+	}-*/;
+
 }
