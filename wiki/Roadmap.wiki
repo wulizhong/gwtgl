@@ -10,9 +10,10 @@ This release will provide an improved binding for the WebGL 1.0 spec and support
     * (done) Change WebGLRenderingContext to be a JavaScriptObject (the generator will be removed)
     * (done) Generator for accessing the constants WebGL constants will be removed
   * (done) Tests for the Typed Arrays binding
-  * (in progress) Binding of the current Typed Arays specification
+  * (done) Binding of the current Typed Arays specification
     * (done) Bugfixing of the existing binding (set methods are partially broken)
-    * (todo) Binding of new functionality (currently I know Uint8ClampedArray)
+    * (done) Binding of new functionality (currently I know Uint8ClampedArray)
+  * (done) improve handling of Java Arrays using the JsArrayUtil
     
 _this release will break the existing APIs_
 
