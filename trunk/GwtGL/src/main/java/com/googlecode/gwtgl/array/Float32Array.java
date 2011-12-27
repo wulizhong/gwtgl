@@ -15,7 +15,6 @@
  */
 package com.googlecode.gwtgl.array;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.googlecode.gwtgl.util.JsArrayUtil;
@@ -66,17 +65,19 @@ public class Float32Array extends TypedArray<Float32Array> {
 	 * @return the created {@link TypedArray}.
 	 */
 	public static Float32Array create(float[] array) {
-		if(GWT.isScript()) {
-			return innerCreate(array);
-		}
-		return innerCreate(JsArrayUtil.wrapArray(array));
+		return create(JsArrayUtil.wrapArray(array));
 	};
 	
-	private static native Float32Array innerCreate(float[] array) /*-{
-		return new Float32Array(array);
-	}-*/;
-	
-	private static native Float32Array innerCreate(JsArrayNumber array) /*-{
+	/**
+	 * Creates a new instance of the {@link TypedArray} of the length of the
+	 * given array in values. The values are set to the values of the given
+	 * array.
+	 * 
+	 * @param array
+	 *            the array to get the values from
+	 * @return the created {@link TypedArray}.
+	 */
+	public static native Float32Array create(JsArrayNumber array) /*-{
 		return new Float32Array(array);
 	}-*/;
 	
