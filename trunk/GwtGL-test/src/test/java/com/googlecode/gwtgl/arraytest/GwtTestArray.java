@@ -26,17 +26,28 @@ public class GwtTestArray extends GWTTestCase {
 	}
 	
 	public void testIntArraySetJavaArray() {
-		Int32Array array = Int32Array.create(2);
+		Int32Array array = Int32Array.create(3);
 		
-		// FIXME
-//		array.set(new int[] {1337, 1338});
-//
-//		assertEquals(1337, array.get(0));
-//		assertEquals(1338, array.get(1));
+		// set 2 values at offset 0
+		array.set(new int[] {1337, 1338});
+
+		assertEquals(1337, array.get(0));
+		assertEquals(1338, array.get(1));
+		
+		// set 2 values at offset 1
+		array.set(new int[] {1, 2}, 1);
+		assertEquals(1337, array.get(0));
+		assertEquals(1, array.get(1));
+		assertEquals(2, array.get(2));
 	}
 	
 	public void testIntArraySetIntArray() {
-		// TODO set one IntXXArray to annother
+		Int32Array array = Int32Array.create(2);
+		Int32Array array2 = Int32Array.create(new int []{1337, 1338});
+		
+		array.set(array2);
+		assertEquals(1337, array.get(0));
+		assertEquals(1338, array.get(1));
 	}
 	
 	public void testInt32ValueRange() {
