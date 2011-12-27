@@ -51,7 +51,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	 * @param array the array to get the values from
 	 */
 	public final native void set(T array)/*-{
-		return this.set(array);
+		this.set(array);
 	}-*/;
 
 	/**
@@ -64,7 +64,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
 	 *            the offset to start setting the values
 	 */
 	public final native void set(T array, int offset)/*-{
-		return this.set(array, offset);
+		this.set(array, offset);
 	}-*/;
 
 	/**
