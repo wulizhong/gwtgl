@@ -24,7 +24,7 @@ After that you can find the following files under <project.home>/target:
 
 A release (bin, src and javadoc zipped together) can be build using the maven assembly plugin. Just execute:
 {{{
-mvn assembly:single
+mvn assembly:assembly
 }}}
 
 The artifact can be found at `<project.home>/target/gwtgl-<VERSION>-dist.zip`
