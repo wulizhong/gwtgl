@@ -1,5 +1,6 @@
 package com.googlecode.gwtgl.util;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayBoolean;
 import com.google.gwt.core.client.JsArrayInteger;
@@ -16,12 +17,15 @@ public final class JsArrayUtil {
 	}
 
 	/**
-	 * Wraps a Java String Array to a JsArrayString for dev mode.
+	 * Wraps a Java String Array to a JsArrayString.
 	 * 
 	 * @param srcArray the array to wrap
 	 * @return the wrapped array
 	 */
 	public static JsArrayString wrapArray(String[] srcArray) {
+		if(GWT.isScript()) {
+			return arrayAsJsArrayForProdMode(srcArray);
+		}
 		JsArrayString result = JavaScriptObject.createArray().cast();
 		for (int i = 0; i < srcArray.length; i++) {
 			result.set(i, srcArray[i]);
@@ -36,6 +40,9 @@ public final class JsArrayUtil {
 	 * @return the created String[].
 	 */
 	public static String[] unwrapArray(JsArrayString jsArrayString) {
+		if(GWT.isScript()) {
+			return jsArrayAsArrayForProdMode(jsArrayString);
+		}
 		String[] result = new String[jsArrayString.length()];
 		for(int i=0; i<jsArrayString.length();i++) {
 			result[i]=jsArrayString.get(i);
@@ -44,12 +51,15 @@ public final class JsArrayUtil {
 	}
 	
 	/**
-	 * Wraps a Java float Array to a JsArrayNumber for dev mode.
+	 * Wraps a Java float Array to a JsArrayNumber.
 	 * 
 	 * @param srcArray the array to wrap
 	 * @return the wrapped array
 	 */
 	public static JsArrayNumber wrapArray(float[] srcArray) {
+		if(GWT.isScript()) {
+			return arrayAsJsArrayForProdMode(srcArray);
+		}
 		JsArrayNumber result = JavaScriptObject.createArray().cast();
 		for (int i = 0; i < srcArray.length; i++) {
 			result.set(i, srcArray[i]);
@@ -58,12 +68,15 @@ public final class JsArrayUtil {
 	}
 	
 	/**
-	 * Wraps a Java double Array to a JsArrayNumber for dev mode.
+	 * Wraps a Java double Array to a JsArrayNumber.
 	 * 
 	 * @param srcArray the array to wrap
 	 * @return the wrapped array
 	 */
 	public static JsArrayNumber wrapArray(double[] srcArray) {
+		if(GWT.isScript()) {
+			return arrayAsJsArrayForProdMode(srcArray);
+		}
 		JsArrayNumber result = JavaScriptObject.createArray().cast();
 		for (int i = 0; i < srcArray.length; i++) {
 			result.set(i, srcArray[i]);
@@ -72,12 +85,15 @@ public final class JsArrayUtil {
 	}
 	
 	/**
-	 * Wraps a Java int Array to a JsArrayInteger for dev mode.
+	 * Wraps a Java int Array to a JsArrayInteger.
 	 * 
 	 * @param srcArray the array to wrap
 	 * @return the wrapped array
 	 */
 	public static JsArrayInteger wrapArray(int[] srcArray) {
+		if(GWT.isScript()) {
+			return arrayAsJsArrayForProdMode(srcArray);
+		}
 		JsArrayInteger result = JavaScriptObject.createArray().cast();
 		for (int i = 0; i < srcArray.length; i++) {
 			result.set(i, srcArray[i]);
@@ -86,12 +102,15 @@ public final class JsArrayUtil {
 	}
 	
 	/**
-	 * Wraps a Java byte Array to a JsArrayInteger for dev mode.
+	 * Wraps a Java byte Array to a JsArrayInteger.
 	 * 
 	 * @param srcArray the array to wrap
 	 * @return the wrapped array
 	 */
 	public static JsArrayInteger wrapArray(byte[] srcArray) {
+		if(GWT.isScript()) {
+			return arrayAsJsArrayForProdMode(srcArray);
+		}
 		JsArrayInteger result = JavaScriptObject.createArray().cast();
 		for (int i = 0; i < srcArray.length; i++) {
 			result.set(i, srcArray[i]);
@@ -100,12 +119,15 @@ public final class JsArrayUtil {
 	}
 	
 	/**
-	 * Wraps a Java boolean Array to a JsArrayBoolean for dev mode.
+	 * Wraps a Java boolean Array to a JsArrayBoolean.
 	 * 
 	 * @param srcArray the array to wrap
 	 * @return the wrapped array
 	 */
 	public static JsArrayBoolean wrapArray(boolean[] srcArray) {
+		if(GWT.isScript()) {
+			return arrayAsJsArrayForProdMode(srcArray);
+		}
 		JsArrayBoolean result = JavaScriptObject.createArray().cast();
 		for (int i = 0; i < srcArray.length; i++) {
 			result.set(i, srcArray[i]);
@@ -113,4 +135,32 @@ public final class JsArrayUtil {
 		return result;
 	}
 
+	private static native JsArrayString arrayAsJsArrayForProdMode(String[] array) /*-{
+		return array;
+	}-*/;
+	
+	private static native String[] jsArrayAsArrayForProdMode(JsArrayString array) /*-{
+		return array;
+	}-*/;
+	
+	private static native JsArrayInteger arrayAsJsArrayForProdMode(int[] array) /*-{
+		return array;
+	}-*/;
+	
+	private static native JsArrayNumber arrayAsJsArrayForProdMode(float[] array) /*-{
+		return array;
+	}-*/;
+	
+	private static native JsArrayNumber arrayAsJsArrayForProdMode(double[] array) /*-{
+		return array;
+	}-*/;
+	
+	private static native JsArrayBoolean arrayAsJsArrayForProdMode(boolean[] array) /*-{
+		return array;
+	}-*/;
+	
+	private static native JsArrayInteger arrayAsJsArrayForProdMode(byte[] array) /*-{
+		return array;
+	}-*/;
+	
 }

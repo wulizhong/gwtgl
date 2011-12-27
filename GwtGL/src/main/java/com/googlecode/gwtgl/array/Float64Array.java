@@ -176,17 +176,17 @@ public class Float64Array extends TypedArray<Float64Array> {
 	 *            an array containing the new values to set.
 	 */
 	public final void set(double[] array) {
-		if(GWT.isScript()) {
-			innerSet(array);
-		}
-		innerSet(JsArrayUtil.wrapArray(array));
+		set(JsArrayUtil.wrapArray(array));
 	};
 	
-	private static native void innerSet(double[] array) /*-{
-		this.set(array);
-	}-*/;
-	
-	private static native void innerSet(JsArrayNumber array) /*-{
+	/**
+	 * Writes multiple values to the TypedArray using the values of the given
+	 * Array.
+	 * 
+	 * @param array
+	 *            an array containing the new values to set.
+	 */
+	public static native void set(JsArrayNumber array) /*-{
 		this.set(array);
 	}-*/;
 	
@@ -199,17 +199,18 @@ public class Float64Array extends TypedArray<Float64Array> {
 	 * @param offset the offset relative to the beginning of the TypedArray.
 	 */
 	public final void set(double[] array, int offset) {
-		if(GWT.isScript()) {
-			innerSet(array, offset);
-		}
-		innerSet(JsArrayUtil.wrapArray(array), offset);
+		set(JsArrayUtil.wrapArray(array), offset);
 	};
 	
-	private static native void innerSet(double[] array, int offset) /*-{
-		this.set(array, offset);
-	}-*/;
-	
-	private static native void innerSet(JsArrayNumber array, int offset) /*-{
+	/**
+	 * Writes multiple values to the TypedArray using the values of the given
+	 * Array. Writes the values beginning at the given offset.
+	 * 
+	 * @param array
+	 *            an array containing the new values to set.
+	 * @param offset the offset relative to the beginning of the TypedArray.
+	 */
+	public static native void set(JsArrayNumber array, int offset) /*-{
 		this.set(array, offset);
 	}-*/;
 

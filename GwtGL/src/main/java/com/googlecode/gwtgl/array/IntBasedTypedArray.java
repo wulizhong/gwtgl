@@ -15,7 +15,6 @@
  */
 package com.googlecode.gwtgl.array;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.googlecode.gwtgl.util.JsArrayUtil;
@@ -72,17 +71,17 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 	 *            an array containing the new values to set.
 	 */
 	public final void set(int[] array) {
-		if(GWT.isScript()) {
-			innerSet(array);
-		}
-		innerSet(JsArrayUtil.wrapArray(array));
+		set(JsArrayUtil.wrapArray(array));
 	};
 	
-	private final native void innerSet(int[] array) /*-{
-		this.set(array);
-	}-*/;
-	
-	private final native void innerSet(JsArrayInteger array) /*-{
+	/**
+	 * Writes multiple values to the TypedArray using the values of the given
+	 * Array.
+	 * 
+	 * @param array
+	 *            an array containing the new values to set.
+	 */
+	public final native void set(JsArrayInteger array) /*-{
 		this.set(array);
 	}-*/;
 
@@ -95,17 +94,18 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
 	 * @param offset the offset relative to the beginning of the TypedArray.
 	 */
 	public final void set(int[] array, int offset) {
-		if(GWT.isScript()) {
-			innerSet(array, offset);
-		}
-		innerSet(JsArrayUtil.wrapArray(array), offset);
+		set(JsArrayUtil.wrapArray(array), offset);
 	};
 	
-	private final native void innerSet(int[] array, int offset) /*-{
-		this.set(array, offset);
-	}-*/;
-	
-	private final native void innerSet(JsArrayInteger array, int offset) /*-{
+	/**
+	 * Writes multiple values to the TypedArray using the values of the given
+	 * Array. Writes the values beginning at the given offset.
+	 * 
+	 * @param array
+	 *            an array containing the new values to set.
+	 * @param offset the offset relative to the beginning of the TypedArray.
+	 */
+	public final native void set(JsArrayInteger array, int offset) /*-{
 		this.set(array, offset);
 	}-*/;
 }
