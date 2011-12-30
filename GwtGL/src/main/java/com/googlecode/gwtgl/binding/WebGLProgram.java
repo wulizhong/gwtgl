@@ -23,7 +23,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 public final class WebGLProgram extends JavaScriptObject {
 
   /**
-   * protected standard constructor as specified by
+   * Protected standard constructor as specified by
    * {@link com.google.gwt.core.client.JavaScriptObject}.
    */
   protected WebGLProgram() {
