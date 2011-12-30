@@ -171,7 +171,7 @@
 				<configuration>
 					<webMode>true</webMode>
 					<mode>manual</mode>
-					<includes>**/GwtTestArray.java</includes>
+					<includes>**/TypedArraySuite.java</includes>
 				</configuration>
 			</plugin>
 
