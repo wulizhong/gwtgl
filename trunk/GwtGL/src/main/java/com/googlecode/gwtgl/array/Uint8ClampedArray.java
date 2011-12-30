@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 Sönke Sothmann, Steffen Schäfer and others
+ * Copyright 2009-2011 Sönke Sothmann, Steffen Schäfer and others
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -138,12 +138,25 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * 
    * @return true, if Uint8ClampedArray is supported, false otherwise.
    */
-  public static native boolean isSupported() /*-{
-		if (window.Uint8ClampedArray) {
-			return true;
-		}
-		return false;
-  }-*/;
+  public static boolean isSupported() {
+    // use the compile time check of TypedArray. If TypedArray isn't supported, Uint8ClampedArray
+    // isn't supported either.
+    if (!TypedArray.isSupported()) {
+      return false;
+    }
+    return isSupportedRuntime();
+  };
+
+  /**
+   * Checks at runtime if the Browser supports the {@link Uint8ClampedArray}. There's a special
+   * check, as not all browsers that do support {@link TypedArray} support {@link Uint8ClampedArray}
+   * too. Thats because {@link Uint8ClampedArray} is a late addition to the specification.
+   * 
+   * @return true, if Uint8ClampedArray is supported, false otherwise.
+   */
+  private static native boolean isSupportedRuntime() /*-{
+                                                     return !!window.Uint8ClampedArray;
+                                                     }-*/;
 
   /**
    * protected standard constructor as specified by
@@ -159,8 +172,8 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @param array the array to get the values from
    */
   public final native void set(Uint8Array array)/*-{
-		this.set(array);
-  }-*/;
+                                                this.set(array);
+                                                }-*/;
 
   /**
    * Set multiple values, of the given array to this array starting at the given offset.
@@ -169,7 +182,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @param offset the offset to start setting the values
    */
   public final native void set(Uint8Array array, int offset)/*-{
-		this.set(array, offset);
-  }-*/;
+                                                            this.set(array, offset);
+                                                            }-*/;
 
 }
