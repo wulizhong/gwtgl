@@ -23,14 +23,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class ArrayBuffer extends JavaScriptObject {
 
   /**
-   * protected standard constructor as specified by
-   * {@link com.google.gwt.core.client.JavaScriptObject}.
-   */
-  protected ArrayBuffer() {
-    super();
-  }
-
-  /**
    * Constructs a new ArrayBuffer instance. The newly created ArrayBuffer has the given length in
    * bytes. The ArrayBuffer is initialized with 0 values.
    * 
@@ -40,6 +32,14 @@ public class ArrayBuffer extends JavaScriptObject {
   public static native ArrayBuffer create(int length) /*-{
 		return new ArrayBuffer(length);
   }-*/;
+
+  /**
+   * protected standard constructor as specified by
+   * {@link com.google.gwt.core.client.JavaScriptObject}.
+   */
+  protected ArrayBuffer() {
+    super();
+  }
 
   /**
    * Returns the non changeable length of the ArrayBuffer in bytes.

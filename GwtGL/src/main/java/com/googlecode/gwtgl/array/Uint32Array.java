@@ -24,57 +24,6 @@ import com.google.gwt.core.client.JsArrayInteger;
 public class Uint32Array extends IntBasedTypedArray<Uint32Array> {
 
   /**
-   * protected standard constructor as specified by {@link com.google.gwt.core.client.JavaScriptObject}.
-   */
-  protected Uint32Array() {
-    super();
-  }
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the given length in values. All values are
-   * set to 0.
-   * 
-   * @param length the length in values of the type used by this {@link TypedArray}
-   * @return the created {@link TypedArray}.
-   */
-  public static native Uint32Array create(int length) /*-{
-		return new Uint32Array(length);
-  }-*/;
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the same length as the given
-   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
-   * 
-   * @param array the {@link TypedArray} to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static native Uint32Array create(Uint32Array array) /*-{
-		return new Uint32Array(array);
-  }-*/;
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
-   * The values are set to the values of the given array.
-   * 
-   * @param array the array to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static Uint32Array create(int[] array) {
-    return create(JsArrayUtil.wrapArray(array));
-  };
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
-   * The values are set to the values of the given array.
-   * 
-   * @param array the array to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static native Uint32Array create(JsArrayInteger array) /*-{
-		return new Uint32Array(array);
-  }-*/;
-
-  /**
    * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
    * read/write values from/to.
    * 
@@ -125,5 +74,56 @@ public class Uint32Array extends IntBasedTypedArray<Uint32Array> {
   public static native Uint32Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new Uint32Array(buffer, byteOffset, length);
   }-*/;
+
+  /**
+   * Creates a new instance of the {@link TypedArray} of the given length in values. All values are
+   * set to 0.
+   * 
+   * @param length the length in values of the type used by this {@link TypedArray}
+   * @return the created {@link TypedArray}.
+   */
+  public static native Uint32Array create(int length) /*-{
+		return new Uint32Array(length);
+  }-*/;;
+
+  /**
+   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
+   * The values are set to the values of the given array.
+   * 
+   * @param array the array to get the values from
+   * @return the created {@link TypedArray}.
+   */
+  public static Uint32Array create(int[] array) {
+    return create(JsArrayUtil.wrapArray(array));
+  }
+
+  /**
+   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
+   * The values are set to the values of the given array.
+   * 
+   * @param array the array to get the values from
+   * @return the created {@link TypedArray}.
+   */
+  public static native Uint32Array create(JsArrayInteger array) /*-{
+		return new Uint32Array(array);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link TypedArray} of the same length as the given
+   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
+   * 
+   * @param array the {@link TypedArray} to get the values from
+   * @return the created {@link TypedArray}.
+   */
+  public static native Uint32Array create(Uint32Array array) /*-{
+		return new Uint32Array(array);
+  }-*/;
+
+  /**
+   * protected standard constructor as specified by {@link com.google.gwt.core.client.JavaScriptObject}.
+   */
+  protected Uint32Array() {
+    super();
+  }
 
 }
