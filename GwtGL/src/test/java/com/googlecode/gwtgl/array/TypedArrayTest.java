@@ -6,7 +6,7 @@ import com.google.gwt.junit.client.GWTTestCase;
  * Tests for {@link TypedArray} and subclasses.
  * 
  */
-public class GwtTestArray extends GWTTestCase {
+public class TypedArrayTest extends GWTTestCase {
 
   @Override
   public String getModuleName() {
