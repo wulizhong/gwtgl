@@ -14,13 +14,25 @@
 package com.googlecode.gwtgl.array;
 
 /**
- * A TypedArray is an {@link ArrayBufferView} that reads and writes value of one specific type to/from an
- * {@link ArrayBuffer}.
+ * A TypedArray is an {@link ArrayBufferView} that reads and writes value of one specific type
+ * to/from an {@link ArrayBuffer}.
  * 
  * @param <T> the concrete subtype of the TypedArray itself. Used for methods using the type of the
  *          TypedArray as Parameter or return value.
  */
 public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferView {
+
+  /**
+   * Checks if the Browser supports the {@link TypedArray}.
+   * 
+   * @return true, if Uint8ClampedArray is supported, false otherwise.
+   */
+  public static native boolean isSupported() /*-{
+		if (window.TypedArray) {
+			return true;
+		}
+		return false;
+  }-*/;
 
   /**
    * protected standard constructor as specified by

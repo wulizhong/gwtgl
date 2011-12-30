@@ -96,7 +96,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    */
   public static Uint8ClampedArray create(int[] array) {
     return create(JsArrayUtil.wrapArray(array));
-  };
+  }
 
   /**
    * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
@@ -107,7 +107,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    */
   public static native Uint8ClampedArray create(JsArrayInteger array) /*-{
 		return new Uint8ClampedArray(array);
-  }-*/;
+  }-*/;;
 
   /**
    * Creates a new instance of the {@link TypedArray} of the same length as the given
@@ -129,6 +129,20 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    */
   public static native Uint8ClampedArray create(Uint8ClampedArray array) /*-{
 		return new Uint8ClampedArray(array);
+  }-*/;
+
+  /**
+   * Checks if the Browser supports the {@link Uint8ClampedArray}. There's a special check, as not
+   * all browsers that do support {@link TypedArray} support {@link Uint8ClampedArray} too. Thats
+   * because {@link Uint8ClampedArray} is a late addition to the specification.
+   * 
+   * @return true, if Uint8ClampedArray is supported, false otherwise.
+   */
+  public static native boolean isSupported() /*-{
+		if (window.Uint8ClampedArray) {
+			return true;
+		}
+		return false;
   }-*/;
 
   /**
