@@ -13,6 +13,8 @@
  */
 package com.googlecode.gwtgl.array;
 
+import com.google.gwt.core.client.GWT;
+
 /**
  * A TypedArray is an {@link ArrayBufferView} that reads and writes value of one specific type
  * to/from an {@link ArrayBuffer}.
@@ -23,15 +25,64 @@ package com.googlecode.gwtgl.array;
 public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferView {
 
   /**
+   * Defines at compile time if the browser possibly supports {@link TypedArray}.
+   */
+  private static class TypedArrayCompileTimeSupport {
+
+    /**
+     * Compile time check if {@link TypedArray} is possibly supported.
+     * 
+     * @return true if might be supported, false otherwise.
+     */
+    boolean isSupported() {
+      return false;
+    }
+  }
+
+  /**
+   * Implementation of the TypedArrayCompileTimeSupport for all browsers that possibly support
+   * {@link TypedArray}s.
+   */
+  @SuppressWarnings("unused")
+  private static class TypedArrayCompileTimeSupportTrue extends TypedArrayCompileTimeSupport {
+
+    /**
+     * @{inheritDoc
+     */
+    @Override
+    boolean isSupported() {
+      return true;
+    }
+  }
+
+  /**
+   * Instance of the {@link TypedArrayCompileTimeSupport} to check the availability of TypedArray at
+   * compile time.
+   */
+  private static TypedArrayCompileTimeSupport compileTimeSupport;
+
+  /**
    * Checks if the Browser supports the {@link TypedArray}.
    * 
-   * @return true, if Uint8ClampedArray is supported, false otherwise.
+   * @return true, if TypedArray is supported, false otherwise.
    */
-  public static native boolean isSupported() /*-{
-		if (window.TypedArray) {
-			return true;
-		}
-		return false;
+  public static boolean isSupported() {
+    if (compileTimeSupport == null) {
+      compileTimeSupport = GWT.create(TypedArrayCompileTimeSupport.class);
+    }
+    if (!compileTimeSupport.isSupported()) {
+      return false;
+    }
+    return isSupportedRuntime();
+  };
+
+  /**
+   * Checks at runtime if the Browser supports the {@link TypedArray}.
+   * 
+   * @return true, if TypedArray is supported, false otherwise.
+   */
+  private static native boolean isSupportedRuntime() /*-{
+		return !!window.TypedArray
   }-*/;
 
   /**
