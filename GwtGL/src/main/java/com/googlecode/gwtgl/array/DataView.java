@@ -15,8 +15,8 @@ package com.googlecode.gwtgl.array;
 
 /**
  * 
- * A DataView is an {@link ArrayBufferView} with no concrete type to read and write values. The DataView
- * provides read and write methods for all types supported by the {@link TypedArray}s.
+ * A DataView is an {@link ArrayBufferView} with no concrete type to read and write values. The
+ * DataView provides read and write methods for all types supported by the {@link TypedArray}s.
  * 
  */
 public class DataView extends ArrayBufferView {
@@ -57,7 +57,8 @@ public class DataView extends ArrayBufferView {
   }-*/;
 
   /**
-   * protected standard constructor as specified by {@link com.google.gwt.core.client.JavaScriptObject}.
+   * protected standard constructor as specified by
+   * {@link com.google.gwt.core.client.JavaScriptObject}.
    */
   protected DataView() {
     super();
