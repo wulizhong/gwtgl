@@ -140,31 +140,31 @@ public final class JsArrayUtil {
   }
 
   private static native JsArrayString arrayAsJsArrayForProdMode(String[] array) /*-{
-		return array;
+    return array;
   }-*/;
 
   private static native String[] jsArrayAsArrayForProdMode(JsArrayString array) /*-{
-		return array;
+    return array;
   }-*/;
 
   private static native JsArrayInteger arrayAsJsArrayForProdMode(int[] array) /*-{
-		return array;
+    return array;
   }-*/;
 
   private static native JsArrayNumber arrayAsJsArrayForProdMode(float[] array) /*-{
-		return array;
+    return array;
   }-*/;
 
   private static native JsArrayNumber arrayAsJsArrayForProdMode(double[] array) /*-{
-		return array;
+    return array;
   }-*/;
 
   private static native JsArrayBoolean arrayAsJsArrayForProdMode(boolean[] array) /*-{
-		return array;
+    return array;
   }-*/;
 
   private static native JsArrayInteger arrayAsJsArrayForProdMode(byte[] array) /*-{
-		return array;
+    return array;
   }-*/;
 
 }
