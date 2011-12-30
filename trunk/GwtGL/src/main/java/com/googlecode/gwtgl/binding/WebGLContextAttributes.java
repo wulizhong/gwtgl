@@ -22,20 +22,20 @@ import com.google.gwt.core.client.JavaScriptObject;
 public final class WebGLContextAttributes extends JavaScriptObject {
 
   /**
-   * Protected standard constructor as specified by
-   * {@link com.google.gwt.core.client.JavaScriptObject}.
-   */
-  protected WebGLContextAttributes() {
-    super();
-  }
-
-  /**
    * Creates a new instance of the {@link WebGLContextAttributes}.
    * 
    * @return the created instance.
    */
   public static WebGLContextAttributes create() {
     return JavaScriptObject.createObject().cast();
+  }
+
+  /**
+   * Protected standard constructor as specified by
+   * {@link com.google.gwt.core.client.JavaScriptObject}.
+   */
+  protected WebGLContextAttributes() {
+    super();
   }
 
   /**
@@ -48,6 +48,54 @@ public final class WebGLContextAttributes extends JavaScriptObject {
 			return null;
 		}
 		return this.alpha;
+  }-*/;
+
+  /**
+   * Returns weather antialiasing is turned on for the rendering context.
+   * 
+   * @return the state of the antialias flag
+   */
+  public final native Boolean getAntialias() /*-{
+		if (typeof (this.antialias) == 'undefined') {
+			return null;
+		}
+		return this.antialias;
+  }-*/;
+
+  /**
+   * Returns weather depth buffer is turned on for the rendering buffer.
+   * 
+   * @return the state of the depth flag
+   */
+  public final native Boolean getDepth() /*-{
+		if (typeof (this.depth) == 'undefined') {
+			return null;
+		}
+		return this.depth;
+  }-*/;
+
+  /**
+   * Returns weather premultiplied alpha is used.
+   * 
+   * @return the state of the premultiplied alpha flag
+   */
+  public final native Boolean getPremultipliedAlpha() /*-{
+		if (typeof (this.premultipliedAlpha) == 'undefined') {
+			return null;
+		}
+		return this.premultipliedAlpha;
+  }-*/;
+
+  /**
+   * Returns weather stencil buffer is turned on for the rendering buffer.
+   * 
+   * @return the state of the stencil flag
+   */
+  public final native Boolean getStencil() /*-{
+		if (typeof (this.stencil) == 'undefined') {
+			return null;
+		}
+		return this.stencil;
   }-*/;
 
   /**
@@ -64,15 +112,16 @@ public final class WebGLContextAttributes extends JavaScriptObject {
   }-*/;
 
   /**
-   * Returns weather depth buffer is turned on for the rendering buffer.
+   * Sets a new value for the antialias flag.
    * 
-   * @return the state of the depth flag
+   * @param antialias the new state of the antialias flag
    */
-  public final native Boolean getDepth() /*-{
-		if (typeof (this.depth) == 'undefined') {
-			return null;
+  public final native void setAntialias(Boolean antialias) /*-{
+		if (antialias == null) {
+			delete antialias;
+		} else {
+			this.antialias = antialias;
 		}
-		return this.depth;
   }-*/;
 
   /**
@@ -89,15 +138,16 @@ public final class WebGLContextAttributes extends JavaScriptObject {
   }-*/;
 
   /**
-   * Returns weather stencil buffer is turned on for the rendering buffer.
+   * Sets a new value for the premultiplied alpha flag.
    * 
-   * @return the state of the stencil flag
+   * @param premultipliedAlpha the new state of the premultiplied alpha flag
    */
-  public final native Boolean getStencil() /*-{
-		if (typeof (this.stencil) == 'undefined') {
-			return null;
+  public final native void setPremultipliedAlpha(Boolean premultipliedAlpha) /*-{
+		if (premultipliedAlpha == null) {
+			delete premultipliedAlpha;
+		} else {
+			this.premultipliedAlpha = premultipliedAlpha;
 		}
-		return this.stencil;
   }-*/;
 
   /**
@@ -110,56 +160,6 @@ public final class WebGLContextAttributes extends JavaScriptObject {
 			delete stencil;
 		} else {
 			this.stencil = stencil;
-		}
-  }-*/;
-
-  /**
-   * Returns weather antialiasing is turned on for the rendering context.
-   * 
-   * @return the state of the antialias flag
-   */
-  public final native Boolean getAntialias() /*-{
-		if (typeof (this.antialias) == 'undefined') {
-			return null;
-		}
-		return this.antialias;
-  }-*/;
-
-  /**
-   * Sets a new value for the antialias flag.
-   * 
-   * @param antialias the new state of the antialias flag
-   */
-  public final native void setAntialias(Boolean antialias) /*-{
-		if (antialias == null) {
-			delete antialias;
-		} else {
-			this.antialias = antialias;
-		}
-  }-*/;
-
-  /**
-   * Returns weather premultiplied alpha is used.
-   * 
-   * @return the state of the premultiplied alpha flag
-   */
-  public final native Boolean getPremultipliedAlpha() /*-{
-		if (typeof (this.premultipliedAlpha) == 'undefined') {
-			return null;
-		}
-		return this.premultipliedAlpha;
-  }-*/;
-
-  /**
-   * Sets a new value for the premultiplied alpha flag.
-   * 
-   * @param premultipliedAlpha the new state of the premultiplied alpha flag
-   */
-  public final native void setPremultipliedAlpha(Boolean premultipliedAlpha) /*-{
-		if (premultipliedAlpha == null) {
-			delete premultipliedAlpha;
-		} else {
-			this.premultipliedAlpha = premultipliedAlpha;
 		}
   }-*/;
 }

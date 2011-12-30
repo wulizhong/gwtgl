@@ -39,6 +39,15 @@ public abstract class ArrayBufferView extends JavaScriptObject {
   }-*/;
 
   /**
+   * Returns the non changeable length of the ArrayBufferView in bytes.
+   * 
+   * @return the non changeable length of the ArrayBufferView in bytes.
+   */
+  public final native int getByteLength() /*-{
+		return this.byteLength;
+  }-*/;
+
+  /**
    * Returns the non changeable byteOffset of the ArrayBufferView inside of the used
    * {@link ArrayBuffer}.
    * 
@@ -47,15 +56,6 @@ public abstract class ArrayBufferView extends JavaScriptObject {
    */
   public final native int getByteOffset() /*-{
 		return this.byteOffset;
-  }-*/;
-
-  /**
-   * Returns the non changeable length of the ArrayBufferView in bytes.
-   * 
-   * @return the non changeable length of the ArrayBufferView in bytes.
-   */
-  public final native int getByteLength() /*-{
-		return this.byteLength;
   }-*/;
 
 }

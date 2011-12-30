@@ -15,29 +15,6 @@ import com.google.gwt.core.client.JsArrayString;
 public final class JsArrayUtil {
 
   /**
-   * Private constructor. Class only contains static utility methods and must not be instantiated.
-   */
-  private JsArrayUtil() {
-  }
-
-  /**
-   * Wraps a Java String Array to a JsArrayString.
-   * 
-   * @param srcArray the array to wrap
-   * @return the wrapped array
-   */
-  public static JsArrayString wrapArray(String[] srcArray) {
-    if (GWT.isScript()) {
-      return arrayAsJsArrayForProdMode(srcArray);
-    }
-    JsArrayString result = JavaScriptObject.createArray().cast();
-    for (int i = 0; i < srcArray.length; i++) {
-      result.set(i, srcArray[i]);
-    }
-    return result;
-  }
-
-  /**
    * Converts a JsArrayString to a String[].
    * 
    * @param jsArrayString the array to unwrap.
@@ -55,16 +32,33 @@ public final class JsArrayUtil {
   }
 
   /**
-   * Wraps a Java float Array to a JsArrayNumber.
+   * Wraps a Java boolean Array to a JsArrayBoolean.
    * 
    * @param srcArray the array to wrap
    * @return the wrapped array
    */
-  public static JsArrayNumber wrapArray(float[] srcArray) {
+  public static JsArrayBoolean wrapArray(boolean[] srcArray) {
     if (GWT.isScript()) {
       return arrayAsJsArrayForProdMode(srcArray);
     }
-    JsArrayNumber result = JavaScriptObject.createArray().cast();
+    JsArrayBoolean result = JavaScriptObject.createArray().cast();
+    for (int i = 0; i < srcArray.length; i++) {
+      result.set(i, srcArray[i]);
+    }
+    return result;
+  }
+
+  /**
+   * Wraps a Java byte Array to a JsArrayInteger.
+   * 
+   * @param srcArray the array to wrap
+   * @return the wrapped array
+   */
+  public static JsArrayInteger wrapArray(byte[] srcArray) {
+    if (GWT.isScript()) {
+      return arrayAsJsArrayForProdMode(srcArray);
+    }
+    JsArrayInteger result = JavaScriptObject.createArray().cast();
     for (int i = 0; i < srcArray.length; i++) {
       result.set(i, srcArray[i]);
     }
@@ -78,6 +72,23 @@ public final class JsArrayUtil {
    * @return the wrapped array
    */
   public static JsArrayNumber wrapArray(double[] srcArray) {
+    if (GWT.isScript()) {
+      return arrayAsJsArrayForProdMode(srcArray);
+    }
+    JsArrayNumber result = JavaScriptObject.createArray().cast();
+    for (int i = 0; i < srcArray.length; i++) {
+      result.set(i, srcArray[i]);
+    }
+    return result;
+  }
+
+  /**
+   * Wraps a Java float Array to a JsArrayNumber.
+   * 
+   * @param srcArray the array to wrap
+   * @return the wrapped array
+   */
+  public static JsArrayNumber wrapArray(float[] srcArray) {
     if (GWT.isScript()) {
       return arrayAsJsArrayForProdMode(srcArray);
     }
@@ -106,38 +117,41 @@ public final class JsArrayUtil {
   }
 
   /**
-   * Wraps a Java byte Array to a JsArrayInteger.
+   * Wraps a Java String Array to a JsArrayString.
    * 
    * @param srcArray the array to wrap
    * @return the wrapped array
    */
-  public static JsArrayInteger wrapArray(byte[] srcArray) {
+  public static JsArrayString wrapArray(String[] srcArray) {
     if (GWT.isScript()) {
       return arrayAsJsArrayForProdMode(srcArray);
     }
-    JsArrayInteger result = JavaScriptObject.createArray().cast();
+    JsArrayString result = JavaScriptObject.createArray().cast();
     for (int i = 0; i < srcArray.length; i++) {
       result.set(i, srcArray[i]);
     }
     return result;
   }
 
-  /**
-   * Wraps a Java boolean Array to a JsArrayBoolean.
-   * 
-   * @param srcArray the array to wrap
-   * @return the wrapped array
-   */
-  public static JsArrayBoolean wrapArray(boolean[] srcArray) {
-    if (GWT.isScript()) {
-      return arrayAsJsArrayForProdMode(srcArray);
-    }
-    JsArrayBoolean result = JavaScriptObject.createArray().cast();
-    for (int i = 0; i < srcArray.length; i++) {
-      result.set(i, srcArray[i]);
-    }
-    return result;
-  }
+  private static native JsArrayBoolean arrayAsJsArrayForProdMode(boolean[] array) /*-{
+    return array;
+  }-*/;
+
+  private static native JsArrayInteger arrayAsJsArrayForProdMode(byte[] array) /*-{
+    return array;
+  }-*/;
+
+  private static native JsArrayNumber arrayAsJsArrayForProdMode(double[] array) /*-{
+    return array;
+  }-*/;
+
+  private static native JsArrayNumber arrayAsJsArrayForProdMode(float[] array) /*-{
+    return array;
+  }-*/;
+
+  private static native JsArrayInteger arrayAsJsArrayForProdMode(int[] array) /*-{
+    return array;
+  }-*/;
 
   private static native JsArrayString arrayAsJsArrayForProdMode(String[] array) /*-{
     return array;
@@ -147,24 +161,10 @@ public final class JsArrayUtil {
     return array;
   }-*/;
 
-  private static native JsArrayInteger arrayAsJsArrayForProdMode(int[] array) /*-{
-    return array;
-  }-*/;
-
-  private static native JsArrayNumber arrayAsJsArrayForProdMode(float[] array) /*-{
-    return array;
-  }-*/;
-
-  private static native JsArrayNumber arrayAsJsArrayForProdMode(double[] array) /*-{
-    return array;
-  }-*/;
-
-  private static native JsArrayBoolean arrayAsJsArrayForProdMode(boolean[] array) /*-{
-    return array;
-  }-*/;
-
-  private static native JsArrayInteger arrayAsJsArrayForProdMode(byte[] array) /*-{
-    return array;
-  }-*/;
+  /**
+   * Private constructor. Class only contains static utility methods and must not be instantiated.
+   */
+  private JsArrayUtil() {
+  }
 
 }

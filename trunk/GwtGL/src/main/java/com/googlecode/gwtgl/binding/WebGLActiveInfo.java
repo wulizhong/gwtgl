@@ -31,6 +31,15 @@ public final class WebGLActiveInfo extends JavaScriptObject {
   }
 
   /**
+   * The name of the requested variable.
+   * 
+   * @return the name of the requested variable
+   */
+  public native int getName() /*-{
+		return this.name;
+  }-*/;
+
+  /**
    * The size of the requested variable.
    * 
    * @return the size of the requested variable
@@ -46,15 +55,6 @@ public final class WebGLActiveInfo extends JavaScriptObject {
    */
   public native int getType() /*-{
 		return this.type;
-  }-*/;
-
-  /**
-   * The name of the requested variable.
-   * 
-   * @return the name of the requested variable
-   */
-  public native int getName() /*-{
-		return this.name;
   }-*/;
 
 }

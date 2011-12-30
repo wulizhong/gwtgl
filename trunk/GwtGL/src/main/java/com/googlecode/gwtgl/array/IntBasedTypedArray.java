@@ -69,15 +69,6 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
   };
 
   /**
-   * Writes multiple values to the TypedArray using the values of the given Array.
-   * 
-   * @param array an array containing the new values to set.
-   */
-  public final native void set(JsArrayInteger array) /*-{
-		this.set(array);
-  }-*/;
-
-  /**
    * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
    * beginning at the given offset.
    * 
@@ -86,7 +77,16 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
    */
   public final void set(int[] array, int offset) {
     set(JsArrayUtil.wrapArray(array), offset);
-  };
+  }
+
+  /**
+   * Writes multiple values to the TypedArray using the values of the given Array.
+   * 
+   * @param array an array containing the new values to set.
+   */
+  public final native void set(JsArrayInteger array) /*-{
+		this.set(array);
+  }-*/;;
 
   /**
    * Writes multiple values to the TypedArray using the values of the given Array. Writes the values

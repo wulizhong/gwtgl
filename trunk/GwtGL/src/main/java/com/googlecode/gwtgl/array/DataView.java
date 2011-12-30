@@ -22,13 +22,6 @@ package com.googlecode.gwtgl.array;
 public class DataView extends ArrayBufferView {
 
   /**
-   * protected standard constructor as specified by {@link com.google.gwt.core.client.JavaScriptObject}.
-   */
-  protected DataView() {
-    super();
-  }
-
-  /**
    * Constructs a new DataView instance using the given {@link ArrayBuffer}.
    * 
    * @param buffer the underlying {@link ArrayBuffer}.
@@ -64,108 +57,11 @@ public class DataView extends ArrayBufferView {
   }-*/;
 
   /**
-   * Reads a Int8 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @return the Int8 value at the given byteOffset
+   * protected standard constructor as specified by {@link com.google.gwt.core.client.JavaScriptObject}.
    */
-  public final native int getInt8(int byteOffset) /*-{
-		return this.getInt8(byteOffset);
-  }-*/;
-
-  /**
-   * Reads a Uint8 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @return the Uint8 value at the given byteOffset
-   */
-  public final native int getUint8(int byteOffset) /*-{
-		return this.getUint8(byteOffset);
-  }-*/;
-
-  /**
-   * Reads a Int16 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @return the Int16 value at the given byteOffset
-   */
-  public final native int getInt16(int byteOffset) /*-{
-		return this.getInt16(byteOffset);
-  }-*/;
-
-  /**
-   * Reads a Int16 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be read as little endian.
-   * @return the Int16 value at the given byteOffset
-   */
-  public final native int getInt16(int byteOffset, boolean littleEndian) /*-{
-		return this.getInt16(byteOffset, littleEndian);
-  }-*/;
-
-  /**
-   * Reads a Uint16 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @return the Uint16 value at the given byteOffset
-   */
-  public final native int getUint16(int byteOffset) /*-{
-		return this.getUint16(byteOffset);
-  }-*/;
-
-  /**
-   * Reads a Uint16 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be read as little endian.
-   * @return the Uint16 value at the given byteOffset
-   */
-  public final native int getUint16(int byteOffset, boolean littleEndian) /*-{
-		return this.getUint16(byteOffset, littleEndian);
-  }-*/;
-
-  /**
-   * Reads a Int32 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @return the Int32 value at the given byteOffset
-   */
-  public final native int getInt32(int byteOffset) /*-{
-		return this.getInt32(byteOffset);
-  }-*/;
-
-  /**
-   * Reads a Int32 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be read as little endian.
-   * @return the Int32 value at the given byteOffset
-   */
-  public final native int getInt32(int byteOffset, boolean littleEndian) /*-{
-		return this.getInt32(byteOffset, littleEndian);
-  }-*/;
-
-  /**
-   * Reads a Uint32 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @return the Uint32 value at the given byteOffset
-   */
-  public final native int getUint32(int byteOffset) /*-{
-		return this.getUint32(byteOffset);
-  }-*/;
-
-  /**
-   * Reads a Uint32 value at the given byteOffset.
-   * 
-   * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be read as little endian.
-   * @return the Uint32 value at the given byteOffset
-   */
-  public final native int getUint32(int byteOffset, boolean littleEndian) /*-{
-		return this.getUint32(byteOffset, littleEndian);
-  }-*/;
+  protected DataView() {
+    super();
+  }
 
   /**
    * Reads a Float32 value at the given byteOffset.
@@ -210,107 +106,107 @@ public class DataView extends ArrayBufferView {
   }-*/;
 
   /**
-   * Writes a Int8 value at the given byteOffset.
+   * Reads a Int16 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param value the value to set
+   * @return the Int16 value at the given byteOffset
    */
-  public final native void setInt8(int byteOffset, int value) /*-{
-		this.setInt8(byteOffset, value);
+  public final native int getInt16(int byteOffset) /*-{
+		return this.getInt16(byteOffset);
   }-*/;
 
   /**
-   * Writes a Uint8 value at the given byteOffset.
+   * Reads a Int16 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param value the value to set
+   * @param littleEndian flag, if the value should be read as little endian.
+   * @return the Int16 value at the given byteOffset
    */
-  public final native void setUint8(int byteOffset, int value) /*-{
-		this.setUint8(byteOffset, value);
+  public final native int getInt16(int byteOffset, boolean littleEndian) /*-{
+		return this.getInt16(byteOffset, littleEndian);
   }-*/;
 
   /**
-   * Writes a Int16 value at the given byteOffset.
+   * Reads a Int32 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param value the value to set
+   * @return the Int32 value at the given byteOffset
    */
-  public final native void setInt16(int byteOffset, int value) /*-{
-		this.setInt16(byteOffset, value);
+  public final native int getInt32(int byteOffset) /*-{
+		return this.getInt32(byteOffset);
   }-*/;
 
   /**
-   * Writes a Int16 value at the given byteOffset.
+   * Reads a Int32 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be written as little endian.
-   * @param value the value to set
+   * @param littleEndian flag, if the value should be read as little endian.
+   * @return the Int32 value at the given byteOffset
    */
-  public final native void setInt16(int byteOffset, int value, boolean littleEndian) /*-{
-		this.setInt16(byteOffset, value, littleEndian);
+  public final native int getInt32(int byteOffset, boolean littleEndian) /*-{
+		return this.getInt32(byteOffset, littleEndian);
   }-*/;
 
   /**
-   * Writes a Uint16 value at the given byteOffset.
+   * Reads a Int8 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param value the value to set
+   * @return the Int8 value at the given byteOffset
    */
-  public final native void setUint16(int byteOffset, int value) /*-{
-		this.setUint16(byteOffset, value);
+  public final native int getInt8(int byteOffset) /*-{
+		return this.getInt8(byteOffset);
   }-*/;
 
   /**
-   * Writes a Uint16 value at the given byteOffset.
+   * Reads a Uint16 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be written as little endian.
-   * @param value the value to set
+   * @return the Uint16 value at the given byteOffset
    */
-  public final native void setUint16(int byteOffset, int value, boolean littleEndian) /*-{
-		this.setUint16(byteOffset, value, littleEndian);
+  public final native int getUint16(int byteOffset) /*-{
+		return this.getUint16(byteOffset);
   }-*/;
 
   /**
-   * Writes a Int32 value at the given byteOffset.
+   * Reads a Uint16 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param value the value to set
+   * @param littleEndian flag, if the value should be read as little endian.
+   * @return the Uint16 value at the given byteOffset
    */
-  public final native void setInt32(int byteOffset, int value) /*-{
-		this.setInt32(byteOffset, value);
+  public final native int getUint16(int byteOffset, boolean littleEndian) /*-{
+		return this.getUint16(byteOffset, littleEndian);
   }-*/;
 
   /**
-   * Writes a Int32 value at the given byteOffset.
+   * Reads a Uint32 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be written as little endian.
-   * @param value the value to set
+   * @return the Uint32 value at the given byteOffset
    */
-  public final native void setInt32(int byteOffset, int value, boolean littleEndian) /*-{
-		this.setInt32(byteOffset, value, littleEndian);
+  public final native int getUint32(int byteOffset) /*-{
+		return this.getUint32(byteOffset);
   }-*/;
 
   /**
-   * Writes a Uint32 value at the given byteOffset.
+   * Reads a Uint32 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param value the value to set
+   * @param littleEndian flag, if the value should be read as little endian.
+   * @return the Uint32 value at the given byteOffset
    */
-  public final native void setUint32(int byteOffset, int value) /*-{
-		this.setUint32(byteOffset, value);
+  public final native int getUint32(int byteOffset, boolean littleEndian) /*-{
+		return this.getUint32(byteOffset, littleEndian);
   }-*/;
 
   /**
-   * Writes a Uint32 value at the given byteOffset.
+   * Reads a Uint8 value at the given byteOffset.
    * 
    * @param byteOffset the byte offset from the start of the DataView.
-   * @param littleEndian flag, if the value should be written as little endian.
-   * @param value the value to set
+   * @return the Uint8 value at the given byteOffset
    */
-  public final native void setUint32(int byteOffset, int value, boolean littleEndian) /*-{
-		this.setUint32(byteOffset, value, littleEndian);
+  public final native int getUint8(int byteOffset) /*-{
+		return this.getUint8(byteOffset);
   }-*/;
 
   /**
@@ -353,6 +249,110 @@ public class DataView extends ArrayBufferView {
    */
   public final native void setFloat64(int byteOffset, double value, boolean littleEndian) /*-{
 		this.setFloat64(byteOffset, value, littleEndian);
+  }-*/;
+
+  /**
+   * Writes a Int16 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param value the value to set
+   */
+  public final native void setInt16(int byteOffset, int value) /*-{
+		this.setInt16(byteOffset, value);
+  }-*/;
+
+  /**
+   * Writes a Int16 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param littleEndian flag, if the value should be written as little endian.
+   * @param value the value to set
+   */
+  public final native void setInt16(int byteOffset, int value, boolean littleEndian) /*-{
+		this.setInt16(byteOffset, value, littleEndian);
+  }-*/;
+
+  /**
+   * Writes a Int32 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param value the value to set
+   */
+  public final native void setInt32(int byteOffset, int value) /*-{
+		this.setInt32(byteOffset, value);
+  }-*/;
+
+  /**
+   * Writes a Int32 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param littleEndian flag, if the value should be written as little endian.
+   * @param value the value to set
+   */
+  public final native void setInt32(int byteOffset, int value, boolean littleEndian) /*-{
+		this.setInt32(byteOffset, value, littleEndian);
+  }-*/;
+
+  /**
+   * Writes a Int8 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param value the value to set
+   */
+  public final native void setInt8(int byteOffset, int value) /*-{
+		this.setInt8(byteOffset, value);
+  }-*/;
+
+  /**
+   * Writes a Uint16 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param value the value to set
+   */
+  public final native void setUint16(int byteOffset, int value) /*-{
+		this.setUint16(byteOffset, value);
+  }-*/;
+
+  /**
+   * Writes a Uint16 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param littleEndian flag, if the value should be written as little endian.
+   * @param value the value to set
+   */
+  public final native void setUint16(int byteOffset, int value, boolean littleEndian) /*-{
+		this.setUint16(byteOffset, value, littleEndian);
+  }-*/;
+
+  /**
+   * Writes a Uint32 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param value the value to set
+   */
+  public final native void setUint32(int byteOffset, int value) /*-{
+		this.setUint32(byteOffset, value);
+  }-*/;
+
+  /**
+   * Writes a Uint32 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param littleEndian flag, if the value should be written as little endian.
+   * @param value the value to set
+   */
+  public final native void setUint32(int byteOffset, int value, boolean littleEndian) /*-{
+		this.setUint32(byteOffset, value, littleEndian);
+  }-*/;
+
+  /**
+   * Writes a Uint8 value at the given byteOffset.
+   * 
+   * @param byteOffset the byte offset from the start of the DataView.
+   * @param value the value to set
+   */
+  public final native void setUint8(int byteOffset, int value) /*-{
+		this.setUint8(byteOffset, value);
   }-*/;
 
 }

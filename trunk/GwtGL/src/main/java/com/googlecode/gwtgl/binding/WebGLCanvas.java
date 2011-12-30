@@ -33,16 +33,6 @@ public class WebGLCanvas extends FocusWidget {
   }
 
   /**
-   * Constructs a WebGLCanvas with width=200px and height=200px using the given contextAttributes.
-   * 
-   * @param contextAttributes the {@link WebGLContextAttributes} used to construct the
-   *          {@link WebGLRenderingContext}
-   */
-  public WebGLCanvas(WebGLContextAttributes contextAttributes) {
-    this(contextAttributes, "200px", "200px");
-  }
-
-  /**
    * Constructs a WebGLCanvas with the given width and height.
    * 
    * @param width the width of the {@link WebGLCanvas}
@@ -50,6 +40,16 @@ public class WebGLCanvas extends FocusWidget {
    */
   public WebGLCanvas(String width, String height) {
     this(null, width, height);
+  }
+
+  /**
+   * Constructs a WebGLCanvas with width=200px and height=200px using the given contextAttributes.
+   * 
+   * @param contextAttributes the {@link WebGLContextAttributes} used to construct the
+   *          {@link WebGLRenderingContext}
+   */
+  public WebGLCanvas(WebGLContextAttributes contextAttributes) {
+    this(contextAttributes, "200px", "200px");
   }
 
   /**
@@ -79,6 +79,16 @@ public class WebGLCanvas extends FocusWidget {
     return getGlContext(getElement());
   }
 
+  @Override
+  public void setHeight(String height) {
+    DOM.setElementAttribute(getElement(), "height", height);
+  }
+
+  @Override
+  public void setWidth(String width) {
+    DOM.setElementAttribute(getElement(), "width", width);
+  }
+
   private native WebGLRenderingContext getGlContext(Element element) /*-{
 		try {
 			return element.getContext("experimental-webgl");
@@ -86,15 +96,5 @@ public class WebGLCanvas extends FocusWidget {
 		}
 		return null;
   }-*/;
-
-  @Override
-  public void setWidth(String width) {
-    DOM.setElementAttribute(getElement(), "width", width);
-  }
-
-  @Override
-  public void setHeight(String height) {
-    DOM.setElementAttribute(getElement(), "height", height);
-  }
 
 }
