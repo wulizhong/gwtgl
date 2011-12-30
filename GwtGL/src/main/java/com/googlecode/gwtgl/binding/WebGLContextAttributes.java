@@ -43,7 +43,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @return the state of the alpha flag
    */
-  public final native Boolean getAlpha() /*-{
+  public native Boolean getAlpha() /*-{
 		if (typeof (this.alpha) == 'undefined') {
 			return null;
 		}
@@ -55,7 +55,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @return the state of the antialias flag
    */
-  public final native Boolean getAntialias() /*-{
+  public native Boolean getAntialias() /*-{
 		if (typeof (this.antialias) == 'undefined') {
 			return null;
 		}
@@ -67,7 +67,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @return the state of the depth flag
    */
-  public final native Boolean getDepth() /*-{
+  public native Boolean getDepth() /*-{
 		if (typeof (this.depth) == 'undefined') {
 			return null;
 		}
@@ -79,7 +79,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @return the state of the premultiplied alpha flag
    */
-  public final native Boolean getPremultipliedAlpha() /*-{
+  public native Boolean getPremultipliedAlpha() /*-{
 		if (typeof (this.premultipliedAlpha) == 'undefined') {
 			return null;
 		}
@@ -91,7 +91,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @return the state of the stencil flag
    */
-  public final native Boolean getStencil() /*-{
+  public native Boolean getStencil() /*-{
 		if (typeof (this.stencil) == 'undefined') {
 			return null;
 		}
@@ -103,7 +103,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @param alpha the new state of the alpha flag
    */
-  public final native void setAlpha(Boolean alpha) /*-{
+  public native void setAlpha(Boolean alpha) /*-{
 		if (alpha == null) {
 			delete alpha;
 		} else {
@@ -116,7 +116,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @param antialias the new state of the antialias flag
    */
-  public final native void setAntialias(Boolean antialias) /*-{
+  public native void setAntialias(Boolean antialias) /*-{
 		if (antialias == null) {
 			delete antialias;
 		} else {
@@ -129,7 +129,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @param depth the new state of the depth flag
    */
-  public final native void setDepth(Boolean depth) /*-{
+  public native void setDepth(Boolean depth) /*-{
 		if (depth == null) {
 			delete depth;
 		} else {
@@ -142,7 +142,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @param premultipliedAlpha the new state of the premultiplied alpha flag
    */
-  public final native void setPremultipliedAlpha(Boolean premultipliedAlpha) /*-{
+  public native void setPremultipliedAlpha(Boolean premultipliedAlpha) /*-{
 		if (premultipliedAlpha == null) {
 			delete premultipliedAlpha;
 		} else {
@@ -155,7 +155,7 @@ public final class WebGLContextAttributes extends JavaScriptObject {
    * 
    * @param stencil the new state of the stencil flag
    */
-  public final native void setStencil(Boolean stencil) /*-{
+  public native void setStencil(Boolean stencil) /*-{
 		if (stencil == null) {
 			delete stencil;
 		} else {
