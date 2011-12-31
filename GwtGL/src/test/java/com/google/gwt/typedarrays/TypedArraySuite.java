@@ -11,11 +11,26 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.google.gwt.typedarrays.client;
+package com.google.gwt.typedarrays;
 
 import com.google.gwt.junit.DoNotRunWith;
 import com.google.gwt.junit.Platform;
 import com.google.gwt.junit.tools.GWTTestSuite;
+import com.google.gwt.typedarrays.client.ArrayBufferTest;
+import com.google.gwt.typedarrays.client.ArrayBufferViewTest;
+import com.google.gwt.typedarrays.client.DataViewTest;
+import com.google.gwt.typedarrays.client.Float32ArrayTest;
+import com.google.gwt.typedarrays.client.Float64ArrayTest;
+import com.google.gwt.typedarrays.client.Int16ArrayTest;
+import com.google.gwt.typedarrays.client.Int32ArrayTest;
+import com.google.gwt.typedarrays.client.Int8ArrayTest;
+import com.google.gwt.typedarrays.client.IntBasedTypedArrayTest;
+import com.google.gwt.typedarrays.client.JsArrayUtilTest;
+import com.google.gwt.typedarrays.client.TypedArrayTest;
+import com.google.gwt.typedarrays.client.Uint16ArrayTest;
+import com.google.gwt.typedarrays.client.Uint32ArrayTest;
+import com.google.gwt.typedarrays.client.Uint8ArrayTest;
+import com.google.gwt.typedarrays.client.Uint8ClampedArrayTest;
 
 import junit.framework.Test;
 
