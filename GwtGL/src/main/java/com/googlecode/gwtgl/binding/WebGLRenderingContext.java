@@ -19,12 +19,13 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
-import com.google.gwt.typedarrays.client.ArrayBuffer;
-import com.google.gwt.typedarrays.client.ArrayBufferView;
-import com.google.gwt.typedarrays.client.Float32Array;
-import com.google.gwt.typedarrays.client.Int32Array;
-import com.google.gwt.typedarrays.client.JsArrayUtil;
-import com.google.gwt.typedarrays.client.TypedArray;
+
+import com.googlecode.gwtgl.array.ArrayBuffer;
+import com.googlecode.gwtgl.array.ArrayBufferView;
+import com.googlecode.gwtgl.array.Float32Array;
+import com.googlecode.gwtgl.array.Int32Array;
+import com.googlecode.gwtgl.array.JsArrayUtil;
+import com.googlecode.gwtgl.array.TypedArray;
 
 /**
  * 
@@ -1111,7 +1112,7 @@ public final class WebGLRenderingContext extends JavaScriptObject implements Con
 		return this.getTexParameter(target, pname);
   }-*/;
 
-  public native <T extends com.google.gwt.typedarrays.client.TypedArray<?>> T getUniforma(
+  public native <T extends com.googlecode.gwtgl.array.TypedArray<?>> T getUniforma(
       WebGLProgram program, WebGLUniformLocation location) /*-{
 		return this.getUniform(program, location);
   }-*/;
