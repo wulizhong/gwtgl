@@ -30,6 +30,11 @@ public class ArrayBufferViewTest extends GWTTestCase {
   }
 
   public void testGetBuffer() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(1);
     Int8Array array = Int8Array.create(arrayBuffer);
 
@@ -40,6 +45,11 @@ public class ArrayBufferViewTest extends GWTTestCase {
   }
   
   public void testByteLength() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(8);
     
     Int8Array int8Array = Int8Array.create(arrayBuffer);
@@ -50,6 +60,11 @@ public class ArrayBufferViewTest extends GWTTestCase {
   }
   
   public void testByteLengthWithOffset() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(8);
     
     Int8Array int8Array = Int8Array.create(arrayBuffer, 1);
@@ -60,6 +75,11 @@ public class ArrayBufferViewTest extends GWTTestCase {
   }
   
   public void testLengthWithOffsetAndLength() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(8);
     
     Int8Array int8Array = Int8Array.create(arrayBuffer, 1, 2);
@@ -70,6 +90,11 @@ public class ArrayBufferViewTest extends GWTTestCase {
   }
   
   public void testOffset() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(8);
     
     Int8Array int8Array = Int8Array.create(arrayBuffer, 1);

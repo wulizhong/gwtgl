@@ -49,6 +49,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testInitWithArrayBuffer() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length);
 
     Int8Array array = Int8Array.create(arrayBuffer);
@@ -58,6 +63,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testInitWithArrayBufferAndOffset() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length + 1);
 
     Int8Array array = Int8Array.create(arrayBuffer, 1);
@@ -67,6 +77,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testInitWithArrayBufferAndOffsetAndLength() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length + 2);
 
     Int8Array array = Int8Array.create(arrayBuffer, 1, testData.length);
@@ -76,18 +91,33 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testInitWithJavaArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(testData);
 
     assertIsTestData(array);
   }
 
   public void testInitWithJsArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(testDataJsArray());
 
     assertIsTestData(array);
   }
 
   public void testInitWithTypedArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array arraySrc = Int8Array.create(testData);
 
     Int8Array array = Int8Array.create(arraySrc);
@@ -96,6 +126,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testSetJavaArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(testData.length);
 
     array.set(testData);
@@ -103,6 +138,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testSetJavaArrayWithOffset() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(testData.length);
 
     array.set(testDataPart1);
@@ -111,6 +151,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testSetJsArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(testData.length);
 
     array.set(testDataJsArray());
@@ -118,6 +163,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testSetJsArrayWithOffset() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(testData.length);
 
     array.set(testDataJsArrayPart1());
@@ -126,6 +176,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testSetTypedArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array arraySrc = Int8Array.create(testData);
 
     Int8Array array = Int8Array.create(testData.length);
@@ -135,6 +190,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testSetTypedArrayWithOffset() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array arraySrc1 = Int8Array.create(testDataPart1);
     Int8Array arraySrc2 = Int8Array.create(testDataPart2);
 
@@ -146,6 +206,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testSetValues() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(testData.length);
 
     for (int i = 0; i < testData.length; i++) {
@@ -156,6 +221,11 @@ public class Int8ArrayTest extends GWTTestCase {
   }
 
   public void testValueRange() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     Int8Array array = Int8Array.create(4);
 
     // 2^7-1
