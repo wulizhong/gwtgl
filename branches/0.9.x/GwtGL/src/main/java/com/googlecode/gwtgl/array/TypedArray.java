@@ -77,12 +77,13 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
   };
 
   /**
-   * Checks at runtime if the Browser supports the {@link TypedArray}.
+   * Checks at runtime if the Browser supports the Typed Array API.
    * 
    * @return true, if TypedArray is supported, false otherwise.
    */
   private static native boolean isSupportedRuntime() /*-{
-		return !!window.TypedArray
+		// TypedArray isn't available as type to JS. So we use annother elemental type for the check.
+		return !!(window.ArrayBuffer);
   }-*/;
 
   /**
@@ -144,7 +145,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
    * @return the new Array
    */
   public final native T subarray(int begin, int end)/*-{
-		return this.subarray(begin, length);
+		return this.subarray(begin, end);
   }-*/;
 
 }
