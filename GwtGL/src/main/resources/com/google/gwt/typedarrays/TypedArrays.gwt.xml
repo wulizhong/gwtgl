@@ -19,11 +19,8 @@ limitations under the License.
 	<inherits name='com.google.gwt.core.Core' />
 	<inherits name='com.google.gwt.user.UserAgent' />
 
-	<!-- Specify the paths for translatable code -->
-	<source path='array' />
-
-	<replace-with class="com.googlecode.gwtgl.array.TypedArray.TypedArrayCompileTimeSupportTrue">
-		<when-type-is class="com.googlecode.gwtgl.array.TypedArray.TypedArrayCompileTimeSupport" />
+	<replace-with class="com.google.gwt.typedarrays.client.TypedArray.TypedArrayCompileTimeSupportTrue">
+		<when-type-is class="com.google.gwt.typedarrays.client.TypedArray.TypedArrayCompileTimeSupport" />
 		<any>
 			<when-property-is name="user.agent" value="gecko1_8" />
 			<when-property-is name="user.agent" value="safari" />

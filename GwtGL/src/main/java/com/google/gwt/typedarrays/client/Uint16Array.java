@@ -11,15 +11,15 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.googlecode.gwtgl.array;
+package com.google.gwt.typedarrays.client;
 
 import com.google.gwt.core.client.JsArrayInteger;
 
 /**
- * {@link TypedArray} that contains 16 Bit integer values.
+ * {@link TypedArray} that contains 16 Bit unsigned integer values.
  * 
  */
-public class Int16Array extends IntBasedTypedArray<Int16Array> {
+public class Uint16Array extends IntBasedTypedArray<Uint16Array> {
 
   /**
    * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
@@ -28,8 +28,8 @@ public class Int16Array extends IntBasedTypedArray<Int16Array> {
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
    * @return the created {@link TypedArray}.
    */
-  public static native Int16Array create(ArrayBuffer buffer) /*-{
-		return new Int16Array(buffer);
+  public static native Uint16Array create(ArrayBuffer buffer) /*-{
+		return new Uint16Array(buffer);
   }-*/;
 
   /**
@@ -47,8 +47,8 @@ public class Int16Array extends IntBasedTypedArray<Int16Array> {
    *          value length of this {@link TypedArray})
    * @return the newly created {@link TypedArray}.
    */
-  public static native Int16Array create(ArrayBuffer buffer, int byteOffset) /*-{
-		return new Int16Array(buffer, byteOffset);
+  public static native Uint16Array create(ArrayBuffer buffer, int byteOffset) /*-{
+		return new Uint16Array(buffer, byteOffset);
   }-*/;
 
   /**
@@ -69,8 +69,8 @@ public class Int16Array extends IntBasedTypedArray<Int16Array> {
    * @param length the lenght of the {@link TypedArray} in vales.
    * @return the newly created {@link TypedArray}.
    */
-  public static native Int16Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
-		return new Int16Array(buffer, byteOffset, length);
+  public static native Uint16Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
+		return new Uint16Array(buffer, byteOffset, length);
   }-*/;
 
   /**
@@ -80,8 +80,8 @@ public class Int16Array extends IntBasedTypedArray<Int16Array> {
    * @param length the length in values of the type used by this {@link TypedArray}
    * @return the created {@link TypedArray}.
    */
-  public static native Int16Array create(int length) /*-{
-		return new Int16Array(length);
+  public static native Uint16Array create(int length) /*-{
+		return new Uint16Array(length);
   }-*/;;
 
   /**
@@ -91,20 +91,9 @@ public class Int16Array extends IntBasedTypedArray<Int16Array> {
    * @param array the array to get the values from
    * @return the created {@link TypedArray}.
    */
-  public static Int16Array create(int[] array) {
+  public static Uint16Array create(int[] array) {
     return create(JsArrayUtil.wrapArray(array));
   }
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the same length as the given
-   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
-   * 
-   * @param array the {@link TypedArray} to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static native Int16Array create(Int16Array array) /*-{
-		return new Int16Array(array);
-  }-*/;
 
   /**
    * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
@@ -113,15 +102,26 @@ public class Int16Array extends IntBasedTypedArray<Int16Array> {
    * @param array the array to get the values from
    * @return the created {@link TypedArray}.
    */
-  public static native Int16Array create(JsArrayInteger array) /*-{
-		return new Int16Array(array);
+  public static native Uint16Array create(JsArrayInteger array) /*-{
+		return new Uint16Array(array);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link TypedArray} of the same length as the given
+   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
+   * 
+   * @param array the {@link TypedArray} to get the values from
+   * @return the created {@link TypedArray}.
+   */
+  public static native Uint16Array create(Uint16Array array) /*-{
+		return new Uint16Array(array);
   }-*/;
 
   /**
    * protected standard constructor as specified by
    * {@link com.google.gwt.core.client.JavaScriptObject}.
    */
-  protected Int16Array() {
+  protected Uint16Array() {
     super();
   }
 

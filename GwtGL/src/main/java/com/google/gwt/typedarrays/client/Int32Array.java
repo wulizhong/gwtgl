@@ -11,14 +11,15 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.googlecode.gwtgl.array;
+package com.google.gwt.typedarrays.client;
 
-import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.core.client.JsArrayInteger;
 
 /**
- * {@link TypedArray} that contains 32 Bit float values.
+ * {@link TypedArray} that contains 32 Bit integer values.
+ * 
  */
-public class Float32Array extends TypedArray<Float32Array> {
+public class Int32Array extends IntBasedTypedArray<Int32Array> {
 
   /**
    * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
@@ -27,8 +28,8 @@ public class Float32Array extends TypedArray<Float32Array> {
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
    * @return the created {@link TypedArray}.
    */
-  public static native Float32Array create(ArrayBuffer buffer) /*-{
-		return new Float32Array(buffer);
+  public static native Int32Array create(ArrayBuffer buffer) /*-{
+		return new Int32Array(buffer);
   }-*/;
 
   /**
@@ -46,8 +47,8 @@ public class Float32Array extends TypedArray<Float32Array> {
    *          value length of this {@link TypedArray})
    * @return the newly created {@link TypedArray}.
    */
-  public static native Float32Array create(ArrayBuffer buffer, int byteOffset) /*-{
-		return new Float32Array(buffer, byteOffset);
+  public static native Int32Array create(ArrayBuffer buffer, int byteOffset) /*-{
+		return new Int32Array(buffer, byteOffset);
   }-*/;
 
   /**
@@ -65,33 +66,11 @@ public class Float32Array extends TypedArray<Float32Array> {
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
    * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
    *          value length of this {@link TypedArray})
-   * @param length the length of the {@link TypedArray} in vales.
+   * @param length the lenght of the {@link TypedArray} in vales.
    * @return the newly created {@link TypedArray}.
    */
-  public static native Float32Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
-		return new Float32Array(buffer, byteOffset, length);
-  }-*/;
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
-   * The values are set to the values of the given array.
-   * 
-   * @param array the array to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static Float32Array create(float[] array) {
-    return create(JsArrayUtil.wrapArray(array));
-  };
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the same length as the given
-   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
-   * 
-   * @param array the {@link TypedArray} to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static native Float32Array create(Float32Array array) /*-{
-		return new Float32Array(array);
+  public static native Int32Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
+		return new Int32Array(buffer, byteOffset, length);
   }-*/;
 
   /**
@@ -101,8 +80,30 @@ public class Float32Array extends TypedArray<Float32Array> {
    * @param length the length in values of the type used by this {@link TypedArray}
    * @return the created {@link TypedArray}.
    */
-  public static native Float32Array create(int length) /*-{
-		return new Float32Array(length);
+  public static native Int32Array create(int length) /*-{
+		return new Int32Array(length);
+  }-*/;;
+
+  /**
+   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
+   * The values are set to the values of the given array.
+   * 
+   * @param array the array to get the values from
+   * @return the created {@link TypedArray}.
+   */
+  public static Int32Array create(int[] array) {
+    return create(JsArrayUtil.wrapArray(array));
+  }
+
+  /**
+   * Creates a new instance of the {@link TypedArray} of the same length as the given
+   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
+   * 
+   * @param array the {@link TypedArray} to get the values from
+   * @return the created {@link TypedArray}.
+   */
+  public static native Int32Array create(Int32Array array) /*-{
+		return new Int32Array(array);
   }-*/;
 
   /**
@@ -112,82 +113,16 @@ public class Float32Array extends TypedArray<Float32Array> {
    * @param array the array to get the values from
    * @return the created {@link TypedArray}.
    */
-  public static native Float32Array create(JsArrayNumber array) /*-{
-		return new Float32Array(array);
-  }-*/;
-
-  /**
-   * Writes multiple values to the TypedArray using the values of the given Array.
-   * 
-   * @param array an array containing the new values to set.
-   */
-  public static native void set(JsArrayNumber array) /*-{
-		this.set(array);
-  }-*/;
-
-  /**
-   * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
-   * beginning at the given offset.
-   * 
-   * @param array an array containing the new values to set.
-   * @param offset the offset relative to the beginning of the TypedArray.
-   */
-  public static native void set(JsArrayNumber array, int offset) /*-{
-		this.set(array, offset);
+  public static native Int32Array create(JsArrayInteger array) /*-{
+		return new Int32Array(array);
   }-*/;
 
   /**
    * protected standard constructor as specified by
    * {@link com.google.gwt.core.client.JavaScriptObject}.
    */
-  protected Float32Array() {
+  protected Int32Array() {
     super();
   }
-
-  /**
-   * Reads the value at the given index. The index is based on the value length of the type used by
-   * this {@link TypedArray}. Accessing an index that doesn't exist will cause an exception.
-   * 
-   * 
-   * @param index the index relative to the beginning of the TypedArray.
-   * @return the value at the given index
-   */
-  public final native float get(int index) /*-{
-		return this[index];
-  }-*/;;
-
-  /**
-   * Writes multiple values to the TypedArray using the values of the given Array.
-   * 
-   * @param array an array containing the new values to set.
-   */
-  public final void set(float[] array) {
-    set(JsArrayUtil.wrapArray(array));
-  }
-
-  /**
-   * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
-   * beginning at the given offset.
-   * 
-   * @param array an array containing the new values to set.
-   * @param offset the offset relative to the beginning of the TypedArray.
-   */
-  public final void set(float[] array, int offset) {
-    set(JsArrayUtil.wrapArray(array), offset);
-  };
-
-  /**
-   * Writes the given value at the given index. The index is based on the value length of the type
-   * used by this {@link TypedArray}. Accessing an index that doesn't exist will cause an exception.
-   * 
-   * Values that are out of the range for the type used by this TypedAray are silently casted to be
-   * in range.
-   * 
-   * @param index the index relative to the beginning of the TypedArray.
-   * @param value the new value to set
-   */
-  public final native void set(int index, float value) /*-{
-		this[index] = value;
-  }-*/;
 
 }
