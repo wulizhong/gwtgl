@@ -261,4 +261,30 @@ public final class JsArrayUtil {
   private JsArrayUtil() {
   }
 
+  /**
+   * Reads a long value from a {@link JsArrayInteger}. Pay attention: Avoid using long values in GWT
+   * if possible (
+   * {@link "http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsCompatibility.html#language"}
+   * ). This method has poor performance compared with reading int values directly from the
+   * {@link JsArrayInteger}.
+   * 
+   * @param array the array to get the value from.
+   * @param index the index to get he value from the array
+   * @return the long value
+   */
+  public static long getLongFromJsArrayInteger(JsArrayInteger array, int index) {
+    return Long.parseLong(getStringFromJsArrayInteger(array, index));
+  }
+
+  /**
+   * Reads a value from a {@link JsArrayInteger} as String.
+   * 
+   * @param array the array to get the value from
+   * @param index the index to get the value from the array
+   * @return the value as String
+   */
+  public static native String getStringFromJsArrayInteger(JsArrayInteger array, int index) /*-{
+		return ""+array[index];
+  }-*/;
+
 }
