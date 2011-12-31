@@ -18,7 +18,7 @@ import com.google.gwt.junit.Platform;
 import com.google.gwt.junit.client.GWTTestCase;
 
 /**
- * Tests for {@link Int16Array}.
+ * Tests for {@link IntBasedTypedArray}.
  * 
  */
 @DoNotRunWith(Platform.HtmlUnitUnknown)

@@ -33,6 +33,8 @@ public class TypedArraySuite {
     GWTTestSuite suite = new GWTTestSuite("Test suite for TypedArrays GWTTestCases");
 
     suite.addTestSuite(JsArrayUtilTest.class);
+    suite.addTestSuite(ArrayBufferTest.class);
+    suite.addTestSuite(ArrayBufferViewTest.class);
     suite.addTestSuite(TypedArrayTest.class);
     suite.addTestSuite(IntBasedTypedArrayTest.class);
     suite.addTestSuite(Int8ArrayTest.class);
