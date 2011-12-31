@@ -27,14 +27,14 @@ public class Int32ArrayTest extends GWTTestCase {
 
   private static final int numBytes = 4;
 
-  private static final int[] testData = new int[] {0, 1, 2, 3, 32767, -32768};
+  private static final int[] testData = new int[] {0, 1, 2, 3, 2147483647, -2147483648};
 
   private static final int[] testDataPart1 = new int[] {0, 1, 2, 3};
 
-  private static final int[] testDataPart2 = new int[] {32767, -32768};
+  private static final int[] testDataPart2 = new int[] {2147483647, -2147483648};
 
   private static native JsArrayInteger testDataJsArray() /*-{
-		return [ 0, 1, 2, 3, 32767, -32768 ];
+		return [ 0, 1, 2, 3, 2147483647, -2147483648 ];
   }-*/;
 
   private static native JsArrayInteger testDataJsArrayPart1() /*-{
@@ -42,7 +42,7 @@ public class Int32ArrayTest extends GWTTestCase {
   }-*/;
 
   private static native JsArrayInteger testDataJsArrayPart2() /*-{
-		return [ 32767, -32768 ];
+		return [ 2147483647, -2147483648 ];
   }-*/;
 
   private static native JsArrayInteger testDataValueRange() /*-{
