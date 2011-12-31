@@ -40,6 +40,7 @@ public class TypedArraySuite {
     suite.addTestSuite(Int32ArrayTest.class);
     suite.addTestSuite(Uint16ArrayTest.class);
     suite.addTestSuite(Uint32ArrayTest.class);
+    suite.addTestSuite(Float32ArrayTest.class);
 
     return suite;
   }
