@@ -28,18 +28,13 @@ import com.google.gwt.junit.client.GWTTestCase;
 public class JsArrayUtilTest extends GWTTestCase {
 
   private native boolean checkLongArrayContents(JsArrayInteger array) /*-{
-		if (0 != array[0]) {
-			return false;
-		} else if (1 !== array[1]) {
-			return false;
-		} else if (2 !== array[2]) {
-			return false;
-		} else if (3 !== array[3]) {
-			return false;
-		} else if (9223372036854775807 !== array[4]) {
-			return false;
-		} else if (-9223372036854775808 !== array[5]) {
-			return false;
+		var referenceValues = [ 0, 1, 2, 3, 4294967295, 4294967294, 4294967293,
+				4294967292 ];
+
+		for ( var i = 0; i < referenceValues.length; i++) {
+			if (referenceValues[i] !== array[i]) {
+				return false;
+			}
 		}
 		return true;
   }-*/;
@@ -147,12 +142,17 @@ public class JsArrayUtilTest extends GWTTestCase {
   }
 
   public void testWrapLong() {
-    long[] array = new long[] {0, 1, 2, 3, Long.MAX_VALUE, Long.MIN_VALUE};
+    // we are only interested in values that are used by the Uint32Integer
+    long[] array = new long[] {0, 1, 2, 3, 4294967295L, 4294967294L, 4294967293L, 4294967292L};
     JsArrayInteger wrappedArray = JsArrayUtil.wrapArray(array);
 
     assertEquals(array.length, wrappedArray.length());
 
     assertTrue(checkLongArrayContents(wrappedArray));
+
+    for (int i = 0; i < array.length; i++) {
+      assertEquals(array[i], JsArrayUtil.getLongFromJsArrayInteger(wrappedArray, i));
+    }
   }
 
   public void testWrapString() {
