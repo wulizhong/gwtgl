@@ -30,6 +30,11 @@ public class ArrayBufferTest extends GWTTestCase {
   }
 
   public void testCreateArrayBufferWithSize() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(8);
     assertEquals(8, arrayBuffer.getByteLength());
   }

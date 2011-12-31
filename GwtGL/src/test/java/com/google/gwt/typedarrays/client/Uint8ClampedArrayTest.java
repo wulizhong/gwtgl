@@ -51,7 +51,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testInitWithArrayBuffer() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * numBytes);
@@ -64,7 +64,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testInitWithArrayBufferAndOffset() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * numBytes);
@@ -77,7 +77,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testInitWithArrayBufferAndOffsetAndLength() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * numBytes);
@@ -90,7 +90,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testInitWithJavaArray() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray array = Uint8ClampedArray.create(testData);
@@ -100,7 +100,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testInitWithJsArray() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray array = Uint8ClampedArray.create(testDataJsArray());
@@ -110,7 +110,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testInitWithTypedArray() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray arraySrc = Uint8ClampedArray.create(testData);
@@ -122,7 +122,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testSetJavaArray() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray array = Uint8ClampedArray.create(testData.length);
@@ -133,7 +133,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testSetJavaArrayWithOffset() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray array = Uint8ClampedArray.create(testData.length);
@@ -145,7 +145,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testSetJsArray() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray array = Uint8ClampedArray.create(testData.length);
@@ -156,7 +156,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testSetJsArrayWithOffset() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray array = Uint8ClampedArray.create(testData.length);
@@ -168,7 +168,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testSetTypedArray() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray arraySrc = Uint8ClampedArray.create(testData);
@@ -181,7 +181,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testSetTypedArrayWithOffset() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray arraySrc1 = Uint8ClampedArray.create(testDataPart1);
@@ -196,7 +196,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testSetValues() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray array = Uint8ClampedArray.create(testData.length);
@@ -210,7 +210,7 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
 
   public void testValueRange() {
     if (!Uint8ClampedArray.isSupported()) {
-      // nothing to test
+      // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
     Uint8ClampedArray uint8Array = Uint8ClampedArray.create(4);

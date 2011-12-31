@@ -30,6 +30,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testIntToFloatConversion() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(4);
     Int32Array int32Array = Int32Array.create(arrayBuffer);
     Float32Array float32Array = Float32Array.create(arrayBuffer);
@@ -40,6 +45,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testIntValueConversion() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(4);
     Int8Array int8Array = Int8Array.create(arrayBuffer);
     Int32Array int32Array = Int32Array.create(arrayBuffer);
@@ -63,6 +73,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testMixedValues() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(4);
     Int8Array int8Array = Int8Array.create(arrayBuffer, 0, 2);
     Int16Array int16Array = Int16Array.create(arrayBuffer, 2, 1);
@@ -77,6 +92,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testTwoArrays() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     ArrayBuffer arrayBuffer = ArrayBuffer.create(2);
     Int8Array array1 = Int8Array.create(arrayBuffer);
     Int8Array array2 = Int8Array.create(arrayBuffer);

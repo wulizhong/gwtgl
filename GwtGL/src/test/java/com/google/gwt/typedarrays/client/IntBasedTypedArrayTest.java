@@ -30,6 +30,11 @@ public class IntBasedTypedArrayTest extends GWTTestCase {
   }
 
   public void testByte() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     byte[] array = new byte[] {0, 1, 2, Byte.MAX_VALUE, Byte.MIN_VALUE};
     Int8Array typedArray = Int8Array.create(array.length);
 
@@ -51,6 +56,11 @@ public class IntBasedTypedArrayTest extends GWTTestCase {
   }
   
   public void testShort() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     short[] array = new short[] {0, 1, 2, Short.MAX_VALUE, Short.MIN_VALUE};
     Int16Array typedArray = Int16Array.create(array.length);
     
@@ -72,6 +82,11 @@ public class IntBasedTypedArrayTest extends GWTTestCase {
   }
   
   public void testInt() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     int[] array = new int[] {0, 1, 2, Integer.MAX_VALUE, Integer.MIN_VALUE};
     Int32Array typedArray = Int32Array.create(array.length);
     
@@ -93,6 +108,11 @@ public class IntBasedTypedArrayTest extends GWTTestCase {
   }
   
   public void testLong() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+    
     long[] array = new long[] {0, 1, 2, 4294967295L};
     Uint32Array typedArray = Uint32Array.create(array.length);
     
