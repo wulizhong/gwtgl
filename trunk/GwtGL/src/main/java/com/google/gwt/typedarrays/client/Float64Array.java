@@ -122,7 +122,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * 
    * @param array an array containing the new values to set.
    */
-  public static native void set(JsArrayNumber array) /*-{
+  public final native void set(JsArrayNumber array) /*-{
 		this.set(array);
   }-*/;
 
@@ -133,7 +133,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @param array an array containing the new values to set.
    * @param offset the offset relative to the beginning of the TypedArray.
    */
-  public static native void set(JsArrayNumber array, int offset) /*-{
+  public final native void set(JsArrayNumber array, int offset) /*-{
 		this.set(array, offset);
   }-*/;
 
