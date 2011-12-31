@@ -34,6 +34,7 @@ public class TypedArraySuite {
 
     suite.addTestSuite(JsArrayUtilTest.class);
     suite.addTestSuite(TypedArrayTest.class);
+    suite.addTestSuite(IntBasedTypedArrayTest.class);
     suite.addTestSuite(Int8ArrayTest.class);
     suite.addTestSuite(Int16ArrayTest.class);
     suite.addTestSuite(Int32ArrayTest.class);
