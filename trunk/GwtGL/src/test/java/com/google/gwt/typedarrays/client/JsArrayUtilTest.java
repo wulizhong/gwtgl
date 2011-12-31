@@ -17,8 +17,6 @@ import com.google.gwt.core.client.JsArrayBoolean;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
-import com.google.gwt.junit.DoNotRunWith;
-import com.google.gwt.junit.Platform;
 import com.google.gwt.junit.client.GWTTestCase;
 
 /**
@@ -85,30 +83,16 @@ public class JsArrayUtilTest extends GWTTestCase {
   }
 
   public void testWrapDouble() {
-    double[] array = new double[] {0.0, 1.0, -1.0};
+    double[] array = new double[] {
+        0.0, 1.0, -1.0, Double.MAX_VALUE, Double.MIN_VALUE, Double.MIN_NORMAL,
+        Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY};
     JsArrayNumber wrappedArray = JsArrayUtil.wrapArray(array);
 
     assertEquals(array.length, wrappedArray.length());
 
     for (int i = 0; i < array.length; i++) {
       // no calculations are done, so the values should be really equal
-      assertEquals(array[i], (float) wrappedArray.get(i), 0.0);
-    }
-  }
-
-  @DoNotRunWith(Platform.Devel)
-  public void testWrapDoubleProdOnly() {
-    double[] array =
-        new double[] {
-            0.0, 1.0, -1.0, Double.MAX_VALUE, Double.MIN_VALUE, Double.MIN_NORMAL,
-            Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY};
-    JsArrayNumber wrappedArray = JsArrayUtil.wrapArray(array);
-
-    assertEquals(array.length, wrappedArray.length());
-
-    for (int i = 0; i < array.length; i++) {
-      // no calculations are done, so the values should be really equal
-      assertEquals(array[i], (float) wrappedArray.get(i), 0.0);
+      assertEquals(array[i], wrappedArray.get(i), 0.0);
     }
   }
 
