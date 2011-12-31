@@ -15,8 +15,8 @@
  */
 package com.googlecode.gwtgl.wrapper;
 
-import com.googlecode.gwtgl.array.ArrayBuffer;
-import com.googlecode.gwtgl.array.Uint8Array;
+import com.google.gwt.typedarrays.client.ArrayBuffer;
+import com.google.gwt.typedarrays.client.Uint8Array;
 import com.googlecode.gwtgl.wrapper.Array.IntBasedArray;
 import com.googlecode.gwtgl.wrapper.enums.DataType;
 
