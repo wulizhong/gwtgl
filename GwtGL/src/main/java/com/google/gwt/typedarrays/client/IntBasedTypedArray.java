@@ -46,18 +46,60 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
   }-*/;
 
   /**
-   * Writes the given value at the given index. The index is based on the value length of the type
-   * used by this {@link TypedArray}. Accessing an index that doesn't exist will cause an exception.
+   * Reads the value at the given index. The index is based on the value length of the type used by
+   * this {@link TypedArray}. Accessing an index that doesn't exist will cause an exception.
    * 
-   * Values that are out of the range for the type used by this TypedAray are silently casted to be
-   * in range.
    * 
    * @param index the index relative to the beginning of the TypedArray.
-   * @param value the new value to set
+   * @return the value at the given index
    */
-  public final native void set(int index, int value) /*-{
-		this[index] = value;
+  public final native byte getByte(int index) /*-{
+		return this[index];
   }-*/;
+
+  /**
+   * Reads the value at the given index. The index is based on the value length of the type used by
+   * this {@link TypedArray}. Accessing an index that doesn't exist will cause an exception.
+   * 
+   * 
+   * @param index the index relative to the beginning of the TypedArray.
+   * @return the value at the given index
+   */
+  public final long getLong(int index) {
+    return Long.parseLong(getLongImpl(index));
+  }
+
+  /**
+   * Reads the value at the given index. The index is based on the value length of the type used by
+   * this {@link TypedArray}. Accessing an index that doesn't exist will cause an exception.
+   * 
+   * 
+   * @param index the index relative to the beginning of the TypedArray.
+   * @return the value at the given index
+   */
+  public final native short getShort(int index) /*-{
+		return this[index];
+  }-*/;;
+
+  /**
+   * Writes multiple values to the TypedArray using the values of the given Array.
+   * 
+   * @param array an array containing the new values to set.
+   */
+  public final void set(byte[] array) {
+    set(JsArrayUtil.wrapArray(array));
+  }
+
+  /**
+   * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
+   * beginning at the given offset.
+   * 
+   * @param array an array containing the new values to set.
+   * @param offset the offset relative to the beginning of the TypedArray.
+   */
+  public final void set(byte[] array, int offset) {
+    set(JsArrayUtil.wrapArray(array), offset);
+  }
 
   /**
    * Writes the given value at the given index. The index is based on the value length of the type
@@ -83,7 +125,7 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
    * @param index the index relative to the beginning of the TypedArray.
    * @param value the new value to set
    */
-  public final native void set(int index, short value) /*-{
+  public final native void set(int index, int value) /*-{
 		this[index] = value;
   }-*/;
 
@@ -111,14 +153,17 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
   }
 
   /**
-   * Implementation for setting long values using Strings as longs are emulated in GWT and can't be
-   * directly used in JSNI.
+   * Writes the given value at the given index. The index is based on the value length of the type
+   * used by this {@link TypedArray}. Accessing an index that doesn't exist will cause an exception.
    * 
-   * @param index the index to set the value at
-   * @param value the value to set
+   * Values that are out of the range for the type used by this TypedAray are silently casted to be
+   * in range.
+   * 
+   * @param index the index relative to the beginning of the TypedArray.
+   * @param value the new value to set
    */
-  private native void setImpl(int index, String value) /*-{
-		this[index] = parseInt(value);
+  public final native void set(int index, short value) /*-{
+		this[index] = value;
   }-*/;
 
   /**
@@ -146,9 +191,9 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
    * 
    * @param array an array containing the new values to set.
    */
-  public final void set(byte[] array) {
-    set(JsArrayUtil.wrapArray(array));
-  };
+  public final native void set(JsArrayInteger array) /*-{
+		this.set(array);
+  }-*/;;
 
   /**
    * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
@@ -157,29 +202,9 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
    * @param array an array containing the new values to set.
    * @param offset the offset relative to the beginning of the TypedArray.
    */
-  public final void set(byte[] array, int offset) {
-    set(JsArrayUtil.wrapArray(array), offset);
-  }
-
-  /**
-   * Writes multiple values to the TypedArray using the values of the given Array.
-   * 
-   * @param array an array containing the new values to set.
-   */
-  public final void set(short[] array) {
-    set(JsArrayUtil.wrapArray(array));
-  };
-
-  /**
-   * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
-   * beginning at the given offset.
-   * 
-   * @param array an array containing the new values to set.
-   * @param offset the offset relative to the beginning of the TypedArray.
-   */
-  public final void set(short[] array, int offset) {
-    set(JsArrayUtil.wrapArray(array), offset);
-  }
+  public final native void set(JsArrayInteger array, int offset) /*-{
+		this.set(array, offset);
+  }-*/;
 
   /**
    * Writes multiple values to the TypedArray using the values of the given Array. Pay attention:
@@ -221,9 +246,9 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
    * 
    * @param array an array containing the new values to set.
    */
-  public final native void set(JsArrayInteger array) /*-{
-		this.set(array);
-  }-*/;;
+  public final void set(short[] array) {
+    set(JsArrayUtil.wrapArray(array));
+  };
 
   /**
    * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
@@ -232,7 +257,28 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
    * @param array an array containing the new values to set.
    * @param offset the offset relative to the beginning of the TypedArray.
    */
-  public final native void set(JsArrayInteger array, int offset) /*-{
-		this.set(array, offset);
+  public final void set(short[] array, int offset) {
+    set(JsArrayUtil.wrapArray(array), offset);
+  }
+
+  /**
+   * Implementation for getLong that returns the value as String to be later parsed as long.
+   * 
+   * @param index the index relative to the beginning of the TypedArray.
+   * @return the value at the given index
+   */
+  private native String getLongImpl(int index) /*-{
+		return "" + this[index];
+  }-*/;;
+
+  /**
+   * Implementation for setting long values using Strings as longs are emulated in GWT and can't be
+   * directly used in JSNI.
+   * 
+   * @param index the index to set the value at
+   * @param value the value to set
+   */
+  private native void setImpl(int index, String value) /*-{
+		this[index] = parseInt(value);
   }-*/;
 }
