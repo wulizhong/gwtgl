@@ -16,8 +16,7 @@
 package com.googlecode.gwtgl.example.client.examples.whitetriangle;
 
 import static com.google.gwt.core.client.GWT.log;
-
-import com.google.gwt.typedarrays.client.Float32Array;
+import com.googlecode.gwtgl.array.Float32Array;
 import com.googlecode.gwtgl.binding.WebGLBuffer;
 import com.googlecode.gwtgl.binding.WebGLProgram;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;

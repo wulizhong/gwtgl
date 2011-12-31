@@ -17,8 +17,8 @@ package com.googlecode.gwtgl.wrapper;
 
 import java.util.Iterator;
 
-import com.google.gwt.typedarrays.client.ArrayBuffer;
-import com.google.gwt.typedarrays.client.Float32Array;
+import com.googlecode.gwtgl.array.ArrayBuffer;
+import com.googlecode.gwtgl.array.Float32Array;
 import com.googlecode.gwtgl.wrapper.enums.DataType;
 
 /**

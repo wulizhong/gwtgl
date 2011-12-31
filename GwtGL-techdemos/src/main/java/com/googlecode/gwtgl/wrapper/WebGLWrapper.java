@@ -15,7 +15,7 @@
  */
 package com.googlecode.gwtgl.wrapper;
 
-import com.google.gwt.typedarrays.client.Float32Array;
+import com.googlecode.gwtgl.array.Float32Array;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
 import com.googlecode.gwtgl.binding.WebGLUniformLocation;
 import com.googlecode.gwtgl.wrapper.enums.ClearFlag;
