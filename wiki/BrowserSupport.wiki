@@ -1,31 +1,10 @@
 #summary Tutorial: Description how to get a WebGL compatible browser.
 #sidebar TableOfContents
 
-As the work on WebGL is still in progress, only few browsers provide support
-for it in their *head builds*. You need to use unstable versions, so be sure what you do!
-Browsers with WebGL Support are:
-  * !WebKit Nightly Builds (http://nightly.webkit.org/)
-  * Chromium - the open source browser Google's Chrome is based on
-    * Download nightlybuild for [http://build.chromium.org/buildbot/continuous/win/LATEST/ windows], [http://build.chromium.org/buildbot/continuous/linux/LATEST/ linux] or [http://build.chromium.org/buildbot/continuous/mac/LATEST/ macos]
-    * Start browser with the following command line:
-      * windows: no options needed
-      * linux: _./chromium --enable-webgl
-      * macos: _./Chromium.app/Contents/MacOS/Chromium --enable-webgl
-  * Firefox 4 beta (http://www.mozilla.com/de/firefox/beta/)
-    * Firefox 4 beta portable (http://portableapps.com/apps/internet/firefox_portable/test)
-    * Open _about:config_ and set value _webgl.enabled_for_all_sites_ to _true_
+Please install latest [http://www.google.com/chrome Google Chrome] or [http://www.mozilla.org/firefox/ Mozilla Firefox] browser.
 
 Other browsers do *NOT* support WebGL.
 
-Use current builds of the mentioned browsers. As WebGL itself is not stable,
-APIs and their implementation change. We try to keep compatibility to current builds of the browsers.
-
-Firefox 4 is not compatible with the dev mode extension. The dev mode is thus not usable with Firefox 3.7.
-Therefore it is necessary to deploy your GwtGL app and test it in web mode.
-
-The dev mode extension for Chrome doesn't work with recent chromium nightlies. We use a version of mid Nov 2010 that used to work.
-
-For detail informations on how to install the browsers, look at:
-http://learningwebgl.com/blog/?p=11
+As WebGL itself is not stable, APIs and their implementation change. We try to keep compatibility to current builds of the browsers.
 
 To check the correctness of your browser installation you can have a look at the [http://gwtgl-examples.appspot.com/ demos].
