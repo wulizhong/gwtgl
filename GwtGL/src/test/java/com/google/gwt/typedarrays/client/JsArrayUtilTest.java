@@ -17,12 +17,15 @@ import com.google.gwt.core.client.JsArrayBoolean;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
+import com.google.gwt.junit.DoNotRunWith;
+import com.google.gwt.junit.Platform;
 import com.google.gwt.junit.client.GWTTestCase;
 
 /**
  * Tests for {@link TypedArray} and subclasses.
  * 
  */
+@DoNotRunWith(Platform.HtmlUnitUnknown)
 public class JsArrayUtilTest extends GWTTestCase {
 
   @Override
