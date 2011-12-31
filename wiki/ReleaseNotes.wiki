@@ -1,6 +1,17 @@
 #summary The release notes of the GwtGL project.
 #sidebar TableOfContents
 
+= 0.9.1 - Dec 31, 2011 =
+
+GwtGL is mostly bugfix release.
+
+Details
+  * Added more tests for the Typed Arrays
+  * fixed several bugs in the Typed Arrays Binding
+    * multiple set methods were broken
+    * the method subarray(int, int) was broken
+  * Added explicit checks for browser support of Typed Arrays
+
 = 0.9 - Dec 27, 2011 =
 
 GwtGL 0.9 provides an improved binding for the WebGL 1.0 spec, support for the GWT 2.2 Canvas widget and support for the current Typed Arrays spec.
