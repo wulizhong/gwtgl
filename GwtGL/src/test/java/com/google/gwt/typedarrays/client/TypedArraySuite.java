@@ -46,6 +46,7 @@ public class TypedArraySuite {
     suite.addTestSuite(Uint32ArrayTest.class);
     suite.addTestSuite(Float32ArrayTest.class);
     suite.addTestSuite(Float64ArrayTest.class);
+    suite.addTestSuite(DataViewTest.class);
 
     return suite;
   }
