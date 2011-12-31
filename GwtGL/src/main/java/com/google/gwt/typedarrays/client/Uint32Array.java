@@ -112,6 +112,25 @@ public class Uint32Array extends IntBasedTypedArray<Uint32Array> {
    * Creates a new instance of the {@link Uint32Array} of the length of the given array in values.
    * The values contained in the given array are set to the newly created {@link Uint32Array}.
    * 
+   * Pay attention: Avoid using long values in GWT if possible (
+   * {@link "http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsCompatibility.html#language"}
+   * ). This method has poor performance compared with the int[] version (
+   * {@link Uint32Array#create(int[])}). Please note that in production mode int, short and byte are
+   * handled as 64Bit floating point values, so you can use them for values >2^31-1. Keep in mind
+   * that not every long value can be represented exactly by 64Bit floating values. Be aware that
+   * this won't work correctly in dev mode and no literals above that limit are supported in Java.
+   * 
+   * @param array the array to get the values from
+   * @return the created {@link Uint32Array} or null if it isn't supported by the browser.
+   */
+  public static Uint32Array create(long[] array) {
+    return create(JsArrayUtil.wrapArray(array));
+  }
+
+  /**
+   * Creates a new instance of the {@link Uint32Array} of the length of the given array in values.
+   * The values contained in the given array are set to the newly created {@link Uint32Array}.
+   * 
    * @param array the array to get the values from
    * @return the created {@link Uint32Array} or null if it isn't supported by the browser.
    */
