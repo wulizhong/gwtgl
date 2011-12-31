@@ -11,36 +11,38 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.googlecode.gwtgl.array;
 
-import com.google.gwt.core.client.JsArrayInteger;
+import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.junit.DoNotRunWith;
 import com.google.gwt.junit.Platform;
 import com.google.gwt.junit.client.GWTTestCase;
 
 /**
- * Tests for {@link Int8Array}.
+ * Tests for {@link Float64Array}.
  * 
  */
 @DoNotRunWith(Platform.HtmlUnitUnknown)
-public class Int8ArrayTest extends GWTTestCase {
+public class Float64ArrayTest extends GWTTestCase {
+  private static final int numBytes = 8;
 
-  private static final int[] testData = new int[] {0, 1, 2, 3, 127, -128};
+  private static final double[] testData = new double[] {0d, 0.1d, 1d, 2d, 3d, 1337d, -1337d};
 
-  private static final int[] testDataPart1 = new int[] {0, 1, 2, 3};
+  private static final double[] testDataPart1 = new double[] {0d, 0.1d, 1d, 2d, 3d};
 
-  private static final int[] testDataPart2 = new int[] {127, -128};
+  private static final double[] testDataPart2 = new double[] {1337d, -1337d};
 
-  private static native JsArrayInteger testDataJsArray() /*-{
-		return [ 0, 1, 2, 3, 127, -128 ];
+  private static native JsArrayNumber testDataJsArray() /*-{
+    return [ 0, 0.1, 1, 2, 3, 1337, -1337 ];
   }-*/;
 
-  private static native JsArrayInteger testDataJsArrayPart1() /*-{
-		return [ 0, 1, 2, 3 ];
+  private static native JsArrayNumber testDataJsArrayPart1() /*-{
+    return [ 0, 0.1, 1, 2, 3 ];
   }-*/;
 
-  private static native JsArrayInteger testDataJsArrayPart2() /*-{
-		return [ 127, -128 ];
+  private static native JsArrayNumber testDataJsArrayPart2() /*-{
+    return [ 1337, -1337 ];
   }-*/;
 
   @Override
@@ -54,9 +56,9 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * numBytes);
 
-    Int8Array array = Int8Array.create(arrayBuffer);
+    Float64Array array = Float64Array.create(arrayBuffer);
 
     array.set(testData);
     assertIsTestData(array);
@@ -68,9 +70,9 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length + 1);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * numBytes);
 
-    Int8Array array = Int8Array.create(arrayBuffer, 1);
+    Float64Array array = Float64Array.create(arrayBuffer, numBytes);
 
     array.set(testData);
     assertIsTestData(array);
@@ -82,9 +84,9 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length + 2);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * numBytes);
 
-    Int8Array array = Int8Array.create(arrayBuffer, 1, testData.length);
+    Float64Array array = Float64Array.create(arrayBuffer, numBytes, testData.length);
 
     array.set(testData);
     assertIsTestData(array);
@@ -96,7 +98,7 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(testData);
+    Float64Array array = Float64Array.create(testData);
 
     assertIsTestData(array);
   }
@@ -107,7 +109,7 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(testDataJsArray());
+    Float64Array array = Float64Array.create(testDataJsArray());
 
     assertIsTestData(array);
   }
@@ -118,9 +120,9 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array arraySrc = Int8Array.create(testData);
+    Float64Array arraySrc = Float64Array.create(testData);
 
-    Int8Array array = Int8Array.create(arraySrc);
+    Float64Array array = Float64Array.create(arraySrc);
 
     assertIsTestData(array);
   }
@@ -131,7 +133,7 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(testData.length);
+    Float64Array array = Float64Array.create(testData.length);
 
     array.set(testData);
     assertIsTestData(array);
@@ -143,10 +145,10 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(testData.length);
+    Float64Array array = Float64Array.create(testData.length);
 
     array.set(testDataPart1);
-    array.set(testDataPart2, 4);
+    array.set(testDataPart2, testDataPart1.length);
     assertIsTestData(array);
   }
 
@@ -156,7 +158,7 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(testData.length);
+    Float64Array array = Float64Array.create(testData.length);
 
     array.set(testDataJsArray());
     assertIsTestData(array);
@@ -168,10 +170,10 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(testData.length);
+    Float64Array array = Float64Array.create(testData.length);
 
     array.set(testDataJsArrayPart1());
-    array.set(testDataJsArrayPart2(), 4);
+    array.set(testDataJsArrayPart2(), testDataPart1.length);
     assertIsTestData(array);
   }
 
@@ -181,9 +183,9 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array arraySrc = Int8Array.create(testData);
+    Float64Array arraySrc = Float64Array.create(testData);
 
-    Int8Array array = Int8Array.create(testData.length);
+    Float64Array array = Float64Array.create(testData.length);
 
     array.set(arraySrc);
     assertIsTestData(array);
@@ -195,13 +197,13 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array arraySrc1 = Int8Array.create(testDataPart1);
-    Int8Array arraySrc2 = Int8Array.create(testDataPart2);
+    Float64Array arraySrc1 = Float64Array.create(testDataPart1);
+    Float64Array arraySrc2 = Float64Array.create(testDataPart2);
 
-    Int8Array array = Int8Array.create(testData.length);
+    Float64Array array = Float64Array.create(testData.length);
 
     array.set(arraySrc1);
-    array.set(arraySrc2, 4);
+    array.set(arraySrc2, arraySrc1.getLength());
     assertIsTestData(array);
   }
 
@@ -211,7 +213,7 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(testData.length);
+    Float64Array array = Float64Array.create(testData.length);
 
     for (int i = 0; i < testData.length; i++) {
       array.set(i, testData[i]);
@@ -226,24 +228,18 @@ public class Int8ArrayTest extends GWTTestCase {
       return;
     }
     
-    Int8Array array = Int8Array.create(4);
+    Float64Array array = Float64Array.create(2);
 
-    // 2^7-1
-    array.set(0, 127);
-    // -(2^7)
-    array.set(1, -128);
-    // -(2^7+1)
-    array.set(2, -129);
-    // 2^7 -> overflow
-    array.set(3, 128);
+    // 2^31-1
+    array.set(0, Double.MAX_VALUE);
+    // -(2^31)
+    array.set(1, Double.MIN_VALUE);
 
-    assertEquals(127, array.get(0));
-    assertEquals(-128, array.get(1));
-    assertEquals(127, array.get(2));
-    assertEquals(-128, array.get(3));
+    assertEquals(Double.MAX_VALUE, array.get(0));
+    assertEquals(Double.MIN_VALUE, array.get(1));
   }
 
-  private void assertIsTestData(Int8Array array) {
+  private void assertIsTestData(Float64Array array) {
     assertEquals(testData.length, array.getLength());
 
     for (int i = 0; i < testData.length; i++) {
