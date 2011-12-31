@@ -16,8 +16,6 @@ package com.google.gwt.typedarrays.client;
 import com.google.gwt.core.client.JsArrayInteger;
 
 /**
- * FIXME unsigned int values do not exist in Java. Long can't be used for native method calls.
- * 
  * {@link TypedArray} that contains 32 Bit unsigned integer values.
  * 
  */
