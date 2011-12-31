@@ -131,6 +131,23 @@ public final class JsArrayUtil {
     }
     return result;
   }
+  
+  /**
+   * Wraps a Java byte Array to a JsArrayInteger.
+   * 
+   * @param srcArray the array to wrap
+   * @return the wrapped array
+   */
+  public static JsArrayInteger wrapArray(short[] srcArray) {
+    if (GWT.isScript()) {
+      return arrayAsJsArrayForProdMode(srcArray);
+    }
+    JsArrayInteger result = JavaScriptObject.createArray().cast();
+    for (int i = 0; i < srcArray.length; i++) {
+      result.set(i, srcArray[i]);
+    }
+    return result;
+  }
 
   /**
    * Wraps a Java double Array to a JsArrayNumber.
@@ -238,6 +255,17 @@ public final class JsArrayUtil {
    * @return an equivalent JsArray
    */
   private static native JsArrayInteger arrayAsJsArrayForProdMode(byte[] array) /*-{
+		return array;
+  }-*/;
+  
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native JsArrayInteger arrayAsJsArrayForProdMode(short[] array) /*-{
 		return array;
   }-*/;
 
