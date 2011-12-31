@@ -41,6 +41,7 @@ public class TypedArraySuite {
     suite.addTestSuite(Int16ArrayTest.class);
     suite.addTestSuite(Int32ArrayTest.class);
     suite.addTestSuite(Uint8ArrayTest.class);
+    suite.addTestSuite(Uint8ClampedArrayTest.class);
     suite.addTestSuite(Uint16ArrayTest.class);
     suite.addTestSuite(Uint32ArrayTest.class);
     suite.addTestSuite(Float32ArrayTest.class);
