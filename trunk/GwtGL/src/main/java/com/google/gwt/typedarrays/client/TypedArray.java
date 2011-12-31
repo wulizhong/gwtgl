@@ -145,7 +145,7 @@ public abstract class TypedArray<T extends TypedArray<T>> extends ArrayBufferVie
    * @return the new Array
    */
   public final native T subarray(int begin, int end)/*-{
-		return this.subarray(begin, length);
+		return this.subarray(begin, end);
   }-*/;
 
 }
