@@ -29,7 +29,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @return the created {@link TypedArray}.
    */
   public static native Float64Array create(ArrayBuffer buffer) /*-{
-		return new Float32Array(buffer);
+		return new Float64Array(buffer);
   }-*/;
 
   /**
@@ -48,7 +48,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @return the newly created {@link TypedArray}.
    */
   public static native Float64Array create(ArrayBuffer buffer, int byteOffset) /*-{
-		return new Float32Array(buffer, byteOffset);
+		return new Float64Array(buffer, byteOffset);
   }-*/;
 
   /**
@@ -70,7 +70,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @return the newly created {@link TypedArray}.
    */
   public static native Float64Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
-		return new Float32Array(buffer, byteOffset, length);
+		return new Float64Array(buffer, byteOffset, length);
   }-*/;
 
   /**
@@ -92,7 +92,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @return the created {@link TypedArray}.
    */
   public static native Float64Array create(Float64Array array) /*-{
-		return new Float32Array(array);
+		return new Float64Array(array);
   }-*/;
 
   /**
@@ -103,7 +103,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @return the created {@link TypedArray}.
    */
   public static native Float64Array create(int length) /*-{
-		return new Float32Array(length);
+		return new Float64Array(length);
   }-*/;
 
   /**
@@ -114,7 +114,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @return the created {@link TypedArray}.
    */
   public static native Float64Array create(JsArrayNumber array) /*-{
-		return new Float32Array(array);
+		return new Float64Array(array);
   }-*/;
 
   /**
@@ -153,7 +153,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    * @param index the index relative to the beginning of the TypedArray.
    * @return the value at the given index
    */
-  public final native float get(int index) /*-{
+  public final native double get(int index) /*-{
 		return this[index];
   }-*/;;
 
