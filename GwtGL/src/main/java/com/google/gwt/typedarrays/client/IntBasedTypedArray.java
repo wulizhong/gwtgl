@@ -117,7 +117,7 @@ public abstract class IntBasedTypedArray<T extends IntBasedTypedArray<T>> extend
    * @param index the index to set the value at
    * @param value the value to set
    */
-  private final native void setImpl(int index, String value) /*-{
+  private native void setImpl(int index, String value) /*-{
 		this[index] = parseInt(value);
   }-*/;
 
