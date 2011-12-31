@@ -34,7 +34,7 @@ public class TypedArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     ArrayBuffer arrayBuffer = ArrayBuffer.create(4);
     Int32Array int32Array = Int32Array.create(arrayBuffer);
     Float32Array float32Array = Float32Array.create(arrayBuffer);
@@ -44,19 +44,20 @@ public class TypedArrayTest extends GWTTestCase {
     assertEquals(1.5246414E-22f, float32Array.get(0));
   }
 
+  /**
+   * Important note: It seems, that typed arrays are always big endian (on every browser and
+   * computer we tested it). If that's not true, the test must be corrected/removed. Unfortunately
+   * there's no hint in the specification.
+   */
   public void testIntValueConversion() {
     if (!TypedArray.isSupported()) {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     ArrayBuffer arrayBuffer = ArrayBuffer.create(4);
     Int8Array int8Array = Int8Array.create(arrayBuffer);
     Int32Array int32Array = Int32Array.create(arrayBuffer);
-
-    // TODO think about that
-    // is it dependent on the number representation (big endian, little endian)?
-    // from my point of view, it must be int8Array.set(3, 7); to set the 4th byte of the 32 bit int
 
     // 0000 0111
     int8Array.set(0, 7);
@@ -77,7 +78,7 @@ public class TypedArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     ArrayBuffer arrayBuffer = ArrayBuffer.create(4);
     Int8Array int8Array = Int8Array.create(arrayBuffer, 0, 2);
     Int16Array int16Array = Int16Array.create(arrayBuffer, 2, 1);
@@ -96,7 +97,7 @@ public class TypedArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     ArrayBuffer arrayBuffer = ArrayBuffer.create(2);
     Int8Array array1 = Int8Array.create(arrayBuffer);
     Int8Array array2 = Int8Array.create(arrayBuffer);
@@ -108,4 +109,25 @@ public class TypedArrayTest extends GWTTestCase {
     assertEquals(37, array2.get(1));
   }
 
+  public void testSubarray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+
+    int[] data = new int[] {0, 1, 2, 3, 4, 5, 6, 7};
+    Int8Array array = Int8Array.create(data);
+
+    Int8Array subarray = array.subarray(2);
+    assertEquals(6, subarray.getLength());
+    for (int i = 0; i < subarray.getLength(); i++) {
+      assertEquals(data[i + 2], subarray.get(i));
+    }
+
+    subarray = array.subarray(2, 6);
+    assertEquals(4, subarray.getLength());
+    for (int i = 0; i < subarray.getLength(); i++) {
+      assertEquals(data[i + 2], subarray.get(i));
+    }
+  }
 }
