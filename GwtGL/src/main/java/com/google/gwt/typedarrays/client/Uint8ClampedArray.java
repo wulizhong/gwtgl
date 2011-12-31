@@ -32,7 +32,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
    */
   public static Uint8ClampedArray create(ArrayBuffer buffer) {
-    if (!TypedArray.isSupported()) {
+    if (!isSupported()) {
       return null;
     }
     return createImpl(buffer);
@@ -56,7 +56,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    *         browser.
    */
   public static Uint8ClampedArray create(ArrayBuffer buffer, int byteOffset) {
-    if (!TypedArray.isSupported()) {
+    if (!isSupported()) {
       return null;
     }
     return createImpl(buffer, byteOffset);
@@ -82,7 +82,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    *         browser.
    */
   public static Uint8ClampedArray create(ArrayBuffer buffer, int byteOffset, int length) {
-    if (!TypedArray.isSupported()) {
+    if (!isSupported()) {
       return null;
     }
     return createImpl(buffer, byteOffset, length);
@@ -96,7 +96,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @return the created {@link Uint8ClampedArray}.
    */
   public static Uint8ClampedArray create(int length) {
-    if (!TypedArray.isSupported()) {
+    if (!isSupported()) {
       return null;
     }
     return createImpl(length);
@@ -123,7 +123,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
    */
   public static Uint8ClampedArray create(JsArrayInteger array) {
-    if (!TypedArray.isSupported()) {
+    if (!isSupported()) {
       return null;
     }
     return createImpl(array);
@@ -139,7 +139,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
    */
   public static Uint8ClampedArray create(TypedArray<?> array) {
-    if (!TypedArray.isSupported()) {
+    if (!isSupported()) {
       return null;
     }
     return createImpl(array);
@@ -250,7 +250,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    */
   private static native Uint8ClampedArray createImpl(TypedArray<?> array) /*-{
 		return new Uint8ClampedArray(array);
-  }-*/;;
+  }-*/;
 
   /**
    * Checks at runtime if the Browser supports the {@link Uint8ClampedArray}. There's a special
