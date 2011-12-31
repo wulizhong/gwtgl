@@ -20,12 +20,102 @@ import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 
+import java.util.Arrays;
+
 /**
  * Utility class to convert Java arrays to JsArrays of matching types (and the other way around).
  * The methods take care of the scope (dev mode vs. production mode).
  * 
  */
 public final class JsArrayUtil {
+
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native JsArrayBoolean arrayAsJsArrayForProdMode(boolean[] array) /*-{
+		return array;
+  }-*/;
+
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native JsArrayInteger arrayAsJsArrayForProdMode(byte[] array) /*-{
+		return array;
+  }-*/;
+
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native JsArrayNumber arrayAsJsArrayForProdMode(double[] array) /*-{
+		return array;
+  }-*/;
+
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native JsArrayNumber arrayAsJsArrayForProdMode(float[] array) /*-{
+		return array;
+  }-*/;
+
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native JsArrayInteger arrayAsJsArrayForProdMode(int[] array) /*-{
+		return array;
+  }-*/;
+
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native JsArrayString arrayAsJsArrayForProdMode(String[] array) /*-{
+		return array;
+  }-*/;
+
+  /**
+   * Converts a String containing a textual array representation into a {@link JsArrayInteger}. The
+   * String must conform to the pattern explained in {@link Arrays#toString(int[])}.
+   * 
+   * @param arrayString the array string to convert into a {@link JsArrayInteger}
+   * @return the created array.
+   */
+  private static native JsArrayInteger createArrayFromString(String arrayString) /*-{
+		return eval(arrayString);
+  }-*/;
+
+  /**
+   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
+   * arrays. So we can directly use the given JsArray as Java array. MUST NOT be called in dev mode.
+   * 
+   * @param array the array to get the JsArray for
+   * @return an equivalent JsArray
+   */
+  private static native String[] jsArrayAsArrayForProdMode(JsArrayString array) /*-{
+		return array;
+  }-*/;
 
   /**
    * Converts a JsArrayString to a String[].
@@ -130,6 +220,25 @@ public final class JsArrayUtil {
   }
 
   /**
+   * Wraps a Java long Array to a JsArrayInteger. Pay attention: Avoid using long values in GWT if
+   * possible (
+   * {@link "http://code.google.com/intl/de-DE/webtoolkit/doc/latest/DevGuideCodingBasicsCompatibility.html#language"}
+   * ). This method has poor performance in production mode compared with the int[] version (
+   * {@link JsArrayUtil#wrapArray(int[])}). Please note that in production mode int, short and byte
+   * are handled as 64Bit floating point values, so you can use them for values >2^31-1. Keep in
+   * mind that not every long value can be represented exactly by 64Bit floating values. Be aware
+   * that this won't work correctly in dev mode and no literals above that limit are supported in
+   * Java.
+   * 
+   * @param srcArray the array to wrap
+   * @return the wrapped array
+   */
+  public static JsArrayInteger wrapArray(long[] srcArray) {
+    String arrayString = Arrays.toString(srcArray);
+    return createArrayFromString(arrayString);
+  }
+
+  /**
    * Wraps a Java String Array to a JsArrayString.
    * 
    * @param srcArray the array to wrap
@@ -145,83 +254,6 @@ public final class JsArrayUtil {
     }
     return result;
   }
-
-  /**
-   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
-   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
-   * 
-   * @param array the array to get the JsArray for
-   * @return an equivalent JsArray
-   */
-  private static native JsArrayBoolean arrayAsJsArrayForProdMode(boolean[] array) /*-{
-		return array;
-  }-*/;
-
-  /**
-   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
-   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
-   * 
-   * @param array the array to get the JsArray for
-   * @return an equivalent JsArray
-   */
-  private static native JsArrayInteger arrayAsJsArrayForProdMode(byte[] array) /*-{
-		return array;
-  }-*/;
-
-  /**
-   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
-   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
-   * 
-   * @param array the array to get the JsArray for
-   * @return an equivalent JsArray
-   */
-  private static native JsArrayNumber arrayAsJsArrayForProdMode(double[] array) /*-{
-		return array;
-  }-*/;
-
-  /**
-   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
-   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
-   * 
-   * @param array the array to get the JsArray for
-   * @return an equivalent JsArray
-   */
-  private static native JsArrayNumber arrayAsJsArrayForProdMode(float[] array) /*-{
-		return array;
-  }-*/;
-
-  /**
-   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
-   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
-   * 
-   * @param array the array to get the JsArray for
-   * @return an equivalent JsArray
-   */
-  private static native JsArrayInteger arrayAsJsArrayForProdMode(int[] array) /*-{
-		return array;
-  }-*/;
-
-  /**
-   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
-   * arrays. So we can directly use the array as JsArray. MUST NOT be called in dev mode.
-   * 
-   * @param array the array to get the JsArray for
-   * @return an equivalent JsArray
-   */
-  private static native JsArrayString arrayAsJsArrayForProdMode(String[] array) /*-{
-		return array;
-  }-*/;
-
-  /**
-   * Does the trick for production mode. In production mode, a JavaScript array is used for Java
-   * arrays. So we can directly use the given JsArray as Java array. MUST NOT be called in dev mode.
-   * 
-   * @param array the array to get the JsArray for
-   * @return an equivalent JsArray
-   */
-  private static native String[] jsArrayAsArrayForProdMode(JsArrayString array) /*-{
-		return array;
-  }-*/;
 
   /**
    * Private constructor. Class only contains static utility methods and must not be instantiated.
