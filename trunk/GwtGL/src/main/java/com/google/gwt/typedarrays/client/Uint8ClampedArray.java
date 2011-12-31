@@ -17,119 +17,133 @@ import com.google.gwt.core.client.JsArrayInteger;
 
 /**
  * {@link TypedArray} that contains 8 Bit unsigned integer values. The difference to
- * {@link Uint8Array} is when setting values: The Uint8ClampedArray uses clamping. Values that are
- * >255 will be set to 255 and values <0 will be set to 0 instead of calculating the effective value
- * based on a modulo operation.
+ * {@link Uint8ClampedArray} is when setting values: The Uint8ClampedArray uses clamping. Values
+ * that are >255 will be set to 255 and values <0 will be set to 0 instead of calculating the
+ * effective value based on a modulo operation.
  * 
  */
 public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
 
   /**
-   * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
+   * Creates a new instance of the {@link Uint8ClampedArray} using the given {@link ArrayBuffer} to
    * read/write values from/to.
    * 
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
-   * @return the created {@link TypedArray}.
+   * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
    */
-  public static native Uint8ClampedArray create(ArrayBuffer buffer) /*-{
-		return new Uint8ClampedArray(buffer);
-  }-*/;
+  public static Uint8ClampedArray create(ArrayBuffer buffer) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(buffer);
+  }
 
   /**
-   * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
+   * Creates a new instance of the {@link Uint8ClampedArray} using the given {@link ArrayBuffer} to
    * read/write values from/to.
    * 
-   * The {@link TypedArray} is created using the byteOffset to specify the starting point (in bytes)
-   * of the {@link TypedArray} relative to the beginning of the underlying {@link ArrayBuffer}. The
-   * byte offset must match (multiple) the value length of this {@link TypedArray}.
+   * The {@link Uint8ClampedArray} is created using the byteOffset to specify the starting point (in
+   * bytes) of the {@link Uint8ClampedArray} relative to the beginning of the underlying
+   * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
+   * {@link TypedArray}.
    * 
-   * if the byteLength is not valid for the given {@link ArrayBuffer}, an exception is thrown
+   * If the byteOffset is not valid for the given {@link ArrayBuffer}, an exception is thrown
    * 
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
    * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
    *          value length of this {@link TypedArray})
-   * @return the newly created {@link TypedArray}.
+   * @return the newly created {@link Uint8ClampedArray} or null if it isn't supported by the
+   *         browser.
    */
-  public static native Uint8ClampedArray create(ArrayBuffer buffer, int byteOffset) /*-{
-		return new Uint8ClampedArray(buffer, byteOffset);
-  }-*/;
+  public static Uint8ClampedArray create(ArrayBuffer buffer, int byteOffset) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(buffer, byteOffset);
+  }
 
   /**
    * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
    * read/write values from/to.
    * 
-   * The {@link TypedArray} is created using the byteOffset and length to specify the start and end
-   * (in bytes) of the {@link TypedArray} relative to the beginning of the underlying
+   * The {@link Uint8ClampedArray} is created using the byteOffset and length to specify the start
+   * and end (in bytes) of the {@link Uint8ClampedArray} relative to the beginning of the underlying
    * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
-   * {@link TypedArray}. The length is in values of the type of the {@link TypedArray}
+   * {@link TypedArray}. The length is in values of the type of the {@link TypedArray}.
    * 
-   * if the byteLength or length is not valid for the given {@link ArrayBuffer}, an exception is
-   * thrown
+   * If the byteOffset or length is not valid for the given {@link ArrayBuffer}, an exception is
+   * thrown.
    * 
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
    * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
    *          value length of this {@link TypedArray})
    * @param length the length of the {@link TypedArray} in vales.
-   * @return the newly created {@link TypedArray}.
+   * @return the newly created {@link Uint8ClampedArray} or null if it isn't supported by the
+   *         browser.
    */
-  public static native Uint8ClampedArray create(ArrayBuffer buffer, int byteOffset, int length) /*-{
-		return new Uint8ClampedArray(buffer, byteOffset, length);
-  }-*/;
+  public static Uint8ClampedArray create(ArrayBuffer buffer, int byteOffset, int length) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(buffer, byteOffset, length);
+  }
 
   /**
-   * Creates a new instance of the {@link TypedArray} of the given length in values. All values are
-   * set to 0.
+   * Creates a new instance of the {@link Uint8ClampedArray} of the given length in values. All
+   * values are set to 0.
    * 
-   * @param length the length in values of the type used by this {@link TypedArray}
-   * @return the created {@link TypedArray}.
+   * @param length the length in values of the type used by this {@link Uint8ClampedArray}
+   * @return the created {@link Uint8ClampedArray}.
    */
-  public static native Uint8ClampedArray create(int length) /*-{
-		return new Uint8ClampedArray(length);
-  }-*/;
+  public static Uint8ClampedArray create(int length) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(length);
+  }
 
   /**
-   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
-   * The values are set to the values of the given array.
+   * Creates a new instance of the {@link Uint8ClampedArray} of the length of the given array in
+   * values. The values contained in the given array are set to the newly created
+   * {@link Uint8ClampedArray}.
    * 
    * @param array the array to get the values from
-   * @return the created {@link TypedArray}.
+   * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
    */
   public static Uint8ClampedArray create(int[] array) {
     return create(JsArrayUtil.wrapArray(array));
   }
 
   /**
-   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
-   * The values are set to the values of the given array.
+   * Creates a new instance of the {@link Uint8ClampedArray} of the length of the given array in
+   * values. The values contained in the given array are set to the newly created
+   * {@link Uint8ClampedArray}.
    * 
    * @param array the array to get the values from
-   * @return the created {@link TypedArray}.
+   * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
    */
-  public static native Uint8ClampedArray create(JsArrayInteger array) /*-{
-		return new Uint8ClampedArray(array);
-  }-*/;;
+  public static Uint8ClampedArray create(JsArrayInteger array) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(array);
+  }
 
   /**
-   * Creates a new instance of the {@link TypedArray} of the same length as the given
-   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
+   * Creates a new instance of the {@link Uint8ClampedArray} of the same length (in values) as the
+   * given {@link Uint8ClampedArray} using a new ArrayBuffer. The new {@link TypedArray} is
+   * initialized with the values of the given {@link TypedArray}. If necessary the values are
+   * converted to the value type of the new {@link TypedArray}.
    * 
-   * @param array the {@link TypedArray} to get the values from
-   * @return the created {@link TypedArray}.
+   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
+   * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
    */
-  public static native Uint8ClampedArray create(Uint8Array array) /*-{
-		return new Uint8ClampedArray(array);
-  }-*/;
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the same length as the given
-   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
-   * 
-   * @param array the {@link TypedArray} to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static native Uint8ClampedArray create(Uint8ClampedArray array) /*-{
-		return new Uint8ClampedArray(array);
-  }-*/;
+  public static Uint8ClampedArray create(TypedArray<?> array) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(array);
+  }
 
   /**
    * Checks if the Browser supports the {@link Uint8ClampedArray}. There's a special check, as not
@@ -145,7 +159,98 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
       return false;
     }
     return isSupportedRuntime();
-  };
+  }
+
+  /**
+   * Creates a new instance of the {@link Uint8ClampedArray} using the given {@link ArrayBuffer} to
+   * read/write values from/to.
+   * 
+   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link Uint8ClampedArray}
+   *          .
+   * @return the created {@link Uint8ClampedArray}.
+   */
+  private static native Uint8ClampedArray createImpl(ArrayBuffer buffer) /*-{
+		return new Uint8ClampedArray(buffer);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
+   * read/write values from/to.
+   * 
+   * The {@link Uint8ClampedArray} is created using the byteOffset to specify the starting point (in
+   * bytes) of the {@link Uint8ClampedArray} relative to the beginning of the underlying
+   * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
+   * {@link TypedArray}.
+   * 
+   * If the byteOffet is not valid for the given {@link ArrayBuffer}, an exception is thrown
+   * 
+   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link Uint8ClampedArray}
+   *          .
+   * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
+   *          value length of this {@link TypedArray})
+   * @return the newly created {@link Uint8ClampedArray}.
+   */
+  private static native Uint8ClampedArray createImpl(ArrayBuffer buffer, int byteOffset) /*-{
+		return new Uint8ClampedArray(buffer, byteOffset);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link Uint8ClampedArray} using the given {@link ArrayBuffer} to
+   * read/write values from/to.
+   * 
+   * The {@link Uint8ClampedArray} is created using the byteOffset and length to specify the start
+   * and end (in bytes) of the {@link Uint8ClampedArray} relative to the beginning of the underlying
+   * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
+   * {@link TypedArray}. The length is in values of the type of the {@link TypedArray}
+   * 
+   * If the byteOffset or length is not valid for the given {@link ArrayBuffer}, an exception is
+   * thrown
+   * 
+   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
+   * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
+   *          value length of this {@link TypedArray})
+   * @param length the length of the {@link Uint8ClampedArray} in vales.
+   * @return the newly created {@link Uint8ClampedArray}.
+   */
+  private static native Uint8ClampedArray createImpl(ArrayBuffer buffer, int byteOffset, int length) /*-{
+		return new Uint8ClampedArray(buffer, byteOffset, length);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link Uint8ClampedArray} of the given length in values. All
+   * values are set to 0.
+   * 
+   * @param length the length in values of the type used by this {@link Uint8ClampedArray}
+   * @return the created {@link Uint8ClampedArray}.
+   */
+  private static native Uint8ClampedArray createImpl(int length) /*-{
+		return new Uint8ClampedArray(length);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link Uint8ClampedArray} of the length of the given array in
+   * values. The values contained in the given array are set to the newly created
+   * {@link Uint8ClampedArray}.
+   * 
+   * @param array the array to get the values from
+   * @return the created {@link Uint8ClampedArray}.
+   */
+  private static native Uint8ClampedArray createImpl(JsArrayInteger array) /*-{
+		return new Uint8ClampedArray(array);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link Uint8ClampedArray} of the same length (in values) as the
+   * given {@link Uint8ClampedArray} using a new ArrayBuffer. The new {@link TypedArray} is
+   * initialized with the values of the given {@link TypedArray}. If necessary the values are
+   * converted to the value type of the new {@link TypedArray}.
+   * 
+   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
+   * @return the created {@link Uint8ClampedArray} or null if it isn't supported by the browser.
+   */
+  private static native Uint8ClampedArray createImpl(TypedArray<?> array) /*-{
+		return new Uint8ClampedArray(array);
+  }-*/;;
 
   /**
    * Checks at runtime if the Browser supports the {@link Uint8ClampedArray}. There's a special
@@ -155,8 +260,8 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @return true, if Uint8ClampedArray is supported, false otherwise.
    */
   private static native boolean isSupportedRuntime() /*-{
-                                                     return !!window.Uint8ClampedArray;
-                                                     }-*/;
+		return !!window.Uint8ClampedArray;
+  }-*/;
 
   /**
    * protected standard constructor as specified by
@@ -172,8 +277,8 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @param array the array to get the values from
    */
   public final native void set(Uint8Array array)/*-{
-                                                this.set(array);
-                                                }-*/;
+		this.set(array);
+  }-*/;
 
   /**
    * Set multiple values, of the given array to this array starting at the given offset.
@@ -182,7 +287,7 @@ public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
    * @param offset the offset to start setting the values
    */
   public final native void set(Uint8Array array, int offset)/*-{
-                                                            this.set(array, offset);
-                                                            }-*/;
+		this.set(array, offset);
+  }-*/;
 
 }
