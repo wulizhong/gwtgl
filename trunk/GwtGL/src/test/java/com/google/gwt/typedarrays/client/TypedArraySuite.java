@@ -37,6 +37,7 @@ public class TypedArraySuite {
     suite.addTestSuite(Int8ArrayTest.class);
     suite.addTestSuite(Int16ArrayTest.class);
     suite.addTestSuite(Int32ArrayTest.class);
+    suite.addTestSuite(Uint16ArrayTest.class);
 
     return suite;
   }
