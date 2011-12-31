@@ -27,25 +27,22 @@ import com.google.gwt.junit.client.GWTTestCase;
  */
 public class JsArrayUtilTest extends GWTTestCase {
 
-  private native boolean checkLongArrayContents(JsArrayInteger array) /*-{
-		var referenceValues = [ 0, 1, 2, 3, 4294967295, 4294967294, 4294967293,
-				4294967292 ];
-
-		for ( var i = 0; i < referenceValues.length; i++) {
-			if (referenceValues[i] !== array[i]) {
-				return false;
-			}
-		}
-		return true;
-  }-*/;
-
-  private native JsArrayString createTestdataJsArrayString() /*-{
-		return [ "Test", "abc", "" ];
-  }-*/;
-
   @Override
   public String getModuleName() {
     return "com.google.gwt.typedarrays.TypedArrays";
+  }
+
+  public void testSetAndGetLong() {
+    long[] array = new long[] {0, 1, 2, 3, 4294967295L, 4294967294L, 4294967293L, 4294967292L};
+    JsArrayInteger jsArray = JsArrayInteger.createArray().cast();
+
+    for (int i = 0; i < array.length; i++) {
+      JsArrayUtil.setLongToJsArrayInteger(jsArray, i, array[i]);
+    }
+
+    for (int i = 0; i < array.length; i++) {
+      assertEquals(array[i], JsArrayUtil.getLongFromJsArrayInteger(jsArray, i));
+    }
   }
 
   public void testUnwrapString() {
@@ -149,10 +146,6 @@ public class JsArrayUtilTest extends GWTTestCase {
     assertEquals(array.length, wrappedArray.length());
 
     assertTrue(checkLongArrayContents(wrappedArray));
-
-    for (int i = 0; i < array.length; i++) {
-      assertEquals(array[i], JsArrayUtil.getLongFromJsArrayInteger(wrappedArray, i));
-    }
   }
 
   public void testWrapString() {
@@ -174,4 +167,20 @@ public class JsArrayUtilTest extends GWTTestCase {
       assertEquals(array[i], unwrappedArray[i]);
     }
   }
+
+  private native boolean checkLongArrayContents(JsArrayInteger array) /*-{
+		var referenceValues = [ 0, 1, 2, 3, 4294967295, 4294967294, 4294967293,
+				4294967292 ];
+
+		for ( var i = 0; i < referenceValues.length; i++) {
+			if (referenceValues[i] !== array[i]) {
+				return false;
+			}
+		}
+		return true;
+  }-*/;
+
+  private native JsArrayString createTestdataJsArrayString() /*-{
+		return [ "Test", "abc", "" ];
+  }-*/;
 }
