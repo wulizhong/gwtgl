@@ -22,13 +22,130 @@ import com.google.gwt.core.client.JsArrayNumber;
 public class Float64Array extends TypedArray<Float64Array> {
 
   /**
-   * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
+   * Creates a new instance of the {@link Float64Array} using the given {@link ArrayBuffer} to
    * read/write values from/to.
    * 
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
-   * @return the created {@link TypedArray}.
+   * @return the created {@link Float64Array} or null if it isn't supported by the browser.
    */
-  public static native Float64Array create(ArrayBuffer buffer) /*-{
+  public static Float64Array create(ArrayBuffer buffer) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(buffer);
+  }
+
+  /**
+   * Creates a new instance of the {@link Float64Array} using the given {@link ArrayBuffer} to
+   * read/write values from/to.
+   * 
+   * The {@link Float64Array} is created using the byteOffset to specify the starting point (in
+   * bytes) of the {@link Float64Array} relative to the beginning of the underlying
+   * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
+   * {@link TypedArray}.
+   * 
+   * If the byteOffset is not valid for the given {@link ArrayBuffer}, an exception is thrown
+   * 
+   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
+   * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
+   *          value length of this {@link TypedArray})
+   * @return the newly created {@link Float64Array} or null if it isn't supported by the browser.
+   */
+  public static Float64Array create(ArrayBuffer buffer, int byteOffset) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(buffer, byteOffset);
+  }
+
+  /**
+   * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
+   * read/write values from/to.
+   * 
+   * The {@link Float64Array} is created using the byteOffset and length to specify the start and
+   * end (in bytes) of the {@link Float64Array} relative to the beginning of the underlying
+   * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
+   * {@link TypedArray}. The length is in values of the type of the {@link TypedArray}.
+   * 
+   * If the byteOffset or length is not valid for the given {@link ArrayBuffer}, an exception is
+   * thrown.
+   * 
+   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
+   * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
+   *          value length of this {@link TypedArray})
+   * @param length the length of the {@link TypedArray} in vales.
+   * @return the newly created {@link Float64Array} or null if it isn't supported by the browser.
+   */
+  public static Float64Array create(ArrayBuffer buffer, int byteOffset, int length) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(buffer, byteOffset, length);
+  }
+
+  /**
+   * Creates a new instance of the {@link Float64Array} of the length of the given array in values.
+   * The values contained in the given array are set to the newly created {@link Float64Array}.
+   * 
+   * @param array the array to get the values from
+   * @return the created {@link Float64Array} or null if it isn't supported by the browser.
+   */
+  public static Float64Array create(double[] array) {
+    return create(JsArrayUtil.wrapArray(array));
+  }
+
+  /**
+   * Creates a new instance of the {@link Float64Array} of the given length in values. All values
+   * are set to 0.
+   * 
+   * @param length the length in values of the type used by this {@link Float64Array}
+   * @return the created {@link Float64Array}.
+   */
+  public static Float64Array create(int length) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(length);
+  }
+
+  /**
+   * Creates a new instance of the {@link Float64Array} of the length of the given array in values.
+   * The values contained in the given array are set to the newly created {@link Float64Array}.
+   * 
+   * @param array the array to get the values from
+   * @return the created {@link Float64Array} or null if it isn't supported by the browser.
+   */
+  public static Float64Array create(JsArrayNumber array) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(array);
+  }
+
+  /**
+   * Creates a new instance of the {@link Float64Array} of the same length (in values) as the given
+   * {@link Float64Array} using a new ArrayBuffer. The new {@link TypedArray} is initialized with
+   * the values of the given {@link TypedArray}. If necessary the values are converted to the value
+   * type of the new {@link TypedArray}.
+   * 
+   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
+   * @return the created {@link Float64Array} or null if it isn't supported by the browser.
+   */
+  public static Float64Array create(TypedArray<?> array) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(array);
+  }
+
+  /**
+   * Creates a new instance of the {@link Float64Array} using the given {@link ArrayBuffer} to
+   * read/write values from/to.
+   * 
+   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link Float64Array}.
+   * @return the created {@link Float64Array}.
+   */
+  private static native Float64Array createImpl(ArrayBuffer buffer) /*-{
 		return new Float64Array(buffer);
   }-*/;
 
@@ -36,105 +153,77 @@ public class Float64Array extends TypedArray<Float64Array> {
    * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
    * read/write values from/to.
    * 
-   * The {@link TypedArray} is created using the byteOffset to specify the starting point (in bytes)
-   * of the {@link TypedArray} relative to the beginning of the underlying {@link ArrayBuffer}. The
-   * byte offset must match (multiple) the value length of this {@link TypedArray}.
+   * The {@link Float64Array} is created using the byteOffset to specify the starting point (in
+   * bytes) of the {@link Float64Array} relative to the beginning of the underlying
+   * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
+   * {@link TypedArray}.
    * 
-   * if the byteLength is not valid for the given {@link ArrayBuffer}, an exception is thrown
+   * If the byteOffet is not valid for the given {@link ArrayBuffer}, an exception is thrown
    * 
-   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
+   * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link Float64Array}.
    * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
    *          value length of this {@link TypedArray})
-   * @return the newly created {@link TypedArray}.
+   * @return the newly created {@link Float64Array}.
    */
-  public static native Float64Array create(ArrayBuffer buffer, int byteOffset) /*-{
+  private static native Float64Array createImpl(ArrayBuffer buffer, int byteOffset) /*-{
 		return new Float64Array(buffer, byteOffset);
   }-*/;
 
   /**
-   * Creates a new instance of the {@link TypedArray} using the given {@link ArrayBuffer} to
+   * Creates a new instance of the {@link Float64Array} using the given {@link ArrayBuffer} to
    * read/write values from/to.
    * 
-   * The {@link TypedArray} is created using the byteOffset and length to specify the start and end
-   * (in bytes) of the {@link TypedArray} relative to the beginning of the underlying
+   * The {@link Float64Array} is created using the byteOffset and length to specify the start and
+   * end (in bytes) of the {@link Float64Array} relative to the beginning of the underlying
    * {@link ArrayBuffer}. The byte offset must match (multiple) the value length of this
    * {@link TypedArray}. The length is in values of the type of the {@link TypedArray}
    * 
-   * if the byteLength or length is not valid for the given {@link ArrayBuffer}, an exception is
+   * If the byteOffset or length is not valid for the given {@link ArrayBuffer}, an exception is
    * thrown
    * 
    * @param buffer the underlying {@link ArrayBuffer} of the newly created {@link TypedArray}.
    * @param byteOffset the offset relative to the beginning of the ArrayBuffer (multiple of the
    *          value length of this {@link TypedArray})
-   * @param length the length of the {@link TypedArray} in vales.
-   * @return the newly created {@link TypedArray}.
+   * @param length the length of the {@link Float64Array} in vales.
+   * @return the newly created {@link Float64Array}.
    */
-  public static native Float64Array create(ArrayBuffer buffer, int byteOffset, int length) /*-{
+  private static native Float64Array createImpl(ArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new Float64Array(buffer, byteOffset, length);
   }-*/;
 
   /**
-   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
-   * The values are set to the values of the given array.
+   * Creates a new instance of the {@link Float64Array} of the given length in values. All values
+   * are set to 0.
    * 
-   * @param array the array to get the values from
-   * @return the created {@link TypedArray}.
+   * @param length the length in values of the type used by this {@link Float64Array}
+   * @return the created {@link Float64Array}.
    */
-  public static Float64Array create(double[] array) {
-    return create(JsArrayUtil.wrapArray(array));
-  };
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the same length as the given
-   * {@link TypedArray}. The values are set to the values of the given {@link TypedArray}.
-   * 
-   * @param array the {@link TypedArray} to get the values from
-   * @return the created {@link TypedArray}.
-   */
-  public static native Float64Array create(Float64Array array) /*-{
-		return new Float64Array(array);
-  }-*/;
-
-  /**
-   * Creates a new instance of the {@link TypedArray} of the given length in values. All values are
-   * set to 0.
-   * 
-   * @param length the length in values of the type used by this {@link TypedArray}
-   * @return the created {@link TypedArray}.
-   */
-  public static native Float64Array create(int length) /*-{
+  private static native Float64Array createImpl(int length) /*-{
 		return new Float64Array(length);
   }-*/;
 
   /**
-   * Creates a new instance of the {@link TypedArray} of the length of the given array in values.
-   * The values are set to the values of the given array.
+   * Creates a new instance of the {@link Float64Array} of the length of the given array in values.
+   * The values contained in the given array are set to the newly created {@link Float64Array}.
    * 
    * @param array the array to get the values from
-   * @return the created {@link TypedArray}.
+   * @return the created {@link Float64Array}.
    */
-  public static native Float64Array create(JsArrayNumber array) /*-{
+  private static native Float64Array createImpl(JsArrayNumber array) /*-{
 		return new Float64Array(array);
   }-*/;
 
   /**
-   * Writes multiple values to the TypedArray using the values of the given Array.
+   * Creates a new instance of the {@link Float64Array} of the same length (in values) as the given
+   * {@link Float64Array} using a new ArrayBuffer. The new {@link TypedArray} is initialized with
+   * the values of the given {@link TypedArray}. If necessary the values are converted to the value
+   * type of the new {@link TypedArray}.
    * 
-   * @param array an array containing the new values to set.
+   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
+   * @return the created {@link Float64Array} or null if it isn't supported by the browser.
    */
-  public final native void set(JsArrayNumber array) /*-{
-		this.set(array);
-  }-*/;
-
-  /**
-   * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
-   * beginning at the given offset.
-   * 
-   * @param array an array containing the new values to set.
-   * @param offset the offset relative to the beginning of the TypedArray.
-   */
-  public final native void set(JsArrayNumber array, int offset) /*-{
-		this.set(array, offset);
+  private static native Float64Array createImpl(TypedArray<?> array) /*-{
+		return new Float64Array(array);
   }-*/;
 
   /**
@@ -155,7 +244,7 @@ public class Float64Array extends TypedArray<Float64Array> {
    */
   public final native double get(int index) /*-{
 		return this[index];
-  }-*/;;
+  }-*/;
 
   /**
    * Writes multiple values to the TypedArray using the values of the given Array.
@@ -186,6 +275,26 @@ public class Float64Array extends TypedArray<Float64Array> {
    */
   public final native void set(int index, double value) /*-{
 		this[index] = value;
+  }-*/;
+
+  /**
+   * Writes multiple values to the TypedArray using the values of the given Array.
+   * 
+   * @param array an array containing the new values to set.
+   */
+  public final native void set(JsArrayNumber array) /*-{
+		this.set(array);
+  }-*/;;
+
+  /**
+   * Writes multiple values to the TypedArray using the values of the given Array. Writes the values
+   * beginning at the given offset.
+   * 
+   * @param array an array containing the new values to set.
+   * @param offset the offset relative to the beginning of the TypedArray.
+   */
+  public final native void set(JsArrayNumber array, int offset) /*-{
+		this.set(array, offset);
   }-*/;
 
 }

@@ -27,9 +27,23 @@ public class ArrayBuffer extends JavaScriptObject {
    * bytes. The ArrayBuffer is initialized with 0 values.
    * 
    * @param length the byte length of the newly created ArrayBuffer
+   * @return the created ArrayBuffer or null if it isn't supported by the browser
+   */
+  public static ArrayBuffer create(int length) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(length);
+  }
+
+  /**
+   * Constructs a new ArrayBuffer instance. The newly created ArrayBuffer has the given length in
+   * bytes. The ArrayBuffer is initialized with 0 values.
+   * 
+   * @param length the byte length of the newly created ArrayBuffer
    * @return the created ArrayBuffer
    */
-  public static native ArrayBuffer create(int length) /*-{
+  private static native ArrayBuffer createImpl(int length) /*-{
 		return new ArrayBuffer(length);
   }-*/;
 

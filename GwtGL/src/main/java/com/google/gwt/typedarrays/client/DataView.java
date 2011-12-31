@@ -25,9 +25,22 @@ public class DataView extends ArrayBufferView {
    * Constructs a new DataView instance using the given {@link ArrayBuffer}.
    * 
    * @param buffer the underlying {@link ArrayBuffer}.
+   * @return the newly created DataView or null if it isn't supported by the browser
+   */
+  public static DataView create(ArrayBuffer buffer) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(buffer);
+  }
+  
+  /**
+   * Constructs a new DataView instance using the given {@link ArrayBuffer}.
+   * 
+   * @param buffer the underlying {@link ArrayBuffer}.
    * @return the newly created DataView
    */
-  public static native DataView create(ArrayBuffer buffer) /*-{
+  private static native DataView createImpl(ArrayBuffer buffer) /*-{
 		return new DataView(buffer);
   }-*/;
 
@@ -37,9 +50,24 @@ public class DataView extends ArrayBufferView {
    * @param buffer the underlying {@link ArrayBuffer}.
    * @param byteOffset the byteOffset of the DataView relative to the start of the underlying
    *          {@link ArrayBuffer}.
+   * @return the created DataView or null if it isn't supported by the browser
+   */
+  public static DataView create(ArrayBuffer buffer, int byteOffset) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+		return createImpl(buffer, byteOffset);
+  }
+  
+  /**
+   * Constructs a new DataView instance using the given {@link ArrayBuffer} and byteOffset.
+   * 
+   * @param buffer the underlying {@link ArrayBuffer}.
+   * @param byteOffset the byteOffset of the DataView relative to the start of the underlying
+   *          {@link ArrayBuffer}.
    * @return the created DataView
    */
-  public static native DataView create(ArrayBuffer buffer, int byteOffset) /*-{
+  private static native DataView createImpl(ArrayBuffer buffer, int byteOffset) /*-{
 		return new DataView(buffer, byteOffset);
   }-*/;
 
@@ -50,9 +78,25 @@ public class DataView extends ArrayBufferView {
    * @param byteOffset the byteOffset of the DataView relative to the start of the underlying
    *          {@link ArrayBuffer}.
    * @param length the length of the DataView in bytes.
+   * @return the created DataView or null if it isn't supported by the browser
+   */
+  public static DataView create(ArrayBuffer buffer, int byteOffset, int length) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+		return createImpl(buffer, byteOffset, length);
+  }
+  
+  /**
+   * Constructs a new DataView instance using the given {@link ArrayBuffer}, byteOffset and length.
+   * 
+   * @param buffer the underlying {@link ArrayBuffer}.
+   * @param byteOffset the byteOffset of the DataView relative to the start of the underlying
+   *          {@link ArrayBuffer}.
+   * @param length the length of the DataView in bytes.
    * @return the created DataView
    */
-  public static native DataView create(ArrayBuffer buffer, int byteOffset, int length) /*-{
+  private static native DataView createImpl(ArrayBuffer buffer, int byteOffset, int length) /*-{
 		return new DataView(buffer, byteOffset, length);
   }-*/;
 
