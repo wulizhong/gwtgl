@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.googlecode.gwtgl.array;
+package com.google.gwt.typedarrays.client;
 
 import com.google.gwt.junit.DoNotRunWith;
 import com.google.gwt.junit.Platform;
@@ -26,7 +26,7 @@ public class TypedArrayTest extends GWTTestCase {
 
   @Override
   public String getModuleName() {
-    return "com.googlecode.gwtgl.array";
+    return "com.google.gwt.typedarrays.TypedArrays";
   }
 
   public void testDifferentOffset() {

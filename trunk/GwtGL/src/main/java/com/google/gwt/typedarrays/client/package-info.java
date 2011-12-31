@@ -15,4 +15,4 @@
  * GWT binding of the Khronos TypedArray spec at
  * {@link "http://www.khronos.org/registry/typedarray/specs/latest/"}
  */
-package com.googlecode.gwtgl.array;
+package com.google.gwt.typedarrays.client;

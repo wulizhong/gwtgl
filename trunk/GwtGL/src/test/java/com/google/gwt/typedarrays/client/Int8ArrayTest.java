@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.googlecode.gwtgl.array;
+package com.google.gwt.typedarrays.client;
 
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.junit.DoNotRunWith;
@@ -19,22 +19,20 @@ import com.google.gwt.junit.Platform;
 import com.google.gwt.junit.client.GWTTestCase;
 
 /**
- * Tests for {@link Int16Array}.
+ * Tests for {@link Int8Array}.
  * 
  */
 @DoNotRunWith(Platform.HtmlUnitUnknown)
-public class Int16ArrayTest extends GWTTestCase {
+public class Int8ArrayTest extends GWTTestCase {
 
-  private static final int numBytes = 2;
-
-  private static final int[] testData = new int[] {0, 1, 2, 3, 32767, -32768};
+  private static final int[] testData = new int[] {0, 1, 2, 3, 127, -128};
 
   private static final int[] testDataPart1 = new int[] {0, 1, 2, 3};
 
-  private static final int[] testDataPart2 = new int[] {32767, -32768};
+  private static final int[] testDataPart2 = new int[] {127, -128};
 
   private static native JsArrayInteger testDataJsArray() /*-{
-		return [ 0, 1, 2, 3, 32767, -32768 ];
+		return [ 0, 1, 2, 3, 127, -128 ];
   }-*/;
 
   private static native JsArrayInteger testDataJsArrayPart1() /*-{
@@ -42,70 +40,70 @@ public class Int16ArrayTest extends GWTTestCase {
   }-*/;
 
   private static native JsArrayInteger testDataJsArrayPart2() /*-{
-		return [ 32767, -32768 ];
+		return [ 127, -128 ];
   }-*/;
 
   @Override
   public String getModuleName() {
-    return "com.googlecode.gwtgl.array";
+    return "com.google.gwt.typedarrays.TypedArrays";
   }
 
   public void testInitWithArrayBuffer() {
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * numBytes);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length);
 
-    Int16Array array = Int16Array.create(arrayBuffer);
+    Int8Array array = Int8Array.create(arrayBuffer);
 
     array.set(testData);
     assertIsTestData(array);
   }
 
   public void testInitWithArrayBufferAndOffset() {
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * numBytes);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length + 1);
 
-    Int16Array array = Int16Array.create(arrayBuffer, numBytes);
+    Int8Array array = Int8Array.create(arrayBuffer, 1);
 
     array.set(testData);
     assertIsTestData(array);
   }
 
   public void testInitWithArrayBufferAndOffsetAndLength() {
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * numBytes);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length + 2);
 
-    Int16Array array = Int16Array.create(arrayBuffer, numBytes, testData.length);
+    Int8Array array = Int8Array.create(arrayBuffer, 1, testData.length);
 
     array.set(testData);
     assertIsTestData(array);
   }
 
   public void testInitWithJavaArray() {
-    Int16Array array = Int16Array.create(testData);
+    Int8Array array = Int8Array.create(testData);
 
     assertIsTestData(array);
   }
 
   public void testInitWithJsArray() {
-    Int16Array array = Int16Array.create(testDataJsArray());
+    Int8Array array = Int8Array.create(testDataJsArray());
 
     assertIsTestData(array);
   }
 
   public void testInitWithTypedArray() {
-    Int16Array arraySrc = Int16Array.create(testData);
+    Int8Array arraySrc = Int8Array.create(testData);
 
-    Int16Array array = Int16Array.create(arraySrc);
+    Int8Array array = Int8Array.create(arraySrc);
 
     assertIsTestData(array);
   }
 
   public void testSetJavaArray() {
-    Int16Array array = Int16Array.create(testData.length);
+    Int8Array array = Int8Array.create(testData.length);
 
     array.set(testData);
     assertIsTestData(array);
   }
 
   public void testSetJavaArrayWithOffset() {
-    Int16Array array = Int16Array.create(testData.length);
+    Int8Array array = Int8Array.create(testData.length);
 
     array.set(testDataPart1);
     array.set(testDataPart2, 4);
@@ -113,14 +111,14 @@ public class Int16ArrayTest extends GWTTestCase {
   }
 
   public void testSetJsArray() {
-    Int16Array array = Int16Array.create(testData.length);
+    Int8Array array = Int8Array.create(testData.length);
 
     array.set(testDataJsArray());
     assertIsTestData(array);
   }
 
   public void testSetJsArrayWithOffset() {
-    Int16Array array = Int16Array.create(testData.length);
+    Int8Array array = Int8Array.create(testData.length);
 
     array.set(testDataJsArrayPart1());
     array.set(testDataJsArrayPart2(), 4);
@@ -128,19 +126,19 @@ public class Int16ArrayTest extends GWTTestCase {
   }
 
   public void testSetTypedArray() {
-    Int16Array arraySrc = Int16Array.create(testData);
+    Int8Array arraySrc = Int8Array.create(testData);
 
-    Int16Array array = Int16Array.create(testData.length);
+    Int8Array array = Int8Array.create(testData.length);
 
     array.set(arraySrc);
     assertIsTestData(array);
   }
 
   public void testSetTypedArrayWithOffset() {
-    Int16Array arraySrc1 = Int16Array.create(testDataPart1);
-    Int16Array arraySrc2 = Int16Array.create(testDataPart2);
+    Int8Array arraySrc1 = Int8Array.create(testDataPart1);
+    Int8Array arraySrc2 = Int8Array.create(testDataPart2);
 
-    Int16Array array = Int16Array.create(testData.length);
+    Int8Array array = Int8Array.create(testData.length);
 
     array.set(arraySrc1);
     array.set(arraySrc2, 4);
@@ -148,7 +146,7 @@ public class Int16ArrayTest extends GWTTestCase {
   }
 
   public void testSetValues() {
-    Int16Array array = Int16Array.create(testData.length);
+    Int8Array array = Int8Array.create(testData.length);
 
     for (int i = 0; i < testData.length; i++) {
       array.set(i, testData[i]);
@@ -158,24 +156,24 @@ public class Int16ArrayTest extends GWTTestCase {
   }
 
   public void testValueRange() {
-    Int16Array array = Int16Array.create(4);
+    Int8Array array = Int8Array.create(4);
 
     // 2^7-1
-    array.set(0, 32767);
+    array.set(0, 127);
     // -(2^7)
-    array.set(1, -32768);
+    array.set(1, -128);
     // -(2^7+1)
-    array.set(2, -32769);
+    array.set(2, -129);
     // 2^7 -> overflow
-    array.set(3, 32768);
+    array.set(3, 128);
 
-    assertEquals(32767, array.get(0));
-    assertEquals(-32768, array.get(1));
-    assertEquals(32767, array.get(2));
-    assertEquals(-32768, array.get(3));
+    assertEquals(127, array.get(0));
+    assertEquals(-128, array.get(1));
+    assertEquals(127, array.get(2));
+    assertEquals(-128, array.get(3));
   }
 
-  private void assertIsTestData(Int16Array array) {
+  private void assertIsTestData(Int8Array array) {
     assertEquals(testData.length, array.getLength());
 
     for (int i = 0; i < testData.length; i++) {

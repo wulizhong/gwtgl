@@ -18,8 +18,8 @@ package com.googlecode.gwtgl.example.client.examples.coloredtriangle.binding;
 import static com.google.gwt.core.client.GWT.log;
 
 import com.google.gwt.core.client.GWT;
-import com.googlecode.gwtgl.array.Float32Array;
-import com.googlecode.gwtgl.array.Uint16Array;
+import com.google.gwt.typedarrays.client.Float32Array;
+import com.google.gwt.typedarrays.client.Uint16Array;
 import com.googlecode.gwtgl.binding.WebGLBuffer;
 import com.googlecode.gwtgl.binding.WebGLProgram;
 import com.googlecode.gwtgl.binding.WebGLRenderingContext;
