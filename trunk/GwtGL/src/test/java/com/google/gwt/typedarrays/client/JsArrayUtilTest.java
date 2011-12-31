@@ -126,6 +126,17 @@ public class JsArrayUtilTest extends GWTTestCase {
       assertEquals(array[i], (float) wrappedArray.get(i), 0.0f);
     }
   }
+  
+  public void testWrapShort() {
+    short[] array = new short[] {0, 1, 2, 3, Short.MAX_VALUE, Short.MIN_VALUE};
+    JsArrayInteger wrappedArray = JsArrayUtil.wrapArray(array);
+    
+    assertEquals(array.length, wrappedArray.length());
+    
+    for (int i = 0; i < array.length; i++) {
+      assertEquals(array[i], wrappedArray.get(i));
+    }
+  }
 
   public void testWrapInt() {
     int[] array = new int[] {0, 1, 2, 3, Integer.MAX_VALUE, Integer.MIN_VALUE};
