@@ -5,7 +5,7 @@
 
 Create a new Google Web Application Project in Eclipse (File -> New -> Other -> Google -> Web Application Project)
 Enter a project and package name.
-Check _Use Google Web Toolkit_ (Version 2.0)
+Check _Use Google Web Toolkit_ (Version 2.2)
 Click Finish.
 
 = Delete generated files that are not needed =
