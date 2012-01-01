@@ -5,6 +5,4 @@ Please install latest [http://www.google.com/chrome Google Chrome] or [http://ww
 
 Other browsers do *NOT* support WebGL.
 
-As WebGL itself is not stable, APIs and their implementation change. We try to keep compatibility to current builds of the browsers.
-
 To check the correctness of your browser installation you can have a look at the [http://gwtgl-examples.appspot.com/ demos].
