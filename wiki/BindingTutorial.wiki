@@ -2,7 +2,7 @@
 #sidebar TableOfContents
 
 = Introduction =
-This tutorial will show you how you can create a simple GwtGL application that uses the [BindingOverview binding] layer to render a white triangle to the screen.
+This tutorial will show you how you can create a simple GwtGL application that uses GwtGL's WebGL [BindingOverview binding] to render a white triangle to the screen.
 A white triangle is not very spectacular, but it will teach you the basics of using GwtGL.
 
 = Preparations =
