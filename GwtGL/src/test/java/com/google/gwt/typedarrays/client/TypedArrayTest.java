@@ -130,4 +130,56 @@ public class TypedArrayTest extends GWTTestCase {
       assertEquals(data[i + 2], subarray.get(i));
     }
   }
+
+  public void testCreateWithShorterArrayType() {
+    int[] data = new int[] {0, 1, 2, 3, 4, 5, 6, 7};
+    Int8Array array = Int8Array.create(data);
+
+    Int16Array array2 = Int16Array.create(array);
+    assertEquals(data.length, array2.getLength());
+
+    for (int i = 0; i < array2.getLength(); i++) {
+      assertEquals(data[i], array2.get(i));
+    }
+  }
+
+  public void testCreateWithBiggerArrayType() {
+    int[] data = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 128};
+    Int16Array array = Int16Array.create(data);
+
+    Int8Array array2 = Int8Array.create(array);
+    assertEquals(data.length, array2.getLength());
+
+    for (int i = 0; i < array2.getLength() - 1; i++) {
+      assertEquals(data[i], array2.get(i));
+    }
+    // Overflow
+    assertEquals(-128, array2.get(data.length - 1));
+  }
+
+  public void testCreateSignedWithUnsignedArray() {
+    int[] data = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 32768};
+    Uint16Array array = Uint16Array.create(data);
+
+    Int16Array array2 = Int16Array.create(array);
+    assertEquals(data.length, array2.getLength());
+
+    for (int i = 0; i < array2.getLength() - 1; i++) {
+      assertEquals(data[i], array2.get(i));
+    }
+    // Overflow
+    assertEquals(-32768, array2.get(data.length - 1));
+  }
+
+  public void testCreateFloatWithIntArray() {
+    int[] data = new int[] {0, -1, 100, 2000, -30};
+    Int16Array array = Int16Array.create(data);
+
+    Float32Array array2 = Float32Array.create(array);
+    assertEquals(data.length, array2.getLength());
+
+    for (int i = 0; i < array2.getLength() - 1; i++) {
+      assertEquals(data[i], array2.get(i), 0.001f);
+    }
+  }
 }
