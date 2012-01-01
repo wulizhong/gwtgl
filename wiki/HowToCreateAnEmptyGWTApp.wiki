@@ -68,10 +68,6 @@ Add the following entry:
 <inherits name='com.googlecode.gwtgl.binding'/>
 }}}
 This will make the WebGL binding available in your project.
-If you want to use the wrapper layer, add an additional entry: 
-{{{
-<inherits name='com.googlecode.gwtgl.wrapper'/>
-}}}
 
 = Implement the entry point =
 
