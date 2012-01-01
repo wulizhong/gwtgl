@@ -7,7 +7,7 @@ A white triangle is not very spectacular, but it will teach you the basics of us
 
 = Preparations =
 For this tutorial you need a clean GWT application. Create an emtpy GWT app (use project name _GwtGLBindingDemo_ and package name _gwtgl.binding_), add GwtGL dependency and add a div with ID _gwtGL_ to your html file as a placeholder for your WebGL Canvas.
-If you don't know how you can create an empty GWT app, read [HowToCreateEmptyGWTApp how to create an empty GwtGL enabled GWT app]. 
+If you don't know how you can create an empty GWT app, read [HowToCreateAnEmptyGWTApp how to create an empty GwtGL enabled GWT app]. 
 
 = First Steps =
 Now in the client package, open the client class, e.g. _GwtGLBindingDemo.java_.
