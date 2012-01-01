@@ -24,8 +24,6 @@ import com.google.gwt.junit.client.GWTTestCase;
  */
 @DoNotRunWith(Platform.HtmlUnitUnknown)
 public class Uint8ClampedArrayTest extends GWTTestCase {
-  private static final int numBytes = 1;
-
   private static final int[] testData = new int[] {0, 1, 2, 3, 255};
 
   private static final int[] testDataPart1 = new int[] {0, 1, 2, 3};
@@ -33,15 +31,15 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
   private static final int[] testDataPart2 = new int[] {255};
 
   private static native JsArrayInteger testDataJsArray() /*-{
-    return [ 0, 1, 2, 3, 255 ];
+		return [ 0, 1, 2, 3, 255 ];
   }-*/;
 
   private static native JsArrayInteger testDataJsArrayPart1() /*-{
-    return [ 0, 1, 2, 3 ];
+		return [ 0, 1, 2, 3 ];
   }-*/;
 
   private static native JsArrayInteger testDataJsArrayPart2() /*-{
-    return [ 255 ];
+		return [ 255 ];
   }-*/;
 
   @Override
@@ -54,7 +52,8 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
       // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * numBytes);
+    ArrayBuffer arrayBuffer =
+        ArrayBuffer.create(testData.length * Uint8ClampedArray.BYTES_PER_ELEMENT);
 
     Uint8ClampedArray array = Uint8ClampedArray.create(arrayBuffer);
 
@@ -67,9 +66,11 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
       // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * numBytes);
+    ArrayBuffer arrayBuffer =
+        ArrayBuffer.create((testData.length + 1) * Uint8ClampedArray.BYTES_PER_ELEMENT);
 
-    Uint8ClampedArray array = Uint8ClampedArray.create(arrayBuffer, numBytes);
+    Uint8ClampedArray array =
+        Uint8ClampedArray.create(arrayBuffer, Uint8ClampedArray.BYTES_PER_ELEMENT);
 
     array.set(testData);
     assertIsTestData(array);
@@ -80,9 +81,11 @@ public class Uint8ClampedArrayTest extends GWTTestCase {
       // Uint8ClampedArray (or Typed Arrays) aren't supported -> do not run the test
       return;
     }
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * numBytes);
+    ArrayBuffer arrayBuffer =
+        ArrayBuffer.create((testData.length + 2) * Uint8ClampedArray.BYTES_PER_ELEMENT);
 
-    Uint8ClampedArray array = Uint8ClampedArray.create(arrayBuffer, numBytes, testData.length);
+    Uint8ClampedArray array =
+        Uint8ClampedArray.create(arrayBuffer, Uint8ClampedArray.BYTES_PER_ELEMENT, testData.length);
 
     array.set(testData);
     assertIsTestData(array);

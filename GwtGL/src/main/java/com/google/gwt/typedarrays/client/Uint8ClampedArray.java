@@ -23,6 +23,11 @@ import com.google.gwt.core.client.JsArrayInteger;
  * 
  */
 public class Uint8ClampedArray extends IntBasedTypedArray<Uint8ClampedArray> {
+  
+  /**
+   * The number of bytes used for each value contained in the array.
+   */
+  public static final int BYTES_PER_ELEMENT = 1;
 
   /**
    * Creates a new instance of the {@link Uint8ClampedArray} using the given {@link ArrayBuffer} to

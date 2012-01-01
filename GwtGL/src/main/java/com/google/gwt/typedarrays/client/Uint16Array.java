@@ -20,6 +20,11 @@ import com.google.gwt.core.client.JsArrayInteger;
  * 
  */
 public class Uint16Array extends IntBasedTypedArray<Uint16Array> {
+  
+  /**
+   * The number of bytes used for each value contained in the array.
+   */
+  public static final int BYTES_PER_ELEMENT = 2;
 
   /**
    * Creates a new instance of the {@link Uint16Array} using the given {@link ArrayBuffer} to

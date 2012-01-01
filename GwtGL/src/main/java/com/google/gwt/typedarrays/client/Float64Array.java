@@ -20,6 +20,11 @@ import com.google.gwt.core.client.JsArrayNumber;
  * 
  */
 public class Float64Array extends TypedArray<Float64Array> {
+  
+  /**
+   * The number of bytes used for each value contained in the array.
+   */
+  public static final int BYTES_PER_ELEMENT = 8;
 
   /**
    * Creates a new instance of the {@link Float64Array} using the given {@link ArrayBuffer} to
