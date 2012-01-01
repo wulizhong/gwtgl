@@ -24,9 +24,6 @@ import com.google.gwt.junit.client.GWTTestCase;
  */
 @DoNotRunWith(Platform.HtmlUnitUnknown)
 public class Int16ArrayTest extends GWTTestCase {
-
-  private static final int numBytes = 2;
-
   private static final int[] testData = new int[] {0, 1, 2, 3, 32767, -32768};
 
   private static final int[] testDataPart1 = new int[] {0, 1, 2, 3};
@@ -55,8 +52,8 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * numBytes);
+
+    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * Int16Array.BYTES_PER_ELEMENT);
 
     Int16Array array = Int16Array.create(arrayBuffer);
 
@@ -69,10 +66,11 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * numBytes);
 
-    Int16Array array = Int16Array.create(arrayBuffer, numBytes);
+    ArrayBuffer arrayBuffer =
+        ArrayBuffer.create((testData.length + 1) * Int16Array.BYTES_PER_ELEMENT);
+
+    Int16Array array = Int16Array.create(arrayBuffer, Int16Array.BYTES_PER_ELEMENT);
 
     array.set(testData);
     assertIsTestData(array);
@@ -83,10 +81,12 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * numBytes);
 
-    Int16Array array = Int16Array.create(arrayBuffer, numBytes, testData.length);
+    ArrayBuffer arrayBuffer =
+        ArrayBuffer.create((testData.length + 2) * Int16Array.BYTES_PER_ELEMENT);
+
+    Int16Array array =
+        Int16Array.create(arrayBuffer, Int16Array.BYTES_PER_ELEMENT, testData.length);
 
     array.set(testData);
     assertIsTestData(array);
@@ -97,7 +97,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(testData);
 
     assertIsTestData(array);
@@ -108,7 +108,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(testDataJsArray());
 
     assertIsTestData(array);
@@ -119,7 +119,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array arraySrc = Int16Array.create(testData);
 
     Int16Array array = Int16Array.create(arraySrc);
@@ -132,7 +132,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(testData.length);
 
     array.set(testData);
@@ -144,7 +144,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(testData.length);
 
     array.set(testDataPart1);
@@ -157,7 +157,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(testData.length);
 
     array.set(testDataJsArray());
@@ -169,7 +169,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(testData.length);
 
     array.set(testDataJsArrayPart1());
@@ -182,7 +182,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array arraySrc = Int16Array.create(testData);
 
     Int16Array array = Int16Array.create(testData.length);
@@ -196,7 +196,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array arraySrc1 = Int16Array.create(testDataPart1);
     Int16Array arraySrc2 = Int16Array.create(testDataPart2);
 
@@ -212,7 +212,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(testData.length);
 
     for (int i = 0; i < testData.length; i++) {
@@ -227,7 +227,7 @@ public class Int16ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Int16Array array = Int16Array.create(4);
 
     // 2^7-1

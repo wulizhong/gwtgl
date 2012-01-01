@@ -20,6 +20,11 @@ import com.google.gwt.core.client.JsArrayInteger;
  * 
  */
 public class Uint8Array extends IntBasedTypedArray<Uint8Array> {
+  
+  /**
+   * The number of bytes used for each value contained in the array.
+   */
+  public static final int BYTES_PER_ELEMENT = 1;
 
   /**
    * Creates a new instance of the {@link Uint8Array} using the given {@link ArrayBuffer} to

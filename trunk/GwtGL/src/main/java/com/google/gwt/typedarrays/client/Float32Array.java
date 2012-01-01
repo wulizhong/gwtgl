@@ -19,6 +19,11 @@ import com.google.gwt.core.client.JsArrayNumber;
  * {@link TypedArray} that contains 32 Bit float values.
  */
 public class Float32Array extends TypedArray<Float32Array> {
+  
+  /**
+   * The number of bytes used for each value contained in the array.
+   */
+  public static final int BYTES_PER_ELEMENT = 4;
 
   /**
    * Creates a new instance of the {@link Float32Array} using the given {@link ArrayBuffer} to
@@ -94,22 +99,6 @@ public class Float32Array extends TypedArray<Float32Array> {
   }
 
   /**
-   * Creates a new instance of the {@link Float32Array} of the same length (in values) as the given
-   * {@link Float32Array} using a new ArrayBuffer. The new {@link TypedArray} is initialized with
-   * the values of the given {@link TypedArray}. If necessary the values are converted to the value
-   * type of the new {@link TypedArray}.
-   * 
-   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
-   * @return the created {@link Float32Array} or null if it isn't supported by the browser.
-   */
-  public static Float32Array create(TypedArray<?> array) {
-    if (!TypedArray.isSupported()) {
-      return null;
-    }
-    return createImpl(array);
-  }
-
-  /**
    * Creates a new instance of the {@link Float32Array} of the given length in values. All values
    * are set to 0.
    * 
@@ -131,6 +120,22 @@ public class Float32Array extends TypedArray<Float32Array> {
    * @return the created {@link Float32Array} or null if it isn't supported by the browser.
    */
   public static Float32Array create(JsArrayNumber array) {
+    if (!TypedArray.isSupported()) {
+      return null;
+    }
+    return createImpl(array);
+  }
+
+  /**
+   * Creates a new instance of the {@link Float32Array} of the same length (in values) as the given
+   * {@link Float32Array} using a new ArrayBuffer. The new {@link TypedArray} is initialized with
+   * the values of the given {@link TypedArray}. If necessary the values are converted to the value
+   * type of the new {@link TypedArray}.
+   * 
+   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
+   * @return the created {@link Float32Array} or null if it isn't supported by the browser.
+   */
+  public static Float32Array create(TypedArray<?> array) {
     if (!TypedArray.isSupported()) {
       return null;
     }
@@ -191,19 +196,6 @@ public class Float32Array extends TypedArray<Float32Array> {
   }-*/;
 
   /**
-   * Creates a new instance of the {@link Float32Array} of the same length (in values) as the given
-   * {@link Float32Array} using a new ArrayBuffer. The new {@link TypedArray} is initialized with
-   * the values of the given {@link TypedArray}. If necessary the values are converted to the value
-   * type of the new {@link TypedArray}.
-   * 
-   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
-   * @return the created {@link Float32Array} or null if it isn't supported by the browser.
-   */
-  private static native Float32Array createImpl(TypedArray<?> array) /*-{
-		return new Float32Array(array);
-  }-*/;
-
-  /**
    * Creates a new instance of the {@link Float32Array} of the given length in values. All values
    * are set to 0.
    * 
@@ -222,6 +214,19 @@ public class Float32Array extends TypedArray<Float32Array> {
    * @return the created {@link Float32Array}.
    */
   private static native Float32Array createImpl(JsArrayNumber array) /*-{
+		return new Float32Array(array);
+  }-*/;
+
+  /**
+   * Creates a new instance of the {@link Float32Array} of the same length (in values) as the given
+   * {@link Float32Array} using a new ArrayBuffer. The new {@link TypedArray} is initialized with
+   * the values of the given {@link TypedArray}. If necessary the values are converted to the value
+   * type of the new {@link TypedArray}.
+   * 
+   * @param array the {@link TypedArray} to get the values from to initialize the new Array with
+   * @return the created {@link Float32Array} or null if it isn't supported by the browser.
+   */
+  private static native Float32Array createImpl(TypedArray<?> array) /*-{
 		return new Float32Array(array);
   }-*/;
 

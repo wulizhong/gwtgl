@@ -25,8 +25,6 @@ import com.google.gwt.junit.client.GWTTestCase;
  */
 @DoNotRunWith(Platform.HtmlUnitUnknown)
 public class Float64ArrayTest extends GWTTestCase {
-  private static final int numBytes = 8;
-
   private static final double[] testData = new double[] {0d, 0.1d, 1d, 2d, 3d, 1337d, -1337d};
 
   private static final double[] testDataPart1 = new double[] {0d, 0.1d, 1d, 2d, 3d};
@@ -34,15 +32,15 @@ public class Float64ArrayTest extends GWTTestCase {
   private static final double[] testDataPart2 = new double[] {1337d, -1337d};
 
   private static native JsArrayNumber testDataJsArray() /*-{
-    return [ 0, 0.1, 1, 2, 3, 1337, -1337 ];
+		return [ 0, 0.1, 1, 2, 3, 1337, -1337 ];
   }-*/;
 
   private static native JsArrayNumber testDataJsArrayPart1() /*-{
-    return [ 0, 0.1, 1, 2, 3 ];
+		return [ 0, 0.1, 1, 2, 3 ];
   }-*/;
 
   private static native JsArrayNumber testDataJsArrayPart2() /*-{
-    return [ 1337, -1337 ];
+		return [ 1337, -1337 ];
   }-*/;
 
   @Override
@@ -55,8 +53,8 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * numBytes);
+
+    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * Float64Array.BYTES_PER_ELEMENT);
 
     Float64Array array = Float64Array.create(arrayBuffer);
 
@@ -69,10 +67,11 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * numBytes);
 
-    Float64Array array = Float64Array.create(arrayBuffer, numBytes);
+    ArrayBuffer arrayBuffer =
+        ArrayBuffer.create((testData.length + 1) * Float64Array.BYTES_PER_ELEMENT);
+
+    Float64Array array = Float64Array.create(arrayBuffer, Float64Array.BYTES_PER_ELEMENT);
 
     array.set(testData);
     assertIsTestData(array);
@@ -83,10 +82,12 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * numBytes);
 
-    Float64Array array = Float64Array.create(arrayBuffer, numBytes, testData.length);
+    ArrayBuffer arrayBuffer =
+        ArrayBuffer.create((testData.length + 2) * Float64Array.BYTES_PER_ELEMENT);
+
+    Float64Array array =
+        Float64Array.create(arrayBuffer, Float64Array.BYTES_PER_ELEMENT, testData.length);
 
     array.set(testData);
     assertIsTestData(array);
@@ -97,7 +98,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(testData);
 
     assertIsTestData(array);
@@ -108,7 +109,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(testDataJsArray());
 
     assertIsTestData(array);
@@ -119,7 +120,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array arraySrc = Float64Array.create(testData);
 
     Float64Array array = Float64Array.create(arraySrc);
@@ -132,7 +133,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(testData.length);
 
     array.set(testData);
@@ -144,7 +145,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(testData.length);
 
     array.set(testDataPart1);
@@ -157,7 +158,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(testData.length);
 
     array.set(testDataJsArray());
@@ -169,7 +170,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(testData.length);
 
     array.set(testDataJsArrayPart1());
@@ -182,7 +183,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array arraySrc = Float64Array.create(testData);
 
     Float64Array array = Float64Array.create(testData.length);
@@ -196,7 +197,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array arraySrc1 = Float64Array.create(testDataPart1);
     Float64Array arraySrc2 = Float64Array.create(testDataPart2);
 
@@ -212,7 +213,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(testData.length);
 
     for (int i = 0; i < testData.length; i++) {
@@ -227,7 +228,7 @@ public class Float64ArrayTest extends GWTTestCase {
       // Typed Arrays aren't supported -> do not run the test
       return;
     }
-    
+
     Float64Array array = Float64Array.create(2);
 
     // 2^31-1

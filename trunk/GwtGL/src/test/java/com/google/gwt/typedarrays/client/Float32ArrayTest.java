@@ -25,8 +25,6 @@ import com.google.gwt.junit.client.GWTTestCase;
  */
 @DoNotRunWith(Platform.HtmlUnitUnknown)
 public class Float32ArrayTest extends GWTTestCase {
-  private static final int numBytes = 4;
-
   private static final float[] testData = new float[] {0f, 0.1f, 1f, 2f, 3f, 1337f, -1337f};
 
   private static final float[] testDataPart1 = new float[] {0f, 0.1f, 1f, 2f, 3f};
@@ -56,7 +54,7 @@ public class Float32ArrayTest extends GWTTestCase {
       return;
     }
     
-    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * numBytes);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create(testData.length * Float32Array.BYTES_PER_ELEMENT);
 
     Float32Array array = Float32Array.create(arrayBuffer);
 
@@ -70,9 +68,9 @@ public class Float32ArrayTest extends GWTTestCase {
       return;
     }
     
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * numBytes);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 1) * Float32Array.BYTES_PER_ELEMENT);
 
-    Float32Array array = Float32Array.create(arrayBuffer, numBytes);
+    Float32Array array = Float32Array.create(arrayBuffer, Float32Array.BYTES_PER_ELEMENT);
 
     array.set(testData);
     assertIsTestData(array);
@@ -84,9 +82,10 @@ public class Float32ArrayTest extends GWTTestCase {
       return;
     }
     
-    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * numBytes);
+    ArrayBuffer arrayBuffer = ArrayBuffer.create((testData.length + 2) * Float32Array.BYTES_PER_ELEMENT);
 
-    Float32Array array = Float32Array.create(arrayBuffer, numBytes, testData.length);
+    Float32Array array =
+        Float32Array.create(arrayBuffer, Float32Array.BYTES_PER_ELEMENT, testData.length);
 
     array.set(testData);
     assertIsTestData(array);
