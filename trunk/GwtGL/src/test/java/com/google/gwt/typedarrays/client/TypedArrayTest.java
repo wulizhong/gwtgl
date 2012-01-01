@@ -132,6 +132,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testCreateWithShorterArrayType() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+
     int[] data = new int[] {0, 1, 2, 3, 4, 5, 6, 7};
     Int8Array array = Int8Array.create(data);
 
@@ -144,6 +149,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testCreateWithBiggerArrayType() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+
     int[] data = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 128};
     Int16Array array = Int16Array.create(data);
 
@@ -158,6 +168,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testCreateSignedWithUnsignedArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+
     int[] data = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 32768};
     Uint16Array array = Uint16Array.create(data);
 
@@ -172,6 +187,11 @@ public class TypedArrayTest extends GWTTestCase {
   }
 
   public void testCreateFloatWithIntArray() {
+    if (!TypedArray.isSupported()) {
+      // Typed Arrays aren't supported -> do not run the test
+      return;
+    }
+
     int[] data = new int[] {0, -1, 100, 2000, -30};
     Int16Array array = Int16Array.create(data);
 
