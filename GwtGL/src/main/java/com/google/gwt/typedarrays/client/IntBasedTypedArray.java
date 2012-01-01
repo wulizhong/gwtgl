@@ -17,8 +17,8 @@ import com.google.gwt.core.client.JsArrayInteger;
 
 /**
  * Abstract parent class for all {@link TypedArray}s which use int to get/set the inner values. Do
- * not rely on this class as it's not part of the spec and only introduced in GwtGL to simplify the
- * implementation of the Int*Arrays.
+ * not rely on this class as it's not part of the specification and only introduced to simplify the
+ * implementation of the Int* and Uint* Arrays.
  * 
  * @param <T> the type of the {@link TypedArray} itself. Used for methods that use parameters that
  *          must have the same type than the TypedArray itself.
