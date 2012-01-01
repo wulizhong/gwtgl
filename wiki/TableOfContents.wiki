@@ -7,10 +7,6 @@
   * Tutorials
     * [HowToCreateAnEmptyGWTApp create an empty GWT App to work with GwtGL]
     * [BindingTutorial white triangle example using binding]
-  * Tech Demos
-    * Object Oriented Wrapper API
-      * [WrapperOverview introduction of wrapper]
-      * [BindingVsWrapper comparison of binding and wrapper]
   * Development documentation
     * [DevelopmentEnvironment the development environment]
     * [BuildAndRelease how to build and release GwtGL]
