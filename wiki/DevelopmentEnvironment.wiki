@@ -4,8 +4,8 @@
 = The development environment =
 
 The development environment is based on Eclipse. You need at least the following:
-  * [http://www.eclipse.org/downloads/ Eclipse] 3.5.1 (e.g. Eclipse for Java Developers)
-  * The [http://code.google.com/intl/de-DE/eclipse/docs/install-eclipse-3.5.html Google Plugin for Eclipse] (install the plugin and the GWT SDK)
+  * [http://www.eclipse.org/downloads/ Eclipse] 3.7 (e.g. Eclipse for Java Developers)
+  * The [http://code.google.com/intl/de-DE/eclipse/docs/install-eclipse-3.7.html Google Plugin for Eclipse] (install the plugin and the GWT SDK)
   * A Subversion plugin
     * [http://eclipse.org/subversive/ Subversive]
     * [http://subclipse.tigris.org/ Subclipse]
