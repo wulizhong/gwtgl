@@ -12,7 +12,7 @@
  * the License.
  */
 /**
- * GWT binding of the Khronos TypedArray spec at
+ * GWT binding of the Khronos "Typed Array Specification" at
  * {@link "http://www.khronos.org/registry/typedarray/specs/latest/"}
  */
 package com.google.gwt.typedarrays.client;
