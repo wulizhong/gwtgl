@@ -1286,7 +1286,7 @@ public final class WebGLRenderingContext extends JavaScriptObject implements Con
 		this.uniform1fv(location, values);
   }-*/;
 
-  public native void uniform1fvProd(WebGLUniformLocation location, Float32Array v) /*-{
+  public native void uniform1fv(WebGLUniformLocation location, Float32Array v) /*-{
 		this.uniform1fv(location, v);
   }-*/;
 
@@ -1366,7 +1366,7 @@ public final class WebGLRenderingContext extends JavaScriptObject implements Con
 		this.uniform3iv(location, values);
   }-*/;
 
-  public native void uniform3ivProd(WebGLUniformLocation location, Int32Array v) /*-{
+  public native void uniform3iv(WebGLUniformLocation location, Int32Array v) /*-{
 		this.uniform3iv(location, v);
   }-*/;
 
