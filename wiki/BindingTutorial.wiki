@@ -223,8 +223,12 @@ public interface Shaders extends ClientBundle {
 = Start your application =
 
 That's it - now you can start your application.
-Compile your application: right click on your project -> _Google_ -> _GWT Compile_
-At the time of writing, GWT's hosted mode does not work in Chrome and Firefox, so we have to build a war file and deploy it to a servlet container, e.g. [http://tomcat.apache.org/download-60.cgi Apache Tomcat 6].
+The easiest way to try your code is to run it in development mode. To do this, right click on your project and choose _Run As_ -> _Web Application_.
+
+Development mode allows you to debug your code, but unfortunatly, it is much slower than running it in a servlet container.
+So if you want to try your code at full speed, you have to build a war file and deploy it to a servlet container, e.g. [http://tomcat.apache.org/download-60.cgi Apache Tomcat 6].
+To do so, compile your application: right click on your project -> _Google_ -> _GWT Compile_.
+
 Zip the contents of the war directory in your project folder, name it _GwtGLBindingDemo.war_ and copy it to the webapps folder of your tomcat installation. Start tomcat and open the following URL in your WebGL enabled browser: http://localhost:8080/GwtGLBindingDemo/ .
 Enjoy your white triangle ;-)
 
